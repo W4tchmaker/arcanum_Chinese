@@ -1,0 +1,452 @@
+{
+    "module": "legacy_halloween",
+    "data": {
+        "potions": [
+            {
+                "id": "pumpcider",
+                "name": "变质南瓜酒",
+                "level": 1,
+                "cost": {
+                    "gold": 1
+                },
+                "use": {
+                    "dot": {
+                        "duration": 45,
+                        "effect": {
+                            "hp": -1
+                        }
+                    }
+                },
+                "flavor": "曾是提神饮品，如今只是一瓶腐烂物。"
+            },
+            {
+                "id": "bubblebrew",
+                "name": "曾经冒泡的酿造物",
+                "level": 1,
+                "cost": {
+                    "herbs": 1
+                },
+                "use": {
+                    "hp": -1
+                },
+                "flavor": "平淡无味。"
+            }
+        ],
+        "encounters": [
+            {
+                "id": "enc_blackcat",
+                "name": "黑猫",
+                "desc": "黑猫是不祥之兆，需认真对待",
+                "tags": "site_of_learning",
+                "effect": {
+                    "unease": "1~4",
+                    "rage": "2~4",
+                    "divination.exp": 5,
+                    "scrying.exp": 5
+                },
+                "result": {
+                    "arcana": 0.04
+                },
+                "mod": {
+                    "spiritlore.max": "0.05//20/-10"
+                }
+            },
+            {
+                "id": "enc_hest_ward",
+                "name": "护身符",
+                "desc": "一个悬挂的护身符能驱走博格尔和格林斯托克。",
+                "effect": {
+                    "unease": "1~5",
+                    "bf": "1~5",
+                    "charms.exp": 5,
+                    "enchanting.exp": 5
+                },
+                "mod": {
+                    "enchanting.max": "0.05//20/-10",
+                    "charms.max": "0.05//20/-10"
+                }
+            },
+            {
+                "id": "enc_cauldron",
+                "name": "冒泡的坩埚",
+                "desc": "坩埚冒着泡，散发着恶臭的酿造物，并发出光芒。",
+                "effect": {
+                    "unease": "0~2",
+                    "weary": "1~3",
+                    "bf": "-1~2.5",
+                    "potions.exp": 5,
+                    "alchemy.exp": 5,
+                    "crafting.exp": 5
+                },
+                "mod": {
+                    "potions.max": "0.05//20/-10"
+                },
+                "loot": "hestiabrew"
+            },
+            {
+                "id": "enc_hestia",
+                "name": "赫斯提亚",
+                "desc": "赫斯提亚对桑格莫尔之外的世界不感兴趣，但会教导那些来找她的人。",
+                "effect": {
+                    "unease": "2~4",
+                    "bf": "-2~3",
+                    "herbalism.exp": 1
+                },
+                "result": {
+                    "potions.exp": 50,
+                    "arcana": 0.01
+                },
+                "mod": {
+                    "scrying.max": "0.05//20/-10",
+                    "history.max": "0.05//20/-10"
+                }
+            },
+            {
+                "id": "hal_resident",
+                "name": "老哈罗德",
+                "desc": "这不正常，我告诉你，在我那个年代，村子附近的狼转眼间就会变成一张好皮毛，现在的年轻人根本没用，一点用都没有，一整只狼进了谷仓，也没人眨一下眼，我告诉你，狼要谷物干什么，你知道在我那个年代...",
+                "effect": {
+                    "weary": "1~2"
+                },
+                "mod": {
+                    "languages.max": "0.05//20/-10"
+                }
+            },
+            {
+                "id": "hal_resident_doppel",
+                "name": "老哈罗德",
+                "desc": "你好啊，小伙子，听我这老头子说几句好吗？这村子最近真是安静得可怕，除了几个月前我们吊死那个恶棍的房子，我真需要有人陪陪。这是给你的一点小礼物...",
+                "effect": {
+                    "bf": "1~2"
+                },
+                "result": {
+                    "res_treat": 1
+                }
+            },
+            {
+                "id": "hal_fox",
+                "name": "狐狸",
+                "desc": "一阵小骚动，一只狐狸成功地从一个无人看守的鸡舍里叼走了一只鸡。",
+                "effect": {
+                    "unease": "1~2"
+                },
+                "mod": {
+                    "animals.max": "0.05//20/-10"
+                }
+            },
+            {
+                "id": "hal_fox_doppel",
+                "name": "狐狸",
+                "desc": "你注意到一只狐狸正拼命地抓挠着一扇房门。",
+                "effect": {
+                    "bf": "1~2"
+                }
+            },
+            {
+                "id": "hal_grumpy",
+                "name": "脾气暴躁的老奶奶",
+                "desc": "事后半小时你才明白，████ ███ ███ █████ █████ 的意思是她试图劝阻你不要再偷她的庄稼了。你并不记得偷过任何东西。",
+                "effect": {
+                    "unease": "1~2"
+                },
+                "mod": {
+                    "languages.max": "0.05//20/-10"
+                }
+            },
+            {
+                "id": "hal_grumpy_doppel",
+                "name": "脾气暴躁的老奶奶",
+                "desc": "█████████████ 我最好别再看到你去村子郊外那所老房子了！！！",
+                "effect": {
+                    "bf": "1~2"
+                },
+                "result": {
+                    "gold": 1
+                }
+            },
+            {
+                "id": "hal_stranger",
+                "name": "外来者",
+                "desc": "一个男人站在村外，明显受到惊吓。当你走近他时，他警告你哈洛马正在发生一些奇怪的事情。",
+                "effect": {
+                    "madness": "0~2"
+                },
+                "result": {
+                    "hal_suspicion": true
+                },
+                "mod": {
+                    "history.max": "0.05//20/-10"
+                }
+            },
+            {
+                "id": "hal_missing",
+                "name": "点名",
+                "desc": "对所有居民进行点名后发现，汉克已经几天没露面了。他最后一次被人看到是向村子北部走去。",
+                "effect": {
+                    "weary": "1~2"
+                }
+            },
+            {
+                "id": "hal_missing2",
+                "name": "点名",
+                "desc": "对所有居民进行点名后发现，村民人数与预期完全一致。然而，你总觉得哪里出了错。",
+                "effect": {
+                    "madness": "1~2"
+                }
+            },
+            {
+                "id": "hal_scratches",
+                "name": "细微的划痕",
+                "desc": "仔细检查房屋后发现，木头上刻有不同的符号。独居者房屋上的符号有所不同。",
+                "effect": {
+                    "rage": "1~2"
+                }
+            },
+            {
+                "id": "hal_footprints",
+                "name": "脚印",
+                "desc": "一串泥泞的脚印指向北方，通往一座废弃已久的风车。",
+                "effect": {
+                    "weary": "1~2"
+                }
+            },
+            {
+                "id": "hal_age",
+                "name": "贝塔",
+                "desc": "一位名叫贝塔的老妇人告诉你一个故事，说即使磨坊主去世后，磨坊奇迹般地仍在运转，尽管已经荒废多年。",
+                "effect": {
+                    "madness": "1~2"
+                },
+                "mod": {
+                    "crafting.max": "0.05//20/-10"
+                }
+            },
+            {
+                "id": "hal_age_doppel",
+                "name": "贝塔",
+                "desc": "一位名叫贝塔的年轻女子透露，她曾被一个最近被处决的小偷的鬼魂拜访，那个鬼魂说他将对村庄进行可怕的报复。",
+                "effect": {
+                    "bf": "1~2"
+                }
+            },
+            {
+                "id": "enc_hal_hest_talk",
+                "name": "与赫斯提亚交谈",
+                "desc": "赫斯提亚正忙着调制一种特殊的南瓜酿造物。",
+                "effect": {
+                    "bf": "0~2",
+                    "weary": "0~2",
+                    "potions.exp": 1
+                },
+                "loot": {
+                    "pumpcider": 1
+                },
+                "result": {
+                    "pumpcider": true
+                },
+                "mod": {
+                    "crafting.max": "0.05//20/-10"
+                }
+            },
+            {
+                "id": "en_pumppatch",
+                "name": "南瓜地",
+                "desc": "哈洛马的秋季田地里生长着一些能找到的最大南瓜。",
+                "effect": {
+                    "weary": "1~2",
+                    "rage": "1~2",
+                    "herbalism.exp": 1,
+                    "spiritlore.exp": 1
+                },
+                "loot": {
+                    "evt_hal_imp": "15%",
+                    "cobwebs": "0~2",
+                    "pumpkins": 1
+                },
+                "mod": {
+                    "spiritlore.max": "0.05//20/-10"
+                }
+            }
+        ],
+        "rares": [
+            {
+                "id": "vorpal_sword",
+                "alias": "vorpal",
+                "sym": "🎃",
+                "name": "斩首之刃",
+                "unique": true,
+                "level": 8,
+                "type": "weapon",
+                "slot": "mainhand",
+                "tags": "t_martial,t_slash,t_longsword,t_sword",
+                "damage": "8~10",
+                "attack": {
+                    "kind": "slash",
+                    "damage": "i.damage||0",
+                    "nodefense": true,
+                    "potencies": [
+                        "sworddmg",
+                        "slashdmg",
+                        "physdmg"
+                    ]
+                }
+            },
+            {
+                "id": "vorpal_sword2",
+                "sym": "🎃",
+                "name": "午夜斩首之刃",
+                "unique": true,
+                "level": 14,
+                "type": "weapon",
+                "slot": "mainhand",
+                "tags": "t_martial,t_slash,t_longsword,t_sword",
+                "damage": "10~20",
+                "attack": [
+                    {
+                        "name": "咔嚓一击",
+                        "kind": "void",
+                        "targets": "enemyleader",
+                        "damage": "(i.damage||0)*2",
+                        "nodefense": true,
+                        "potencies": [
+                            "physdmg",
+                            "voiddmg",
+                            "sworddmg"
+                        ]
+                    },
+                    {
+                        "name": "斩首",
+                        "kind": "void",
+                        "targets": "flunky",
+                        "damage": "(i.damage||0)*5",
+                        "nodefense": true,
+                        "potencies": [
+                            "physdmg",
+                            "voiddmg",
+                            "sworddmg"
+                        ]
+                    },
+                    {
+                        "name": "午夜时分",
+                        "targets": "self",
+                        "dot": {
+                            "id": "hal_midnight",
+                            "name": "午夜时分",
+                            "duration": 12,
+                            "mod": {
+                                "self.defense": 12,
+                                "self.dodge": 1.2,
+                                "self.tohit": 1.2,
+                                "physdmg": 12,
+                                "spelldmg": 12
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "bdagg",
+                "sym": "🎃",
+                "name": "坏死匕首",
+                "unique": true,
+                "material": "bone",
+                "type": "weapon",
+                "slot": "mainhand",
+                "tags": "t_martial,t_pierce,t_dagger",
+                "tohit": 2,
+                "attack": {
+                    "kind": "pierce",
+                    "damage": "2~4",
+                    "potencies": [
+                        "physdmg",
+                        "piercedmg"
+                    ],
+                    "dot": {
+                        "duration": 3,
+                        "damage": "2~3",
+                        "name": "坏死",
+                        "kind": "necrotic",
+                        "potencies": [
+                            "physdmg"
+                        ]
+                    }
+                },
+                "cost": 20,
+                "level": 3
+            },
+            {
+                "id": "hal_amulet",
+                "sym": "🎃",
+                "name": "赫斯提亚的护身符",
+                "desc": "赫斯提亚的护身符跳动着暗淡的紫色光芒。",
+                "type": "armor",
+                "armor": 2,
+                "slot": "neck",
+                "alter": {
+                    "mod": {
+                        "player.resist.necrotic": 10
+                    }
+                }
+            },
+            {
+                "id": "nymiescharm",
+                "sym": "🎃",
+                "name": "妮米娅的护身符",
+                "desc": "一个黑猫的小雕像。",
+                "unique": true,
+                "level": 20,
+                "type": "armor",
+                "slot": "trinket",
+                "enchants": 0
+            }
+        ],
+        "hall": {
+            "data": {
+                "upgrades": [
+                    {
+                        "id": "hal_trick_pumpkin",
+                        "name": "淘气鬼火",
+                        "sym": "🏰🎃",
+                        "tags": "hall",
+                        "desc": "骑士之心终于消散了。只剩下最微弱的恶作剧痕迹。",
+                        "extdesc": "你总是满足诡计技能的要求。",
+                        "require": "g.lore>999",
+                        "mod": {
+                            "trickery.buy.arcana": "-50%",
+                            "trickery.mod.dodge": 0.5
+                        },
+                        "max": 1
+                    },
+                    {
+                        "id": "pumpkinharvest",
+                        "name": "南瓜丰收",
+                        "sym": "🏰🎃",
+                        "require": "g.f_pumppatch>0",
+                        "desc": "这么多南瓜……葫芦还能有什么其他可能性？",
+                        "max": 1,
+                        "cost": {
+                            "research": 100
+                        },
+                        "mod": {
+                            "herbalism.max": 1
+                        }
+                    }
+                ]
+            }
+        },
+        "events": [
+            {
+                "id": "trick_unlock",
+                "name": "淘气精灵",
+                "desc": "奇特的能量弥漫在大厅中，驱使一切走向恶作剧。",
+                "require": "g.hal_trick_pumpkin>0&&g.apprentice>0&&g.trickery==0",
+                "enable": [
+                    "trickery"
+                ],
+                "result": {
+                    "trickery": true
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,122 @@
+[
+    {
+        "id": "nettle",
+        "name": "荨麻",
+        "tags": "herb,reagent",
+        "desc": "",
+        "flavor": ""
+    },
+    {
+        "id": "sulphur",
+        "desc": "火焰原理。",
+        "max": 10
+    },
+    {
+        "id": "mercury",
+        "desc": "金属原理。",
+        "max": 10
+    },
+    {
+        "id": "icethorn",
+        "tags": "herb,reagent",
+        "desc": "",
+        "flavor": ""
+    },
+    {
+        "id": "nightshade",
+        "tags": "herb,reagent,poison",
+        "desc": "",
+        "flavor": ""
+    },
+    {
+        "id": "blackrot",
+        "tags": "herb,reagent",
+        "desc": "",
+        "flavor": ""
+    },
+    {
+        "id": "kingsfoil",
+        "name": "国王之箔",
+        "desc": "",
+        "flavor": ""
+    },
+    {
+        "id": "belladonna",
+        "tags": "herb,reagent,poison",
+        "desc": "",
+        "flavor": ""
+    },
+    {
+        "id": "grimwort",
+        "desc": "一种只在地穴和墓地中绽放的病态植物。",
+        "flavor": ""
+    },
+    {
+        "id": "manabell",
+        "desc": "法师们沿着地脉在池塘中寻找其微弱发光的鳞茎。",
+        "flavor": ""
+    },
+    {
+        "id": "foxfire",
+        "desc": "夜间在密林深处发现，在树根和树干上发光。",
+        "flavor": ""
+    },
+    {
+        "id": "milkweed",
+        "tags": "herb,reagent,poison",
+        "desc": ""
+    },
+    {
+        "id": "vikaroot",
+        "name": "维卡根",
+        "desc": "其根系深扎，无人能寻其源头。",
+        "flavor": "德鲁伊声称所有维卡根都是一株巨大的植物，根植于世界中心。"
+    },
+    {
+        "id": "bloodgrass",
+        "name": "血草",
+        "desc": "从其锋利叶片中抽取的血液是它所需的所有养分。"
+    },
+    {
+        "id": "firethistle",
+        "name": "火焰蓟",
+        "tags": "herb,reagent",
+        "desc": "",
+        "flavor": "它会燃烧。"
+    },
+    {
+        "id": "goldfel",
+        "name": "金菲尔",
+        "tags": "herb,reagent",
+        "desc": "",
+        "flavor": ""
+    },
+    {
+        "id": "marigold",
+        "tags": "herb,reagent",
+        "desc": "一种明亮欢快的春日花朵。"
+    },
+    {
+        "id": "lavender",
+        "tags": "herb,reagent",
+        "desc": "",
+        "flavor": "没人真正知道薰衣草有什么用。"
+    },
+    {
+        "id": "oleander",
+        "tags": "herb,reagent,poison",
+        "desc": "如此娇嫩的花朵，却蕴含致命剧毒。",
+        "flavor": ""
+    },
+    {
+        "id": "crocodiletears",
+        "name": "鳄鱼的眼泪",
+        "tags": "reagent",
+        "desc": "毫无悔意的眼泪。"
+    },
+    {
+        "id": "eyeofnewt",
+        "tags": "reagent",
+        "name": "蝾螈之眼"
+    }
+]

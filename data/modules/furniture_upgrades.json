@@ -1,0 +1,89 @@
+{
+    "module": "furniture_upgrades",
+    "data": {
+        "upgrades": [
+            {
+                "id": "better_arcanestudy",
+                "name": "魔法隔音书房",
+                "desc": "将你附魔的书房魔法般地精炼成一个理想的研究场所，没有任何干扰。",
+                "require": "g.enchanted_study>0&&g.airlore2>=1",
+                "cost": {
+                    "codices": 15,
+                    "gold": 6750,
+                    "research": 250,
+                    "airgem": 60,
+                    "arcana": 12
+                },
+                "mod": {
+                    "studyroom.mod.focus.result.runner.skillprogress": "25%"
+                },
+                "group": "furniture"
+            },
+            {
+                "id": "better_study",
+                "name": "隔音书房",
+                "desc": "将你的书房精炼成一个理想的研究场所，没有任何干扰。",
+                "require": "g.studyroom>0&&g.airlore>=5",
+                "cost": {
+                    "scrolls": 12,
+                    "gold": 2000,
+                    "gems": 30,
+                    "arcana": 3,
+                    "bookcase": 5
+                },
+                "mod": {
+                    "studyroom.mod.focus.result.runner.skillprogress": "10%"
+                },
+                "group": "furniture"
+            },
+            {
+                "id": "better_pedestal",
+                "name": "多功能基座",
+                "desc": "一个带有凹槽的基座，可固定阅读材料，小隔间可存放备用书签，甚至还有一个用于夜间阅读的光宝石支架。",
+                "require": "g.pedestal>0&&g.crafting>=7",
+                "cost": {
+                    "scrolls": 3,
+                    "gold": 700,
+                    "arcana": 1,
+                    "research": 200,
+                    "lightgem": 3
+                },
+                "mod": {
+                    "pedestal.mod.focus.result.runner.skillprogress": "5%"
+                },
+                "group": "furniture"
+            },
+            {
+                "id": "packmule",
+                "name": "驮骡",
+                "desc": "麻袋制造商协会的巧妙设计。",
+                "require": "g.mule>=1",
+                "cost": {
+                    "gold": 500,
+                    "herbs": 10,
+                    "ironchest": 1
+                },
+                "mod": {
+                    "mule.mod.inv.max": 5,
+                    "mule.mod.gold.max": 150
+                },
+                "group": "mount"
+            },
+            {
+                "id": "rejuvenation_feed",
+                "name": "活力饲料",
+                "desc": "一种由草药、胡萝卜和异国水果调制而成的新配方，可使疲惫的骏马恢复活力。",
+                "require": "(g.mule+g.oldnag)>=1&&g.potions>=3",
+                "cost": {
+                    "gold": 800,
+                    "herbs": 30
+                },
+                "mod": {
+                    "mule.mod.dist": 50,
+                    "oldnag.mod.dist": 60
+                },
+                "group": "mount"
+            }
+        ]
+    }
+}

@@ -1,0 +1,139 @@
+{
+    "module": "equipment-crafting",
+    "author": "nagshell",
+    "data": {
+        "tags": [
+            {
+                "id": "t_eq_resource",
+                "name": "装备材料"
+            }
+        ],
+        "resources": [
+            {
+                "id": "iron",
+                "name": "铁",
+                "tags": "t_eq_resource",
+                "group": "materials",
+                "max": 50,
+                "sortOrder": 440
+            },
+            {
+                "id": "quicksteel",
+                "name": "速钢",
+                "tags": "t_eq_resource",
+                "group": "materials",
+                "max": 50,
+                "sortOrder": 441
+            },
+            {
+                "id": "adamant",
+                "name": "精金",
+                "tags": "t_eq_resource",
+                "group": "materials",
+                "max": 50,
+                "sortOrder": 442
+            },
+            {
+                "id": "leather",
+                "name": "皮革",
+                "tags": "t_eq_resource",
+                "group": "materials",
+                "max": 50,
+                "sortOrder": 443
+            },
+            {
+                "id": "serpentskin",
+                "name": "蛇皮",
+                "tags": "t_eq_resource",
+                "group": "materials",
+                "max": 50,
+                "sortOrder": 444
+            },
+            {
+                "id": "aetherhide",
+                "name": "以太皮",
+                "tags": "t_eq_resource",
+                "group": "materials",
+                "max": 50,
+                "sortOrder": 445
+            },
+            {
+                "id": "cotton",
+                "name": "棉布",
+                "tags": "t_eq_resource",
+                "group": "materials",
+                "max": 50,
+                "sortOrder": 446
+            },
+            {
+                "id": "spidersilk",
+                "name": "蜘蛛丝",
+                "tags": "t_eq_resource",
+                "group": "materials",
+                "max": 50,
+                "sortOrder": 447
+            },
+            {
+                "id": "amberroot",
+                "name": "琥珀根",
+                "tags": "t_eq_resource",
+                "group": "materials",
+                "max": 50,
+                "sortOrder": 448
+            },
+            {
+                "id": "rubies",
+                "name": "红宝石",
+                "tags": "t_eq_resource",
+                "group": "materials",
+                "max": 50,
+                "sortOrder": 449
+            },
+            {
+                "id": "diamonds",
+                "name": "钻石",
+                "tags": "t_eq_resource",
+                "group": "materials",
+                "max": 50,
+                "sortOrder": 450
+            },
+            {
+                "id": "basiliskhide",
+                "name": "蛇怪皮",
+                "tags": "t_eq_resource",
+                "group": "materials",
+                "max": 50,
+                "sortOrder": 451
+            },
+            {
+                "id": "dragonscale",
+                "name": "龙鳞",
+                "tags": "t_eq_resource",
+                "group": "materials",
+                "max": 500,
+                "sortOrder": 452
+            }
+        ],
+        "furniture": [
+            {
+                "id": "eq_res_storage",
+                "name": "材料箱",
+                "desc": "一个巨大的箱子，用于存放你在冒险中搜刮到的魔法零碎物品。",
+                "flavor": "*拍了拍箱子顶部* 这甚至能装下一只神话生物的一条胳膊和一条腿",
+                "require": "g.runelore>=4",
+                "repeat": true,
+                "cost": {
+                    "gold": 400
+                },
+                "sell": {
+                    "gold": 400
+                },
+                "mod": {
+                    "t_eq_resource.max": "20%",
+                    "space": 5
+                }
+            }
+        ],
+        "tasks": []
+    }
+}

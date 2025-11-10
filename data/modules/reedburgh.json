@@ -1,0 +1,1436 @@
+{
+    "module": "reedburgh",
+    "data": {
+        "skills": [
+            {
+                "id": "citynavigation",
+                "name": "城市导航",
+                "require": "tier1",
+                "desc": "如同星辰、法术或任何复杂的系统，城市及其隧道也值得研究。",
+                "buy": {
+                    "arcana": 20
+                },
+                "run": {
+                    "stamina": 0.2
+                },
+                "mod": {
+                    "s_travel.max": 0.1,
+                    "research.max": 5
+                }
+            }
+        ],
+        "upgrades": [
+            {
+                "id": "reedburgh_city_papers",
+                "name": "里德堡城市通行证",
+                "desc": "允许自由进出里德堡城的第一环，那是维斯帕里亚跳动的心脏，商业与劳动力在此蓬勃发展。",
+                "require": "g.citynavigation>0",
+                "max": 1,
+                "cost": {
+                    "gold": 60
+                },
+                "mod": {
+                    "citynavigation.max": 1
+                },
+                "group": "exploration"
+            },
+            {
+                "id": "reedburgh_city_map",
+                "name": "里德堡城第一环地图",
+                "desc": "第一环的地图，比大多数基础法术还要复杂……",
+                "require": "g.reedburgh_market>0",
+                "max": 1,
+                "cost": {
+                    "gold": 120
+                },
+                "mod": {
+                    "reedburgh_market.run.bf": -0.1
+                },
+                "group": "exploration"
+            },
+            {
+                "id": "reedburgh_gym_membership",
+                "name": "里德堡健身房通行证",
+                "desc": "你在里德堡找到的一家健身房的会员资格。",
+                "require": "g.reedburgh_market>0",
+                "max": 1,
+                "cost": {
+                    "gold": 250
+                },
+                "mod": {
+                    "citynavigation.max": 1
+                },
+                "group": "exploration"
+            },
+            {
+                "id": "reedburgh_city_bank",
+                "name": "里德堡城市银行文件",
+                "desc": "使用维斯帕里亚金币进入商店和市场，这些金币通过银行和债务受到严格控制。",
+                "require": "g.debitomancy>=1&&g.reedburgh_city_papers>0",
+                "max": 1,
+                "cost": {
+                    "gold": 150
+                },
+                "mod": {
+                    "debitomancy.max": 0.5
+                },
+                "group": "knowledge"
+            }
+        ],
+        "rares": [
+            {
+                "id": "reedburgh_badge",
+                "name": "里德堡铜质奖章",
+                "type": "armor",
+                "desc": "里德堡颁发的清理下水道的奖章。拥有它会让你在人们眼中显得更值得信赖。",
+                "tags": "t_bauble",
+                "unique": true,
+                "level": 1,
+                "enchants": 1,
+                "armor": 0,
+                "slot": "trinket",
+                "alter": {
+                    "mod": {
+                        "debt.max": 150,
+                        "gold.max": 125,
+                        "reedburgh_checkpoint.length": -2,
+                        "reedburgh_sewer_misunderstand.length": -2
+                    }
+                }
+            },
+            {
+                "id": "reedburgh_herobadge",
+                "name": "里德堡玫瑰金奖章",
+                "type": "armor",
+                "desc": "主要授予英勇骑士、慷慨捐赠的贵族或其他地位较高者，这枚奖章是维斯帕里亚的最高荣誉之一，由鲁德里希国王亲自颁发。",
+                "tags": "t_bauble",
+                "unique": true,
+                "level": 1,
+                "enchants": 1,
+                "armor": 0,
+                "slot": "trinket",
+                "alter": {
+                    "mod": {
+                        "debt.max": 250,
+                        "gold.max": 80,
+                        "light.rate": 0.05,
+                        "reedburgh_checkpoint.length": -4,
+                        "reedburgh_sewer_misunderstand.length": -4
+                    }
+                }
+            }
+        ],
+        "spells": [
+            {
+                "id": "reedburgh_call_backup",
+                "name": "呼叫卫兵",
+                "desc": "救命！救命啊！救救我！！",
+                "level": 1,
+                "school": "charm",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.citynavigation>999",
+                "buy": {
+                    "research": 500,
+                    "gold": 500,
+                    "gems": 15
+                },
+                "cost": {
+                    "gold": 100,
+                    "gems": 5
+                },
+                "cd": 30,
+                "summon": [
+                    {
+                        "id": "reedburgh_guard_backup",
+                        "count": 1,
+                        "max": 3
+                    }
+                ]
+            },
+            {
+                "id": "mon_blunt_heavy",
+                "name": "重击",
+                "desc": "一次造成惊人伤害的雷鸣般打击。",
+                "flavor": "早上起来肯定会留下淤青。",
+                "level": 4,
+                "school": "martial",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.citynavigation>999",
+                "cd": 5,
+                "attack": {
+                    "kind": "blunt",
+                    "tohit": 5,
+                    "damage": "15~25"
+                }
+            },
+            {
+                "id": "reedburgh_call_backup_captain",
+                "name": "呼叫卫兵",
+                "desc": "救命！救命啊！救救我！！",
+                "level": 1,
+                "school": "charm",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.citynavigation>999",
+                "buy": {
+                    "research": 500,
+                    "gold": 500,
+                    "gems": 15
+                },
+                "cost": {
+                    "gold": 100,
+                    "gems": 5
+                },
+                "cd": 30,
+                "summon": [
+                    {
+                        "id": "reedburgh_guard",
+                        "count": 1,
+                        "max": 3
+                    }
+                ]
+            }
+        ],
+        "encounters": [
+            {
+                "id": "reedburgh_seized_goods",
+                "name": "被扣押的货车",
+                "desc": "一辆停下的货车，上面装满了被没收的物品",
+                "effect": {
+                    "weary": "1~2",
+                    "shadow": -0.5
+                },
+                "loot": {
+                    "bloodgem": "1~2",
+                    "herbs": "4~10",
+                    "shadowgem": "30%",
+                    "codices": "45%",
+                    "scrolls": "1~2",
+                    "managem": "80%",
+                    "skulls": {
+                        "%": "50%",
+                        "value": 1,
+                        "skipLocked": true
+                    },
+                    "bonedust": {
+                        "value": "3~5",
+                        "skipLocked": true
+                    }
+                }
+            },
+            {
+                "id": "reedburgh_armory",
+                "name": "里德堡武器库",
+                "desc": "一个紧凑的小屋，里面有各种各样的架设武器。",
+                "level": 1,
+                "length": 5,
+                "effect": {
+                    "weary": "1~2",
+                    "shadow": -0.5
+                }
+            },
+            {
+                "id": "reedburgh_training",
+                "name": "卫兵训练场",
+                "desc": "一片散落着战斗训练设备、武器和个人物品的场地。",
+                "level": 1,
+                "length": 5,
+                "effect": {
+                    "weary": "1~2",
+                    "shadow": -0.5
+                },
+                "result": {
+                    "gold": "0~10"
+                }
+            },
+            {
+                "id": "reedburgh_barracks",
+                "name": "里德堡兵营宿舍",
+                "desc": "空置的卫兵宿舍，里面有装备和个人物品。",
+                "level": 1,
+                "length": 5,
+                "effect": {
+                    "weary": "1~2"
+                },
+                "result": {
+                    "gold": "15~20"
+                }
+            },
+            {
+                "id": "reedburgh_guardpost",
+                "name": "岗哨",
+                "desc": "警惕的哨兵，时刻留意任何骚乱的迹象。",
+                "effect": {
+                    "rage": "1~2",
+                    "shadow": -0.5
+                }
+            },
+            {
+                "id": "reedburgh_streets",
+                "name": "迷宫般的街道",
+                "desc": "有些街道是死胡同，有些则会绕回原点。",
+                "effect": {
+                    "madness": "1~4"
+                }
+            },
+            {
+                "id": "reedburgh_crime",
+                "name": "小巷麻烦",
+                "desc": "昏暗的小巷，传来人们遇险、互相殴打以及其他城市恐怖的声音。",
+                "effect": {
+                    "unease": "1~4"
+                }
+            },
+            {
+                "id": "reedburgh_nothing",
+                "name": "漫步",
+                "desc": "没有商店可逛，路上也没有麻烦，只是路过而已。"
+            },
+            {
+                "id": "reedburgh_con",
+                "name": "街头表演",
+                "desc": "当你经过许多街头表演时，发现你的包轻了一些，嫌疑人消失在人群中。",
+                "effect": {
+                    "rage": "2~3"
+                },
+                "result": {
+                    "gold": "-25~-30"
+                }
+            },
+            {
+                "id": "reedburgh_stalls",
+                "name": "街头摊位",
+                "desc": "各种各样的摊位、地毯和其他街头商店向路人强行推销商品。",
+                "effect": {
+                    "weary": "1~3"
+                },
+                "result": {
+                    "debt": "75~125",
+                    "herbs": "3~5"
+                },
+                "loot": {
+                    "codices": "80%",
+                    "scrolls": "1~2",
+                    "gems": "1~2",
+                    "bones": {
+                        "value": "3~5",
+                        "skipLocked": true
+                    }
+                }
+            },
+            {
+                "id": "reedburgh_checkpoint_bad",
+                "name": "暴徒检查站",
+                "desc": "当地人的威胁、匕首和骚扰，试图向路人勒索一些额外的硬币。而受贿的卫兵则在一旁看着。",
+                "effect": {
+                    "rage": 1.5,
+                    "unease": 1.5
+                },
+                "result": {
+                    "gold": "-15~-30"
+                }
+            },
+            {
+                "id": "reedburgh_checkpoint",
+                "name": "检查站",
+                "desc": "很多问题，出示证件，然后等待卫兵检查所有人。",
+                "effect": {
+                    "rage": 1.5
+                }
+            },
+            {
+                "id": "reedburgh_show",
+                "name": "表演",
+                "desc": "许多人从未见过你的魔法，也许做一场小型表演也无妨。",
+                "effect": {
+                    "bf": -1.5,
+                    "mana": -1
+                },
+                "result": {
+                    "debt": "-30~-50"
+                }
+            },
+            {
+                "id": "reedburgh_scrolls",
+                "name": "卷轴商店",
+                "desc": "普通纸张的价格高得离谱，销售员却让人无法拒绝。",
+                "effect": {
+                    "rage": 0.5
+                },
+                "result": {
+                    "debt": "30~50"
+                },
+                "loot": {
+                    "scrolls": 1
+                }
+            },
+            {
+                "id": "reedburgh_beggars",
+                "name": "街头乞丐",
+                "desc": "路过贫困的房屋时，许多人向你乞讨哪怕一枚硬币，而另一些人则用巧手偷走它。",
+                "effect": {
+                    "rage": "3~4"
+                },
+                "result": {
+                    "gold": "-10~-15"
+                }
+            },
+            {
+                "id": "reedburgh_lost",
+                "name": "复杂的街道",
+                "desc": "无论走到哪里都是死胡同。封闭的街道只会让问题更加复杂。",
+                "effect": {
+                    "rage": "1~2",
+                    "bf": "3~4"
+                }
+            },
+            {
+                "id": "reedburgh_gems",
+                "name": "宝石店",
+                "desc": "一条珠宝街，色彩斑斓，光影交错，连最节俭的消费者也会被其魅力所吸引。",
+                "effect": {
+                    "rage": -1,
+                    "bf": -1
+                },
+                "result": {
+                    "debt": "150~175"
+                },
+                "loot": {
+                    "gems": "1~2",
+                    "watergem": "0~2",
+                    "firegem": "0~2",
+                    "airgem": "0~2",
+                    "earthgem": "0~2"
+                }
+            },
+            {
+                "id": "village_pillage_tavern",
+                "name": "掠夺村庄酒馆",
+                "desc": "一个充满黄金和美酒的欢乐之地。",
+                "length": 15,
+                "effect": {
+                    "stamina": -0.1
+                },
+                "result": {
+                    "gold": "30~50"
+                }
+            },
+            {
+                "id": "village_pillage_house",
+                "name": "洗劫房屋",
+                "desc": "快速搜寻钱包或散落的金币。",
+                "length": 15,
+                "effect": {
+                    "stamina": -0.1,
+                    "mana": -0.1
+                },
+                "result": {
+                    "gold": "0~15"
+                }
+            },
+            {
+                "id": "village_pillage_shop",
+                "name": "洗劫村庄商店",
+                "desc": "拿走这间小茅屋里所有的财物。",
+                "length": 15,
+                "effect": {
+                    "stamina": -0.1
+                },
+                "result": {
+                    "gems": "0~6",
+                    "gold": "30~75"
+                }
+            },
+            {
+                "id": "reedburgh_sewer_breath",
+                "name": "下水道走道",
+                "desc": "下水道中没有被溢水淹没的部分。",
+                "effect": {
+                    "stamina": -0.1,
+                    "breath": 1.2
+                },
+                "result": {
+                    "hp": "15~30"
+                }
+            },
+            {
+                "id": "reedburgh_sewer_stash",
+                "name": "丢失的钱袋",
+                "desc": "一个丢失的钱袋，淹没在水流湍急的区域。",
+                "effect": {
+                    "weary": "1~2"
+                },
+                "result": {
+                    "gold": "15~30"
+                }
+            },
+            {
+                "id": "reedburgh_sewer_blockage",
+                "name": "下水道堵塞",
+                "desc": "垃圾、水生藤蔓、闸门，应有尽有，都挡在路上。",
+                "effect": {
+                    "rage": "0.75~2.5",
+                    "madness": "1~3"
+                }
+            },
+            {
+                "id": "reedburgh_sewer_beggar",
+                "name": "下水道乞丐",
+                "desc": "可怜的乞丐被赶到下水道的低层区域，乞讨硬币。经过这些区域似乎总是会让钱包变轻。",
+                "effect": {
+                    "rage": "0.75~2.5",
+                    "breath": 1.5
+                },
+                "result": {
+                    "gold": "0~-15"
+                }
+            },
+            {
+                "id": "reedburgh_sewer_misunderstand",
+                "name": "下水道争吵",
+                "desc": "当你经过一个开放区域时，城市卫兵会没完没了地盘问你。",
+                "effect": {
+                    "rage": "0.75~2.5",
+                    "breath": 1.5
+                }
+            },
+            {
+                "id": "reedburgh_sewer_crimestash",
+                "name": "隐蔽的交货点",
+                "desc": "偏远的角落和死胡同常常是违禁品交易的避风港。",
+                "effect": {
+                    "bf": "0.75~2.5",
+                    "stamina": -0.4
+                },
+                "loot": {
+                    "gold": "0~12",
+                    "gems": "0~2",
+                    "bloodgem": "20%"
+                }
+            },
+            {
+                "id": "the_last_rep",
+                "name": "最后一组",
+                "desc": "再来一组就可以回家了，对吧？接待员说这是一家不错的健身房……",
+                "effect": {
+                    "weary": "2~5",
+                    "stamina": -2,
+                    "vigor": -1
+                },
+                "flavor": "总是最难的。"
+            },
+            {
+                "id": "gym_crowd",
+                "name": "拥挤的健身房",
+                "desc": "到处都是人们的叫喊声和咕哝声。找不到一个空位。",
+                "effect": {
+                    "rage": "1~2",
+                    "madness": "0.5~1.5",
+                    "stamina": -0.5,
+                    "vigor": -0.05
+                },
+                "flavor": "在这一切之中，一个戴着马头面具的男人瘫坐在那里。"
+            },
+            {
+                "id": "lifting_weights",
+                "name": "举重",
+                "desc": "然后又放下。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "weary": "1~3",
+                    "stamina": -1,
+                    "vigor": -0.1
+                },
+                "mod": {
+                    "weaponlore.max": "0.05//20/-1"
+                }
+            },
+            {
+                "id": "running_laps",
+                "name": "跑步",
+                "desc": "最好锻炼好你的双腿，因为你要去很多地方，还要躲避很多债主。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "weary": "1~3",
+                    "stamina": -0.5,
+                    "vigor": -0.05
+                },
+                "mod": {
+                    "dist": "1//20/-1"
+                }
+            },
+            {
+                "id": "dropped_the_weights",
+                "name": "杠铃掉落",
+                "desc": "你把杠铃掉了，哦天哪哦天哪哦天哪，别走向光明",
+                "effect": {
+                    "hp": -1,
+                    "stamina": -0.5,
+                    "vigor": -0.05,
+                    "unease": "1~3"
+                }
+            },
+            {
+                "id": "hair_pluckers",
+                "name": "拔毛者",
+                "desc": "如果不是尖叫声，人们脱毛的场景会更容易被忽视。",
+                "effect": {
+                    "bf": "1~3",
+                    "unease": "1~3"
+                }
+            },
+            {
+                "id": "dodge_shotputs",
+                "name": "铅球闪避",
+                "desc": "铅球队的准头清醒时就够差了。他们喝了酒只会更糟。",
+                "effect": {
+                    "stamina": -0.5,
+                    "vigor": -0.05,
+                    "unease": "1~2",
+                    "weary": "2~3",
+                    "hp": -2
+                }
+            },
+            {
+                "id": "gym_spar",
+                "name": "健身房格斗",
+                "desc": "练习你的打击和擒抱。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "stamina": -0.8,
+                    "vigor": -0.08,
+                    "weary": "1~3"
+                },
+                "mod": {
+                    "weaponlore.max": "0.05//20/-1"
+                }
+            },
+            {
+                "id": "gym_supplements",
+                "name": "补剂推销员",
+                "desc": "一个可疑的男人强迫你购买一些用于锻炼的饮品。",
+                "effect": {
+                    "bf": "1~3"
+                },
+                "result": {
+                    "debt": "1~2"
+                },
+                "loot": {
+                    "pot_stam1": 1
+                }
+            },
+            {
+                "id": "gym_supplements_bad",
+                "name": "补剂推销员",
+                "desc": "一个可疑的男人强迫你购买一些用于锻炼的饮品。",
+                "effect": {
+                    "bf": "1~3"
+                },
+                "result": {
+                    "debt": "1~2",
+                    "water": 1
+                }
+            }
+        ],
+        "locales": [
+            {
+                "id": "reedburgh_market",
+                "name": "里德堡市场",
+                "tags": "site_of_learning",
+                "desc": "穿梭于维斯帕里亚首都错综复杂的街道网络，这里有熙熙攘攘的摊位和充满活力的商店。负债累累的旅行者们发现自己被迫伸出援手，参与到清理下水道的崇高任务中。",
+                "level": 4,
+                "dist": 65,
+                "require": "g.reedburgh_city_papers>0",
+                "length": 40,
+                "run": {
+                    "stamina": 0.2,
+                    "bf": 0.2
+                },
+                "mod": {
+                    "purse.max": "?1",
+                    "herbbag.max": "?1",
+                    "gembag.max": "?1"
+                },
+                "encs": [
+                    [
+                        "daylight_mugging",
+                        "daylight_mugging"
+                    ],
+                    [
+                        "gang_mugging",
+                        "gang_mugging"
+                    ],
+                    "daylight_mugging",
+                    "gang_mugging",
+                    {
+                        "ids": "reedburgh_gems",
+                        "weight": 0.8
+                    },
+                    {
+                        "ids": "reedburgh_stalls",
+                        "weight": 0.7
+                    },
+                    {
+                        "ids": "reedburgh_show",
+                        "weight": 1.5
+                    },
+                    "reedburgh_scrolls",
+                    "reedburgh_beggars",
+                    "reedburgh_lost",
+                    "reedburgh_checkpoint",
+                    "reedburgh_checkpoint_bad",
+                    "reedburgh_con",
+                    "reedburgh_nothing",
+                    "reedburgh_streets",
+                    "reedburgh_crime"
+                ]
+            },
+            {
+                "id": "reedburgh_gymnasium",
+                "name": "里德堡健身房",
+                "desc": "终于，在这座糟糕的城市里找到了一个宜人的地方。",
+                "tags": "site_of_learning",
+                "level": 5,
+                "dist": 69,
+                "require": "g.reedburgh_gym_membership>0",
+                "length": 40,
+                "run": {
+                    "stamina": 1,
+                    "vigor": 0.1
+                },
+                "buy": {
+                    "gold": 250
+                },
+                "once": {
+                    "citynavigation.max": 1
+                },
+                "mod": {
+                    "hp.max": "2//10/-1"
+                },
+                "boss": {
+                    "40": [
+                        "unleashed_beast"
+                    ]
+                },
+                "encs": [
+                    [
+                        "roid_rage",
+                        "roid_rage"
+                    ],
+                    "roid_rage",
+                    "the_last_rep",
+                    "gym_crowd",
+                    "lifting_weights",
+                    "running_laps",
+                    "dropped_the_weight",
+                    "hair_pluckers",
+                    "dodge_shotputs",
+                    "gym_spar",
+                    "gym_supplements",
+                    "gym_supplements_bad"
+                ]
+            },
+            {
+                "id": "reedburgh_second_ring",
+                "name": "潜入里德堡第二环",
+                "desc": "利用水路，可以发现通往里德堡第二城环的隐藏通道。",
+                "level": 4,
+                "dist": 65,
+                "require": "g.evil1>0&&g.citynavigation>=6&&g.reedburgh_city_sewer>=1",
+                "length": 31,
+                "run": {
+                    "stamina": 0.3,
+                    "shadow": 0.1
+                },
+                "boss": {
+                    "31": [
+                        "reedburgh_captain",
+                        "reedburgh_guard",
+                        "reedburgh_guard"
+                    ]
+                },
+                "encs": [
+                    [
+                        "reedburgh_guard",
+                        "reedburgh_guard"
+                    ],
+                    "reedburgh_guard",
+                    "reedburgh_guardpost",
+                    "reedburgh_training",
+                    "reedburgh_barracks",
+                    "reedburgh_armory",
+                    "reedburgh_seized_goods"
+                ]
+            }
+        ],
+        "monsters": [
+            {
+                "id": "daylight_mugging",
+                "name": "抢劫犯",
+                "level": 10,
+                "kind": "convict",
+                "desc": "一个擅长刺杀和抢劫的人。",
+                "hp": 30,
+                "defense": 5,
+                "noproc": true,
+                "speed": 4,
+                "attack": [
+                    {
+                        "name": "近身刺击",
+                        "kind": "pierce",
+                        "damage": "9~12"
+                    },
+                    {
+                        "name": "偷金币",
+                        "result": {
+                            "gold": "-10~-20"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "gang_mugging",
+                "name": "帮派暴徒",
+                "level": 10,
+                "kind": "convict",
+                "desc": "当地帮派的打手，想偷你的宝石。",
+                "hp": 35,
+                "defense": 5,
+                "noproc": true,
+                "speed": 2,
+                "attack": [
+                    {
+                        "name": "街头猛击",
+                        "kind": "blunt",
+                        "damage": "9~12"
+                    },
+                    {
+                        "name": "偷宝石",
+                        "result": {
+                            "gems": "-1~-2"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "village_farmer",
+                "name": "乡村农夫",
+                "desc": "一个贫穷的农夫。",
+                "kind": "victim",
+                "level": 4,
+                "hp": 5,
+                "attack": [
+                    {
+                        "name": "镰刀劈砍",
+                        "kind": "slash",
+                        "damage": "1~1.5"
+                    },
+                    {
+                        "name": "干草叉突刺",
+                        "kind": "pierce",
+                        "damage": "1~2"
+                    }
+                ],
+                "loot": {
+                    "cotton": {
+                        "%": "30%",
+                        "value": "2~4"
+                    },
+                    "bodies": {
+                        "%": "80%",
+                        "value": 1,
+                        "skipLocked": true
+                    }
+                }
+            },
+            {
+                "id": "village_hunter",
+                "name": "乡村猎人",
+                "kind": "victim",
+                "level": 8,
+                "hp": 8,
+                "dodge": 20,
+                "attack": {
+                    "name": "小箭",
+                    "kind": "pierce",
+                    "damage": "1~2.5"
+                },
+                "loot": {
+                    "leather": {
+                        "%": "30%",
+                        "value": "2~4"
+                    },
+                    "bodies": {
+                        "%": "70%",
+                        "value": 1,
+                        "skipLocked": true
+                    }
+                }
+            },
+            {
+                "id": "village_militia",
+                "name": "乡村民兵",
+                "desc": "一个被迫拿起武器保卫家园的贫穷农夫。",
+                "kind": "victim",
+                "level": 10,
+                "hp": 10,
+                "defense": 20,
+                "attack": {
+                    "name": "短剑挥砍",
+                    "kind": "slash",
+                    "damage": "1~3"
+                },
+                "loot": {
+                    "gold": "2~3",
+                    "iron": {
+                        "%": "30%",
+                        "value": "2~4"
+                    },
+                    "bodies": {
+                        "%": "60%",
+                        "value": 1,
+                        "skipLocked": true
+                    }
+                }
+            },
+            {
+                "id": "village_hero",
+                "name": "乡村英雄",
+                "noproc": true,
+                "level": 12,
+                "kind": "victim",
+                "desc": "一位退休的冒险家，身着旧盔甲，手持长剑。",
+                "hp": 50,
+                "defense": 5,
+                "tohit": 12,
+                "attack": [
+                    {
+                        "name": "长剑交锋",
+                        "kind": "slash",
+                        "damage": "10~13"
+                    },
+                    {
+                        "name": "快速刺击",
+                        "kind": "pierce",
+                        "damage": "10~11"
+                    },
+                    {
+                        "name": "卑鄙伎俩",
+                        "kind": "blunt",
+                        "targets": "enemyleader",
+                        "damage": "3~4",
+                        "dot": {
+                            "duration": 4,
+                            "self.dodge": -2,
+                            "self.tohit": -2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "village_hero_horse",
+                "name": "乡村种马",
+                "level": 8,
+                "kind": "monster",
+                "desc": "一匹喂养良好的马。",
+                "hp": 75,
+                "defense": 0,
+                "noproc": true,
+                "attack": [
+                    {
+                        "name": "践踏",
+                        "targets": "enemies",
+                        "maxTargets": 999,
+                        "kind": "blunt",
+                        "damage": "4~5"
+                    },
+                    {
+                        "name": "疾驰",
+                        "targets": "ally",
+                        "dot": {
+                            "duration": 30,
+                            "mod": {
+                                "self.speed": 5
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "reedburgh_smuggler",
+                "name": "里德堡走私犯",
+                "desc": "通常走私草药和宝石。",
+                "kind": "convict",
+                "level": 23,
+                "hp": 18,
+                "defense": 10,
+                "dodge": 10,
+                "attack": {
+                    "name": "破烂刺击",
+                    "kind": "slash",
+                    "damage": "6~10"
+                },
+                "loot": {
+                    "bloodgem": {
+                        "%": "10%",
+                        "value": "1~3"
+                    },
+                    "gems": {
+                        "%": "25%",
+                        "value": "2~5"
+                    },
+                    "gold": {
+                        "%": "30%",
+                        "value": "15~30"
+                    },
+                    "herbs": {
+                        "%": "25%",
+                        "value": "4~7"
+                    }
+                }
+            },
+            {
+                "id": "reedburgh_quest_monster",
+                "name": "里德堡下水道真菌",
+                "desc": "来自下水道的水生生物。当地公会可以为你清除一些债务，以换取它们的根除。",
+                "kind": "monster",
+                "level": 22,
+                "hp": 20,
+                "attack": [
+                    {
+                        "name": "真菌气息",
+                        "kind": "nature",
+                        "damage": "5~7"
+                    },
+                    {
+                        "name": "孢子场",
+                        "kind": "nature",
+                        "dot": {
+                            "duration": 4,
+                            "damage": 0.5,
+                            "self.speed": "-3"
+                        }
+                    }
+                ],
+                "loot": {
+                    "debt": "-50~-80",
+                    "naturegem": "50%"
+                }
+            },
+            {
+                "id": "reedburgh_water_vines",
+                "name": "里德堡水缠结",
+                "desc": "一团细小的杂草和藤蔓缠绕着受害者，已知会堵塞水道。",
+                "kind": "monster",
+                "level": 24,
+                "hp": 25,
+                "attack": [
+                    {
+                        "name": "锋利藤蔓",
+                        "kind": "slash",
+                        "damage": "3~5"
+                    },
+                    {
+                        "name": "腿部缠绕",
+                        "kind": "blunt",
+                        "damage": "1~2",
+                        "dot": {
+                            "name": "缠足",
+                            "duration": 3,
+                            "id": "entangle",
+                            "damage": 1
+                        }
+                    }
+                ],
+                "loot": {
+                    "debt": "-50~-80",
+                    "watergem": "50%"
+                }
+            },
+            {
+                "id": "reedburgh_water_massvines",
+                "name": "里德堡水丛",
+                "desc": "一团过度生长的藤蔓和水缠结。",
+                "kind": "monster",
+                "unique": true,
+                "level": 28,
+                "hp": 250,
+                "regen": 1,
+                "speed": 0,
+                "attack": [
+                    {
+                        "name": "荆棘藤蔓",
+                        "kind": "slash",
+                        "damage": "10~20"
+                    },
+                    {
+                        "name": "缠绕",
+                        "kind": "blunt",
+                        "damage": 4,
+                        "dot": {
+                            "name": "束缚",
+                            "duration": 2,
+                            "id": "paralyze",
+                            "damage": "5~7"
+                        }
+                    }
+                ],
+                "loot": {
+                    "debt": "-200~-250",
+                    "naturegem": 2,
+                    "watergem": 2,
+                    "lightgem": 1,
+                    "reedburgh_badge": 1
+                }
+            },
+            {
+                "id": "reedburgh_captain",
+                "name": "里德堡功勋队长",
+                "level": 28,
+                "kind": "victim",
+                "desc": "一位年迈的队长，现在只专注于监督训练，仍然穿着过去沉重的盔甲。",
+                "tohit": 15,
+                "noproc": true,
+                "hp": 100,
+                "dodge": 8,
+                "defense": 50,
+                "speed": -5,
+                "chaincast": 0.5,
+                "spells": "reedburgh_call_backup_captain",
+                "attack": [
+                    {
+                        "name": "指挥",
+                        "targets": "ally",
+                        "dot": {
+                            "duration": 30,
+                            "mod": {
+                                "self.speed": 5,
+                                "self.tohit": 2,
+                                "self.dodge": 2
+                            }
+                        }
+                    },
+                    {
+                        "name": "堡垒",
+                        "targets": "self",
+                        "result": {
+                            "hp": 10
+                        },
+                        "dot": {
+                            "duration": 10,
+                            "mod": {
+                                "self.dodge": -3,
+                                "self.defense": 10,
+                                "self.speed": -2
+                            }
+                        }
+                    },
+                    {
+                        "name": "优先目标",
+                        "targets": "enemyleader",
+                        "dot": {
+                            "duration": 60,
+                            "mod": {
+                                "self.dodge": -2,
+                                "self.speed": -2
+                            }
+                        }
+                    }
+                ],
+                "loot": {
+                    "gold": 120,
+                    "gems": 5,
+                    "lightgem": 2,
+                    "reedburgh_herobadge": 1
+                }
+            },
+            {
+                "id": "reedburgh_guard",
+                "name": "里德堡卫兵",
+                "level": 14,
+                "kind": "victim",
+                "desc": "一名训练有素的公务员，负责维护和平和处理轻微犯罪。",
+                "tohit": 12,
+                "noproc": true,
+                "hp": 50,
+                "dodge": 5,
+                "defense": 4,
+                "speed": 3,
+                "chaincast": 0.4,
+                "spells": "reedburgh_call_backup,guidestr",
+                "attack": [
+                    {
+                        "name": "剑劈",
+                        "kind": "slash",
+                        "damage": "12~14"
+                    },
+                    {
+                        "name": "盾击",
+                        "kind": "blunt",
+                        "damage": "6~12"
+                    },
+                    {
+                        "name": "举盾",
+                        "targets": "self",
+                        "result": {
+                            "hp": 5
+                        },
+                        "dot": {
+                            "duration": 10,
+                            "mod": {
+                                "self.dodge": -2,
+                                "self.defense": 6,
+                                "self.speed": -2
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "reedburgh_guard_backup",
+                "name": "里德堡卫兵",
+                "level": 14,
+                "kind": "victim",
+                "noproc": true,
+                "desc": "一名训练有素的公务员，负责维护和平和处理轻微犯罪。",
+                "hp": 50,
+                "dodge": 5,
+                "defense": 4,
+                "speed": 3,
+                "chaincast": 0.5,
+                "spells": "guidestr",
+                "attack": [
+                    {
+                        "name": "剑劈",
+                        "kind": "slash",
+                        "damage": "12~14"
+                    },
+                    {
+                        "name": "盾击",
+                        "kind": "blunt",
+                        "damage": "6~12"
+                    },
+                    {
+                        "name": "举盾",
+                        "targets": "self",
+                        "result": {
+                            "hp": 5
+                        },
+                        "dot": {
+                            "duration": 10,
+                            "mod": {
+                                "self.dodge": -2,
+                                "self.defense": 6,
+                                "self.speed": -2
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "roid_rage",
+                "name": "狂怒壮汉",
+                "level": 10,
+                "kind": "humanoid",
+                "desc": "你抢了他的位置！",
+                "hp": 30,
+                "defense": 12,
+                "spells": "mon_blunt_heavy",
+                "attack": {
+                    "name": "杠铃",
+                    "kind": "blunt",
+                    "damage": "6~12"
+                }
+            },
+            {
+                "id": "unleashed_beast",
+                "name": "脱缰野兽",
+                "level": 18,
+                "kind": "beast",
+                "desc": "某人的陪练对手挣脱了！",
+                "hp": 40,
+                "defense": 19,
+                "spells": "terrifyingvisage",
+                "attack": [
+                    {
+                        "name": "撕咬",
+                        "kind": "pierce",
+                        "damage": "15~25"
+                    },
+                    {
+                        "name": "猛击",
+                        "kind": "slash",
+                        "damage": "10~20"
+                    }
+                ],
+                "flavor": "老虎/他摧毁了他的笼子/是的/是的/老虎出来了"
+            }
+        ],
+        "dungeons": [
+            {
+                "id": "pillage_village",
+                "name": "劫掠村庄",
+                "desc": "出去偷窃、掠夺并毁掉一个曾经和平的村庄。",
+                "difficulty": "🦴",
+                "sortOrder": 6,
+                "require": "g.evil1>0",
+                "dist": 35,
+                "run": {
+                    "stamina": 0.2,
+                    "mana": 0.1
+                },
+                "result": {
+                    "gold": "50~150",
+                    "gems": "3~5"
+                },
+                "mod": {
+                    "pillage_village.dist": "200|40|10"
+                },
+                "length": 50,
+                "encs": [
+                    [
+                        "village_militia",
+                        "village_hunter",
+                        "village_farmer"
+                    ],
+                    [
+                        "village_militia",
+                        "village_militia"
+                    ],
+                    [
+                        "village_farmer",
+                        "village_hunter"
+                    ],
+                    "village_militia",
+                    "village_militia",
+                    "village_hunter",
+                    "village_hunter",
+                    "village_farmer",
+                    "village_farmer",
+                    "village_farmer",
+                    "village_farmer",
+                    "village_farmer",
+                    "village_pillage_tavern",
+                    "village_pillage_house",
+                    "village_pillage_shop"
+                ]
+            },
+            {
+                "id": "reedburgh_city_sewer",
+                "name": "里德堡城第一环下水道",
+                "desc": "穿梭于地下水路，寻找失落的宝藏、隐藏的储藏物，或清理一些麻烦的怪物。",
+                "extdesc": "进入这个地下城时你需要屏住呼吸。",
+                "difficulty": "💀",
+                "sortOrder": 25,
+                "tags": "t_underwater",
+                "require": "g.reedburgh_market>0",
+                "dist": 65,
+                "bars": "breath",
+                "run": {
+                    "stamina": 0.2,
+                    "mana": 0.12
+                },
+                "effect": {
+                    "breath": -1.15
+                },
+                "result": {
+                    "gold": "50~100",
+                    "gems": "5~10",
+                    "watergem": "5~10",
+                    "debt": "-50~-100"
+                },
+                "length": 25,
+                "boss": {
+                    "25": [
+                        "reedburgh_water_massvines",
+                        "slime",
+                        "slime"
+                    ]
+                },
+                "encs": [
+                    [
+                        "slime",
+                        "slime"
+                    ],
+                    [
+                        "slime",
+                        "slime"
+                    ],
+                    "reedburgh_smuggler",
+                    "reedburgh_quest_monster",
+                    "reedburgh_water_vines",
+                    {
+                        "ids": "reedburgh_sewer_breath",
+                        "weight": 2
+                    },
+                    {
+                        "ids": "reedburgh_quest_monster,reedburgh_quest_monster",
+                        "weight": 0.25
+                    },
+                    {
+                        "ids": "reedburgh_smuggler,reedburgh_smuggler",
+                        "weight": 0.5
+                    },
+                    {
+                        "ids": "reedburgh_water_vines,reedburgh_water_vines",
+                        "weight": 0.25
+                    },
+                    {
+                        "ids": "reedburgh_sewer_blockage",
+                        "weight": 0.8
+                    },
+                    {
+                        "ids": "reedburgh_sewer_beggar",
+                        "weight": 0.8
+                    },
+                    {
+                        "ids": "reedburgh_sewer_stash",
+                        "weight": 0.8
+                    },
+                    {
+                        "ids": "reedburgh_sewer_crimestash",
+                        "weight": 0.8
+                    }
+                ]
+            }
+        ]
+    }
+}

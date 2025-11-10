@@ -1,0 +1,519 @@
+{
+    "module": "patrons",
+    "sym": "⭐",
+    "data": {
+        "furniture": [
+            {
+                "id": "nathanielshelter",
+                "name": "纳撒尼尔的庇护所",
+                "require": "g.tier3>0&&g.good1>0",
+                "desc": "孤儿和穷人的庇护所。",
+                "tags": "patron",
+                "cost": {
+                    "gold": 100
+                },
+                "mod": {
+                    "space": 5,
+                    "gold.rate": -0.2,
+                    "virtue.rate": 0.0001,
+                    "light.rate": 0.1,
+                    "fame.rate": 5e-05
+                },
+                "flavor": "纳撒尼尔坚持魔法应造福不幸之人。"
+            },
+            {
+                "id": "baneanvil",
+                "name": "血祸之砧",
+                "require": "g.crafting>=14",
+                "need": "workshop",
+                "desc": "强大的法术常在铁砧上锻造。",
+                "tags": "patron",
+                "cost": {
+                    "research": 10000,
+                    "tomes": 10
+                },
+                "mod": {
+                    "space": 5,
+                    "spellcraft.mod.scraftlist.max": 0.5,
+                    "spellcraft.rate": 0.5,
+                    "enchanting.mod.enchantslots.max": 0.5
+                },
+                "flavor": "血祸放弃战争与暴力，致力于创造新形式的魔法。"
+            }
+        ],
+        "homes": [
+            {
+                "id": "wildcamp",
+                "name": "荒野营地",
+                "desc": "在德尔金森林深处，荒野大师维系着他传说中的营地。",
+                "require": "g.t_natureclass>0&&g.tier2>0",
+                "tags": "outdoors,plantsource,t_pets,patron",
+                "buy": {
+                    "gold": 300,
+                    "naturegem": 20,
+                    "herbs": 50,
+                    "research": 1000
+                },
+                "mod": {
+                    "space.max": 40,
+                    "lore.rate": -0.1,
+                    "research.rate": -0.2,
+                    "naturelore2.mod.naturedmg": 1,
+                    "naturelore.mod.nature.max": 0.25,
+                    "airlore.mod.air.max": 0.25,
+                    "waterlore.mod.water.max": 0.25,
+                    "animals.mod.steed.mod.dist": 1
+                }
+            }
+        ],
+        "spells": [
+            {
+                "id": "phrenesis_heal1",
+                "name": "狂热的治疗之环",
+                "sortOrder": 1132,
+                "level": 4,
+                "school": "light",
+                "tags": "t_healspell",
+                "keywords": {
+                    "type": [
+                        "recovery"
+                    ],
+                    "target": [
+                        "self",
+                        "ally"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.lightlore>=7&&g.evil2==0",
+                "buy": {
+                    "research": 1000,
+                    "codices": 25
+                },
+                "need": "g.evil2==0",
+                "needtext": "Cannot be sinister.",
+                "cost": {
+                    "light": 2
+                },
+                "result": {
+                    "lightlore.exp": 0.2
+                },
+                "attack": {
+                    "targets": "allies",
+                    "maxTargets": 999,
+                    "harmless": true,
+                    "healing": 10,
+                    "kind": "light",
+                    "potencies": [
+                        "spellheal",
+                        "lightdmg"
+                    ]
+                }
+            },
+            {
+                "id": "phrenesis_heal2",
+                "name": "狂热的治疗波",
+                "sortOrder": 1131,
+                "level": 10,
+                "school": "light",
+                "tags": "t_healspell",
+                "keywords": {
+                    "type": [
+                        "recovery"
+                    ],
+                    "target": [
+                        "self",
+                        "ally"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.lightlore>=20&&g.heallore>=5&&g.evil2==0",
+                "buy": {
+                    "research": 1000,
+                    "codices": 25
+                },
+                "need": "g.evil2==0",
+                "needtext": "Cannot be sinister.",
+                "cost": {
+                    "light": 6
+                },
+                "result": {
+                    "lightlore.exp": 0.6,
+                    "heallore.exp": 0.6
+                },
+                "attack": {
+                    "targets": "allies",
+                    "maxTargets": 999,
+                    "harmless": true,
+                    "healing": 45,
+                    "kind": "light",
+                    "potencies": [
+                        "spellheal",
+                        "lightdmg"
+                    ]
+                }
+            },
+            {
+                "id": "cyrilsling",
+                "name": "西里尔的星辰弹弓",
+                "desc": "释放一颗星星，将天堂的怒火倾泻在敌人身上。希望你的星星不会反噬你...",
+                "flavor": "如果你已经命途多舛，何不让几颗星星也交错一下？",
+                "level": 7,
+                "school": "chaos",
+                "keywords": {
+                    "special": []
+                },
+                "require": "g.tier5>0&&g.chaos.max>=3&&g.lore>999",
+                "buy": {
+                    "research": 7777,
+                    "runestones": 7,
+                    "firerune": 7,
+                    "waterrune": 7,
+                    "airrune": 7,
+                    "earthrune": 7
+                },
+                "cost": {
+                    "chaos": 3,
+                    "sindel": 1
+                },
+                "effect": [
+                    {
+                        "%": 7
+                    }
+                ]
+            },
+            {
+                "id": "kannadance",
+                "name": "卡娜的旋舞",
+                "desc": "卡娜的舞蹈对法师而言是艰苦的，对她的敌人而言却是致命的。",
+                "flavor": "她在苍白的月光下与魔鬼共舞，刀刃闪烁，模糊成一道银光",
+                "sortOrder": 390,
+                "level": 7,
+                "school": "martial",
+                "tags": "patron",
+                "keywords": {
+                    "type": [
+                        "recovery",
+                        "buff",
+                        "debuff"
+                    ],
+                    "target": [
+                        "self"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant",
+                        "over time"
+                    ]
+                },
+                "require": "g.bladelore>=10",
+                "buy": {
+                    "research": 500,
+                    "tomes": 1,
+                    "airgem": 10
+                },
+                "cost": {
+                    "air": 8
+                },
+                "cd": 120,
+                "result": {
+                    "stamina": 50,
+                    "vigor": 25,
+                    "bladelore.exp": 0.8
+                },
+                "dot": {
+                    "duration": 60,
+                    "mod": {
+                        "stamina.max": 50,
+                        "stamina.rate": -1,
+                        "vigor.max": 25,
+                        "vigor.rate": -0.5,
+                        "self": {
+                            "dodge": 3,
+                            "tohit": 2,
+                            "physdmg": 10,
+                            "sworddmg": 10
+                        }
+                    }
+                }
+            }
+        ],
+        "encounters": [
+            {
+                "id": "agetablet1",
+                "name": "古老石板",
+                "desc": "高台上的石板显示着一份发光的名单。",
+                "flavor": "查扎、吉奥帕巴、卡米亚尼亚、艾利克斯、烟人",
+                "effect": {}
+            },
+            {
+                "id": "agetablet2",
+                "name": "风化石板",
+                "desc": "一块风化的石板，上面刻着褪色的名字列表。",
+                "flavor": "查扎、吉奥帕巴、卡米亚尼亚、艾利克斯、烟人",
+                "effect": {}
+            },
+            {
+                "id": "enc_cyril",
+                "name": "与西里尔观星",
+                "desc": "",
+                "tags": "site_of_learning",
+                "effect": {
+                    "rage": "1~5",
+                    "weary": "2~5",
+                    "astronomy.exp": 1,
+                    "research": 1
+                },
+                "mod": {
+                    "astronomy.max": "4|100|30"
+                }
+            },
+            {
+                "id": "enc_kanna",
+                "name": "向卡娜学习",
+                "desc": "一位狐女欣喜地教你一些更有效地使用武器的实用方法",
+                "tags": "site_of_learning",
+                "effect": {
+                    "bf": "0~2",
+                    "weary": "2~5",
+                    "rage": "2~5",
+                    "bladelore.exp": 1,
+                    "enchanting.exp": 1
+                },
+                "mod": {
+                    "bladelore.max": "4|100|30"
+                }
+            },
+            {
+                "id": "enc_jeremy",
+                "name": "杰里米",
+                "desc": "这位法师的一切都无人知晓。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "rage": "1~5",
+                    "weary": "2~5",
+                    "research": 1
+                },
+                "mod": {
+                    "lore.max": "4|100|30"
+                }
+            },
+            {
+                "id": "enc_phrenesis",
+                "name": "狂热",
+                "desc": "狂热者永远沉迷于死亡与重生的循环。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "stress": -0.1,
+                    "hp": -4
+                },
+                "mod": {
+                    "anatomy.max": "4|100|30"
+                }
+            },
+            {
+                "id": "enc_sinae",
+                "name": "傀儡师西奈",
+                "desc": "一位研究员，与其说是人，不如说是机器",
+                "tags": "site_of_learning",
+                "effect": {
+                    "unease": "1~5",
+                    "rage": "2~5",
+                    "research": 1
+                },
+                "mod": {
+                    "puppetry.max": "4|100|30"
+                },
+                "flavor": "你能听到他体内时钟机械的咔嗒声"
+            },
+            {
+                "id": "enc_stags",
+                "name": "雄鹿",
+                "desc": "这位神秘法师的一切都无人知晓。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "rage": "1~5",
+                    "weary": "2~5",
+                    "research": 1
+                },
+                "mod": {
+                    "lore.max": "4|100|30"
+                }
+            },
+            {
+                "id": "enc_tainted",
+                "name": "被玷污者，虚空执政官",
+                "desc": "一个暴力的回声仍在它从未走过的殿堂中游荡。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "madness": "2~4",
+                    "unease": "2~4",
+                    "tempus": -1,
+                    "chronomancy.exp": 1,
+                    "voidlore.exp": 1
+                },
+                "mod": {
+                    "composure.max": "4|100|30"
+                },
+                "loot": {
+                    "voidgem": "1%"
+                },
+                "flavor": "那真的发生过吗？"
+            },
+            {
+                "id": "enc_kaidi",
+                "name": "混合师凯迪",
+                "desc": "一位教师，也是最奇特药剂的制作者。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "bf": "2~5",
+                    "unease": "1~2",
+                    "potions.exp": 1
+                },
+                "mod": {
+                    "potions.max": "4|100|30"
+                },
+                "loot": {
+                    "pot_breath1": "1%",
+                    "pot_mana1": "5%",
+                    "pot_stam1": "5%"
+                },
+                "flavor": "烟雾似乎凭空围绕着他们。"
+            },
+            {
+                "id": "enc_tjoker",
+                "name": "一个小丑",
+                "desc": "狡黠的表情预示着麻烦。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "rage": "1~5",
+                    "bf": "2~5",
+                    "trickery.exp": 1,
+                    "player.exp": 1
+                },
+                "mod": {
+                    "trickery.max": "4|100|30"
+                }
+            },
+            {
+                "id": "enc_vondrey",
+                "name": "冯德雷",
+                "desc": "这位法师似乎不愿开口。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "bf": "1~5",
+                    "rage": "1~5",
+                    "weary": "2~5",
+                    "concentrate.exp": 1,
+                    "composure.exp": 1
+                },
+                "mod": {
+                    "concentrate.max": "4|100|30"
+                }
+            },
+            {
+                "id": "enc_mrwild",
+                "name": "荒野大师",
+                "desc": "一位荒野法师是一位令人费解的老师。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "madness": "1~5",
+                    "weary": "2~5",
+                    "naturelore.exp": 1,
+                    "animals.exp": 1
+                },
+                "mod": {
+                    "herbalism.max": "4|100|30"
+                }
+            },
+            {
+                "id": "enc_mrreaper",
+                "name": "死神先生",
+                "desc": "对于一位本应受人尊敬的法师来说，这是一个严酷的名字。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "madness": "1~5",
+                    "bf": "2~5",
+                    "history.exp": 1,
+                    "shadowlore.exp": 1
+                },
+                "mod": {
+                    "dissection.max": "4|100|30"
+                }
+            }
+        ],
+        "locales": [
+            {
+                "id": "loc_ageshall",
+                "name": "岁月之厅",
+                "desc": "失落的岁月之厅是伟大而强大的守护法师们的聚集地。",
+                "flavor": "其中的知识可能价值连城。",
+                "tags": "site_of_learning",
+                "require": "g.tier3>0",
+                "length": 100,
+                "mod": {
+                    "history.max": "?1"
+                },
+                "result": {
+                    "title": "旧日守护者"
+                },
+                "encs": [
+                    "enc_kaidi",
+                    "enc_cyril",
+                    "enc_jeremy",
+                    "enc_kanna",
+                    "enc_phrenesis",
+                    "enc_sinae",
+                    "enc_stags",
+                    "enc_tainted",
+                    "enc_tjoker",
+                    "enc_vondrey",
+                    "enc_mrreaper",
+                    "enc_mrwild"
+                ]
+            }
+        ],
+        "upgrades": [
+            {
+                "id": "becomewild",
+                "name": "融入荒野",
+                "desc": "超越将你与荒野之心分隔开来的想象屏障。",
+                "require": "(g.t_natureclass)>0&&g.tier2>0",
+                "cost": {
+                    "herbs": 100
+                },
+                "mod": {
+                    "naturelore2.max": 1
+                },
+                "group": "knowledge"
+            },
+            {
+                "id": "baneforging",
+                "name": "血祸的锻造",
+                "require": "g.crafting>=14",
+                "need": "baneanvil",
+                "desc": "手持血祸之砧，复刻他锻造魔法的方法。",
+                "cost": {
+                    "research": 1000,
+                    "tomes": 1
+                },
+                "mod": {
+                    "spellcraft.max": 2,
+                    "enchanting.max": 2
+                },
+                "group": "knowledge"
+            }
+        ]
+    }
+}

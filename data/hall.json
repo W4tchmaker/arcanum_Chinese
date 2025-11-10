@@ -1,0 +1,478 @@
+{
+	"module": "hall",
+	"sym": "🏰",
+	"data": {
+		"events": [
+			{
+				"id": "evt_hall",
+				"name": "法师殿堂",
+				"tags": "hall",
+				"desc": "跨越万古，巫师们聚集在隐秘的大厅中，交流知识，并增强他们的力量。",
+				"mod": {
+					"fame.result.hallPoints": 1
+				},
+				"result": {
+					"hallPoints": "g.fame"
+				}
+			}
+		],
+		"glossaryentries": [
+			{
+				"id": "gloss_hall",
+				"name": "wizard's hall",
+				"group": "hall",
+				"tags": "t_gloss_game_mechanic,t_gloss_hall",
+				"sym": "🛠️🏰",
+				"desc": [
+					"➢ The Wizard's Hall is Arcanum's prestige mechanic, which you unlock by purchasing the eponymous upgrade.",
+					"",
+					"➢ It can be accessed from the Player or Home Tabs.",
+					"",
+					"➢ Unlike typical prestige systems, the Hall will not reset your progress. Instead it will allow you to create new characters, you can switch between at any time.",
+					"The starting size of your hall is 3 Wizards however, this can be expanded by a further 3 each through the 'Expanded Halls' and 'Great Wing' hall upgrades. This totals out to a max of 9.",
+					"",
+					"➢ After purchasing the Wizard's hall, you will notice a 'Hall Save' button at the top of your screen. It is recommended to exclusively save through this method henceforth to retain your hall-wide progress."
+				],
+				"require": "g.tier5>0"
+			},
+			{
+				"id": "gloss_hall_upgrades",
+				"name": "potent hall upgrades",
+				"group": "hall",
+				"tags": "t_gloss_game_mechanic,t_gloss_hall",
+				"sym": "🛠️🏰",
+				"desc": [
+					"➢ The time related hall upgrades grant action slots or other powerful time-related benefits.",
+					"The time fork upgrade will grant the time split upgrade to all of your future wizards, without the need to purchase it.",
+					"A further upgrade will allow you to purchase an additional time split, after your wizard fulfills the original requirements.",
+					"An even further upgrade will provide an hour of stored time to your new wizards to rapidly progress through the early game.",
+					"",
+					"➢ The Dream Chamber hall upgrade, besides the generation of dreams (which currently are quite useless), will also unlock an alternative rest option which is stronger and perpetual.",
+					"",
+					"➢ The Star Chamber is an interesting upgrade, as it will give you a slow but steady stream of notoriety, effectively generating prestige.",
+					"A Star chamber will earn back its initial cost after around 80 hours, and as such should not be your first purchase even if it may look tempting."
+				],
+				"require": "g.evt_hall>0"
+			},
+			{
+				"id": "gloss_prestige",
+				"name": "prestige",
+				"group": "hall",
+				"tags": "t_gloss_game_mechanic,t_gloss_hall",
+				"sym": "🛠️🏰",
+				"desc": [
+					"➢ Prestige is the currency you spend on hall upgrades that affect all wizards within your hall.",
+					"",
+					"➢ Whenever a tooltip mentions fame or notoriety, it automatically also gets converted into an equal amount of prestige.",
+					"",
+					"➢ You can get notoriety by completing various tasks and dungeons. It will be mentioned among their results if they give some.",
+					"",
+					"➢ Reliable and repeatable ways to get prestige include clearing some dungeons, levelling up a wizard, getting titles, or tiering up a wizard. The higher tiers of the Education school of upgrades also provide a fair amount of prestige.",
+					"",
+					"➢ Once obtained, prestige is saved to your hall, separate from the wizard that got it. You can only lose prestige by spending it on Hall upgrades.",
+					"Dismissing a wizard from your hall to clear up space won't remove the prestige associated with that wizard, and importing a wizard won't give you any prestige."
+				],
+				"require": "g.evt_hall>0"
+			},
+			{
+				"id": "gloss_dimensionalexploration",
+				"name": "dimensional exploration",
+				"group": "hall",
+				"tags": "t_gloss_game_mechanic,t_gloss_hall",
+				"sym": "🛠️🏰",
+				"desc": [
+					"➢ While most wizards can access and study the planes most neighboring to Dhrune, researching the ones more distant is a costly and risky endeavor.",
+					"",
+					"➢ A solution to that issue is a creation of a magical dimensional probe, that can be sent to gather information about the distant planes.",
+					"",
+					"➢ There is a functionally infinite amount of planes a probe can explore and it is unlikely that there would be any benefit past a certain point.",
+					"",
+					"➢ Each dimension is harder to reach than the last, as a simple function of distance needed to traverse. The task will grow infinitely more complex as more dimensions are scanned.",
+					"The number of dimension thus searched however, can be a potent point when one wants to boast about their hall's prowess.",
+					"",
+					"➢ You can boost the main 'Prepare Dimensional Probe' task by performing it simultaneously with other complementary tasks, which include: Accelerated Preparations, Primal Attunement and Effective Preparations.",
+					"The complementary tasks are unlocked at intervals of 5 Planes Lore, with the final one being unlocked at Level 20.",
+					"",
+					"➢ The final hall upgrade unlocked by this method is called 'Furthest Dimensional Exploration Results'. Any further grinding shall only increase skill rates."
+				],
+				"require": "g.hall_dimensionalexploration>0"
+			}
+		],
+		"upgrades": [
+			{
+				"id": "greatwing",
+				"name": "侧翼大厅",
+				"tags": "hall",
+				"max": 3,
+				"desc": "殿堂里的新的侧翼大厅，可以轻松地在其中安置更多的成员。",
+				"require": "g.expandhall>=1",
+				"cost": {
+					"gold": 10000,
+					"runestones": 30,
+					"void": 3,
+					"prestige": 10
+				},
+				"mod": {
+					"expandhall.max": 1
+				}
+			},
+			{
+				"id": "starchamber",
+				"name": "星辰大厅",
+				"tags": "hall",
+				"require": "tier6",
+				"max": 3,
+				"desc": "一座用于观测星空的广阔厅室。",
+				"cost": {
+					"sindel": 3,
+					"prestige": 10,
+					"dreams": 3
+				},
+				"mod": {
+					"fame.rate": 0.000034,
+					"sindel.rate": "10%"
+				}
+			},
+			{
+				"id": "expandhall",
+				"name": "扩展大厅",
+				"tags": "hall",
+				"require": "tier5",
+				"max": 3,
+				"cost": {
+					"prestige": 50
+				},
+				"mod": {
+					"hallSize": 1
+				}
+			},
+			{
+				"id": "spellspire",
+				"name": "魔法尖塔",
+				"max": 3,
+				"tags": "hall",
+				"require": "tier6",
+				"desc": "魔法能量的导体。",
+				"cost": {
+					"prestige": 15
+				},
+				"mod": {
+					"spellcraft.max": "20%",
+					"spellcraft.rate": 2
+				}
+			},
+			{
+				"id": "dreamchamber",
+				"name": "梦境大厅",
+				"tags": "hall,t_oneiromancy",
+				"desc": "一件控梦术失传前的古老遗物。它赋予使用者驾驭梦境的能力……或被其反噬。",
+				"require": "tier5",
+				"max": 1,
+				"cost": {
+					"prestige": 40
+				},
+				"mod": {
+					"dreams.max": 5,
+					"dreams.rate": 0.0001,
+					"t_rest.effect.dreams": 0.0001
+				},
+				"flavor": "In some time and place, even dreams were once real."
+			},
+			{
+				"id": "puppet_enhancedlabs",
+				"name": "增益实验室",
+				"tags": "hall",
+				"desc": "机械助手和自动化配送系统。",
+				"require": "g.mechamancer>0",
+				"max": 5,
+				"cost": {
+					"prestige": 30,
+					"fineparts": 5
+				},
+				"mod": {
+					"potions.max": 0.4,
+					"alchemy.max": 0.4
+				}
+			},
+			{
+				"id": "titan_foundations",
+				"name": "稳固地基",
+				"tags": "hall",
+				"desc": "一种用于防止地震侵扰成员的程式。",
+				"require": "g.titan>0",
+				"max": 3,
+				"cost": {
+					"prestige": 40,
+					"deepsteel": 25
+				},
+				"mod": {
+					"space.max": 2
+				}
+			},
+			{
+				"id": "hall_time_1",
+				"name": "时间分差",
+				"tags": "hall",
+				"desc": "强制所有大厅成员的时间线分岔，而无需复杂的程序。",
+				"extdesc": "Adds a free timesplit to all wizards who do not yet own one, regardless of normal requirements.",
+				"require": "tier5",
+				"max": 1,
+				"cost": {
+					"prestige": 25
+				}
+			},
+			{
+				"id": "hall_time_2",
+				"name": "时间尖刃",
+				"tags": "hall",
+				"desc": "每天多切割一点点时间。",
+				"require": "tier5",
+				"need": "hall_time_1",
+				"max": 1,
+				"cost": {
+					"prestige": 50
+				},
+				"mod": {
+					"timesplit.max": 1
+				}
+			},
+			{
+				"id": "hall_time_3",
+				"name": "时间穿刺者 ",
+				"tags": "hall",
+				"require": "g.t_actionexpansion>0&&g.hall_time_2>0",
+				"desc": "Puncturing this senescent timeline, leak potential to the next.",
+				"need": "g.player.getWeapon().recipe=='timeedge'",
+				"needtext": "Currently equipped weapon must be Time's Flowering Edge.",
+				"max": 1,
+				"cost": {
+					"prestige": 25,
+					"chargedtimepiece": 5
+				},
+				"mod": {
+					"evt_intro.result.offlinetime": 3600
+				},
+				"modtext": "Future wizards shall start with an hour of stored time."
+			},
+			{
+				"id": "magicstables",
+				"name": "魔法马厩",
+				"tags": "stables,hall",
+				"desc": "供大厅坐骑使用的专用马厩。有助于识别那些拥有魔法天赋的人。",
+				"require": "tier5",
+				"max": 4,
+				"cost": {
+					"prestige": 10
+				},
+				"mod": {
+					"animals.max": 1,
+					"cleanstables.result.gold": 0.5,
+					"chores.result.gold": 1,
+					"errands.effect.gold": 0.15
+				}
+			},
+			{
+				"id": "arcanacollectors",
+				"name": "奥能导引室",
+				"tags": "hall",
+				"desc": "专为新晋法师练习奥术汲取的设施。",
+				"require": "tier5",
+				"max": 4,
+				"cost": {
+					"prestige": 10
+				},
+				"mod": {
+					"arcana.rate": "0.01+5%"
+				}
+			},
+			{
+				"id": "classrooms",
+				"name": "教室",
+				"tags": "hall",
+				"desc": "专用于高效学习和知识传授的教室。",
+				"require": "tier5",
+				"max": 5,
+				"cost": {
+					"prestige": 10
+				},
+				"mod": {
+					"study.effect.research": 0.15,
+					"scrolls.mod.research.rate": 0.0005
+				}
+			},
+			{
+				"id": "hall_tomeinsight",
+				"name": "洞察之书",
+				"tags": "hall",
+				"desc": "一篇关于学习本质的稀有专著。",
+				"require": "tier5",
+				"max": 2,
+				"cost": {
+					"prestige": 20
+				},
+				"mod": {
+					"arcana.max": "5+10%"
+				}
+			},
+			{
+				"id": "hall_books_basic",
+				"name": "元素学教科书",
+				"tags": "firesource,earthsource,airsource,watersource,hall",
+				"desc": "一套旨在促进元素研究的教材。",
+				"require": "tier5",
+				"max": 1,
+				"cost": {
+					"prestige": 60
+				},
+				"mod": {
+					"firelore.buy.arcana": "-100%",
+					"firelore.mod.fire.rate": 0.01,
+					"earthlore.buy.arcana": "-100%",
+					"earthlore.mod.earth.rate": 0.01,
+					"waterlore.buy.arcana": "-100%",
+					"waterlore.mod.water.rate": 0.01,
+					"airlore.buy.arcana": "-100%",
+					"airlore.mod.air.rate": 0.01
+				}
+			},
+			{
+				"id": "hall_dimensionalnexus",
+				"name": "维度枢纽",
+				"tags": "hall",
+				"desc": "一个更高级版本的德鲁尼克枢纽，允许对位面进行更深入的探索。",
+				"require": "g.tier6>0&&g.gate>0",
+				"max": 1,
+				"cost": {
+					"prestige": 40
+				},
+				"mod": {
+					"t_furn_portal.mod.space.base": "-50%"
+				}
+			},
+			{
+				"id": "hall_dimensionalexploration",
+				"name": "维度探查",
+				"tags": "hall",
+				"desc": "亲自跨越位面之间的广阔距离是一项既冒险又昂贵的尝试。请使用一个探测器来代替研究它们。",
+				"require": "g.hall_dimensionalnexus>0",
+				"max": 1,
+				"cost": {
+					"prestige": 10
+				}
+			},
+			{
+				"id": "hall_probing_mastery1",
+				"name": "早期维度探查结果",
+				"tags": "hall",
+				"desc": "知名位面： 火焰、黑暗、虚空。多数巫师会认为这些信息过于基础，但全面的调查仍具有价值。",
+				"require": "g.hall_probedepth>=5",
+				"max": 1,
+				"mod": {
+					"planeslore.max": 1
+				}
+			},
+			{
+				"id": "hall_probing_mastery2",
+				"name": "更深的维度探查结果",
+				"tags": "hall",
+				"desc": "鲜为人知的位面： 存在之物、佐罗赫德隆、憎恶位面。它们对德鲁尼生物的存在具有敌意，但我们可以放心，这些位面的居民也无法在德鲁尼上生存。",
+				"require": "g.hall_probedepth>=25",
+				"max": 1,
+				"mod": {
+					"planeslore.max": 2
+				}
+			},
+			{
+				"id": "hall_probing_mastery3",
+				"name": "最远维度探索结果",
+				"tags": "hall",
+				"desc": "此前未知的位面。就目前而言，其运行法则对德鲁尼的居民来说在很大程度上是不可理解的。进一步探索在实际见解方面不会有太大产出。",
+				"require": "g.hall_probedepth>=100",
+				"max": 1,
+				"mod": {
+					"planeslore.max": 3
+				}
+			}
+		],
+		"resources": [
+			{
+				"id": "hall_probematerials",
+				"name": "维度探查材料",
+				"desc": "为进一步推进维度探测而准备妥当的材料。",
+				"max": 30,
+				"group": "hall",
+				"convert": {
+					"singular": true,
+					"input": {
+						"hall_probematerials": "g.hall_probematerials.max"
+					},
+					"output": {
+						"effect": {
+							"hall_probedepth": 1
+						}
+					}
+				}
+			}
+		],
+		"stats": [
+			{
+				"id": "hall_probedepth",
+				"name": "探查维度",
+				"tags": "hall",
+				"locked": false,
+				"mod": {
+					"hall_probematerials.max": 10,
+					"planeslore.rate": "0.5%",
+					"voidlore.rate": "0.5%"
+				}
+			},
+			{
+				"id": "hallSize",
+				"name": "殿堂规模",
+				"tags": "hall",
+				"locked": false,
+				"val": 3
+			},
+			{
+				"id": "hallPoints",
+				"name": "声望",
+				"tags": "hall",
+				"alias": "points",
+				"hide": true,
+				"locked": false,
+				"val": 0,
+				"mod": {
+					"prestige": 1
+				}
+			},
+			{
+				"id": "prestige",
+				"name": "殿堂声望",
+				"tags": "hall",
+				"require": "evt_hall",
+				"val": 0,
+				"locked": false,
+				"mod": {
+					"skill.rate": "0.1%",
+					"stress.max": "0.1%"
+				}
+			}
+		],
+		"classes": [
+			{
+				"id": "pillarfire",
+				"name": "火焰之柱",
+				"desc": "",
+				"max": 1,
+				"tags": "t_tier7",
+				"require": "g.planeslore>=999",
+				"cost": {},
+				"mod": {
+					"tier7": true
+				}
+			}
+		],
+		"tags": [],
+		"tasks": []
+	}
+}

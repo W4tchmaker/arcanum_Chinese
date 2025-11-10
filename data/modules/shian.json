@@ -1,0 +1,634 @@
+{
+    "module": "shian",
+    "author": "evil tyrant",
+    "data": {
+        "events": [
+            {
+                "id": "evt_breakthrough0",
+                "name": "突破",
+                "desc": "你对灵魂的理解有了突破！现在一切都如此清晰。",
+                "require": "g.spirit.max>=20&&g.shian>0",
+                "mod": {
+                    "spiritlore.max": 1
+                }
+            },
+            {
+                "id": "evt_breakthrough1",
+                "name": "突破",
+                "desc": "你对灵魂的理解有了突破！现在一切都如此清晰。",
+                "require": "g.tier5>0&&g.evt_breakthrough0>0",
+                "mod": {
+                    "breakthrough.max": 1
+                }
+            },
+            {
+                "id": "evt_breakthrough2",
+                "name": "突破",
+                "desc": "你对灵魂的理解有了突破！现在一切都如此清晰。",
+                "require": "g.tier6>0&&g.evt_breakthrough1>0",
+                "mod": {
+                    "breakthrough.max": 1
+                }
+            },
+            {
+                "id": "evt_sworduse",
+                "name": "神秘武艺",
+                "desc": "剑气纵横，你的造诣更上一层楼。",
+                "require": "g.tier5>0&&g.sworduse>0",
+                "mod": {
+                    "sworduse.max": 1
+                }
+            },
+            {
+                "id": "evt_sworduse2",
+                "name": "神秘武艺",
+                "desc": "剑气纵横，你的造诣更上一层楼。",
+                "require": "g.tier6>0&&g.evt_sworduse>0",
+                "mod": {
+                    "sworduse.max": 1
+                }
+            },
+            {
+                "id": "evt_hole",
+                "name": "公众骚动",
+                "desc": "一座巨大的尖塔在附近拔地而起，不少人正在碰运气，如果你想抢占先机，最好快点。",
+                "require": [
+                    "mtgorborung",
+                    "tier3"
+                ]
+            },
+            {
+                "id": "evt_hole2",
+                "name": "先行者",
+                "desc": "你是第一个到达顶峰的人，你发现了一些前所未见的书籍。",
+                "require": "g.tier3>0&&g.unstablespire>0&&g.tier4==0"
+            },
+            {
+                "id": "evt_hole3",
+                "name": "顶峰",
+                "desc": "你已到达顶峰，但似乎其他人已经拿走了这里的东西。",
+                "require": "g.tier4>0&&g.unstablespire>0&&g.evt_hole2<=0"
+            }
+        ],
+        "tasks": [
+            {
+                "id": "gathersouls",
+                "name": "捕魂者",
+                "require": "g.shian>0",
+                "desc": "束缚世间游荡的亡魂。",
+                "length": 180,
+                "cost": {
+                    "spiritgem": 5
+                },
+                "result": {
+                    "souls.max": 5,
+                    "souls": 20
+                },
+                "group": "storage"
+            },
+            {
+                "id": "mkcave",
+                "name": "挖一个更大的洞穴",
+                "require": "(g.earthlore+g.spiritlore)>=20&&g.shian>0",
+                "desc": "建造一个地下家园，那里魔法强大，灵魂充裕。",
+                "length": 1800,
+                "max": 1,
+                "cost": {
+                    "herbs": 50
+                },
+                "run": {
+                    "stamina": 5,
+                    "earth": 3,
+                    "mana": 1,
+                    "spirit": 1
+                },
+                "mod": {
+                    "cave.mod.space.max": 475,
+                    "cave.mod.minions.max": 8,
+                    "cave.mod.research.rate": 1.5,
+                    "cave.mod.mana.rate": 0.2,
+                    "cave.mod.spirit.rate": 0.5
+                },
+                "flavor": "这需要一些时间...",
+                "group": "housing"
+            },
+            {
+                "id": "mkpagoda",
+                "name": "建造一个美丽的家园",
+                "require": "g.mkcave>0&&g.tier6>0&&g.shian>0",
+                "desc": "建造一个家园，在那里你可以精进神秘剑术，并拥有充裕的灵魂。",
+                "length": 1800,
+                "max": 1,
+                "run": {
+                    "gold": 100,
+                    "stamina": 1,
+                    "earth": 1,
+                    "mana": 1,
+                    "fire": 1,
+                    "air": 1,
+                    "spirit": 1
+                },
+                "flavor": "这还需要一些时间...",
+                "group": "housing"
+            },
+            {
+                "id": "soulflag",
+                "name": "制作魂幡",
+                "require": "g.spiritlore>=13&&g.shian>0",
+                "desc": "周围有如此多的灵魂，一定有办法让它们不碍事。",
+                "length": 100,
+                "max": 1,
+                "run": {
+                    "research": 50,
+                    "souls": 1
+                },
+                "mod": {
+                    "souls.max": 5,
+                    "souls.rate": 0.01
+                },
+                "group": "storage"
+            },
+            {
+                "id": "soulflag2",
+                "name": "改良魂幡",
+                "require": "g.soulflag>0&&g.shian>0",
+                "desc": "还有空间容纳更多灵魂。",
+                "length": 900,
+                "max": 1,
+                "run": {
+                    "research": 50,
+                    "souls": 1
+                },
+                "mod": {
+                    "souls.max": 15,
+                    "souls.rate": 0.02,
+                    "spiritart.attack.damage.max": 3,
+                    "spiritart.attack.damage.min": 3,
+                    "spiritart.attack.tohit": 3
+                },
+                "group": "spellcasting"
+            },
+            {
+                "id": "soulflag3",
+                "name": "完成魂幡",
+                "require": "g.soulflag2>0&&g.shian>0",
+                "need": "g.inv.max-g.inv._used>=1",
+                "needtext": "Must have at least 1 inventory space free.",
+                "desc": "内含万千灵魂，此乃强大之器。",
+                "length": 9000,
+                "max": 1,
+                "run": {
+                    "research": 50,
+                    "souls": 1
+                },
+                "mod": {
+                    "souls.max": 45,
+                    "souls.rate": 0.03
+                },
+                "loot": {
+                    "itemsoulflag": 1
+                },
+                "group": "weapon"
+            },
+            {
+                "id": "soulflagreacquire",
+                "name": "重织魂幡",
+                "require": "g.soulflag3>0&&g.shian>0",
+                "need": "g.inv.max-g.inv._used>=1",
+                "needtext": "Must have at least 1 inventory space free.",
+                "desc": "即使已成碎片，亦可修复如初。",
+                "length": 60,
+                "run": {
+                    "stamina": 3,
+                    "souls": 1
+                },
+                "loot": {
+                    "itemsoulflag": 1
+                },
+                "group": "weapon"
+            }
+        ],
+        "homes": [
+            {
+                "id": "shianpagoda",
+                "name": "雅致宝塔",
+                "desc": "一座宁静的建筑，你可以在此全身心投入你的技艺。",
+                "require": "g.mkpagoda>0",
+                "mod": {
+                    "space.max": 550,
+                    "minions.max": 10,
+                    "sworduse.max": 1,
+                    "breakthrough.max": 1,
+                    "spirit.rate": 0.3,
+                    "herbs.max": 5
+                }
+            }
+        ],
+        "upgrades": [
+            {
+                "id": "sworduse",
+                "name": "神秘剑术",
+                "desc": "尖塔中出现了奇特有趣的武器；或许你能找到它们的用途。",
+                "require": "shian",
+                "max": 1,
+                "cost": {
+                    "gold": 3000,
+                    "research": 2500,
+                    "mana": 10
+                },
+                "mod": {
+                    "swordart.attack.damage.max": 2,
+                    "swordart.attack.damage.min": 2,
+                    "swordart.attack.tohit": 2,
+                    "throw_swords.summon.0.max": 3
+                },
+                "group": "spellcasting"
+            },
+            {
+                "id": "breakthrough",
+                "desc": "你的精神冥想取得了突破。",
+                "require": "evt_breakthrough0",
+                "max": 1,
+                "cost": {
+                    "spirit": 15
+                },
+                "mod": {
+                    "spiritart.attack.damage.max": 2,
+                    "spiritart.attack.damage.min": 2,
+                    "spiritart.attack.tohit": 1,
+                    "soulart.attack.dot.damage.max": 1,
+                    "soulart.attack.dot.damage.min": 1,
+                    "throw_swords.summon.0.max": 1
+                },
+                "group": "spellcasting"
+            },
+            {
+                "id": "fastsoul",
+                "name": "精炼技术",
+                "desc": "制作旗帜等物品的方法，但并不会使其更便宜。",
+                "require": "g.tier5>0&&g.soulflag2>0",
+                "mod": {
+                    "soulflag3.length": "-50%",
+                    "soulflag3.run.souls": 1
+                },
+                "group": "crafting"
+            }
+        ],
+        "spells": [
+            {
+                "id": "throw_swords",
+                "name": "失传剑术：飞剑",
+                "sortOrder": 1740,
+                "level": 11,
+                "school": "shian",
+                "tags": "swordart",
+                "keywords": {
+                    "type": [
+                        "damage",
+                        "summon"
+                    ],
+                    "target": [
+                        "enemy",
+                        "ally"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "sworduse",
+                "buy": {
+                    "research": 1000,
+                    "codices": 10,
+                    "spiritgem": 10
+                },
+                "cost": {
+                    "mana": 10,
+                    "vigor": 5
+                },
+                "result": {
+                    "lore.exp": 1,
+                    "weaponlore.exp": 0.5
+                },
+                "attack": {
+                    "targets": "enemies",
+                    "maxTargets": 999,
+                    "damage": "20~30",
+                    "kind": "slash",
+                    "tohit": 2,
+                    "potencies": [
+                        "spelldmg",
+                        "slashdmg",
+                        "sworddmg"
+                    ]
+                },
+                "summon": [
+                    {
+                        "id": "sum_magicblade",
+                        "count": 2,
+                        "max": 0
+                    }
+                ]
+            },
+            {
+                "id": "giantkilling",
+                "name": "失传剑术：巨人之殇",
+                "sortOrder": 300,
+                "level": 12,
+                "school": "shian",
+                "tags": "swordart",
+                "keywords": {
+                    "type": [
+                        "damage",
+                        "debuff"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.sworduse>=2",
+                "buy": {
+                    "research": 1000,
+                    "codices": 10,
+                    "spiritgem": 10
+                },
+                "cost": {
+                    "gems": 1,
+                    "mana": 12,
+                    "vigor": 7
+                },
+                "result": {
+                    "lore.exp": 1.4,
+                    "weaponlore.exp": 0.9
+                },
+                "attack": {
+                    "damage": "35~65",
+                    "kind": "slash",
+                    "potencies": [
+                        "spelldmg",
+                        "slashdmg",
+                        "sworddmg"
+                    ],
+                    "tohit": 2,
+                    "dot": {
+                        "duration": 10,
+                        "mod": {
+                            "self.defense": -10
+                        }
+                    }
+                }
+            },
+            {
+                "id": "soulstrike",
+                "name": "魂术：灵魂打击",
+                "sortOrder": 1001,
+                "level": 6,
+                "school": "shian",
+                "tags": "spiritart",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.shian>0&&g.soulflag>0",
+                "buy": {
+                    "research": 1000,
+                    "codices": 10,
+                    "spiritgem": 10
+                },
+                "cost": {
+                    "souls": 1,
+                    "spirit": 1
+                },
+                "result": {
+                    "spiritlore.exp": 0.2
+                },
+                "attack": {
+                    "damage": "20~29",
+                    "kind": "spirit",
+                    "tohit": 3,
+                    "potencies": [
+                        "spelldmg",
+                        "spiritdmg"
+                    ]
+                }
+            },
+            {
+                "id": "soullure",
+                "name": "魂牌：引魂",
+                "desc": "将敌人的灵魂从其凡躯中引出。",
+                "sortOrder": 1002,
+                "level": 10,
+                "school": "shian",
+                "tags": "soulart",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ]
+                },
+                "require": "g.shian>0&&g.soulflag2>0",
+                "buy": {
+                    "research": 1000,
+                    "codices": 10,
+                    "spiritgem": 20
+                },
+                "cost": {
+                    "spirit": 10
+                },
+                "result": {
+                    "spiritlore.exp": 1
+                },
+                "attack": {
+                    "tohit": 4,
+                    "targets": "enemies",
+                    "maxTargets": 999,
+                    "dot": {
+                        "id": "soullure",
+                        "kind": "spirit",
+                        "duration": 10,
+                        "damage": "10~15",
+                        "potencies": [
+                            "spelldmg",
+                            "spiritdmg"
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "soulriver",
+                "name": "魂术：灵魂之河",
+                "sortOrder": 1000,
+                "level": 15,
+                "school": "shian",
+                "tags": "spiritart",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.shian>0&&g.soulflag3>0",
+                "buy": {
+                    "research": 1000,
+                    "codices": 10,
+                    "spiritgem": 10
+                },
+                "cost": {
+                    "souls": 15,
+                    "spirit": 5
+                },
+                "result": {
+                    "spiritlore.exp": 2
+                },
+                "attack": {
+                    "damage": "80~110",
+                    "kind": "spirit",
+                    "tohit": 5,
+                    "potencies": [
+                        "spelldmg",
+                        "spiritdmg"
+                    ]
+                }
+            }
+        ],
+        "classes": [
+            {
+                "id": "shian",
+                "name": "汐安隐士",
+                "desc": "一种来自海外的古老魔法，融合了灵魂与刀剑。",
+                "secret": true,
+                "tags": "t_tier4,t_swordclass,t_spiritclass",
+                "require": "g.tier3>0&&(g.unstablespire>0||g.up_shian>0)&&g.spiritlore>=15&&g.weaponlore>=8",
+                "cost": {
+                    "research": 25000,
+                    "arcana": 25,
+                    "tomes": 100,
+                    "ichor": 2
+                },
+                "mod": {
+                    "spiritlore.max": 3
+                },
+                "flavor": "对微小与宏大之物的沉思。"
+            }
+        ],
+        "rares": [
+            {
+                "id": "itemsoulflag",
+                "name": "魂幡",
+                "desc": "万千灵魂被其布料所束缚。",
+                "type": "weapon",
+                "slot": "mainhand",
+                "unique": true,
+                "damage": "60~70",
+                "attack": {
+                    "kind": "spirit",
+                    "damage": "(i.damage||0)"
+                },
+                "alter": {
+                    "mod": {
+                        "spirit.max": 10,
+                        "souls.rate": 0.5,
+                        "spiritart.attack.damage.max": 5,
+                        "spiritart.attack.damage.min": 5,
+                        "spiritart.attack.tohit": 5
+                    }
+                },
+                "kind": "flag",
+                "tags": "flag",
+                "level": 15,
+                "sell": {
+                    "souls": 1
+                }
+            }
+        ],
+        "dungeons": [
+            {
+                "id": "unstablespire",
+                "name": "不稳之塔",
+                "flavor": "有些事物，就让时间去决定吧。",
+                "desc": "一座从地面升起的巨大尖塔。它看起来随时都可能坍塌。",
+                "biome": [
+                    "cave",
+                    "mountain"
+                ],
+                "difficulty": "💀💀💀",
+                "sortOrder": 49,
+                "require": "evt_hole",
+                "dist": 50,
+                "run": {
+                    "stamina": 2
+                },
+                "result": {
+                    "fame": 1,
+                    "gems": "10~20",
+                    "gold": "100~200",
+                    "basiliskhide": "10~20"
+                },
+                "length": 400,
+                "spawns": {
+                    "level": "4~42",
+                    "range": 3,
+                    "quantity": "1~3",
+                    "quantitypenalty": 0.16
+                }
+            }
+        ],
+        "hall": {
+            "data": {
+                "upgrades": [
+                    {
+                        "id": "up_shian",
+                        "name": "魂术论",
+                        "sym": "🏰",
+                        "max": 1,
+                        "desc": "从不稳之塔顶端获得的一系列典籍，详细记载了被认为早已失传的操纵灵魂之法。",
+                        "tags": "spiritsource,hall",
+                        "extdesc": "“汐安隐士”四阶职业将不再需要击败不稳之塔。",
+                        "require": "g.evt_hole2>0",
+                        "mod": {
+                            "spiritlore.buy.arcana": "-100%",
+                            "spiritlore.mod.spirit.rate": 0.01
+                        },
+                        "result": {
+                            "fame": 5
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

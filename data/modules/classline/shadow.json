@@ -1,0 +1,3349 @@
+{
+    "module": "shadow",
+    "data": {
+        "classes": [
+            {
+                "id": "witch",
+                "name":"巫师",
+                "actdesc": "进入巫术修行。",
+                "flavor": "“你做了什么？”“一件无名之举”",
+                "tags": "t_tier1,t_shadowclass,t_demonclass,t_potionclass",
+                "require": "g.tier0>0&&g.animals>=2&&g.potions>=3&&g.tier1==0",
+                "cost": {
+                    "research": 250,
+                    "codices": 5,
+                    "gold": 200,
+                    "arcana": 13
+                },
+                "mod": {
+                    "research.max": 10,
+                    "demonology.max": 2,
+                    "potions.max": 2,
+                    "spiritlore.max": 2
+                }
+            },
+            {
+                "id": "darkmagician",
+                "name": "黑暗法师",
+                "desc": "黑魔法的信徒。",
+                "tags": "t_tier2,t_shadowclass,t_demonclass,t_knowledgeclass",
+                "require": "g.tier1>0&&g.shadowlore>=10",
+                "cost": {
+                    "research": 1000,
+                    "codices": 5,
+                    "arcana": 13,
+                    "gold": 300,
+                    "gems": 10
+                },
+                "mod": {
+                    "evilamt": 5,
+                    "research.max": 100,
+                    "mana.max": 3,
+                    "mana.rate": 0.2,
+                    "shadowlore.mod.mana.rate": 0.02,
+                    "shadowlore.max": 1,
+                    "demonology.max": 2,
+                    "lore.max": 1
+                }
+            },
+            {
+                "id": "dreadlord",
+                "name": "恐惧领主",
+                "desc": "毁灭的预兆。",
+                "tags": "t_tier3,t_shadowclass,t_swordclass",
+                "require": "g.tier2>0&&g.evil2>0&&g.hp>=100",
+                "cost": {
+                    "research": 1500,
+                    "tomes": 5,
+                    "shadowgem": 10,
+                    "arcana": 20
+                },
+                "mod": {
+                    "player.tohit": 1,
+                    "hp.max": "10%",
+                    "arcanebody.max": 1,
+                    "arcanebody2.max": 1,
+                    "bladelore.max": 1,
+                    "shadowlore.max": 2
+                }
+            },
+            {
+                "id": "warlock",
+                "name": "邪术士",
+                "desc": "恶魔与恶魔魔法的大师。",
+                "tags": "t_tier4,t_shadowclass,t_demonclass,t_summonclass",
+                "require": "g.tier3>0&&g.evil2>0",
+                "cost": {
+                    "research": 6000,
+                    "arcana": 25,
+                    "tomes": 10,
+                    "runestones": 5
+                },
+                "mod": {
+                    "anatomy.max": 3,
+                    "lore.rate": "10%",
+                    "lore.max": 2,
+                    "firelore.max": 1,
+                    "shadowlore.max": 2,
+                    "demonology.max": 3
+                }
+            },
+            {
+                "id": "archlock",
+                "name": "战斗巫师",
+                "desc": "恶魔与恶魔魔法的大师。",
+                "flavor": "在封印之战中，七位强者为争夺绝对力量而狂怒，德鲁恩在他们身后颤抖。",
+                "tags": "t_tier5,t_shadowclass,t_demonclass,t_summonclass",
+                "require": "g.warlock>0&&g.demonology>=12&&g.evil3>0",
+                "cost": {
+                    "research": 15000,
+                    "tomes": 20,
+                    "arcana": 25,
+                    "runestones": 5
+                },
+                "mod": {
+                    "lore.max": 2,
+                    "firelore.max": 3,
+                    "demonology.max": 5
+                }
+            },
+            {
+                "id": "deathlock",
+                "name": "死亡术士",
+                "desc": "巫术与恶魔学的邪恶结合。",
+                "flavor": "纳兹、博迪亚斯、维齐亚尔。即使在首席封印师中，有些名字也令人不寒而栗。",
+                "tags": "t_tier6,t_shadowclass,t_demonclass,t_summonclass",
+                "require": "g.tier5>0&&g.demonology>=19&&g.evil3>0",
+                "cost": {
+                    "research": 20000,
+                    "tomes": 10,
+                    "arcana": 60,
+                    "firerune": 10,
+                    "runestones": 5
+                },
+                "mod": {
+                    "earthlore.max": 2,
+                    "firelore.max": 3,
+                    "shadowlore.max": 3,
+                    "demonology.max": 5
+                }
+            },
+            {
+                "id": "reanimator",
+                "name": "复生术士",
+                "desc": "创造并复活生命物质。",
+                "flavor": "死者亦有其用。",
+                "tags": "t_tier1,t_shadowclass,t_necroclass",
+                "require": "g.tier0>0&&g.evil1>0&&g.good2==0",
+                "cost": {
+                    "research": 500,
+                    "codices": 5,
+                    "gold": 300,
+                    "arcana": 11
+                },
+                "mod": {
+                    "research.max": 10,
+                    "mana.max": 1,
+                    "reanimation.max": 3,
+                    "embalming.max": 1,
+                    "shadowlore.max": 2,
+                    "spiritlore.max": 2,
+                    "potions.max": 1
+                }
+            },
+            {
+                "id": "bonemonger",
+                "name": "集骨者",
+                "desc": "用死者的残骸延长你的生命。",
+                "flavor": "死者亦有其用。",
+                "tags": "t_tier2,t_shadowclass,t_necroclass",
+                "require": "g.tier1>0&&g.t_necroclass>0&&g.evil1>0",
+                "cost": {
+                    "research": 500,
+                    "codices": 10,
+                    "bodies": 3,
+                    "bones": 10,
+                    "bonedust": 15,
+                    "arcana": 7
+                },
+                "mod": {
+                    "evilamt": 10,
+                    "research.max": 10,
+                    "reanimation.max": 2,
+                    "embalming.max": 1,
+                    "shadowlore.max": 3,
+                    "spiritlore.max": 1,
+                    "potions.max": 1
+                }
+            },
+            {
+                "id": "thanophage",
+                "name": "噬魂者",
+                "desc": "吸取尸体残余的生命力，以延续你黯淡的存在。",
+                "tags": "t_tier3,t_shadowclass,t_bloodclass",
+                "require": "g.tier2>0&&g.evil2>0",
+                "cost": {
+                    "research": 1500,
+                    "tomes": 5,
+                    "bloodgem": 10,
+                    "arcana": 15
+                },
+                "mod": {
+                    "evilamt": 20,
+                    "bloodgem.max": 10,
+                    "bodies.mod.bloodsiphon.effect.hp": 0.05,
+                    "research.max": 25,
+                    "shadowlore.max": 2,
+                    "anatomy.max": 3,
+                    "lore.max": 2
+                }
+            },
+            {
+                "id": "necromancer",
+                "name": "死灵法师",
+                "desc": "死亡魔法大师。",
+                "tags": "t_tier4,t_shadowclass,t_necroclass,t_minionclass",
+                "require": "g.tier3>0&&g.evil2>0&&g.shadowlore>=17",
+                "cost": {
+                    "research": 2000,
+                    "tomes": 20,
+                    "bloodgem": 30,
+                    "shadowgem": 30,
+                    "arcana": 10,
+                    "runestones": 5
+                },
+                "mod": {
+                    "embalming.max": 1,
+                    "reanimation.max": 2,
+                    "shadowlore.max": 2,
+                    "potions.max": 1,
+                    "necromancy.max": 3,
+                    "spiritlore.max": 2
+                }
+            },
+            {
+                "id": "greynecromancer",
+                "name": "灰袍死灵法师",
+                "desc": "死亡的门徒。",
+                "tags": "t_tier5,t_shadowclass,t_necroclass,t_minionclass",
+                "require": "g.tier4>0&&g.phylactory>0",
+                "cost": {
+                    "research": 17000,
+                    "bones": 100,
+                    "bodies": 50,
+                    "souls": 100,
+                    "arcana": 10,
+                    "runestones": 10
+                },
+                "mod": {
+                    "lore.max": 2,
+                    "embalming.max": 2,
+                    "necromancy.max": 3,
+                    "reanimation.max": 3,
+                    "shadowlore.max": 2,
+                    "spiritlore.max": 2
+                }
+            },
+            {
+                "id": "necro3",
+                "name": "亡灵法师",
+                "desc": "在每个时代，死亡都会任命她的总督。",
+                "flavor": "灰袍们恐惧地低下了头。",
+                "tags": "t_tier6,t_shadowclass,t_necroclass,t_minionclass",
+                "require": "g.tier5>0&&g.up_lich>0",
+                "cost": {
+                    "research": 17000,
+                    "bones": 100,
+                    "bodies": 50,
+                    "souls": 100,
+                    "arcana": 25,
+                    "earthrune": 10,
+                    "runestones": 10
+                },
+                "mod": {
+                    "lore.max": 1,
+                    "spellcraft.max": 1,
+                    "embalming.max": 1,
+                    "necromancy.max": 3,
+                    "reanimation.max": 3,
+                    "shadowlore.max": 2,
+                    "spiritlore.max": 2
+                }
+            }
+        ],
+        "skills": [
+            {
+                "id": "shadowlore2",
+                "name": "暗影精通",
+                "desc": "对暗影的精通。",
+                "level": 15,
+                "require": "g.shadowlore>=10&&g.t_shadowclass>0",
+                "buy": {
+                    "arcana": 50
+                },
+                "run": {
+                    "stamina": 1,
+                    "shadow": 0.5
+                },
+                "mod": {
+                    "shadow.max": 1,
+                    "shadow.rate": "1%",
+                    "shadowdmg": 3
+                }
+            },
+            {
+                "id": "dissection",
+                "name": "解体学",
+                "level": 5,
+                "school": "shadow",
+                "require": "g.t_necroclass>0",
+                "buy": {
+                    "arcana": 15
+                },
+                "run": {
+                    "stamina": 0.4
+                },
+                "result": {
+                    "bodies": 0.25
+                },
+                "mod": {
+                    "research.max": 5
+                }
+            },
+            {
+                "id": "embalming",
+                "name": "防腐术",
+                "level": 5,
+                "school": "shadow",
+                "require": "g.dissection>=3",
+                "buy": {
+                    "arcana": 20
+                },
+                "run": {
+                    "stamina": 0.4
+                },
+                "mod": {
+                    "research.max": 1,
+                    "shadow.rate": 0.01
+                }
+            },
+            {
+                "id": "reanimation",
+                "name": "复活术",
+                "level": 5,
+                "school": "shadow",
+                "require": "g.evil1>0&&g.embalming>=3",
+                "need": "g.good3==0",
+                "needtext": "Cannot be incorruptible.",
+                "buy": {
+                    "arcana": 25
+                },
+                "run": {
+                    "stamina": 0.3,
+                    "shadow": 0.1
+                },
+                "mod": {
+                    "shadow.rate": 0.01,
+                    "allies.max": 0.2,
+                    "necromancy.rate": 0.05
+                }
+            },
+            {
+                "id": "necromancy",
+                "name": "死灵魔法",
+                "desc": "禁忌的死亡魔法。",
+                "level": 5,
+                "school": "shadow",
+                "require": "g.evil2>0&&g.reanimation>=7",
+                "need": "g.good2==0",
+                "needtext": "Cannot be scrupulous.",
+                "buy": {
+                    "arcana": 30,
+                    "souls": 3
+                },
+                "run": {
+                    "stamina": 0.4,
+                    "shadow": 0.5
+                },
+                "mod": {
+                    "reanimation.rate": 0.05,
+                    "shadow.rate": 0.01
+                }
+            },
+            {
+                "id": "undeadmastery",
+                "name": "亡灵精通",
+                "level": 5,
+                "school": "shadow",
+                "require": "g.reanimation>0",
+                "buy": {
+                    "bodies": 2
+                },
+                "run": {
+                    "bodies": 0.1,
+                    "shadow": 1.5
+                },
+                "mod": {
+                    "t_summon_undead.statedata.hp.max": "10%",
+                    "t_summon_undead.speed": 1,
+                    "minions.t_minion_undead.hp.max": "10%",
+                    "minions.t_minion_undead.hp.rate": 0.2,
+                    "minions.t_minion_undead.defense": "10%",
+                    "minions.t_minion_undead.speed": 1
+                }
+            },
+            {
+                "id": "shademastery",
+                "name": "幽影精通",
+                "level": 15,
+                "school": "shadow",
+                "require": "g.necromancy>0&&g.t_necroclass>=2",
+                "buy": {
+                    "souls": 10
+                },
+                "run": {
+                    "souls": 0.1,
+                    "shadow": 2.5
+                },
+                "mod": {
+                    "t_summon_shade.statedata.barrier.max": "10%",
+                    "t_summon_shade.speed": 1,
+                    "minions.t_minion_shade.barrier.max": "10%",
+                    "minions.t_minion_shade.recharge": "10%",
+                    "minions.t_minion_shade.defense": "10%",
+                    "minions.t_minion_shade.speed": 1
+                }
+            },
+            {
+                "id": "demonology",
+                "name": "恶魔学识",
+                "level": 5,
+                "require": "g.t_shadowclass>0",
+                "buy": {
+                    "arcana": 20
+                },
+                "run": {
+                    "stamina": 0.4,
+                    "hp": 1
+                },
+                "mod": {
+                    "arcana.max": 0.1,
+                    "lore.rate": 0.1,
+                    "research.max": 3
+                }
+            }
+        ],
+        "resources": [
+            {
+                "id": "bodies",
+                "name": "尸体",
+                "desc": "用于死灵魔法的尸体。",
+                "group": "necromancy",
+                "max": 1,
+                "sortOrder": 705,
+                "mod": {
+                    "dissection.rate": 0.01,
+                    "embalming.rate": 0.01
+                }
+            },
+            {
+                "id": "skulls",
+                "name": "头骨",
+                "desc": "人类头骨。",
+                "group": "necromancy",
+                "max": 5,
+                "sortOrder": 710
+            },
+            {
+                "id": "bones",
+                "name": "骨骼",
+                "desc": "人类骨骼。",
+                "group": "necromancy",
+                "max": 10,
+                "sortOrder": 715
+            },
+            {
+                "id": "bonedust",
+                "name": "骨灰",
+                "desc": "人类骨骼的灰尘。",
+                "group": "necromancy",
+                "max": 10,
+                "sortOrder": 720
+            },
+            {
+                "id": "souls",
+                "name" : "灵魂",
+                "desc": "被囚禁的活物灵魂。",
+                "flavor": "这错了吗？",
+                "group": "necromancy",
+                "max": 1,
+                "sortOrder": 725,
+                "mod": {
+                    "shadow.rate": 0.001,
+                    "spirit.rate": 0.001,
+                    "spiritlore.rate": 0.01
+                }
+            }
+        ],
+        "spells": [
+            {
+                "id": "waveofdarkness",
+                "name": "黑暗波涛",
+                "sortOrder": 1200,
+                "level": 9,
+                "school": "shadow",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.shadowlore>=20&&g.tier3>0&&(g.t_shadowclass)>0",
+                "buy": {
+                    "research": 100,
+                    "scrolls": 10,
+                    "shadowgem": 3
+                },
+                "cost": {
+                    "shadow": 6
+                },
+                "attack": {
+                    "targets": "enemies",
+                    "maxTargets": 999,
+                    "damage": "15~35",
+                    "kind": "shadow",
+                    "potencies": [
+                        "spelldmg",
+                        "shadowdmg"
+                    ]
+                }
+            },
+            {
+                "id": "darkfeast",
+                "name": "黑暗盛宴",
+                "desc": "从附近的一切事物中撕扯生命力并吞噬，以恢复自身。",
+                "sortOrder": 1201,
+                "level": 10,
+                "school": "shadow",
+                "keywords": {
+                    "type": [
+                        "damage",
+                        "recovery"
+                    ],
+                    "target": [
+                        "self",
+                        "ally",
+                        "enemy"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.shadowlore>=15&&g.tier3>0&&(g.t_shadowclass+g.shadowlore2)>0",
+                "buy": {
+                    "research": 5000,
+                    "shadowgem": 20,
+                    "tomes": 10
+                },
+                "need": "g.good2==0",
+                "needtext": "Cannot be scrupulous.",
+                "cost": {
+                    "shadow": 9
+                },
+                "cd": 5,
+                "attack": {
+                    "targets": "epicenter",
+                    "maxTargets": 999,
+                    "kind": "shadow",
+                    "leech": 1,
+                    "damage": "15~20",
+                    "potencies": [
+                        "spelldmg",
+                        "shadowdmg"
+                    ]
+                },
+                "result": {
+                    "evilamt": 0.1,
+                    "virtue": -1
+                }
+            },
+            {
+                "id": "lifedrain",
+                "name": "生命汲取",
+                "sortOrder": 1203,
+                "level": 12,
+                "school": "shadow",
+                "keywords": {
+                    "type": [
+                        "damage",
+                        "recovery"
+                    ],
+                    "target": [
+                        "enemy",
+                        "self"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ]
+                },
+                "require": "g.necromancy>=8&&g.shadowlore>=25",
+                "buy": {
+                    "research": 5000,
+                    "shadowgem": 20,
+                    "tomes": 10
+                },
+                "need": "g.good2==0",
+                "needtext": "Cannot be scrupulous.",
+                "cost": {
+                    "shadow": 7
+                },
+                "attack": {
+                    "targetspec": {
+                        "notaffectedby": {
+                            "condition": [
+                                "lifedrain_dot"
+                            ],
+                            "conditiontext": "life drain"
+                        }
+                    },
+                    "dot": {
+                        "id": "lifedrain_dot",
+                        "kind": "shadow",
+                        "leech": 0.75,
+                        "duration": 60,
+                        "damage": "15~30",
+                        "potencies": [
+                            "spelldmg",
+                            "shadowdmg"
+                        ]
+                    }
+                },
+                "at": {
+                    "25": {
+                        "attack.dot.damage.max": 5
+                    },
+                    "75": {
+                        "attack.dot.damage.min": 5
+                    },
+                    "300": {
+                        "attack.dot.damage.max": 5,
+                        "attack.dot.damage.min": 5
+                    }
+                }
+            },
+            {
+                "id": "deathbolt",
+                "name": "死亡箭矢",
+                "sortOrder": 1205,
+                "level": 7,
+                "school": "shadow",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant",
+                        "over time"
+                    ]
+                },
+                "require": "g.darkbolt.owned&&g.shadowlore>=7&&(g.t_shadowclass)>0",
+                "buy": {
+                    "shadowgem": 10,
+                    "tomes": 3
+                },
+                "cost": {
+                    "shadow": 5
+                },
+                "attack": {
+                    "damage": "15~20",
+                    "potencies": [
+                        "spelldmg",
+                        "shadowdmg"
+                    ],
+                    "targetspec": {
+                        "notaffectedby": {
+                            "condition": [
+                                "deathbolt_dot"
+                            ],
+                            "conditiontext": "death bolt"
+                        }
+                    },
+                    "dot": {
+                        "id": "deathbolt_dot",
+                        "kind": "shadow",
+                        "duration": 30,
+                        "damage": 3,
+                        "potencies": [
+                            "spelldmg",
+                            "shadowdmg"
+                        ]
+                    }
+                },
+                "at": {
+                    "25": {
+                        "attack.damage.max": 4
+                    },
+                    "75": {
+                        "attack.damage.min": 5
+                    },
+                    "300": {
+                        "attack.damage.max": 4,
+                        "attack.damage.min": 4,
+                        "attack.tohit": 2
+                    }
+                }
+            },
+            {
+                "id": "blast",
+                "name": "爆破诅咒",
+                "sortOrder": 1206,
+                "level": 3,
+                "school": "shadow",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant",
+                        "over time"
+                    ]
+                },
+                "require": "g.shadowlore>=5&&(g.t_shadowclass)>0",
+                "buy": {
+                    "research": 750,
+                    "shadowgem": 1
+                },
+                "cost": {
+                    "shadow": 3
+                },
+                "attack": {
+                    "damage": "4~7",
+                    "potencies": [
+                        "spelldmg",
+                        "shadowdmg"
+                    ],
+                    "targetspec": {
+                        "notaffectedby": {
+                            "condition": [
+                                "blast_dot"
+                            ],
+                            "conditiontext": "blasting curse"
+                        }
+                    },
+                    "dot": {
+                        "id": "blast_dot",
+                        "name": "爆破诅咒",
+                        "kind": "shadow",
+                        "duration": 10,
+                        "damage": 0.7,
+                        "leech": 1,
+                        "potencies": [
+                            "spelldmg",
+                            "shadowdmg"
+                        ]
+                    }
+                },
+                "at": {
+                    "25": {
+                        "attack.damage.max": 3
+                    },
+                    "75": {
+                        "attack.damage.min": 3
+                    },
+                    "300": {
+                        "attack.damage.max": 3,
+                        "attack.damage.min": 3,
+                        "attack.tohit": 2
+                    }
+                }
+            },
+            {
+                "id": "obscure2",
+                "name": "遮蔽暗影",
+                "sortOrder": 1245,
+                "level": 5,
+                "school": "shadow",
+                "tags": "t_obscurebuff",
+                "keywords": {
+                    "type": [
+                        "buff"
+                    ],
+                    "target": [
+                        "self"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ]
+                },
+                "require": "g.obscure1.owned&&g.shadowlore>=5&&(g.t_shadowclass)>0",
+                "buy": {
+                    "research": 500,
+                    "codices": 5,
+                    "shadowgem": 1
+                },
+                "cost": {
+                    "shadow": 4
+                },
+                "cd": 10,
+                "dot": {
+                    "tags": "obscuringshadows",
+                    "duration": 25,
+                    "mod": {
+                        "self.dodge": 3
+                    }
+                }
+            },
+            {
+                "id": "obscure3",
+                "name": "高级遮蔽暗影",
+                "sortOrder": 1244,
+                "level": 7,
+                "school": "shadow",
+                "tags": "t_obscurebuff",
+                "keywords": {
+                    "type": [
+                        "buff"
+                    ],
+                    "target": [
+                        "self"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ]
+                },
+                "require": "g.obscure2.owned&&g.shadowlore>=10&&g.tier2>0",
+                "buy": {
+                    "shadowgem": 10,
+                    "tomes": 1
+                },
+                "cost": {
+                    "shadow": 6
+                },
+                "cd": 15,
+                "dot": {
+                    "tags": "obscuringshadows",
+                    "duration": 30,
+                    "mod": {
+                        "self.dodge": 4
+                    }
+                }
+            },
+            {
+                "id": "gloom",
+                "name": "脆弱诅咒",
+                "desc": "降低目标对暗影魔法的抗性。",
+                "sortOrder": 1250,
+                "level": 2,
+                "school": "shadow",
+                "keywords": {
+                    "type": [
+                        "debuff"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ]
+                },
+                "require": "g.shadowlore>=5&&(g.t_shadowclass+g.shadowlore2)>0",
+                "buy": {
+                    "research": 100,
+                    "codices": 1,
+                    "shadowgem": 1
+                },
+                "cost": {
+                    "shadow": 2
+                },
+                "attack": {
+                    "targets": "enemies",
+                    "maxTargets": 999,
+                    "dot": {
+                        "kind": "shadow",
+                        "duration": 100,
+                        "mod": {
+                            "self.resist.shadow": -10
+                        }
+                    }
+                }
+            },
+            {
+                "id": "terrifyingvisage",
+                "name": "恐怖面容",
+                "sortOrder": 1251,
+                "level": 6,
+                "school": "shadow",
+                "keywords": {
+                    "type": [
+                        "debuff"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ]
+                },
+                "require": "g.shadowlore>=6&&(g.t_shadowclass+g.shadowlore2)>0",
+                "buy": {
+                    "research": 5000,
+                    "shadowgem": 20,
+                    "tomes": 10
+                },
+                "cost": {
+                    "shadow": 6
+                },
+                "cd": 30,
+                "attack": {
+                    "targets": "enemies",
+                    "maxTargets": 999,
+                    "dot": {
+                        "id": "paralyze",
+                        "duration": 3
+                    }
+                }
+            },
+            {
+                "id": "soul_acquisition",
+                "name": "灵魂烙印",
+                "desc": "在敌人血肉上刻下灵魂陷阱符文，阻止其灵魂逃脱你的掌控。",
+                "flavor": "它将铭刻在你的灵魂上！",
+                "sortOrder": 1270,
+                "level": 3,
+                "school": "shadow",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ],
+                    "special": [
+                        "resource"
+                    ]
+                },
+                "require": "g.evil2>0&&g.necromancy>=5&&g.shadowlore>=15",
+                "buy": {
+                    "research": 500,
+                    "codices": 15,
+                    "shadowgem": 5,
+                    "spiritgem": 1
+                },
+                "need": "g.good2==0",
+                "needtext": "Cannot be scrupulous.",
+                "cost": {
+                    "shadow": 2
+                },
+                "attack": {
+                    "targetspec": {
+                        "notaffectedby": {
+                            "condition": [
+                                "t_brand"
+                            ],
+                            "strict": true,
+                            "conditiontext": "branding"
+                        }
+                    },
+                    "damage": 5,
+                    "dot": {
+                        "id": "soul_acquisition_dot",
+                        "tags": "t_brand",
+                        "kind": "shadow",
+                        "duration": 300,
+                        "name": "灵魂烙印",
+                        "onDeath": {
+                            "harmless": true,
+                            "acquire": {
+                                "souls": 1
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "id": "body_acquisition",
+                "name": "防腐注射",
+                "desc": "向敌人注射防腐液，以便日后保存尸体。",
+                "flavor": "为“活死人”赋予了全新的定义。",
+                "sortOrder": 1271,
+                "level": 3,
+                "school": "shadow",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ],
+                    "special": [
+                        "resource"
+                    ]
+                },
+                "require": "g.embalming>=5",
+                "buy": {
+                    "research": 500,
+                    "codices": 10
+                },
+                "cost": {
+                    "shadow": 2
+                },
+                "attack": {
+                    "targetspec": {
+                        "notaffectedby": {
+                            "condition": [
+                                "t_body_preparation"
+                            ],
+                            "strict": true,
+                            "conditiontext": "body preparation"
+                        }
+                    },
+                    "dot": {
+                        "id": "body_acquisition_dot",
+                        "tags": "t_body_preparation",
+                        "kind": "shadow",
+                        "duration": 300,
+                        "name": "防腐毒液",
+                        "damage": 0.25,
+                        "onDeath": {
+                            "harmless": true,
+                            "acquire": {
+                                "bodies": 0.25
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "id": "darkpromptings",
+                "name": "黑暗启示",
+                "desc": "恶毒的声音向你的心智低语秘密。",
+                "sortOrder": 1272,
+                "level": 3,
+                "school": "shadow",
+                "keywords": {
+                    "type": [
+                        "buff"
+                    ],
+                    "target": [
+                        "self"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ]
+                },
+                "require": "g.shadowlore>=5&&(g.t_shadowclass)>0",
+                "buy": {
+                    "research": 500,
+                    "codices": 1,
+                    "shadowgem": 1
+                },
+                "cost": {
+                    "shadow": 5
+                },
+                "cd": 45,
+                "result": {
+                    "evilamt": 1,
+                    "shadowlore.exp": 2
+                },
+                "dot": {
+                    "duration": 60,
+                    "mod": {
+                        "shadowdmg": 20,
+                        "encounter.effect.t_school.exp": 0.25
+                    }
+                }
+            },
+            {
+                "id": "mk_imp",
+                "name": "召唤小鬼",
+                "desc": "召唤你主人的最弱仆从为你牺牲。",
+                "sortOrder": 1752,
+                "level": 3,
+                "school": "summoning",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.demonology>=5",
+                "buy": {
+                    "research": 2000,
+                    "codices": 30,
+                    "shadowgem": 10
+                },
+                "cost": {
+                    "shadow": 4,
+                    "fire": 2,
+                    "hp": 4,
+                    "arcana": 0.25
+                },
+                "cd": 5,
+                "result": {
+                    "demonology.exp": 1
+                },
+                "summon": [
+                    {
+                        "id": "sum_imp",
+                        "count": 2,
+                        "max": 6
+                    }
+                ]
+            },
+            {
+                "id": "mk_quasit",
+                "name": "召唤夸西魔",
+                "desc": "召唤你主人的一个仆从为你而死。",
+                "sortOrder": 1753,
+                "level": 5,
+                "school": "summoning",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.demonology>=11",
+                "buy": {
+                    "research": 2000,
+                    "codices": 30,
+                    "firegem": 10
+                },
+                "cost": {
+                    "shadow": 8,
+                    "hp": 8,
+                    "arcana": 1
+                },
+                "cd": 8,
+                "result": {
+                    "demonology.exp": 1.8
+                },
+                "summon": [
+                    {
+                        "id": "sum_quasit",
+                        "count": 1,
+                        "max": 4
+                    }
+                ]
+            },
+            {
+                "id": "mk_grimstalk",
+                "name": "召唤阴森潜行者",
+                "desc": "召唤你主人的一个仆从为你忍受。",
+                "sortOrder": 1751,
+                "level": 7,
+                "school": "summoning",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.demonology>=17&&g.naturelore>=8",
+                "buy": {
+                    "research": 6000,
+                    "tomes": 25,
+                    "naturegem": 40
+                },
+                "cost": {
+                    "shadow": 13,
+                    "nature": 5,
+                    "hp": 13,
+                    "arcana": 6
+                },
+                "cd": 30,
+                "result": {
+                    "demonology.exp": 4.3
+                },
+                "summon": [
+                    {
+                        "id": "sum_grimstalk",
+                        "count": 1,
+                        "max": 2
+                    }
+                ]
+            },
+            {
+                "id": "mk_demon",
+                "name": "召唤恶魔",
+                "desc": "召唤你主人的一个仆从为你而战。",
+                "sortOrder": 1750,
+                "level": 12,
+                "school": "summoning",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "(g.t_demonclass+g.t_summonclass)>=3&&g.demonology>=21&&g.firelore>=15&&g.shadowlore>=15",
+                "buy": {
+                    "research": 6666,
+                    "tomes": 40,
+                    "firegem": 30,
+                    "shadowgem": 30
+                },
+                "cost": {
+                    "fire": 7,
+                    "shadow": 18,
+                    "arcana": 10
+                },
+                "cd": 50,
+                "result": {
+                    "demonology.exp": 3.8
+                },
+                "summon": [
+                    {
+                        "id": "sum_demon",
+                        "count": 1,
+                        "max": 1
+                    }
+                ]
+            },
+            {
+                "id": "mk_skeleton",
+                "name": "召唤骷髅",
+                "desc": "将一堆骨头注入，使其成为临时的棋子。",
+                "extdesc": "不稳定召唤物 - 它会随着时间流逝而失去生命值，除非持续注入死亡能量。",
+                "tags": "t_undead_spell",
+                "sortOrder": 1256,
+                "level": 1,
+                "school": "necromancy",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.reanimation>0",
+                "buy": {
+                    "research": 300,
+                    "scrolls": 10,
+                    "bones": 10
+                },
+                "cost": {
+                    "bones": 3,
+                    "shadow": 6
+                },
+                "cd": 10,
+                "summon": [
+                    {
+                        "id": "sum_skeleton",
+                        "count": 1,
+                        "max": 4
+                    }
+                ]
+            },
+            {
+                "id": "mk_zombie",
+                "name": "召唤僵尸",
+                "desc": "尸体可以轻易地复活成一个无脑但坚韧的盟友。",
+                "extdesc": "不稳定召唤物 - 它会随着时间流逝而失去生命值，除非持续注入死亡能量。",
+                "tags": "t_undead_spell",
+                "sortOrder": 1255,
+                "level": 1,
+                "school": "necromancy",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.reanimation>=6",
+                "buy": {
+                    "research": 600,
+                    "codices": 4,
+                    "bodies": 6
+                },
+                "cost": {
+                    "bodies": 1,
+                    "shadow": 8
+                },
+                "cd": 15,
+                "summon": [
+                    {
+                        "id": "sum_zombie",
+                        "count": 1,
+                        "max": 3
+                    }
+                ]
+            },
+            {
+                "id": "mk_bonegolem",
+                "name": "活化骸骨魔像",
+                "desc": "骨骼被收集、融合并被黑暗魔法强化。这无疑会创造出一个强大的仆从。",
+                "tags": "t_undead_spell",
+                "sortOrder": 1254,
+                "level": 1,
+                "school": "necromancy",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.reanimation>=9&&g.t_necroclass>=2",
+                "buy": {
+                    "research": 800,
+                    "codices": 4,
+                    "bones": 40
+                },
+                "cost": {
+                    "skulls": 5,
+                    "bones": 15,
+                    "shadow": 10
+                },
+                "summon": [
+                    {
+                        "id": "sum_bone_golem",
+                        "count": 1,
+                        "max": 2,
+                        "keep": true
+                    }
+                ]
+            },
+            {
+                "id": "mk_spectre",
+                "name": "释放幽灵",
+                "desc": "将一个复仇的灵魂释放到战场上。",
+                "tags": "t_shade_spell",
+                "sortOrder": 1253,
+                "level": 1,
+                "school": "necromancy",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.necromancy>=1",
+                "buy": {
+                    "research": 800,
+                    "codices": 5,
+                    "souls": 4
+                },
+                "cost": {
+                    "souls": 1,
+                    "shadow": 10
+                },
+                "cd": 30,
+                "summon": [
+                    {
+                        "id": "sum_spectre",
+                        "count": 1,
+                        "max": 3
+                    }
+                ]
+            },
+            {
+                "id": "mk_lich",
+                "name": "召唤次级巫妖",
+                "desc": "组装一个容器并献上丰厚的祭品，以换取死亡的仆从。",
+                "tags": "t_shade_spell",
+                "sortOrder": 1251,
+                "level": 1,
+                "school": "necromancy",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.necromancy>=12&&g.t_necroclass>=2",
+                "buy": {
+                    "research": 2000,
+                    "tomes": 2,
+                    "souls": 12
+                },
+                "cost": {
+                    "skulls": 1,
+                    "bones": 26,
+                    "souls": 6
+                },
+                "summon": [
+                    {
+                        "id": "sum_lich",
+                        "count": 1,
+                        "max": 2,
+                        "keep": true
+                    }
+                ]
+            },
+            {
+                "id": "mk_reaper",
+                "name": "显现虚空死神",
+                "desc": "撕裂死亡之幕，召唤死亡本身的显现。",
+                "tags": "t_shade_spell",
+                "sortOrder": 1250,
+                "level": 1,
+                "school": "necromancy",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.necromancy>=15&&g.t_necroclass>=3",
+                "buy": {
+                    "research": 3000,
+                    "tomes": 3,
+                    "souls": 20
+                },
+                "cost": {
+                    "souls": 25,
+                    "shadow": 50
+                },
+                "summon": [
+                    {
+                        "id": "sum_reaper",
+                        "count": 1,
+                        "max": 1,
+                        "keep": true
+                    }
+                ]
+            },
+            {
+                "id": "healundead",
+                "name": "非生之环",
+                "tags": "t_undead_spell",
+                "sortOrder": 1231,
+                "level": 8,
+                "school": "necromancy",
+                "keywords": {
+                    "type": [
+                        "recovery"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.reanimation>=3",
+                "buy": {
+                    "research": 5000,
+                    "shadowgem": 20,
+                    "tomes": 10
+                },
+                "need": "g.good2==0",
+                "needtext": "Cannot be scrupulous.",
+                "cost": {
+                    "shadow": 7
+                },
+                "cd": 15,
+                "attack": {
+                    "targets": "minions",
+                    "maxTargets": 999,
+                    "only": "undead",
+                    "result": {
+                        "hp": 60
+                    }
+                }
+            },
+            {
+                "id": "healshade",
+                "name": "坏死滋养",
+                "tags": "t_shade_spell",
+                "sortOrder": 1230,
+                "level": 8,
+                "school": "necromancy",
+                "keywords": {
+                    "type": [
+                        "recovery"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.necromancy>=7",
+                "buy": {
+                    "research": 5000,
+                    "shadowgem": 20,
+                    "tomes": 10
+                },
+                "need": "g.good2==0",
+                "needtext": "Cannot be scrupulous.",
+                "cost": {
+                    "shadow": 10
+                },
+                "cd": 15,
+                "attack": {
+                    "targets": "minions",
+                    "maxTargets": 999,
+                    "only": "shade",
+                    "result": {
+                        "barrier": 90
+                    }
+                }
+            },
+            {
+                "id": "bolsterundead",
+                "name": "强化亡灵",
+                "desc": "为你的仆从注入一层死亡能量的保护层。",
+                "tags": "t_shade_spell,t_undead_spell",
+                "sortOrder": 1240,
+                "level": 6,
+                "school": "necromancy",
+                "keywords": {
+                    "type": [
+                        "recovery",
+                        "buff"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ]
+                },
+                "require": "g.shadowlore>=12&&g.reanimation>=8",
+                "buy": {
+                    "research": 5000,
+                    "shadowgem": 20,
+                    "tomes": 10
+                },
+                "cost": {
+                    "shadow": 15
+                },
+                "cd": 20,
+                "attack": {
+                    "only": "undead,shade",
+                    "targets": "minions",
+                    "maxTargets": 999,
+                    "dot": {
+                        "duration": 45,
+                        "mod": {
+                            "self.dodge": 10,
+                            "self.defense": 10,
+                            "self.regen": 2,
+                            "self.recharge": 0.5,
+                            "self.barrier.max": 20
+                        }
+                    }
+                }
+            },
+            {
+                "id": "reviveundead",
+                "name": "复活亡灵",
+                "desc": "一旦拥有了非生之力，你的仆从残骸只需一点额外能量就能重新投入战斗。",
+                "extdesc": "以及一些替换骨骼。",
+                "flavor": "你只有一个任务——保持不死。这要求过分吗？",
+                "sortOrder": 1267,
+                "level": 3,
+                "school": "necromancy",
+                "tags": "rez,t_undead_spell",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.reanimation>=9",
+                "buy": {
+                    "research": 400,
+                    "codices": 2
+                },
+                "need": "g.good3==0",
+                "needtext": "Cannot be incorruptible.",
+                "cost": {
+                    "bones": 2,
+                    "shadow": 8
+                },
+                "resurrect": {
+                    "only": [
+                        "undead"
+                    ],
+                    "maxlevel": 99,
+                    "count": 1
+                }
+            },
+            {
+                "id": "reviveshade",
+                "name": "召回幽影",
+                "desc": "已与你绑定的幽影可以通过更简单的方式从死亡位面召回。",
+                "sortOrder": 1266,
+                "level": 5,
+                "school": "necromancy",
+                "tags": "rez,t_shade_spell",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.necromancy>=12&&g.t_necroclass>=2",
+                "buy": {
+                    "tomes": 1,
+                    "research": 1000
+                },
+                "need": "g.good3==0",
+                "needtext": "Cannot be incorruptible.",
+                "cost": {
+                    "souls": 2,
+                    "shadow": 20
+                },
+                "resurrect": {
+                    "only": [
+                        "shade"
+                    ],
+                    "maxlevel": 99,
+                    "count": 1
+                }
+            }
+        ],
+        "furniture": [
+            {
+                "id": "casket",
+                "name": "棺材",
+                "desc": "用于保存尸体的简单容器。",
+                "require": "g.tier0>0&&g.embalming>=5&&g.crafting>=5",
+                "max": 5,
+                "cost": {
+                    "research": 100,
+                    "gold": 75
+                },
+                "mod": {
+                    "bodies.max": 3,
+                    "space": 1
+                }
+            },
+            {
+                "id": "vat",
+                "desc": "从原材料中培育尸体。",
+                "require": "g.tier1>0&&g.anatomy>=5&&(g.embalming>=5||g.transfusions>0)&&g.crafting>=10",
+                "max": 5,
+                "cost": {
+                    "bloodgem": 10,
+                    "research": 300,
+                    "gold": 100
+                },
+                "mod": {
+                    "bodies.rate": 0.05,
+                    "bodies.max": 5,
+                    "space": 10
+                }
+            },
+            {
+                "id": "crypt",
+                "tags": "prison",
+                "require": "g.necromancy>0&&g.ruinedcrypt>0",
+                "cost": {
+                    "research": 5000,
+                    "gold": 500,
+                    "bodies": 5,
+                    "bones": 20,
+                    "arcana": 1
+                },
+                "mod": {
+                    "bodies.max": 25,
+                    "bones.max": 30,
+                    "bonedust.max": 20,
+                    "space": 30
+                }
+            },
+            {
+                "id": "bonecandelabra",
+                "name": "骨制烛台",
+                "desc": "令人毛骨悚然。",
+                "tags": "t_candelabra",
+                "require": "g.t_necroclass>0",
+                "repeat": false,
+                "cost": {
+                    "bones": 10,
+                    "research": 50,
+                    "gold": 50
+                },
+                "mod": {
+                    "shadow.rate": 0.03,
+                    "space": 1
+                }
+            },
+            {
+                "id": "ossuary",
+                "desc": "骨骼容器。",
+                "tags": "shadowsource,spiritsource",
+                "require": "g.bones>3",
+                "max": 4,
+                "cost": {
+                    "gold": 300,
+                    "bones": 5
+                },
+                "mod": {
+                    "bonedust.max": 10,
+                    "bones.max": 20,
+                    "spiritlore.rate": 0.3,
+                    "space": 1
+                }
+            },
+            {
+                "id": "graveyard",
+                "desc": "死者的安息之地。",
+                "tags": "shadowsource,spiritsource",
+                "require": "g.space.max>=50&&g.souls>0",
+                "cost": {
+                    "gold": 700,
+                    "spiritgem": 20,
+                    "research": 1000
+                },
+                "mod": {
+                    "bonedust.max": 10,
+                    "souls.rate": 0.01,
+                    "bodies.max": 20,
+                    "bones.max": 50,
+                    "souls.max": 20,
+                    "reanimation.rate": 0.2,
+                    "spiritlore.rate": 0.3,
+                    "space": 25
+                }
+            },
+            {
+                "id": "dungeon",
+                "desc": "一个巨大的综合体，用于囚禁危险实验品、致命生物以及所有令你不悦之人。",
+                "tags": "prison",
+                "require": "g.tier2>0&&g.bodies>0",
+                "cost": {
+                    "gold": 1000
+                },
+                "mod": {
+                    "bodies.max": 20,
+                    "bones.max": 20,
+                    "shadow.rate": 1,
+                    "shadow.max": 10,
+                    "space": 50
+                }
+            },
+            {
+                "id": "ironcell",
+                "name": "铁牢",
+                "desc": "一个简单、空荡的牢房。",
+                "tags": "prison,shadowsource",
+                "require": "g.tier0>0&&g.space.max>=20&&g.bodies>0",
+                "repeat": true,
+                "cost": {
+                    "gold": 400
+                },
+                "mod": {
+                    "shadow.max": 1,
+                    "bodies.max": 2,
+                    "space": 5
+                }
+            },
+            {
+                "id": "vivisectionlab",
+                "name": "活体解剖实验室",
+                "desc": "切开“自愿”的参与者，看看你的亡灵是如何运作的。这里一条肌腱，那里一条韧带。",
+                "flavor": "安息吧，碎成片片。",
+                "tags": "shadowsource",
+                "require": "g.evil2>0&&g.space.max>=50&&g.t_necroclass>0",
+                "cost": {
+                    "bodies": 5,
+                    "gold": 400,
+                    "research": 250
+                },
+                "mod": {
+                    "dissection.rate": 0.4,
+                    "skulls.rate": 0.01,
+                    "bones.rate": 0.2,
+                    "shadow.max": 5,
+                    "shadow.rate": 0.1,
+                    "space": 25
+                }
+            },
+            {
+                "id": "pentagram",
+                "name": "恶魔五芒星",
+                "desc": "用于召唤恶魔实体。",
+                "tags": "prison,summonsource",
+                "require": "g.demonology>=10",
+                "cost": {
+                    "gold": 1500,
+                    "gems": 50,
+                    "bloodgem": 10,
+                    "spiritgem": 10,
+                    "shadowgem": 10
+                },
+                "mod": {
+                    "summoning.mod.minions.max": 0.1,
+                    "summoning.rate": 0.2,
+                    "demonology.mod.arcana.max": 0.5,
+                    "demonology.rate": 0.5,
+                    "arcana.rate": 0.1,
+                    "space": 10
+                }
+            },
+            {
+                "id": "display_room",
+                "name": "陈列室",
+                "desc": "一个摆放小玩意和饰品的大房间。",
+                "require": "g.space.max>=120&&g.skulls>0",
+                "max": 1,
+                "cost": {
+                    "gold": 7500,
+                    "research": 7500,
+                    "gems": 25,
+                    "runestones": 3
+                },
+                "mod": {
+                    "inv.max": 5,
+                    "prismaticgems.max": 10,
+                    "runestones.max": 3,
+                    "skulls.max": 5,
+                    "bones.max": 5,
+                    "gems.max": 20,
+                    "space": 20
+                }
+            }
+        ],
+        "homes": [
+            {
+                "id": "home_tomb",
+                "name": "墓穴",
+                "desc": "一个藏身之处，周围有许多方便的尸体。非常适合你的邪恶行径。",
+                "tags": "shadowsource,t_underground",
+                "require": "g.reanimation>=(5-2*g.reanimator)&&g.tier2>0",
+                "buy": {
+                    "research": 500,
+                    "bones": 10,
+                    "shadowgem": 10,
+                    "spiritgem": 10
+                },
+                "mod": {
+                    "space.max": 150,
+                    "souls.max": 20,
+                    "bonedust.max": 25,
+                    "bodies.max": 35,
+                    "bones.max": 70,
+                    "minions.max": 10,
+                    "allies.max": 5
+                }
+            },
+            {
+                "id": "home_necropolis",
+                "name": "亡灵之城",
+                "desc": "一座宏伟的倒置城市，隐藏在地表之下。不安的死者大量聚集，为你的宏伟计划做准备。",
+                "flavor": "伟大的达拉萨在远古时代建造了第一座亡灵之城。",
+                "tags": "shadowsource,t_underground",
+                "require": "g.raisenecropolis>0",
+                "mod": {
+                    "space.max": 400,
+                    "souls.max": 40,
+                    "bonedust.max": 50,
+                    "bodies.max": 50,
+                    "bones.max": 150,
+                    "minions.max": 30,
+                    "allies.max": 10,
+                    "shadowlore": {
+                        "mod.shadow.max": 1,
+                        "mod.shadow.rate": 0.04
+                    },
+                    "reanimation.mod.allies.max": 0.8,
+                    "necromancy.mod.minions.max": 1
+                }
+            }
+        ],
+        "tasks": [
+            {
+                "id": "graverob",
+                "name": "劫掠坟墓",
+                "desc": "挖掘古老坟墓以获取魔法试剂。这些家伙都300岁了，他们不会介意的。",
+                "flavor": "这是为了一个崇高的事业。",
+                "group": "materials",
+                "tags": "t_evilact",
+                "require": "g.dissection>=3",
+                "length": 15,
+                "run": {
+                    "stamina": 0.3
+                },
+                "effect": {
+                    "virtue": -0.3
+                },
+                "result": {
+                    "bones": 2
+                }
+            },
+            {
+                "id": "vileexperiment",
+                "name": "邪恶实验",
+                "desc": "对已死或即将死亡的生物进行实验。这不是一个善良巫师会做的事情。",
+                "group": "materials",
+                "tags": "t_extremeevil",
+                "require": "g.dissection>=5&&g.shadowlore>0",
+                "need": "shadowsource",
+                "length": 20,
+                "run": {
+                    "research": 5,
+                    "stamina": 0.5,
+                    "shadow": 0.2
+                },
+                "effect": {
+                    "anatomy.exp": 1,
+                    "embalming.exp": 1,
+                    "reanimation.exp": 1
+                },
+                "at": {
+                    "10": {
+                        "result.bones.max": 1
+                    },
+                    "20": {
+                        "result.bones.min": 1
+                    },
+                    "50": {
+                        "result.bones.min": 1,
+                        "result.bones.max": 1
+                    }
+                },
+                "result": {
+                    "bonedust": 1,
+                    "evilamt": 20,
+                    "bones": "2~5"
+                }
+            },
+            {
+                "id": "dissect",
+                "name": "解剖尸体",
+                "desc": "解剖尸体以获取部件。只有最好的部分才有用。",
+                "group": "crafting",
+                "require": "g.dissection>=4",
+                "fill": [
+                    "skulls",
+                    "bones"
+                ],
+                "length": 10,
+                "cost": {
+                    "bodies": 1
+                },
+                "result": {
+                    "research": 5,
+                    "skulls": 1,
+                    "bones": "2~4"
+                }
+            },
+            {
+                "id": "grindbones",
+                "name": "研磨骨头",
+                "desc": "将骨头研磨成粉末。",
+                "group": "crafting",
+                "require": "g.dissection>=3",
+                "fill": "bonedust",
+                "length": 10,
+                "cost": {
+                    "bones": 1
+                },
+                "run": {
+                    "stamina": 0.2
+                },
+                "result": {
+                    "bonedust": "2~4"
+                }
+            },
+            {
+                "id": "grindskull",
+                "name": "研磨头骨",
+                "desc": "将头骨研磨成粉末。",
+                "group": "crafting",
+                "require": "g.dissection>=4",
+                "fill": "bonedust",
+                "length": 12,
+                "cost": {
+                    "skulls": 1
+                },
+                "run": {
+                    "stamina": 0.4
+                },
+                "result": {
+                    "bonedust": "6~8"
+                }
+            },
+            {
+                "id": "embalm",
+                "name": "葬礼仪式",
+                "verb": "solemnizing",
+                "desc": "监督商人与贵族的葬礼仪式。",
+                "group": "affluence",
+                "require": "g.embalming>=5&&g.tier0>0",
+                "perpetual": true,
+                "length": 25,
+                "run": {
+                    "stamina": 1,
+                    "shadow": 1
+                },
+                "effect": {
+                    "gold": 2.2,
+                    "embalming.exp": "g.embalming.rate*0.1",
+                    "dissection.exp": "g.dissection.rate*0.1"
+                },
+                "at": {
+                    "50": {
+                        "effect.gold": 0.2
+                    },
+                    "500": {
+                        "effect.gold": 0.5
+                    },
+                    "1500": {
+                        "effect.gold": 1
+                    }
+                }
+            },
+            {
+                "id": "medicalmalpractice",
+                "name": "活体解剖练习",
+                "desc": "将你新学的折磨技艺付诸实践，为公众做一些“坏事”。",
+                "flavor": "里德堡就是那种，街上少几个人也不会有人在乎的地方。",
+                "group": "knowledge",
+                "tags": "t_evilact",
+                "require": "g.evil2>0&&g.space.max>=100&&g.t_necroclass>0",
+                "need": "vivisectionlab",
+                "max": 1,
+                "length": 60,
+                "cost": {
+                    "codices": 1
+                },
+                "run": {
+                    "shadow": 1,
+                    "stamina": 1
+                },
+                "mod": {
+                    "dissection.max": 3
+                }
+            },
+            {
+                "id": "corpsestudy",
+                "name": "检查尸体",
+                "desc": "说实话，你在这里感到无聊了。摆弄一些尸体，看看各种液体和魔法会产生什么有趣的结果。",
+                "flavor": "只要确保巴罗斯的邪教永远不会发现你打算窃取他们的知识就行。",
+                "group": "knowledge",
+                "tags": "t_evilact",
+                "require": "g.necromancy>0&&g.evil2>0&&g.good2==0",
+                "max": 2,
+                "length": 45,
+                "cost": {
+                    "bodies": 3
+                },
+                "run": {
+                    "shadow": 1,
+                    "spirit": 1,
+                    "herbs": 1
+                },
+                "mod": {
+                    "reanimation.max": 1,
+                    "necromancy.max": 1,
+                    "embalming.max": 1
+                }
+            },
+            {
+                "id": "phylactory",
+                "actname": "制作命匣",
+                "tags": "t_permanent_transformation",
+                "desc": "撕裂你的一部分灵魂，并将其储存在魔法宝石中。",
+                "group": "knowledge",
+                "require": "g.crafting>=20&&g.necromancy>=7&&g.evil3>0",
+                "lock": "t_permanent_transformation",
+                "warn": true,
+                "max": 1,
+                "length": 50,
+                "cost": {
+                    "research": 4000,
+                    "shadowgem": 20,
+                    "spiritgem": 20,
+                    "bodies": 1
+                },
+                "run": {
+                    "stamina": 2,
+                    "shadow": 2,
+                    "spirit": 1,
+                    "hp": 1,
+                    "mana": 1
+                },
+                "mod": {
+                    "necromancy.max": 2,
+                    "shadowlore.max": 2,
+                    "spiritlore.max": 1,
+                    "shadow.rate": "10%",
+                    "spirit.rate": "5%",
+                    "hp.rate": 1
+                }
+            },
+            {
+                "id": "up_lich",
+                "name": "巫妖",
+                "actname": "不死仪式",
+                "desc": "通过成为巫妖获得永生。",
+                "group": "body",
+                "require": "g.crafting>=20&&g.necromancy>=9&&g.phylactory>0",
+                "max": 1,
+                "length": 50,
+                "cost": {
+                    "research": 4000,
+                    "shadowgem": 20,
+                    "spiritgem": 20
+                },
+                "run": {
+                    "shadow": 2,
+                    "spirit": 1,
+                    "mana": 1,
+                    "hp": 2
+                },
+                "result": {
+                    "title": "巫妖"
+                },
+                "mod": {
+                    "lore.max": 1,
+                    "hp.rate": 0.2,
+                    "shadowdmg": 10,
+                    "player.resist.shadow": 100,
+                    "player.resist.light": -50
+                }
+            },
+            {
+                "id": "raisenecropolis",
+                "name": "升起亡灵之城",
+                "verb": "reanimating",
+                "desc": "升起一座完整的亡灵城市，让你的恶名载入史册。",
+                "extdesc": "完成后解锁新家园。",
+                "group": "housing",
+                "require": "g.tier4>0&&g.necromancy>=6",
+                "max": 1,
+                "length": 180,
+                "cost": {
+                    "tomes": 10,
+                    "research": 5000
+                },
+                "run": {
+                    "hp": 3,
+                    "shadow": 2,
+                    "spirit": 1.25,
+                    "stamina": 1,
+                    "shadowgem": 1,
+                    "spiritgem": 1,
+                    "bones": 1,
+                    "bloodgem": 0.5,
+                    "souls": 0.25,
+                    "skulls": 0.025
+                },
+                "result": {
+                    "fame": 3
+                }
+            },
+            {
+                "id": "blackbook",
+                "name": "远古黑书",
+                "desc": "羊皮纸是黑色的，上面写满了用鲜血书写的禁忌秘密。仅仅是看着它就会引起疼痛。",
+                "flavor": "“你寻求什么知识？”声音问维齐亚。“一切。”",
+                "group": "knowledge",
+                "tags": "t_languagework",
+                "require": "g.tier4>0&&g.evil2>0&&g.demonology>=15",
+                "max": 1,
+                "length": 120,
+                "cost": {
+                    "tomes": 10,
+                    "arcana": 5,
+                    "research": 2000,
+                    "hp": 40,
+                    "shadowgem": 20
+                },
+                "run": {
+                    "research": 15,
+                    "shadow": 1,
+                    "hp": 2.5,
+                    "stamina": 2
+                },
+                "effect": {
+                    "evilamt": 0.1,
+                    "demonology.exp": 1,
+                    "lore.exp": 1
+                },
+                "mod": {
+                    "research.max": 2000,
+                    "arcana.rate": 0.001,
+                    "demonology.max": 2,
+                    "lore.max": 2,
+                    "languages.rate": "10%",
+                    "history.rate": "10%",
+                    "planeslore.rate": "10%"
+                }
+            },
+            {
+                "id": "bloodsiphon",
+                "name": "吸血",
+                "desc": "从尸体中吸取血液以恢复你的健康。",
+                "require": "transfusions",
+                "perpetual": true,
+                "run": {
+                    "bodies": 0.1
+                },
+                "effect": {
+                    "hp": 5
+                },
+                "at": {
+                    "900": {
+                        "effect.hp": 2
+                    },
+                    "3600": {
+                        "effect.hp": 3
+                    }
+                }
+            },
+            {
+                "id": "skulltalk",
+                "name": "与头骨交谈",
+                "verb": "conversing",
+                "desc": "用人类头骨作为交谈伙伴。",
+                "group": "research",
+                "tags": "t_contemplation",
+                "require": "magicskull",
+                "perpetual": true,
+                "run": {
+                    "stamina": 0.4
+                },
+                "effect": {
+                    "research": 3,
+                    "arcana": 0.002
+                },
+                "at": {
+                    "30": {
+                        "effect.research": 0.1
+                    },
+                    "120": {
+                        "effect.research": 0.2,
+                        "effect.arcana": 0.001
+                    },
+                    "500": {
+                        "effect.research": 0.2
+                    }
+                },
+                "exclude": "t_contemplation"
+            },
+            {
+                "id": "demondict",
+                "name": "恶魔词典",
+                "desc": "一本晦涩恶魔语言的汇编。",
+                "group": "knowledge",
+                "tags": "t_languagework",
+                "require": "g.languages>=10&&g.demonology>0",
+                "max": 1,
+                "length": 75,
+                "cost": {
+                    "codices": 2
+                },
+                "run": {
+                    "research": 5,
+                    "stamina": 1.4
+                },
+                "mod": {
+                    "languages.max": 3,
+                    "languages.rate": 0.3,
+                    "demonology.max": 2,
+                    "demonology.rate": 0.2
+                }
+            },
+            {
+                "id": "demonbag",
+                "name": "恶魔之袋",
+                "actname": "制作恶魔之袋",
+                "desc": "你会自己制作袋子，谢谢。",
+                "flavor": "研究费用比你预期的要高一点...",
+                "group": "storage",
+                "require": "g.demonology>=10&&g.crafting>=20&&g.tier3>0",
+                "tags": "t_craftedbag",
+                "max": 1,
+                "length": 200,
+                "cost": {
+                    "gold": 1000,
+                    "arcana": 20
+                },
+                "run": {
+                    "stamina": 2,
+                    "hp": 2,
+                    "arcana": 0.15
+                },
+                "mod": {
+                    "bloodgem.max": 10,
+                    "voidgem.max": 1,
+                    "spiritgem.max": 2,
+                    "shadowgem.max": 1
+                }
+            },
+            {
+                "id": "sabbat",
+                "name": "女巫安息日",
+                "desc": "恶魔与女巫的狂欢。",
+                "group": "research",
+                "require": "g.witch>0&&g.demonology>=7&&g.spiritlore>=8",
+                "length": 100,
+                "cd": 100,
+                "cost": {
+                    "shadow": 5,
+                    "arcana": 1
+                },
+                "run": {
+                    "stamina": 0.8
+                },
+                "effect": {
+                    "demonology.exp": "g.demonology.rate*0.2",
+                    "spiritlore.exp": "g.spiritlore.rate*0.2"
+                },
+                "result": {
+                    "arcana": 10
+                }
+            },
+            {
+                "id": "trapsoul",
+                "name": "囚禁灵魂",
+                "verb": "catching souls",
+                "desc": "将灵魂困在灵魂宝石中。",
+                "group": "materials",
+                "require": "g.bonedust>0",
+                "need": "wardsource",
+                "length": 15,
+                "cost": {
+                    "spiritgem": 1,
+                    "research": 25
+                },
+                "run": {
+                    "bonedust": 0.2,
+                    "stamina": 0.3,
+                    "spirit": 0.3
+                },
+                "result": {
+                    "souls.max": 0.5,
+                    "souls": 1,
+                    "dreams": {
+                        "value": 0.0015,
+                        "skipLocked": true
+                    }
+                }
+            },
+            {
+                "id": "demonicgrimoire",
+                "name": "恶魔魔典",
+                "desc": "整理你对恶魔的见解以及强迫它们听命于你的方法。",
+                "verb": "Scribbling incomprehensibly",
+                "group": "knowledge",
+                "require": "g.demonology>=8&&g.tier2>0",
+                "max": 1,
+                "length": 90,
+                "run": {
+                    "stamina": 0.8,
+                    "arcana": 0.05
+                },
+                "cost": {
+                    "gold": 50,
+                    "codices": 1,
+                    "research": 350,
+                    "shadow": 10
+                },
+                "mod": {
+                    "codices.rate": 0.01,
+                    "shadow.rate": 0.1,
+                    "research.max": 10,
+                    "demonology.max": 1,
+                    "demonology.mod.arcana.rate": 0.003
+                }
+            },
+            {
+                "id": "demonquizzing",
+                "name": "审问恶魔",
+                "desc": "召唤并束缚恶魔，以询问它们同类的信息。",
+                "flavor": "地狱存在吗？诅咒存在吗？它和冥界是同一个地方吗？恶魔起源于被诅咒者吗？",
+                "group": "knowledge",
+                "require": "g.demonology>=9&&g.tier3>0",
+                "need": [
+                    "pentagram",
+                    "wardsource"
+                ],
+                "max": 4,
+                "length": 45,
+                "cost": {
+                    "research": 666
+                },
+                "run": {
+                    "hp": 2,
+                    "mana": 1,
+                    "arcana": 0.3
+                },
+                "mod": {
+                    "demonology.max": 1
+                }
+            },
+            {
+                "id": "room_displays",
+                "name": "房间陈列",
+                "desc": "用更多的小玩意和饰品填满你的陈列室。",
+                "flavor": "填充鳄鱼和装满冒泡绿色黏液的玻璃器皿是任何自重巫师不可或缺的。",
+                "group": "storage",
+                "require": "g.space.max>=120&&g.skulls>0",
+                "need": "display_room",
+                "max": 1,
+                "length": 30,
+                "run": {
+                    "stamina": 0.2,
+                    "gold": 5
+                },
+                "mod": {
+                    "glassware.max": 5,
+                    "model_animals.max": 2
+                }
+            }
+        ],
+        "upgrades": [
+            {
+                "id": "eatchildrenrest",
+                "name": "吃小孩",
+                "tags": [
+                    "t_restmod",
+                    "t_extremeevil"
+                ],
+                "slot": "leisure",
+                "max": 1,
+                "require": "g.t_demonclass>0",
+                "need": "cauldron",
+                "buy": {
+                    "shadow": 5
+                },
+                "flavor": "你怎么能这样？！",
+                "mod": {
+                    "t_rest.effect.evilamt": 2,
+                    "t_rest.effect.mana": 0.1,
+                    "t_rest.effect.shadow": 0.15,
+                    "t_rest.effect.spirit": 0.1,
+                    "t_rest.effect.stress": -0.1,
+                    "t_rest.effect.hp": 0.5
+                },
+                "group": "rest"
+            },
+            {
+                "id": "deepincisions",
+                "name": "深层切口",
+                "desc": "存放你珍贵宝石最安全的地方是你的心脏旁。",
+                "group": "storage",
+                "require": "g.bloodbag>0&&g.dissection>=5",
+                "max": 1,
+                "cost": {
+                    "hp": 100,
+                    "bloodgem": 15
+                },
+                "mod": {
+                    "dissection.max": 1,
+                    "bloodbag.max": 3
+                }
+            },
+            {
+                "id": "model_skeleton",
+                "name": "骨骼模型",
+                "desc": "骨头和绳子构成了一个复杂的人体骨骼模型。",
+                "flavor": "要是它们有身体就好了。",
+                "group": "knowledge",
+                "require": "g.embalming>=2",
+                "max": 1,
+                "cost": {
+                    "skulls": 1,
+                    "bones": 10,
+                    "research": 800
+                },
+                "mod": {
+                    "embalming.max": 1,
+                    "dissection.max": 1
+                }
+            },
+            {
+                "id": "model_animals",
+                "name": "动物标本",
+                "desc": "小型动物被填充、防腐，可供研究或展示。",
+                "group": "knowledge",
+                "require": "g.anatomy>=2&&g.embalming>0&&g.animals>=3",
+                "max": 5,
+                "cost": {
+                    "skulls": 1,
+                    "bones": 5,
+                    "research": 3000,
+                    "herbs": 15
+                },
+                "mod": {
+                    "embalming.max": 1,
+                    "dissection.max": 0.2,
+                    "research.max": 15
+                }
+            },
+            {
+                "id": "model_skeleton_body",
+                "name": "人体模型",
+                "desc": "肌肉、肌腱以及所有红白相间的组织，用于展示身体表皮下的样子。",
+                "group": "knowledge",
+                "require": "g.anatomy>=5&&g.model_skeleton>0&&g.vivification>=3",
+                "max": 1,
+                "cost": {
+                    "skulls": 1,
+                    "bones": 10,
+                    "research": 3000,
+                    "hp": 50,
+                    "bloodgem": 15,
+                    "bodies": 3
+                },
+                "mod": {
+                    "embalming.max": 1,
+                    "dissection.max": 1,
+                    "vivification.max": 1,
+                    "skulls.mod.research.max": 2
+                }
+            },
+            {
+                "id": "skelcharger",
+                "name": "骸骨战马",
+                "desc": "它既不呼吸，也不疲惫。",
+                "group": "mount",
+                "slot": "mount",
+                "tags": "steed",
+                "require": "g.reanimation>=5",
+                "need": "stables",
+                "buy": {
+                    "gold": 400,
+                    "bones": 10,
+                    "shadowgem": 2,
+                    "bonedust": 25
+                },
+                "mod": {
+                    "dist": 270,
+                    "shadow.rate": 0.1,
+                    "skulls.max": 1,
+                    "bones.max": 5
+                }
+            },
+            {
+                "id": "animate_model_skeleton",
+                "name": "活化骨骼模型",
+                "desc": "你的骨骼模型被永久（尽管是粗糙的）复活了。",
+                "flavor": "用处不大，但这只是个开始。现在，如果我...",
+                "group": "knowledge",
+                "require": "g.model_skeleton>=1&&g.reanimation>=6&&g.evil2==1",
+                "max": 1,
+                "cost": {
+                    "shadowgem": 5,
+                    "spiritgem": 3,
+                    "research": 750
+                },
+                "mod": {
+                    "reanimation.max": 1
+                }
+            },
+            {
+                "id": "bonecollector",
+                "name": "骨头收集者",
+                "desc": "制造一个胡言乱语的食尸鬼来搜寻骨头。",
+                "flavor": "别问它在哪里找到的。",
+                "group": "materials",
+                "require": "g.reanimation>=5&&g.crafting>=7",
+                "max": 3,
+                "cost": {
+                    "arcana": 1,
+                    "shadow": 5,
+                    "research": 500
+                },
+                "mod": {
+                    "bones.rate": 0.005
+                }
+            },
+            {
+                "id": "morbidtrinkets",
+                "name": "病态饰品",
+                "desc": "你对恐怖事物有着不健康的痴迷。",
+                "group": "storage",
+                "require": "bonemonger",
+                "max": 1,
+                "cost": {
+                    "bones": 40,
+                    "research": 800,
+                    "spiritgem": 5
+                },
+                "mod": {
+                    "bones.max": "15%"
+                }
+            },
+            {
+                "id": "bettersiphon",
+                "name": "改良虹吸",
+                "desc": "让你能更有效地从尸体中提取生命力。",
+                "group": "rest",
+                "require": "(g.t_bloodclass+g.evil2)>=2",
+                "max": 1,
+                "cost": {
+                    "bloodgem": 50,
+                    "research": 1000,
+                    "bodies": 10
+                },
+                "mod": {
+                    "bloodsiphon.effect.hp": 10
+                }
+            },
+            {
+                "id": "improvedvats",
+                "name": "改良培养皿",
+                "desc": "让你的培养皿更高效。",
+                "group": "furniture",
+                "require": "(g.t_necroclass+g.tier4)>=2",
+                "max": 1,
+                "cost": {
+                    "bloodgem": 20,
+                    "bodies": 10,
+                    "vat": 5
+                },
+                "mod": {
+                    "vat.mod.bodies.rate": 0.05
+                }
+            },
+            {
+                "id": "transfusions",
+                "desc": "学会进行生命力输血。",
+                "group": "rest",
+                "require": "g.t_bloodclass>0||g.slaymaster>0",
+                "max": 1,
+                "cost": {
+                    "research": 100,
+                    "arcana": 1,
+                    "bloodgem": 20
+                }
+            },
+            {
+                "id": "manatrans",
+                "name": "能量输血",
+                "desc": "输血现在能从身体中抽取魔法能量。",
+                "group": "rest",
+                "require": "g.anatomy>=7&&g.lore>=8&&g.transfusions>0&&g.t_bloodclass>0",
+                "max": 1,
+                "cost": {
+                    "research": 400,
+                    "arcana": 1
+                },
+                "mod": {
+                    "bloodsiphon.effect.prismatic": 0.5,
+                    "bloodsiphon.effect.shadow": 1.5,
+                    "bloodsiphon.effect.spirit": 2
+                }
+            },
+            {
+                "id": "unholyspecimens",
+                "name": "邪恶标本",
+                "desc": "你阴沉的收藏品越来越多。",
+                "group": "furniture",
+                "require": "g.ossuary>=4",
+                "max": 1,
+                "cost": {
+                    "bones": 40,
+                    "research": 800,
+                    "gold": 300,
+                    "gems": 10
+                },
+                "mod": {
+                    "ossuary.mod.bones.max": 10
+                }
+            },
+            {
+                "id": "magicskull",
+                "name": "魔法头骨",
+                "desc": "一个普通的头骨，注入了死灵魔法。",
+                "flavor": "我曾与他相识。",
+                "group": "knowledge",
+                "require": "g.skulls>0",
+                "max": 1,
+                "cost": {
+                    "skulls": 1,
+                    "gems": 2,
+                    "research": 500
+                },
+                "mod": {
+                    "shadowlore.max": 1,
+                    "shadowlore.rate": 0.1,
+                    "shadow.rate": 0.01,
+                    "spiritlore.max": 1,
+                    "spiritlore.rate": 0.1
+                }
+            },
+            {
+                "id": "graveyard_columbarium",
+                "name": "墓地骨灰堂",
+                "desc": "一个存放骨灰的建筑。",
+                "group": "furniture",
+                "require": "g.fire>=5&&g.graveyard>0",
+                "cost": {
+                    "research": 20,
+                    "gold": 2060,
+                    "gems": 10,
+                    "fire": 10
+                },
+                "mod": {
+                    "urn.max": 2,
+                    "glassware.max": 2
+                }
+            },
+            {
+                "id": "graveyard_landscaping",
+                "name": "墓地景观美化",
+                "desc": "重新设计墓地的许多区域，使其对逝者更加尊重。",
+                "group": "furniture",
+                "tags": "t_graveyard_remodel",
+                "require": "g.respectable1==1&&g.graveyard>0",
+                "warn": true,
+                "cost": {
+                    "gold": 5000,
+                    "gems": 30
+                },
+                "lock": "t_graveyard_remodel",
+                "mod": {
+                    "spiritlore.max": 2,
+                    "graveyard.mod.spiritlore.rate": 0.5,
+                    "graveyard.mod.souls.rate": 0.01,
+                    "graveyard.mod.souls.max": 5
+                }
+            },
+            {
+                "id": "graveyard_soulkeeping",
+                "name": "墓地灵魂束缚",
+                "desc": "将死去的灵魂强行束缚在墓地区域。",
+                "group": "furniture",
+                "tags": "t_graveyard_remodel",
+                "require": "g.evil1==1&&g.spiritlore>=10&&g.graveyard>0",
+                "warn": true,
+                "cost": {
+                    "gold": 3000,
+                    "gems": 10
+                },
+                "lock": "t_graveyard_remodel",
+                "mod": {
+                    "spiritlore.max": 2,
+                    "graveyard.mod.spiritlore.rate": 1,
+                    "graveyard.mod.souls.rate": 0.01,
+                    "graveyard.mod.souls.max": 15
+                }
+            },
+            {
+                "id": "dungeon_modular",
+                "name": "重做地牢",
+                "desc": "增加新的隐藏通道，优化地牢布局，更好地利用空间。",
+                "group": "furniture",
+                "require": "g.dungeon>0",
+                "cost": {
+                    "research": 120,
+                    "gold": 5360,
+                    "gems": 15,
+                    "bookcase": 5
+                },
+                "mod": {
+                    "dungeon.mod.space": -10,
+                    "dungeon.mod.bodies.max": 5,
+                    "dungeon.mod.bones.max": 15
+                }
+            },
+            {
+                "id": "dungeon_catacomb",
+                "name": "地牢墓穴",
+                "desc": "将地牢中的一个房间变成骷髅专用储藏区。",
+                "group": "furniture",
+                "require": "g.dungeon_modular>0&&g.dissection>=1",
+                "cost": {
+                    "research": 120,
+                    "gold": 1360,
+                    "gems": 25,
+                    "casket": 5
+                },
+                "mod": {
+                    "dungeon.mod.bones.max": 20,
+                    "dungeon.mod.skulls.max": 4,
+                    "urn.max": 2
+                }
+            },
+            {
+                "id": "dungeon_treasure_room",
+                "name": "地牢宝藏室",
+                "desc": "将地牢中的一个房间变成一个安全可靠的金库。",
+                "group": "furniture",
+                "require": "g.dungeon_modular>0",
+                "cost": {
+                    "research": 300,
+                    "gold": 6000,
+                    "gems": 50,
+                    "smchest": 3,
+                    "ironchest": 2,
+                    "ornatechest": 1
+                },
+                "mod": {
+                    "dungeon.mod.gold.max": 400,
+                    "dungeon.mod.inv.max": 5,
+                    "glassware.max": 5,
+                    "dungeon.mod.gems.max": 10
+                }
+            },
+            {
+                "id": "demonicpact",
+                "name": "恶魔契约",
+                "desc": "与恶魔签订的血之契约。所提供的知识价值双倍。",
+                "flavor": "他们说那血必须是你的。",
+                "group": "knowledge",
+                "require": "g.demonology>=5",
+                "max": 1,
+                "cost": {
+                    "research": 300,
+                    "arcana": 5,
+                    "gems": 10,
+                    "hp": 20
+                },
+                "mod": {
+                    "lore.max": 2,
+                    "demonology.max": 2,
+                    "demonology.rate": 0.2,
+                    "planeslore.max": 2,
+                    "planeslore.rate": 0.2
+                }
+            },
+            {
+                "id": "glassware",
+                "desc": "用于存放草药或粉末的玻璃器皿。",
+                "flavor": "一套精美的带盖玻璃器皿。",
+                "group": "storage",
+                "require": "g.crafting>=7&&g.bonedust>=10",
+                "max": 5,
+                "cost": {
+                    "gold": 750,
+                    "research": 300
+                },
+                "mod": {
+                    "bonedust.max": 5,
+                    "herbs.max": 2
+                }
+            },
+            {
+                "id": "urn",
+                "desc": "灰尘容器。",
+                "group": "storage",
+                "require": "g.bonedust>0&&g.spirit>=5",
+                "max": 3,
+                "cost": {
+                    "gold": 180,
+                    "research": 60,
+                    "spirit": 3
+                },
+                "mod": {
+                    "bonedust.max": 5,
+                    "shadowlore.rate": 0.1,
+                    "spiritlore.rate": 0.1
+                }
+            },
+            {
+                "id": "siversdemon",
+                "name": "恶魔位面",
+                "desc": "伊瑞斯。盖尔穆德。沃尼思。它们为你提供超乎想象的知识。",
+                "flavor": "它们所求的，不过是一步之遥。",
+                "group": "bargain",
+                "require": "g.lore>=30&&g.tier4>0&&g.demonology>0",
+                "need": "siversgate",
+                "max": 1,
+                "cost": {
+                    "arcana": 20,
+                    "shadow": 20
+                },
+                "mod": {
+                    "planeslore.max": 1,
+                    "planeslore.rate": "10%",
+                    "demonology.max": 3,
+                    "demonology.rate": "30%",
+                    "vivification.max": 2
+                }
+            },
+            {
+                "id": "siversnecro",
+                "name": "死亡位面",
+                "desc": "你感受到了门后死亡位面的连接。",
+                "flavor": "而你不会像凡人一样被杀死。",
+                "group": "bargain",
+                "require": "g.lore>=30&&g.tier4>0&&g.necromancy>0",
+                "need": "siversgate",
+                "max": 1,
+                "cost": {
+                    "bodies": 10,
+                    "skulls": 10,
+                    "bones": 10,
+                    "shadow": 20
+                },
+                "mod": {
+                    "planeslore.max": 1,
+                    "planeslore.rate": "10%",
+                    "reanimation.max": 2,
+                    "reanimation.rate": "30%",
+                    "necromancy.max": 2,
+                    "necromancy.rate": "30%",
+                    "necromancy.mod.hp.rate": 0.05
+                }
+            },
+            {
+                "id": "magicbroomstick",
+                "name": "魔法扫帚",
+                "require": "g.witch>0&&g.crafting>=7&&g.spirit.max>=5",
+                "flavor": "",
+                "slot": "mount",
+                "buy": {
+                    "research": 200,
+                    "nature": 5,
+                    "spirit": 5,
+                    "gold": 100,
+                    "arcana": 1
+                },
+                "mod": {
+                    "dist": 115,
+                    "spirit.max": 1
+                },
+                "group": "mount"
+            },
+            {
+                "id": "ebonwoodbroomstick",
+                "name": "乌木扫帚",
+                "require": "g.witch>0&&g.crafting>=15&&g.tier3>0",
+                "flavor": "",
+                "slot": "mount",
+                "buy": {
+                    "research": 1000,
+                    "nature": 10,
+                    "spirit": 10,
+                    "gold": 1000,
+                    "arcana": 1
+                },
+                "mod": {
+                    "dist": 355,
+                    "spirit.max": 1,
+                    "spirit.rate": 0.1
+                },
+                "group": "mount"
+            }
+        ],
+        "potions": [
+            {
+                "id": "pot_fake",
+                "name": "永葆青春药剂",
+                "desc": "确保饮用者永不衰老。仅供出售。",
+                "require": "g.potions>=1&&g.evil1>0",
+                "buy": {
+                    "gold": 250,
+                    "research": 500,
+                    "potionessence": 1
+                },
+                "cost": {
+                    "herbs": 25,
+                    "shadowgem": 2,
+                    "potionessence": 1
+                },
+                "sell": {
+                    "gold": 2000,
+                    "gems": 25
+                },
+                "use": {
+                    "dot": {
+                        "id": "fakeeternalyouth",
+                        "name": "永葆青春",
+                        "duration": 15,
+                        "effect": {
+                            "hp": -250
+                        }
+                    }
+                }
+            },
+            {
+                "id": "pot_souls",
+                "name": "灵魂束缚精华",
+                "desc": "少量这种病态的绿色物质可以显著增强灵魂陷阱的效果。",
+                "require": "g.potions>=6&&g.trapsoul>20",
+                "level": 10,
+                "buy": {
+                    "gold": 2500,
+                    "research": 3000,
+                    "potionessence": 1
+                },
+                "cost": {
+                    "souls": 15,
+                    "gold": 500,
+                    "spiritgem": 5,
+                    "spirit": 15,
+                    "shadowgem": 5,
+                    "potionessence": 1
+                },
+                "use": {
+                    "dot": {
+                        "duration": 1800,
+                        "mod": {
+                            "trapsoul.run.bonedust": -0.2,
+                            "trapsoul.length": -5,
+                            "trapsoul.result.souls.max": 0.25
+                        }
+                    }
+                }
+            },
+            {
+                "id": "pot_vileempowerment",
+                "name": "邪恶药剂",
+                "desc": "曾属于他们的，现在是你的了。",
+                "level": 25,
+                "require": "(g.potions+g.t_potionclass)>=10&&g.evil2>0",
+                "tags": "t_infusion",
+                "cd": 3600,
+                "buy": {
+                    "gold": 15000,
+                    "tomes": 50,
+                    "research": 15000,
+                    "potionessence": 1
+                },
+                "cost": {
+                    "herbs": 50,
+                    "research": 10000,
+                    "bloodgem": 25,
+                    "potionessence": 1
+                },
+                "use": {
+                    "hp.max": 1,
+                    "element.max": 0.1
+                }
+            }
+        ],
+        "events": [
+            {
+                "id": "recal_evil3",
+                "hide": true,
+                "require": "(g.greynecromancer+g.archlock+g.necro3+g.deathlock+g.phylactory)>=1&&g.evil3==0",
+                "desc": "内部更新 - 玩家不应看到此信息。确保现有T5/6邪恶职业或拥有命匣的玩家获得邪恶3。",
+                "result": {
+                    "evil3": 1
+                }
+            },
+            {
+                "id": "recal_evil2",
+                "hide": true,
+                "require": "(g.thanophage+g.dreadlord+g.necromancer+g.warlock+g.necromancy+g.evil3)>=1&&g.evil2==0&&g.redemption_path==0",
+                "desc": "内部更新 - 玩家不应看到此信息。确保现有T3/4邪恶职业或拥有亡灵法术的玩家获得邪恶2。",
+                "result": {
+                    "evil2": 1
+                }
+            },
+            {
+                "id": "evt_adventure_shadowlore2",
+                "hide": true,
+                "require": "shadowlore2",
+                "mod": {
+                    "e_barghest.effect.shadowlore2.exp": 1
+                }
+            },
+            {
+                "id": "evt_adventure_embalming",
+                "hide": true,
+                "require": "embalming",
+                "mod": {
+                    "enc_mummy.effect.embalming.exp": 1,
+                    "enc_embalm1.effect.embalming.exp": 1,
+                    "sarcophagus.effect.embalming.exp": 1
+                }
+            },
+            {
+                "id": "evt_adventure_reanimation",
+                "hide": true,
+                "require": "reanimation",
+                "mod": {
+                    "enc_embalm1.effect.reanimation.exp": 1,
+                    "sarcophagus.effect.reanimation.exp": 1,
+                    "enc_rats.effect.reanimation.exp": 1
+                }
+            }
+        ],
+        "tags": [
+            {
+                "id": "t_summon_undead",
+                "name": "召唤亡灵"
+            },
+            {
+                "id": "t_minion_undead",
+                "name": "亡灵",
+                "note": "Minions prefix comes from minions. mod"
+            },
+            {
+                "id": "t_summon_shade",
+                "name": "召唤幽影"
+            },
+            {
+                "id": "t_minion_shade",
+                "name": "幽影",
+                "note": "Minions prefix comes from minions. mod"
+            }
+        ],
+        "monsters": [
+            {
+                "id": "sum_skeleton",
+                "name": "骷髅",
+                "kind": "undead",
+                "tags": "t_summon_undead",
+                "noproc": true,
+                "level": 1,
+                "hp": 100,
+                "regen": -5,
+                "defense": 10,
+                "speed": 8,
+                "attack": {
+                    "name": "生锈的剑",
+                    "kind": "slash",
+                    "damage": "2~4"
+                }
+            },
+            {
+                "id": "sum_zombie",
+                "name": "僵尸",
+                "desc": "它是一个僵尸。",
+                "flavor": "很可能对大脑感兴趣。",
+                "kind": "undead",
+                "tags": "t_summon_undead",
+                "noproc": true,
+                "level": 2,
+                "hp": 150,
+                "regen": -5,
+                "defense": 30,
+                "speed": 5,
+                "attack": {
+                    "name": "身体猛击",
+                    "kind": "blunt",
+                    "damage": "3~5"
+                }
+            },
+            {
+                "id": "sum_bone_golem",
+                "name": "骨魔像",
+                "desc": "由头骨和骨头组成的混合体。非常实用，而且能承受大量打击。",
+                "kind": "undead",
+                "tags": "t_minion_undead",
+                "noproc": true,
+                "level": 20,
+                "hp": 500,
+                "defense": 70,
+                "speed": 9,
+                "attack": {
+                    "name": "锯齿骨骼",
+                    "kind": "pierce",
+                    "damage": "5~10"
+                }
+            },
+            {
+                "id": "sum_spectre",
+                "name": "幽灵",
+                "desc": "不安的灵魂，被赋予力量以报复其怨恨",
+                "kind": "shade",
+                "tags": "t_summon_shade",
+                "noproc": true,
+                "level": 30,
+                "hp": 1,
+                "barrier": 100,
+                "defense": 200,
+                "speed": 12,
+                "attack": {
+                    "name": "冰冷之触",
+                    "kind": "shadow",
+                    "damage": "8~14"
+                }
+            },
+            {
+                "id": "sum_lich",
+                "name": "低阶巫妖",
+                "desc": "通过黑暗仪式紧抓不死之身，是……的主宰",
+                "flavor": "我苟活于世，只为侍奉吾主。",
+                "kind": "shade",
+                "tags": "t_minion_shade",
+                "noproc": true,
+                "level": 30,
+                "hp": 1,
+                "barrier": 400,
+                "recharge": 1,
+                "defense": 500,
+                "dodge": 100,
+                "speed": 10,
+                "attack": {
+                    "name": "黑暗箭矢",
+                    "targets": "enemies",
+                    "maxTargets": 999,
+                    "kind": "shadow",
+                    "damage": "17~30"
+                }
+            },
+            {
+                "id": "sum_reaper",
+                "name": "虚空收割者",
+                "desc": "死亡的显现，引导你的敌人走向来世",
+                "kind": "shade",
+                "tags": "t_minion_shade",
+                "noproc": true,
+                "level": 30,
+                "hp": 1,
+                "barrier": 900,
+                "recharge": 2,
+                "defense": 500,
+                "dodge": 100,
+                "speed": 11,
+                "attack": {
+                    "name": "收割",
+                    "kind": "shadow",
+                    "damage": "36~60"
+                }
+            }
+        ]
+    }
+}

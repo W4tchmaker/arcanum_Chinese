@@ -1,0 +1,54 @@
+[
+	{
+		"id": "paralyze",
+		"name": "麻痹",
+		"adj": "麻痹的",
+		"kind": "paralysis",
+		"tags": "t_paralysis",
+		"sym": "🚫",
+		"flags": "noact"
+	},
+	{
+		"id": "entangle",
+		"name": "纠缠",
+		"adj": "缠绕的",
+		"kind": "entangle",
+		"tags": "t_entangle",
+		"sym": "🚷",
+		"flags": "noattack"
+	},
+	{
+		"id": "silence",
+		"name": "沉默",
+		"adj": "沉默的",
+		"kind": "silence",
+		"tags": "t_silence",
+		"sym": "😶",
+		"flags": "nocast"
+	},
+	{
+		"id": "taunt",
+		"name": "挑衅",
+		"adj": "嘲讽的",
+		"kind": "taunt",
+		"tags": "t_taunt",
+		"flags": "taunt"
+	},
+	{
+		"id": "hide",
+		"name": "隐藏",
+		"adj": "隐藏的",
+		"kind": "hiding",
+		"tags": "t_hiding",
+		"flags": "hiding"
+	},
+	{
+		"id": "charmed",
+		"name": "魅惑",
+		"adj": "被魅惑的",
+		"flags": "charmed",
+		"kind": "charm",
+		"tags": "t_charmed",
+		"sym": "😳"
+	}
+]

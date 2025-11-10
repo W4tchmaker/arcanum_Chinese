@@ -1,0 +1,91 @@
+{
+    "module": "contributors",
+    "sym": "✪",
+    "data": {
+        "events": [
+            {
+                "id": "evn_yurisexpander",
+                "name": "尤里·德吉恩的冯·诺依曼之家",
+                "hidden": true,
+                "require": "g.clockworkexpansione>=15",
+                "mod": {
+                    "clockworkexpansione.mod.yurisexpander.convert.input.puppets": 0.00028,
+                    "clockworkexpansione.mod.yurisexpander.convert.input.machinae": 0.00028,
+                    "clockworkexpansione.mod.yurisexpander.convert.input.automatas": 0.00028
+                }
+            }
+        ],
+        "furniture": [
+            {
+                "id": "yurisexpander",
+                "name": "尤里·德吉恩的冯·诺依曼之家",
+                "require": "g.clockworkexpansione>=15",
+                "desc": "由一位突破极限的大师发明，能让巫师自动化扩张过程的装置。完成后别忘了关掉它。",
+                "tags": "t_contributor",
+                "cost": {
+                    "puppetautomation": 2,
+                    "machinaautomation": 2,
+                    "automataautomation": 2
+                },
+                "mod": {
+                    "space": 25
+                },
+                "convert": {
+                    "input": {
+                        "puppets": 0.0056,
+                        "machinae": 0.0056,
+                        "automatas": 0.0056
+                    },
+                    "output": {
+                        "effect": {
+                            "clockworkexpansione": 0.00028
+                        }
+                    }
+                },
+                "flavor": "大多数巫师都将他们的塔楼建立在那些魔法天赋较差者的劳动之上。\\n但你不同，你将放过普通民众，将你的领域建立在你忠诚的自动机及其次级同类的背上。\\n如果其中一些需要被牺牲并融入你的作品，那么这也是你愿意做出的牺牲。"
+            }
+        ],
+        "spells": [
+            {
+                "id": "mk_phoenixegg",
+                "name": "男爵的凤凰孵化器",
+                "desc": "在战斗中，召唤一枚凤凰蛋，你必须守护它直到孵化。",
+                "tags": "t_fauna_spell",
+                "sortOrder": 760,
+                "level": 3,
+                "school": "fire",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.summoner>0||(g.t_summonclass>0&&g.tier2>0)",
+                "buy": {
+                    "research": 1000,
+                    "firegem": 30,
+                    "codices": 20
+                },
+                "cost": {
+                    "fire": 10
+                },
+                "cd": 60,
+                "summon": [
+                    {
+                        "id": "sum_phoenixegg",
+                        "count": 1,
+                        "max": 3
+                    }
+                ]
+            }
+        ]
+    }
+}

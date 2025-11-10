@@ -1,0 +1,223 @@
+{
+    "module": "combat_tutorial",
+    "sym": "⚔️",
+    "data": {
+        "rares": [
+            {
+                "id": "trainingdagger",
+                "name": "匕首",
+                "desc": "一把朴素的木制匕首",
+                "unique": true,
+                "level": 1,
+                "tags": "t_slash,t_martial,t_dagger,t_training",
+                "type": "weapon",
+                "slot": "mainhand",
+                "material": "mat_martial_wood",
+                "enchants": 1,
+                "attack": {
+                    "kind": "slash",
+                    "tohit": 1,
+                    "damage": "1~2",
+                    "potencies": [
+                        "slashdmg",
+                        "physdmg"
+                    ]
+                }
+            },
+            {
+                "id": "trainingdart",
+                "name": "追踪飞镖",
+                "desc": "这应该能击中任何东西",
+                "unique": true,
+                "level": 1,
+                "enchants": 1,
+                "type": "weapon",
+                "slot": "mainhand",
+                "material": "mat_martial_wood",
+                "tags": "t_martial,t_pierce,t_dart,t_training",
+                "attack": {
+                    "kind": "pierce",
+                    "harmless": true,
+                    "damage": 1,
+                    "potencies": [
+                        "piercedmg",
+                        "physdmg"
+                    ]
+                }
+            },
+            {
+                "id": "traininghammer",
+                "name": "锤子",
+                "unique": true,
+                "level": 1,
+                "enchants": 1,
+                "tags": "t_martial,t_blunt,t_warhammer,t_training",
+                "type": "weapon",
+                "slot": "mainhand",
+                "material": "mat_martial_wood",
+                "attack": {
+                    "kind": "blunt",
+                    "tohit": -2,
+                    "damage": "2~3",
+                    "potencies": [
+                        "bluntdmg",
+                        "physdmg",
+                        "hammerdmg"
+                    ]
+                }
+            }
+        ],
+        "dungeons": [
+            {
+                "id": "traininggrounds",
+                "name": "训练场",
+                "title": "合格新兵",
+                "dist": 1,
+                "length": 20,
+                "require": "g.evt_helper>0",
+                "boss": {
+                    "1": "stddummy",
+                    "2": "noweapondummy",
+                    "3": "weapondummy",
+                    "4": "dodgydummy",
+                    "5": "armorydummy",
+                    "20": "instructor"
+                },
+                "spawns": [
+                    "dummy"
+                ]
+            }
+        ],
+        "monsters": [
+            {
+                "id": "stddummy",
+                "name": "假人1",
+                "desc": "徒手也能搞定",
+                "noproc": true,
+                "level": 0,
+                "speed": -10,
+                "hp": 10,
+                "attack": {
+                    "log": {
+                        "name": "打我啊！",
+                        "desc": "我说，再用力点，再用力点。法术会有帮助的"
+                    }
+                }
+            },
+            {
+                "id": "noweapondummy",
+                "name": "硬假人",
+                "desc": "拳头对这家伙没用",
+                "noproc": true,
+                "level": 0,
+                "speed": -10,
+                "hp": 5,
+                "immune": "physical",
+                "attack": {
+                    "log": {
+                        "name": "法术",
+                        "desc": "使用你的魔法飞弹，从法术页绑定到快捷栏或添加到记忆中"
+                    }
+                },
+                "loot": {
+                    "trainingdagger": 1
+                }
+            },
+            {
+                "id": "weapondummy",
+                "name": "法术吸收者",
+                "desc": "对付这家伙要用武器",
+                "noproc": true,
+                "level": 0,
+                "speed": -10,
+                "hp": 5,
+                "immune": "force,blunt",
+                "attack": {
+                    "log": {
+                        "name": "使用你的武器",
+                        "desc": "前往装备标签页，找到木制匕首并装备它"
+                    }
+                },
+                "loot": {
+                    "trainingdart": 1
+                }
+            },
+            {
+                "id": "dodgydummy",
+                "name": "闪避假人",
+                "desc": "任何普通攻击手段都无济于事",
+                "noproc": true,
+                "level": 0,
+                "hp": 1,
+                "speed": -10,
+                "dodge": 5,
+                "attack": {
+                    "log": {
+                        "name": "打不到我",
+                        "desc": "使用追踪飞镖来击中这个讨厌的假人"
+                    }
+                },
+                "loot": {
+                    "traininghammer": 1
+                }
+            },
+            {
+                "id": "armorydummy",
+                "name": "装甲假人",
+                "desc": "任何普通攻击都无法留下痕迹",
+                "noproc": true,
+                "dodge": -30,
+                "hp": 10,
+                "speed": -10,
+                "defense": 20,
+                "resist": {
+                    "blunt": -50
+                },
+                "attack": {
+                    "log": {
+                        "name": "使用你的锤子",
+                        "desc": "只有锤子才能在这块铁疙瘩上留下凹痕"
+                    }
+                }
+            },
+            {
+                "id": "instructor",
+                "desc": "他是在玩弄你吗？",
+                "noproc": true,
+                "level": 1,
+                "dodge": 4,
+                "hp": 50,
+                "speed": 3,
+                "attack": {
+                    "name": "嘲弄",
+                    "damage": "0~2",
+                    "type": "slash",
+                    "log": [
+                        {
+                            "%": "10%",
+                            "desc": "记忆中有一个法术，手中有一把武器是最有效的"
+                        },
+                        {
+                            "%": "10%",
+                            "desc": "手动施放法术可以轻松战斗"
+                        },
+                        {
+                            "%": "10%",
+                            "desc": "记忆一套良好的增益和攻击法术组合可以提高生存能力"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "dummy",
+                "desc": "甚至无法反击",
+                "noproc": true,
+                "level": 0,
+                "dodge": -10,
+                "defense": 3,
+                "hp": 10,
+                "speed": -10
+            }
+        ]
+    }
+}

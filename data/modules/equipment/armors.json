@@ -1,0 +1,1334 @@
+{
+    "module": "equipment-armors",
+    "author": "nagshell",
+    "data": {
+        "tags": [],
+        "materials": [
+            {
+                "id": "mat_armor_iron",
+                "name": "铁",
+                "level": 1,
+                "kind": "metal",
+                "only": "armor",
+                "cost": {
+                    "iron": 8
+                },
+                "require": "g.craftinglearn1>0",
+                "alter": {
+                    "sell": {
+                        "iron": 4
+                    }
+                }
+            },
+            {
+                "id": "mat_armor_quicksteel",
+                "name": "迅钢",
+                "level": 4,
+                "kind": "metal",
+                "only": "armor",
+                "cost": {
+                    "quicksteel": 8,
+                    "managem": 2,
+                    "research": 100
+                },
+                "require": "g.craftinglearn2>0",
+                "alter": {
+                    "sell": {
+                        "quicksteel": 4
+                    },
+                    "armor": 2,
+                    "enchants.max": 1
+                }
+            },
+            {
+                "id": "mat_armor_adamant",
+                "name": "精金",
+                "adj": "Adamantine",
+                "level": 9,
+                "kind": "metal",
+                "only": "armor",
+                "cost": {
+                    "adamant": 8,
+                    "runestones": 1,
+                    "research": 300
+                },
+                "require": "g.craftinglearn4>0",
+                "alter": {
+                    "sell": {
+                        "adamant": 4
+                    },
+                    "armor": 5,
+                    "enchants.max": 2
+                }
+            },
+            {
+                "id": "mat_armor_artifact_rare",
+                "name": "神器披风",
+                "adj": "%i",
+                "level": 9,
+                "kind": "artifact",
+                "only": "aegismantle,phantomveil,etherealshroud",
+                "cost": {
+                    "adamant": 2,
+                    "aetherhide": 2,
+                    "amberroot": 2,
+                    "runestones": 2
+                },
+                "require": "g.craftinglearn5>0",
+                "alter": {}
+            },
+            {
+                "id": "mat_armor_leather",
+                "name": "皮革",
+                "level": 1,
+                "kind": "leather",
+                "only": "armor",
+                "cost": {
+                    "leather": 8
+                },
+                "require": "g.craftinglearn1>0",
+                "alter": {
+                    "sell": {
+                        "leather": 4
+                    }
+                }
+            },
+            {
+                "id": "mat_armor_manabound",
+                "name": "法力束缚",
+                "level": 4,
+                "kind": "leather",
+                "only": "armor",
+                "cost": {
+                    "serpentskin": 8,
+                    "managem": 2,
+                    "research": 100
+                },
+                "require": "g.craftinglearn2>0",
+                "alter": {
+                    "sell": {
+                        "serpentskin": 4
+                    },
+                    "enchants.max": 1,
+                    "evasion": 2
+                }
+            },
+            {
+                "id": "mat_armor_runestitch",
+                "name": "符文缝合",
+                "level": 9,
+                "kind": "leather",
+                "only": "armor",
+                "cost": {
+                    "aetherhide": 8,
+                    "runestones": 1,
+                    "research": 300
+                },
+                "require": "g.craftinglearn4>0",
+                "alter": {
+                    "sell": {
+                        "aetherhide": 4
+                    },
+                    "enchants.max": 2,
+                    "evasion": 5
+                }
+            },
+            {
+                "id": "mat_armor_cotton",
+                "name": "棉布",
+                "level": 1,
+                "kind": "cloth",
+                "only": "armor",
+                "cost": {
+                    "cotton": 8
+                },
+                "require": "g.craftinglearn1>0",
+                "alter": {
+                    "sell": {
+                        "cotton": 4
+                    }
+                }
+            },
+            {
+                "id": "mat_armor_spellweave",
+                "name": "咒术编织",
+                "level": 4,
+                "kind": "cloth",
+                "only": "armor",
+                "cost": {
+                    "spidersilk": 8,
+                    "managem": 2,
+                    "research": 100
+                },
+                "require": "g.craftinglearn2>0",
+                "alter": {
+                    "sell": {
+                        "spidersilk": 4
+                    },
+                    "enchants.max": 1,
+                    "shield": 10
+                }
+            },
+            {
+                "id": "mat_armor_runecloth",
+                "name": "符文布",
+                "level": 9,
+                "kind": "cloth",
+                "only": "armor",
+                "cost": {
+                    "amberroot": 8,
+                    "runestones": 1,
+                    "research": 300
+                },
+                "require": "g.craftinglearn4>0",
+                "alter": {
+                    "sell": {
+                        "amberroot": 4
+                    },
+                    "enchants.max": 2,
+                    "shield": 25
+                }
+            },
+            {
+                "id": "mat_armor_basiliskhide",
+                "name": "蜥蜴皮",
+                "level": 9,
+                "kind": "leather",
+                "only": "armor",
+                "cost": {
+                    "basiliskhide": 8,
+                    "runestones": 1,
+                    "research": 300
+                },
+                "require": "g.craftinglearn4>0",
+                "alter": {
+                    "sell": {
+                        "basiliskhide": 4
+                    },
+                    "enchants.max": 2,
+                    "mod": {
+                        "self.negate.paralysis": 10
+                    }
+                }
+            },
+            {
+                "id": "mat_armor_dragonscale",
+                "name": "龙鳞",
+                "level": 9,
+                "kind": "metal",
+                "only": "armor",
+                "cost": {
+                    "dragonscale": 80,
+                    "adamant": 2,
+                    "runestones": 1,
+                    "research": 300
+                },
+                "require": "g.craftinglearn4>0",
+                "alter": {
+                    "sell": {
+                        "dragonscale": 40,
+                        "adamant": 1
+                    },
+                    "armor": 2,
+                    "enchants.max": 2,
+                    "mod": {
+                        "self.resist.fire": 10
+                    }
+                }
+            }
+        ],
+        "armors": [
+            {
+                "id": "helmet",
+                "name": "头盔",
+                "level": 1,
+                "slot": "head",
+                "tags": "t_helm",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 50,
+                    "research": 50
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "metal",
+                "enchants": 1,
+                "armor": 5,
+                "alter": {
+                    "mod.hp.max": 5
+                }
+            },
+            {
+                "id": "bascinet",
+                "name": "巴锡内头盔",
+                "level": 3,
+                "slot": "head",
+                "tags": "t_helm",
+                "require": "g.craftinglearn3>0",
+                "cost": {
+                    "gold": 150,
+                    "research": 150
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "metal",
+                "enchants": 1,
+                "armor": 10
+            },
+            {
+                "id": "greathelm",
+                "name": "大头盔",
+                "level": 6,
+                "slot": "head",
+                "tags": "t_helm",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500
+                },
+                "craftcostmult": 1.5,
+                "sell": {},
+                "only": "metal",
+                "enchants": 1,
+                "armor": 15,
+                "alter": {
+                    "mod.self.dodge": "-10%"
+                }
+            },
+            {
+                "id": "hood",
+                "name": "兜帽",
+                "level": 1,
+                "slot": "head",
+                "tags": "t_helm",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 50,
+                    "research": 50
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "leather",
+                "enchants": 1,
+                "evasion": 5,
+                "alter": {
+                    "mod.hp.max": 5
+                }
+            },
+            {
+                "id": "gamblerhat",
+                "name": "赌徒帽",
+                "level": 3,
+                "slot": "head",
+                "tags": "t_helm",
+                "require": "g.craftinglearn3>0",
+                "cost": {
+                    "gold": 150,
+                    "research": 150
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "leather",
+                "enchants": 1,
+                "evasion": 10
+            },
+            {
+                "id": "tricorne",
+                "name": "三角帽",
+                "level": 6,
+                "slot": "head",
+                "tags": "t_helm",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500
+                },
+                "craftcostmult": 1.5,
+                "sell": {},
+                "only": "leather",
+                "enchants": 1,
+                "evasion": 15,
+                "alter": {
+                    "mod.self.defense": "-10%"
+                }
+            },
+            {
+                "id": "cap",
+                "name": "便帽",
+                "level": 1,
+                "slot": "head",
+                "tags": "t_helm",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 50,
+                    "research": 50
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "cloth",
+                "enchants": 1,
+                "shield": 25,
+                "alter": {
+                    "mod.hp.max": 5
+                }
+            },
+            {
+                "id": "turban",
+                "name": "头巾",
+                "level": 3,
+                "slot": "head",
+                "tags": "t_helm",
+                "require": "g.craftinglearn3>0",
+                "cost": {
+                    "gold": 150,
+                    "research": 150
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "cloth",
+                "enchants": 1,
+                "shield": 50
+            },
+            {
+                "id": "pointedhat",
+                "name": "尖顶帽",
+                "level": 6,
+                "slot": "head",
+                "tags": "t_helm",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500
+                },
+                "craftcostmult": 1.5,
+                "sell": {},
+                "only": "cloth",
+                "enchants": 1,
+                "shield": 75,
+                "alter": {
+                    "mod.self.hp.max": "-5%"
+                }
+            },
+            {
+                "id": "chainmail",
+                "name": "锁子甲",
+                "level": 1,
+                "slot": "chest",
+                "tags": "t_chestplate",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 50,
+                    "research": 50
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "metal",
+                "enchants": 1,
+                "armor": 5,
+                "alter": {
+                    "mod.hp.max": 5
+                }
+            },
+            {
+                "id": "lamellar",
+                "name": "鳞甲",
+                "level": 3,
+                "slot": "chest",
+                "tags": "t_chestplate",
+                "require": "g.craftinglearn3>0",
+                "cost": {
+                    "gold": 150,
+                    "research": 150
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "metal",
+                "enchants": 1,
+                "armor": 10
+            },
+            {
+                "id": "platemail",
+                "name": "板甲",
+                "level": 6,
+                "slot": "chest",
+                "tags": "t_chestplate",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500
+                },
+                "craftcostmult": 1.5,
+                "sell": {},
+                "only": "metal",
+                "enchants": 1,
+                "armor": 15,
+                "alter": {
+                    "mod.self.dodge": "-10%"
+                }
+            },
+            {
+                "id": "tunic",
+                "name": "束腰外衣",
+                "level": 1,
+                "slot": "chest",
+                "tags": "t_chestplate",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 50,
+                    "research": 50
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "leather",
+                "enchants": 1,
+                "evasion": 5,
+                "alter": {
+                    "mod.hp.max": 5
+                }
+            },
+            {
+                "id": "jerkin",
+                "name": "紧身皮衣",
+                "level": 3,
+                "slot": "chest",
+                "tags": "t_chestplate",
+                "require": "g.craftinglearn3>0",
+                "cost": {
+                    "gold": 150,
+                    "research": 150
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "leather",
+                "enchants": 1,
+                "evasion": 10
+            },
+            {
+                "id": "doublet",
+                "name": "紧身短上衣",
+                "level": 6,
+                "slot": "chest",
+                "tags": "t_chestplate",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500
+                },
+                "craftcostmult": 1.5,
+                "sell": {},
+                "only": "leather",
+                "enchants": 1,
+                "evasion": 15,
+                "alter": {
+                    "mod.self.defense": "-10%"
+                }
+            },
+            {
+                "id": "shirt",
+                "name": "衬衫",
+                "level": 1,
+                "slot": "chest",
+                "tags": "t_chestplate",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 50,
+                    "research": 50
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "cloth",
+                "enchants": 1,
+                "shield": 25,
+                "alter": {
+                    "mod.hp.max": 5
+                }
+            },
+            {
+                "id": "vestment",
+                "name": "法衣",
+                "level": 3,
+                "slot": "chest",
+                "tags": "t_chestplate",
+                "require": "g.craftinglearn3>0",
+                "cost": {
+                    "gold": 150,
+                    "research": 150
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "cloth",
+                "enchants": 1,
+                "shield": 50
+            },
+            {
+                "id": "robe",
+                "name": "长袍",
+                "level": 6,
+                "slot": "chest",
+                "tags": "t_chestplate",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500
+                },
+                "craftcostmult": 1.5,
+                "sell": {},
+                "only": "cloth",
+                "enchants": 1,
+                "shield": 75,
+                "alter": {
+                    "mod.self.hp.max": "-5%"
+                }
+            },
+            {
+                "id": "bracers",
+                "name": "护腕",
+                "level": 1,
+                "slot": "hands",
+                "tags": "t_gloves",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 50,
+                    "research": 50
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "metal",
+                "enchants": 1,
+                "armor": 5,
+                "alter": {
+                    "mod.hp.max": 5
+                }
+            },
+            {
+                "id": "vambraces",
+                "name": "臂甲",
+                "level": 3,
+                "slot": "hands",
+                "tags": "t_gloves",
+                "require": "g.craftinglearn3>0",
+                "cost": {
+                    "gold": 150,
+                    "research": 150
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "metal",
+                "enchants": 1,
+                "armor": 10
+            },
+            {
+                "id": "gauntlets",
+                "name": "手铠",
+                "level": 6,
+                "slot": "hands",
+                "tags": "t_gloves",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500
+                },
+                "craftcostmult": 1.5,
+                "sell": {},
+                "only": "metal",
+                "enchants": 1,
+                "armor": 15,
+                "alter": {
+                    "mod.self.dodge": "-10%"
+                }
+            },
+            {
+                "id": "grips",
+                "name": "手套",
+                "level": 1,
+                "slot": "hands",
+                "tags": "t_gloves",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 50,
+                    "research": 50
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "leather",
+                "enchants": 1,
+                "evasion": 5,
+                "alter": {
+                    "mod.hp.max": 5
+                }
+            },
+            {
+                "id": "wristcuffs",
+                "name": "腕套",
+                "level": 3,
+                "slot": "hands",
+                "tags": "t_gloves",
+                "require": "g.craftinglearn3>0",
+                "cost": {
+                    "gold": 150,
+                    "research": 150
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "leather",
+                "enchants": 1,
+                "evasion": 10
+            },
+            {
+                "id": "gloves",
+                "name": "手套",
+                "level": 6,
+                "slot": "hands",
+                "tags": "t_gloves",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500
+                },
+                "craftcostmult": 1.5,
+                "sell": {},
+                "only": "leather",
+                "enchants": 1,
+                "evasion": 15,
+                "alter": {
+                    "mod.self.defense": "-10%"
+                }
+            },
+            {
+                "id": "wraps",
+                "name": "裹布",
+                "level": 1,
+                "slot": "hands",
+                "tags": "t_gloves",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 50,
+                    "research": 50
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "cloth",
+                "enchants": 1,
+                "shield": 25,
+                "alter": {
+                    "mod.hp.max": 5
+                }
+            },
+            {
+                "id": "mitts",
+                "name": "露指手套",
+                "level": 3,
+                "slot": "hands",
+                "tags": "t_gloves",
+                "require": "g.craftinglearn3>0",
+                "cost": {
+                    "gold": 150,
+                    "research": 150
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "cloth",
+                "enchants": 1,
+                "shield": 50
+            },
+            {
+                "id": "sleeves",
+                "name": "袖子",
+                "level": 6,
+                "slot": "hands",
+                "tags": "t_gloves",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500
+                },
+                "craftcostmult": 1.5,
+                "sell": {},
+                "only": "cloth",
+                "enchants": 1,
+                "shield": 75,
+                "alter": {
+                    "mod.self.hp.max": "-5%"
+                }
+            },
+            {
+                "id": "shinguards",
+                "name": "护胫",
+                "level": 1,
+                "slot": "shins",
+                "tags": "t_greaves",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 50,
+                    "research": 50
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "metal",
+                "enchants": 1,
+                "armor": 5,
+                "alter": {
+                    "mod.hp.max": 5
+                }
+            },
+            {
+                "id": "greaves",
+                "name": "胫甲",
+                "level": 3,
+                "slot": "shins",
+                "tags": "t_greaves",
+                "require": "g.craftinglearn3>0",
+                "cost": {
+                    "gold": 150,
+                    "research": 150
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "metal",
+                "enchants": 1,
+                "armor": 10
+            },
+            {
+                "id": "legplates",
+                "name": "腿甲",
+                "level": 6,
+                "slot": "shins",
+                "tags": "t_greaves",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500
+                },
+                "craftcostmult": 1.5,
+                "sell": {},
+                "only": "metal",
+                "enchants": 1,
+                "armor": 15,
+                "alter": {
+                    "mod.self.dodge": "-10%"
+                }
+            },
+            {
+                "id": "leggings",
+                "name": "护腿",
+                "level": 1,
+                "slot": "shins",
+                "tags": "t_greaves",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 50,
+                    "research": 50
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "leather",
+                "enchants": 1,
+                "evasion": 5,
+                "alter": {
+                    "mod.hp.max": 5
+                }
+            },
+            {
+                "id": "trousers",
+                "name": "长裤",
+                "level": 3,
+                "slot": "shins",
+                "tags": "t_greaves",
+                "require": "g.craftinglearn3>0",
+                "cost": {
+                    "gold": 150,
+                    "research": 150
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "leather",
+                "enchants": 1,
+                "evasion": 10
+            },
+            {
+                "id": "chausses",
+                "name": "锁甲裤",
+                "level": 6,
+                "slot": "shins",
+                "tags": "t_greaves",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500
+                },
+                "craftcostmult": 1.5,
+                "sell": {},
+                "only": "leather",
+                "enchants": 1,
+                "evasion": 15,
+                "alter": {
+                    "mod.self.defense": "-10%"
+                }
+            },
+            {
+                "id": "legwraps",
+                "name": "腿部裹布",
+                "level": 1,
+                "slot": "shins",
+                "tags": "t_greaves",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 50,
+                    "research": 50
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "cloth",
+                "enchants": 1,
+                "shield": 25,
+                "alter": {
+                    "mod.hp.max": 5
+                }
+            },
+            {
+                "id": "pantalons",
+                "name": "马裤",
+                "level": 3,
+                "slot": "shins",
+                "tags": "t_greaves",
+                "require": "g.craftinglearn3>0",
+                "cost": {
+                    "gold": 150,
+                    "research": 150
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "cloth",
+                "enchants": 1,
+                "shield": 50
+            },
+            {
+                "id": "breeches",
+                "name": "马裤",
+                "level": 6,
+                "slot": "shins",
+                "tags": "t_greaves",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500
+                },
+                "craftcostmult": 1.5,
+                "sell": {},
+                "only": "cloth",
+                "enchants": 1,
+                "shield": 75,
+                "alter": {
+                    "mod.self.hp.max": "-5%"
+                }
+            },
+            {
+                "id": "boots",
+                "name": "靴子",
+                "level": 1,
+                "slot": "feet",
+                "tags": "t_boots",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 50,
+                    "research": 50
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "metal",
+                "enchants": 1,
+                "armor": 5,
+                "alter": {
+                    "mod.hp.max": 5
+                }
+            },
+            {
+                "id": "treads",
+                "name": "战靴",
+                "level": 3,
+                "slot": "feet",
+                "tags": "t_boots",
+                "require": "g.craftinglearn3>0",
+                "cost": {
+                    "gold": 150,
+                    "research": 150
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "metal",
+                "enchants": 1,
+                "armor": 10
+            },
+            {
+                "id": "sabatons",
+                "name": "足甲",
+                "level": 6,
+                "slot": "feet",
+                "tags": "t_boots",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500
+                },
+                "craftcostmult": 1.5,
+                "sell": {},
+                "only": "metal",
+                "enchants": 1,
+                "armor": 15,
+                "alter": {
+                    "mod.self.dodge": "-10%"
+                }
+            },
+            {
+                "id": "moccasins",
+                "name": "鹿皮鞋",
+                "level": 1,
+                "slot": "feet",
+                "tags": "t_boots",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 50,
+                    "research": 50
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "leather",
+                "enchants": 1,
+                "evasion": 5,
+                "alter": {
+                    "mod.hp.max": 5
+                }
+            },
+            {
+                "id": "shoes",
+                "name": "鞋子",
+                "level": 3,
+                "slot": "feet",
+                "tags": "t_boots",
+                "require": "g.craftinglearn3>0",
+                "cost": {
+                    "gold": 150,
+                    "research": 150
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "leather",
+                "enchants": 1,
+                "evasion": 10
+            },
+            {
+                "id": "striders",
+                "name": "行者鞋",
+                "level": 6,
+                "slot": "feet",
+                "tags": "t_boots",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500
+                },
+                "craftcostmult": 1.5,
+                "sell": {},
+                "only": "leather",
+                "enchants": 1,
+                "evasion": 15,
+                "alter": {
+                    "mod.self.defense": "-10%"
+                }
+            },
+            {
+                "id": "sandals",
+                "name": "凉鞋",
+                "level": 1,
+                "slot": "feet",
+                "tags": "t_boots",
+                "require": "g.craftinglearn1>0",
+                "cost": {
+                    "gold": 50,
+                    "research": 50
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "cloth",
+                "enchants": 1,
+                "shield": 25,
+                "alter": {
+                    "mod.hp.max": 5
+                }
+            },
+            {
+                "id": "walkers",
+                "name": "便鞋",
+                "level": 3,
+                "slot": "feet",
+                "tags": "t_boots",
+                "require": "g.craftinglearn3>0",
+                "cost": {
+                    "gold": 150,
+                    "research": 150
+                },
+                "craftcostmult": 1,
+                "sell": {},
+                "only": "cloth",
+                "enchants": 1,
+                "shield": 50
+            },
+            {
+                "id": "slippers",
+                "name": "拖鞋",
+                "level": 6,
+                "slot": "feet",
+                "tags": "t_boots",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500
+                },
+                "craftcostmult": 1.5,
+                "sell": {},
+                "only": "cloth",
+                "enchants": 1,
+                "shield": 75,
+                "alter": {
+                    "mod.self.hp.max": "-5%"
+                }
+            },
+            {
+                "id": "aegismantle",
+                "name": "神盾披风",
+                "level": 25,
+                "type": "armor",
+                "slot": "back",
+                "tags": "t_back",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500,
+                    "adamant": 3
+                },
+                "craftcostmult": 20,
+                "sell": {
+                    "arcana": 5
+                },
+                "only": "artifact",
+                "enchants": 3,
+                "armor": 15
+            },
+            {
+                "id": "phantomveil",
+                "name": "幻影面纱",
+                "level": 25,
+                "type": "armor",
+                "slot": "back",
+                "tags": "t_back",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500,
+                    "aetherhide": 3
+                },
+                "craftcostmult": 20,
+                "sell": {
+                    "arcana": 5
+                },
+                "only": "artifact",
+                "enchants": 3,
+                "evasion": 15
+            },
+            {
+                "id": "etherealshroud",
+                "name": "虚空裹尸布",
+                "level": 25,
+                "type": "armor",
+                "slot": "back",
+                "tags": "t_back",
+                "require": "g.craftinglearn5>0",
+                "cost": {
+                    "gold": 500,
+                    "research": 500,
+                    "amberroot": 3
+                },
+                "craftcostmult": 20,
+                "sell": {
+                    "arcana": 5
+                },
+                "only": "artifact",
+                "enchants": 3,
+                "shield": 75
+            }
+        ],
+        "rares": [],
+        "enchants": [
+            {
+                "id": "en_armor_evasion",
+                "name": "闪避",
+                "adj": "Elusive",
+                "desc": "让你更难被击中",
+                "extdesc": "效果随物品基础闪避值提升",
+                "require": "g.enchanting>0",
+                "buy": {
+                    "arcana": 1,
+                    "research": 100
+                },
+                "level": 1,
+                "only": "t_helm,t_chestplate,t_gloves,t_greaves,t_boots,t_back",
+                "length": 30,
+                "cost": {
+                    "arcana": 1
+                },
+                "alter": {
+                    "evasion": "100%"
+                }
+            },
+            {
+                "id": "en_armor_armor",
+                "name": "强化防御",
+                "adj": "Reinforced",
+                "desc": "让你在面对攻击时更耐打",
+                "extdesc": "效果随物品基础护甲值提升",
+                "require": "g.enchanting>0",
+                "buy": {
+                    "arcana": 1,
+                    "research": 100
+                },
+                "level": 1,
+                "only": "t_helm,t_chestplate,t_gloves,t_greaves,t_boots,t_back",
+                "length": 30,
+                "cost": {
+                    "arcana": 1
+                },
+                "alter": {
+                    "armor": "100%"
+                }
+            },
+            {
+                "id": "en_armor_barrier_pct",
+                "name": "辐射",
+                "desc": "用额外层数强化你的奥术屏障",
+                "extdesc": "效果随物品基础护盾值提升",
+                "require": "g.enchanting>0",
+                "buy": {
+                    "arcana": 1,
+                    "research": 100
+                },
+                "level": 1,
+                "only": "t_helm,t_chestplate,t_gloves,t_greaves,t_boots,t_back",
+                "length": 30,
+                "cost": {
+                    "arcana": 1
+                },
+                "alter": {
+                    "shield": "100%"
+                }
+            },
+            {
+                "id": "en_armor_barrier_flat",
+                "name": "微光",
+                "desc": "为你的奥术屏障能量创造通道",
+                "require": "g.enchanting>0",
+                "buy": {
+                    "arcana": 1,
+                    "research": 100
+                },
+                "level": 1,
+                "only": "t_helm,t_chestplate,t_gloves,t_greaves,t_boots,t_back",
+                "length": 30,
+                "cost": {
+                    "arcana": 1
+                },
+                "alter": {
+                    "shield": 15
+                }
+            },
+            {
+                "id": "en_armor_speed",
+                "name": "迅捷",
+                "desc": "控制衣物周围的空气，加快所有动作",
+                "require": "g.enchanting>0",
+                "buy": {
+                    "arcana": 1,
+                    "research": 100
+                },
+                "level": 1,
+                "only": "t_helm,t_chestplate,t_gloves,t_greaves,t_boots,t_back",
+                "length": 30,
+                "cost": {
+                    "arcana": 1
+                },
+                "alter": {
+                    "mod.self.speed": 1
+                }
+            },
+            {
+                "id": "en_armor_dist",
+                "name": "无重",
+                "desc": "使衣物更舒适轻便，让你在旅行时不易疲劳。",
+                "flavor": "既能获得所有战利品又能快速旅行？",
+                "require": "g.enchanting>0",
+                "buy": {
+                    "arcana": 1,
+                    "research": 100
+                },
+                "level": 1,
+                "only": "t_helm,t_chestplate,t_gloves,t_greaves,t_boots,t_back",
+                "length": 30,
+                "cost": {
+                    "arcana": 1
+                },
+                "alter": {
+                    "mod.dist": 10
+                }
+            },
+            {
+                "id": "en_armor_resist_physical",
+                "name": "犰狳抗性",
+                "adj": "%i of the Armadillo",
+                "desc": "分散部分受到的物理伤害。",
+                "require": "g.enchanting>0",
+                "buy": {
+                    "arcana": 1,
+                    "research": 100
+                },
+                "level": 1,
+                "only": "t_helm,t_chestplate,t_gloves,t_greaves,t_boots,t_back",
+                "length": 30,
+                "cost": {
+                    "arcana": 1
+                },
+                "alter": {
+                    "mod.self.resist.blunt": 10,
+                    "mod.self.resist.pierce": 10,
+                    "mod.self.resist.slash": 10
+                }
+            },
+            {
+                "id": "en_armor_resist_mana",
+                "name": "精灵抗性",
+                "adj": "%i of the Djinn",
+                "desc": "分散部分受到的棱光伤害。",
+                "require": "g.enchanting>0",
+                "buy": {
+                    "arcana": 1,
+                    "research": 100
+                },
+                "level": 1,
+                "only": "t_helm,t_chestplate,t_gloves,t_greaves,t_boots,t_back",
+                "length": 30,
+                "cost": {
+                    "arcana": 1
+                },
+                "alter": {
+                    "mod.self.resist.mana": 10,
+                    "mod.self.resist.water": 10,
+                    "mod.self.resist.air": 10,
+                    "mod.self.resist.fire": 10,
+                    "mod.self.resist.earth": 10,
+                    "mod.self.resist.nature": 10,
+                    "mod.self.resist.spirit": 10,
+                    "mod.self.resist.light": 10,
+                    "mod.self.resist.shadow": 10
+                }
+            }
+        ]
+    }
+}

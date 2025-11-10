@@ -1,0 +1,292 @@
+{
+    "module": "companions",
+    "data": {
+        "monsters": [
+            {
+                "id": "bearcomp",
+                "tags": "t_animalcompanion,t_summon_beast",
+                "slot": "companion",
+                "require": "g.animalfriend>0",
+                "name": "熊伙伴",
+                "level": 20,
+                "onSummon": {
+                    "name": "竖毛",
+                    "targets": "self",
+                    "dot": {
+                        "tags": "t_taunt",
+                        "flags": "taunt"
+                    }
+                },
+                "kind": "animal",
+                "noproc": true,
+                "speed": -1,
+                "hp": 300,
+                "tohit": 10,
+                "defense": 25,
+                "dodge": 5,
+                "regen": 4,
+                "attack": [
+                    {
+                        "name": "熊抱",
+                        "targets": "enemy",
+                        "damage": "5~15",
+                        "dot": {
+                            "%": "10%",
+                            "duration": 5,
+                            "id": "paralyze"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "lynxcomp",
+                "tags": "t_animalcompanion,t_summon_beast",
+                "slot": "companion",
+                "require": "g.animalfriend>0",
+                "name": "猞猁伙伴",
+                "level": 20,
+                "onSummon": {
+                    "name": "潜行",
+                    "targets": "self",
+                    "dot": {
+                        "tags": "t_hiding",
+                        "flags": "hiding"
+                    }
+                },
+                "kind": "animal",
+                "noproc": true,
+                "speed": 15,
+                "hp": 120,
+                "tohit": 15,
+                "defense": 15,
+                "dodge": 10,
+                "regen": 1,
+                "attack": [
+                    {
+                        "kind": "slash",
+                        "name": "抓挠",
+                        "targets": "enemy",
+                        "damage": "10~15",
+                        "dot": {
+                            "name": "流血",
+                            "duration": 5,
+                            "damage": "4~6"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "wolfcomp",
+                "tags": "t_animalcompanion,t_summon_beast",
+                "slot": "companion",
+                "require": "g.animalfriend>0",
+                "name": "狼伙伴",
+                "level": 20,
+                "kind": "animal",
+                "noproc": true,
+                "speed": 20,
+                "hp": 170,
+                "tohit": 20,
+                "defense": 20,
+                "dodge": 10,
+                "regen": 1,
+                "attack": [
+                    {
+                        "hits": [
+                            {
+                                "name": "撕喉",
+                                "kind": "slash",
+                                "damage": "10~15"
+                            },
+                            {
+                                "name": "撕腹",
+                                "kind": "slash",
+                                "leech": 1,
+                                "damage": "10~15"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "squirrelcomp",
+                "tags": "t_animalcompanion,t_summon_beast",
+                "slot": "companion",
+                "require": "g.animalfriend>0",
+                "name": "松鼠伙伴",
+                "spells": "mk_sqrl",
+                "onSummon": {
+                    "name": "疾奔",
+                    "targets": "self",
+                    "dot": {
+                        "tags": "t_hiding",
+                        "flags": "hiding"
+                    }
+                },
+                "chaincast": 1,
+                "level": 20,
+                "kind": "animal",
+                "noproc": true,
+                "speed": 15,
+                "hp": 10,
+                "tohit": 50,
+                "defense": -1,
+                "dodge": 50,
+                "regen": 0.1,
+                "attack": [
+                    {
+                        "hits": [
+                            {
+                                "kind": "blunt",
+                                "name": "投掷橡子",
+                                "targets": "enemy",
+                                "damage": "0~2",
+                                "harmless": true,
+                                "nodefense": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "sqrl_taunt",
+                "tags": "t_animalcompanion",
+                "name": "好斗松鼠",
+                "level": 20,
+                "kind": "animal",
+                "onSummon": {
+                    "name": "嘲讽",
+                    "targets": "self",
+                    "dot": {
+                        "tags": "t_taunt",
+                        "flags": "taunt"
+                    }
+                },
+                "noproc": true,
+                "speed": 15,
+                "hp": 10,
+                "tohit": 50,
+                "defense": -1,
+                "dodge": -1,
+                "regen": 0.1,
+                "attack": [
+                    {
+                        "kind": "blunt",
+                        "name": "投掷橡子",
+                        "targets": "enemy",
+                        "damage": "0~2",
+                        "harmless": true,
+                        "nodefense": true
+                    }
+                ]
+            },
+            {
+                "id": "sqrl_nohit",
+                "tags": "t_animalcompanion",
+                "name": "盲眼松鼠",
+                "level": 20,
+                "kind": "animal",
+                "noproc": true,
+                "speed": 15,
+                "hp": 10,
+                "tohit": 50,
+                "defense": -1,
+                "dodge": -1,
+                "regen": 0.1,
+                "attack": [
+                    {
+                        "kind": "blunt",
+                        "name": "投掷橡子",
+                        "targets": "enemy",
+                        "damage": "0~2",
+                        "harmless": true,
+                        "nodefense": true,
+                        "dot": {
+                            "name": "淤青眼",
+                            "tags": "t_tohitdown",
+                            "duration": 5,
+                            "mod": {
+                                "self.tohit": -1
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "sqrl_nododge",
+                "tags": "t_animalcompanion",
+                "name": "咬踝者",
+                "level": 20,
+                "kind": "animal",
+                "noproc": true,
+                "speed": 15,
+                "hp": 10,
+                "tohit": 50,
+                "defense": -1,
+                "dodge": -1,
+                "regen": 0.1,
+                "attack": [
+                    {
+                        "kind": "blunt",
+                        "name": "咬踝",
+                        "targets": "enemy",
+                        "damage": "0~2",
+                        "harmless": true,
+                        "nodefense": true,
+                        "dot": {
+                            "name": "踝部咬伤",
+                            "id": "dodgedown",
+                            "duration": 5,
+                            "mod": {
+                                "self.dodge": -1
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "spells": [
+            {
+                "id": "mk_sqrl",
+                "name": "召唤松鼠",
+                "level": 1,
+                "school": "animation",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.lore>=9999",
+                "summon": [
+                    {
+                        "id": "sqrl_taunt",
+                        "count": 1,
+                        "max": 1,
+                        "%": "15%"
+                    },
+                    {
+                        "id": "sqrl_nohit",
+                        "count": 1,
+                        "max": 1,
+                        "%": "15%"
+                    },
+                    {
+                        "id": "sqrl_nododge",
+                        "count": 1,
+                        "max": 1,
+                        "%": "15%"
+                    }
+                ]
+            }
+        ]
+    }
+}

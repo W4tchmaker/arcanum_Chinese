@@ -1,0 +1,1035 @@
+[
+    {
+        "id": "apprentice",
+        "name": "学徒",
+        "desc": "著名巫师的学徒。",
+        "actname": "Apprenticeship",
+        "actdesc": "Become an apprentice.",
+        "require": "research",
+        "disable": [
+            "cleanstables"
+        ],
+        "warn": false,
+        "log": {
+            "name": "Apprentice",
+            "desc": "After paying a small fee, you became apprenticed to a local wizard."
+        },
+        "cost": {
+            "research": 10,
+            "gold": 20
+        },
+        "result": {
+            "research.max": 10,
+            "player.exp": 5
+        }
+    },
+    {
+        "id": "job_smith",
+        "name": "铁匠",
+        "tags": "t_job,t_placeholder",
+        "actdesc": "Smith equipment for your master to enchant.",
+        "require": "g.crafting>=5",
+        "warn": true,
+        "cost": {
+            "gold": 250
+        },
+        "result": {
+            "player.exp": 20
+        },
+        "mod": {
+            "gold.rate": 0.1,
+            "lore.max": 2,
+            "crafting.max": 3,
+            "enchanting.max": 1,
+            "languages.max": -1
+        }
+    },
+    {
+        "id": "falconer",
+        "name": "驯鹰师",
+        "tags": "t_job",
+        "actdesc": "Tend your master's owls and falcons.",
+        "require": "animals",
+        "cost": {
+            "gold": 100,
+            "research": 100
+        },
+        "result": {
+            "player.exp": 10
+        },
+        "mod": {
+            "gold.rate": 0.1,
+            "lore.max": 2,
+            "animals.max": 3,
+            "nature.max": 2
+        }
+    },
+    {
+        "id": "herbalist",
+        "name": "草药师",
+        "tags": "t_job",
+        "actdesc": "Gather herbs for your master's potions and alchemy.",
+        "require": "herbalism",
+        "cost": {
+            "gold": 100,
+            "research": 100
+        },
+        "result": {
+            "player.exp": 10
+        },
+        "mod": {
+            "gold.rate": 0.1,
+            "lore.max": 2,
+            "herbalism.max": 3,
+            "alchemy.max": 2
+        }
+    },
+    {
+        "id": "scribe",
+        "name" : "抄写员",
+        "tags": "t_job",
+        "actdesc": "Become your master's personal scribe.",
+        "require": "scribescroll",
+        "cost": {
+            "gold": 100,
+            "research": 100
+        },
+        "mod": {
+            "gold.rate": 0.1,
+            "research.max": 10,
+            "arcana.rate": 0.0001,
+            "lore.max": 2,
+            "history.max": 1,
+            "languages.max": 2
+        },
+        "flavor": "我有点钱就买书，如果还有剩就买食物和衣服。"
+    },
+    {
+        "id": "neophyte",
+        "name": "新鸟法师",
+        "actdesc": "The final step on the twisting stairwell of apprenticeship.",
+        "require": "(g.evt_helper>0)&&g.research.max>=125&&g.spellbook>0",
+        "log": {
+            "name": "Neophyte",
+            "desc": "Your master has decided you are ready to take the next step on the path of wizardry."
+        },
+        "flavor": "为什么师傅要收这么多费用？",
+        "cost": {
+            "gold": 150,
+            "research": 175,
+            "arcana": 3
+        },
+        "result": {
+            "player.exp": 10
+        },
+        "mod": {
+            "research.max": 10,
+            "arcana.rate": 0.0001,
+            "lore.max": 1
+        }
+    },
+    {
+        "id": "adept",
+        "name": "熟手法师",
+        "tags": "t_tier0",
+        "desc": "你的师傅在你身后，你独自踏上世界。你最好找个新地方住。",
+        "mod": {
+            "mysticism.max": 1
+        }
+    },
+    {
+        "id": "redadept",
+        "name": "赤红高手",
+        "desc": "踏上旅程，提升你的战斗能力。",
+        "secret": true,
+        "require": "g.arcanaaction>0&&g.research.max>=100&&g.lore>=4",
+        "need": "g.evt_early_combat>0",
+        "needtext": "Must have reached a commoner's limit by clearing edges of treffil's woods before making a spellbook",
+        "tags": "t_tier0",
+        "cost": {
+            "arcana": 5
+        },
+        "mod": {
+            "anatomy.max": 1,
+            "vivification.max": 1,
+            "firelore.max": 1,
+            "earthlore.max": 1,
+            "mysticism.max": 1,
+            "concentrate.max": -1,
+            "spiritlore.max": -1,
+            "crafting.max": -1
+        },
+        "flavor": "危险不过是弱者的借口。"
+    },
+    {
+        "id": "blueadept",
+        "name": "蔚蓝高手",
+        "desc": "致力于将世界秩序化。",
+        "secret": true,
+        "require": "g.arcanaaction>0&&g.research.max>=100&&g.lore>=4",
+        "need": "g.virtue>=200",
+        "needtext": "Must have at least 200 virtue",
+        "tags": "t_tier0",
+        "cost": {
+            "arcana": 5
+        },
+        "mod": {
+            "history.max": 1,
+            "waterlore.max": 1,
+            "airlore.max": 1,
+            "mysticism.max": 1,
+            "shadowlore.max": -1,
+            "naturelore.max": -1
+        }
+    },
+    {
+        "id": "savant",
+        "name": "神秘学者",
+        "desc": "你不需要这些枯燥的典籍和发霉的旧书。",
+        "secret": true,
+        "actname": "神秘学者",
+        "tags": "t_tier0",
+        "require": "g.arcanaaction>0&&g.research.max>=100&&g.lore>=4",
+        "need": "g.study<=0",
+        "needtext": "You cannot have used the study action at any point",
+        "cost": {
+            "arcana": 3
+        },
+        "mod": {
+            "research.rate": 0.2,
+            "mana.max": 2,
+            "mysticism.max": 2,
+            "conjuration.max": 1,
+            "spiritlore.max": 1,
+            "lore.max": -1,
+            "history.max": -1
+        }
+    },
+    {
+        "id": "magician",
+        "name": "魔法师",
+        "tags": "t_tier1,t_manaclass,t_knowledgeclass",
+        "desc": "最纯粹的魔法形式。",
+        "actdesc": "Pursue the path of pure magic.",
+        "require": "g.tier0>0&&g.lore>=10",
+        "cost": {
+            "research": 500,
+            "codices": 2,
+            "arcana": 15,
+            "gold": 500
+        },
+        "mod": {
+            "research.max": 100,
+            "arcana.rate": 0.001,
+            "mana.max": 2,
+            "mana.rate": 0.4,
+            "mysticism.mod.mana.rate": 0.05,
+            "lore.max": 1,
+            "astronomy.max": 1,
+            "languages.max": 1
+        }
+    },
+    {
+        "id": "trickster",
+        "name": "诡术师",
+        "desc": "利用魔法进行欺骗和诡计。",
+        "secret": true,
+        "actname": "Path of Trickery",
+        "tags": "t_tier1,t_chaosclass",
+        "require": "g.trickery>=4&&g.tier0>0&&g.tier1==0",
+        "cost": {
+            "research": 250,
+            "codices": 5,
+            "gems": 10,
+            "gold": 300,
+            "arcana": 5
+        },
+        "mod": {
+            "player.dodge": 2.2,
+            "research.max": 2,
+            "mana.max": 2,
+            "chaos.max": 3,
+            "chaos.rate": 0.1,
+            "trickery.max": 2,
+            "conjuration.max": 1,
+            "spiritlore.max": 1,
+            "potions.max": 1
+        }
+    },
+    {
+        "id": "madcap",
+        "name": "狂人",
+        "desc": "对混乱的偏爱。",
+        "secret": true,
+        "tags": "t_tier2,t_chaosclass",
+        "require": "g.trickery>=7&&g.tier1>0&&g.tier2==0",
+        "cost": {
+            "research": 777,
+            "gems": 7,
+            "managem": 7,
+            "airgem": 7,
+            "watergem": 7,
+            "codices": 7,
+            "gold": 777,
+            "arcana": 7
+        },
+        "mod": {
+            "player.dodge": 2.2,
+            "gold.max": "5%",
+            "trickery.max": 2,
+            "conjuration.max": 1,
+            "mysticism.max": 1,
+            "potions.max": 1,
+            "lore.max": 1
+        }
+    },
+    {
+        "id": "jester",
+        "name": "弄臣",
+        "desc": "将恶作剧提升到艺术和巫术的新高度。",
+        "secret": true,
+        "actname": "Infinite Jest",
+        "tags": "t_tier4,t_chaosclass",
+        "require": "g.trickery>=15&&g.t_chaosclass>0&&g.tier3>0&&g.tier4==0",
+        "cost": {
+            "research": 1313,
+            "gems": 13,
+            "managem": 13,
+            "airgem": 13,
+            "watergem": 13,
+            "tomes": 13,
+            "codices": 26,
+            "gold": 1313,
+            "arcana": 13
+        },
+        "mod": {
+            "player.dodge": 2.6,
+            "gold.max": "10%",
+            "facemuseum.mod.space.max": 20,
+            "trickery.max": 3,
+            "conjuration.max": 2,
+            "lore.max": 2,
+            "chaoslore.max": 1,
+            "mysticism.max": 1
+        }
+    },
+    {
+        "id": "battlemage",
+        "name": "战法师",
+        "tags": "t_tier2,t_swordclass,t_manaclass",
+        "actdesc": "Pursue the path of battle.",
+        "require": "g.tier1>0&&g.weaponlore>=6&&g.tier2==0",
+        "cost": {
+            "research": 500,
+            "codices": 10,
+            "arcana": 7,
+            "gold": 800,
+            "gems": 20
+        },
+        "mod": {
+            "mana.max": 4,
+            "mana.rate": 0.5,
+            "firelore.max": 2,
+            "earthlore.max": 1
+        }
+    },
+    {
+        "id": "swordsinger",
+        "name": "剑咏者",
+        "tags": "t_tier1,t_swordclass,t_manaclass",
+        "actdesc": "'为何不能以剑施法？'",
+        "require": "g.tier0>0&&g.weaponlore>=5&&g.tier1==0",
+        "cost": {
+            "research": 500,
+            "codices": 2,
+            "arcana": 10,
+            "gold": 500
+        },
+        "mod": {
+	        "sworddmg": 2,
+            "stamina.rate": "0.2",
+            "vigor.rate": 0.05,
+            "weaponlore.max": 1,
+            "crafting.max": 1,
+            "enchanting.max": 1
+        }
+    },
+    {
+        "id": "bloodmage",
+        "name": "血法师",
+        "tags": "t_tier3,t_bloodclass,t_manaclass",
+        "desc": "你血管中的魔法。",
+        "require": "g.tier2>0&&(g.battlemage>0||g.hp.max>=150)&&g.tier3==0",
+        "cost": {
+            "research": 1500,
+            "tomes": 5,
+            "arcana": 8,
+            "gold": 700,
+            "bloodgem": 20
+        },
+        "mod": {
+            "bloodgem.max": 10,
+            "bloodgem.mod.bloodsiphon.effect.hp": 0.02,
+            "mana.max": 2,
+            "mana.rate": 0.5,
+            "anatomy.max": 3,
+            "earthlore.max": 2,
+            "waterlore.max": 1
+        }
+    },
+    {
+        "id": "summoner",
+        "name": "召唤师",  
+        "tags": "t_tier3,t_summonclass",
+        "desc": "无论独身还是与友同行，召唤师从不缺少军队。",
+        "require": "g.summoning>=5&&g.tier2>0&&g.lore>=20",
+        "cost": {
+            "research": 2000,
+            "arcana": 20,
+            "tomes": 5
+        },
+        "mod": {
+            "minions.max": 1,
+            "mana.max": 2,
+            "summoning.max": 4,
+            "conjuration.max": 2,
+            "charms.max": 1,
+            "lore.max": 2
+        },
+        "flavor": "你好吗；希望你见过我的..."
+    },
+    {
+        "id": "warden",
+        "name": "守护者",
+        "desc": "森林、山脉和丘陵的守护者。",
+        "tags": "t_tier1,t_natureclass",
+        "require": "g.tier0>0&&g.naturelore>=8",
+        "cost": {
+            "research": 500,
+            "codices": 5,
+            "herbs": 50,
+            "arcana": 5
+        },
+        "mod": {
+            "research.max": 5,
+            "naturelore.max": 3,
+            "animals.max": 3,
+            "potions.max": 1
+        }
+    },
+    {
+        "id": "alchemist",
+        "name": "炼金术士",
+        "tags": "t_tier2,t_bloodclass,t_potionclass,t_craftingclass",
+        "desc": "炼金术士利用魔法知识创造奇迹。",
+        "require": "g.tier1>0&&g.potions>=4&&g.alchemy>=5",
+        "cost": {
+            "research": 1000,
+            "codices": 5,
+            "managem": 5,
+            "firegem": 2,
+            "watergem": 2,
+            "earthgem": 2,
+            "arcana": 20
+        },
+        "mod": {
+            "research.max": 100,
+            "crafting.max": 3,
+            "potions.max": 3,
+            "potionessence.rate": 0.00028,
+            "alchemy.max": 3,
+            "lore.max": 1
+        }
+    },
+    {
+        "id": "enchanter",
+        "name": "附魔师",
+        "desc": "魅惑和附魔大师。",
+        "require": "g.tier1>0&&g.enchanting>=6&&g.charms>=3",
+        "tags": "t_tier2,t_craftingclass,t_enchantingclass",
+        "cost": {
+            "research": 1000,
+            "managem": 5,
+            "codices": 5,
+            "arcana": 20
+        },
+        "mod": {
+            "research.max": 15,
+            "enchanting.max": 3,
+            "arcana.max": 2,
+            "naturelore.max": 2,
+            "mana.max": 3,
+            "airlore.max": 2,
+            "waterlore.max": 2
+        }
+    },
+    {
+        "id": "geomancer",
+        "name": "地灵师",
+        "desc": "岩石之主。",
+        "tags": "t_tier2,t_earthclass,t_hammerclass",
+        "actdesc": "A mage specialising in earth manipulation and endurance.",
+        "require": "g.tier1>0&&g.earthlore>=7&&g.tier2==0",
+        "cost": {
+            "research": 1000,
+            "arcana": 15,
+            "codices": 5,
+            "earthgem": 10
+        },
+        "mod": {
+            "earthlore.max": 2,
+            "geosculpting.max": 2,
+            "stamina.max": "10%",
+            "mana.max": 2,
+            "earthspire.mod.space.max": 50
+        },
+        "flavor": "你的泥土帝国。"
+    },
+    {
+        "id": "earthshaker",
+        "name": "震地者",
+        "desc": "构造学大师。",
+        "tags": "t_tier4,t_earthclass,t_hammerclass",
+        "actdesc": "A supreme master of earth's destructive magics.",
+        "require": "g.tier3>0&&g.earthlore>=11&&g.tier4==0",
+        "cost": {
+            "research": 4000,
+            "arcana": 25,
+            "tomes": 15,
+            "earthgem": 50
+        },
+        "mod": {
+            "earthlore.max": 3,
+            "player.defense": 15,
+            "stamina.max": "20%",
+            "earth.rate": 0.3,
+            "earthspire.mod.space.max": 50
+        },
+        "flavor": "终于，获得俯冲许可了！"
+    },
+    {
+        "id": "titan",
+        "name": "泰坦",
+        "desc": "金属与岩石的外衣。",
+        "tags": "t_tier6,t_earthclass,t_hammerclass",
+        "actdesc": "An unstoppable force of nature, a Titan is Will incarnate.",
+        "require": "g.tier5>0&&g.t_earthclass>0&&g.hammerlore>=10&&g.geosculpting>=10&&g.tier6==0",
+        "cost": {
+            "research": 10000,
+            "arcana": 50,
+            "tomes": 20,
+            "earthgem": 100,
+            "earthrune": 20
+        },
+        "mod": {
+            "earthlore.max": 3,
+            "player.defense": 30,
+            "stamina.max": "20%",
+            "hammerlore.max": 3,
+            "earthspire.mod.space.max": 100
+        },
+        "flavor": "心情好时，泰坦雕塑山脉。心情不好时，国家变成陨石坑。"
+    },
+    {
+        "id": "hydromancer",
+        "name": "水灵师",
+        "desc": "水之大师。",
+        "tags": "t_tier2,t_waterclass",
+        "actdesc": "A mage specialising in water manipulation and adaptability.",
+        "require": "g.tier1>0&&g.waterlore>=10",
+        "cost": {
+            "research": 1000,
+            "arcana": 15,
+            "codices": 5,
+            "watergem": 10
+        },
+        "mod": {
+            "waterlore.max": 2,
+            "dodge": "10%",
+            "mana.max": 2
+        },
+        "flavor": ""
+    },
+    {
+        "id": "windmage",
+        "name": "风灵师",
+        "desc": "御风而行。",
+        "tags": "t_tier2,t_airclass",
+        "actdesc": "A mage specialising in air manipulation and intuition.",
+        "require": "g.tier1>0&&g.airlore>=10",
+        "cost": {
+            "research": 1000,
+            "arcana": 15,
+            "codices": 5,
+            "airgem": 10
+        },
+        "mod": {
+            "airlore.max": 2,
+            "dodge": "10%",
+            "mana.max": 2
+        },
+        "flavor": "暴风雨即将来临。"
+    },
+    {
+        "id": "stormcaller",
+        "name": "风暴召唤者",
+        "desc": "驾驭自然力量的狂暴。",
+        "require": "g.t_waterclass>0||g.t_airclass>0",
+        "tags": "t_tier3,t_waterclass,t_airclass",
+        "cost": {
+            "research": 2000,
+            "arcana": 25,
+            "airgem": 20,
+            "watergem": 20,
+            "tomes": 5
+        },
+        "mod": {
+            "lore.max": 1,
+            "mana.max": 2,
+            "airlore.max": 3,
+            "waterlore.max": 3
+        },
+        "flavor": "我即是风暴。"
+    },
+    {
+        "id": "elementalist",
+        "name": "元素师",
+        "desc": "元素之力大师。",
+        "require": "g.tier0>0&&g.airlore>=3&&g.firelore>=3&&g.earthlore>=3&&g.waterlore>=3",
+        "tags": "t_tier1,t_elementalclass",
+        "cost": {
+            "arcana": 12,
+            "research": 250,
+            "codices": 5,
+            "gems": 10
+        },
+        "mod": {
+            "research.max": 5,
+            "elemental.max": 2,
+            "elemental.rate": 0.2
+        }
+    },
+    {
+        "id": "sorcerer",
+        "name": "巫术师",
+        "desc": "原始魔法力量的掌控者。",
+        "require": "g.tier3>0&&(g.earthlore>=15||g.waterlore>=15||g.firelore>=15)&&(g.t_elementalclass+g.t_fireclass+g.t_waterclass+g.t_earthclass)>0",
+        "tags": "t_tier4,t_elementalclass",
+        "cost": {
+            "research": 3000,
+            "tomes": 15,
+            "managem": 5,
+            "firegem": 15,
+            "earthgem": 15,
+            "watergem": 15,
+            "arcana": 25
+        },
+        "mod": {
+            "lore.max": 1,
+            "mana.max": 1,
+            "earthlore.max": 2,
+            "waterlore.max": 2,
+            "firelore.max": 2
+        }
+    },
+    {
+        "id": "druid",
+        "name": "德鲁伊",
+        "desc": "致力于自然世界的施法者。",
+        "tags": "t_tier3,t_natureclass",
+        "require": "g.tier2>0&&g.naturelore>=15",
+        "cost": {
+            "research": 1000,
+            "tomes": 5,
+            "naturegem": 20,
+            "herbs": 50,
+            "arcana": 20
+        },
+        "mod": {
+            "naturelore.max": 3,
+            "animals.max": 2,
+            "herbalism.max": 2,
+            "potions.max": 1
+        }
+    },
+    {
+        "id": "highelemental",
+        "name": "高阶元素师",
+        "tags": "t_tier3,t_elementalclass",
+        "desc": "元素之主。",
+        "require": "g.tier2>0&&g.airlore>=8&&g.firelore>=8&&g.waterlore>=8&&g.earthlore>=8",
+        "cost": {
+            "arcana": 15,
+            "research": 1000,
+            "tomes": 5,
+            "airgem": 20,
+            "firegem": 20,
+            "earthgem": 20,
+            "watergem": 20
+        },
+        "mod": {
+            "airlore.max": 2,
+            "firelore.max": 2,
+            "earthlore.max": 2,
+            "waterlore.max": 2,
+            "research.max": 25,
+            "elemental.max": 2,
+            "elemental.rate": 0.2
+        }
+    },
+    {
+        "id": "oracle",
+        "name": "神谕者",
+        "tags": "t_tier1,t_divinationclass",
+        "desc": "幸运与不幸不过是因果的体现。",
+        "require": "g.tier0>0&&g.spiritlore>=5&&g.divination>=5",
+        "cost": {
+            "research": 250,
+            "gems": 10,
+            "codices": 5,
+            "arcana": 5
+        },
+        "mod": {
+            "virtue": 1,
+            "research.max": 15,
+            "lore.max": 2,
+            "scrying.max": 2,
+            "mana.max": 3,
+            "divination.max": 2,
+            "airlore.max": 1,
+            "spiritlore.max": 1
+        }
+    },
+    {
+        "id": "seer",
+        "name": "先知",
+        "desc": "洞察环境，了解他人，预知未来。",
+        "require": "g.tier1>0&&g.divination>=10",
+        "tags": "t_tier2,t_divinationclass",
+        "cost": {
+            "codices": 5,
+            "arcana": 10,
+            "research": 1000
+        },
+        "mod": {
+            "virtue": 5,
+            "lore.max": 2,
+            "mana.max": 3,
+            "divination.max": 2,
+            "scrying.max": 2,
+            "spiritlore.max": 2
+        }
+    },
+    {
+        "id": "mage",
+        "name": "法师",
+        "desc": "奥术教团成员。",
+        "tags": "t_tier2,t_manaclass,t_knowledgeclass",
+        "require": "g.tier1>0&&g.lore>=14",
+        "cost": {
+            "research": 1000,
+            "arcana": 15,
+            "codices": 5
+        },
+        "mod": {
+            "research.max": 40,
+            "firelore.max": 1,
+            "mysticism.max": 2,
+            "enchanting.max": 1,
+            "lore.max": 2,
+            "mana.max": 3
+        }
+    },
+    {
+        "id": "highmage",
+        "name": "高阶法师",
+        "desc": "奥术教团的精英。",
+        "tags": "t_tier3,t_manaclass,t_knowledgeclass",
+        "require": "g.tier2>0&&g.lore>=21",
+        "cost": {
+            "research": 2000,
+            "arcana": 20,
+            "tomes": 5
+        },
+        "mod": {
+            "research.max": 50,
+            "firelore.max": 1,
+            "mysticism.max": 2,
+            "alchemy.max": 1,
+            "spellcraft.max": 2,
+            "crafting.max": 1,
+            "lore.max": 2
+        }
+    },
+    {
+        "id": "doomsayer",
+        "name": "末日预言者",
+        "desc": "毁灭的预兆。",
+        "require": "g.tier2>0&&g.spirit>=12&&g.divination>=12",
+        "tags": "t_tier3,t_divinationclass",
+        "cost": {
+            "research": 500,
+            "arcana": 15,
+            "tomes": 7,
+            "spiritgem": 15
+        },
+        "mod": {
+            "spiritlore.max": 2,
+            "divination.max": 3,
+            "planeslore.max": 1,
+            "scrying.max": 2,
+            "lore.max": 2,
+            "mana.max": 1
+        },
+        "flavor": "你称之为帝国，但在暮色中，我只看到一堆堆破碎的石头。"
+    },
+    {
+        "id": "fey",
+        "name": "妖精 (已废弃)",
+        "desc": "一个已废弃的职业。",
+        "tags": "t_tier4,t_chaosclass,t_natureclass",
+        "require": "g.lore>999",
+        "mod": {
+            "waterlore.max": 2,
+            "earthlore.max": 2,
+            "airlore.max": 2,
+            "naturelore.max": 3,
+            "animals.max": 2,
+            "herbalism.max": 2
+        }
+    },
+    {
+        "id": "destined",
+        "alias": "thaumaturge",
+        "name": "天命者",
+        "desc": "奇迹的创造者",
+        "require": "g.tier3>0&&g.spirit>=15&&g.divination>=15",
+        "tags": "t_tier4,t_enchantingclass,t_divinationclass",
+        "cost": {
+            "research": 6000,
+            "arcana": 25,
+            "tomes": 15,
+            "spiritgem": 20,
+            "runestones": 5
+        },
+        "mod": {
+            "spiritlore.max": 2,
+            "divination.max": 3,
+            "spellcraft.max": 2,
+            "lore.max": 2,
+            "light.max": 2,
+            "light.rate": "0.2+5%",
+            "mana.max": 3
+        }
+    },
+    {
+        "id": "wizard",
+        "name": "巫师",
+        "desc": "原始魔法力量。",
+        "tags": "t_tier4,t_manaclass,t_knowledgeclass",
+        "require": "g.tier3>0&&g.lore>=25&&(g.evil1==0||g.good2==1)",
+        "cost": {
+            "research": 6000,
+            "arcana": 25,
+            "tomes": 15,
+            "runestones": 5
+        },
+        "mod": {
+            "languages.max": 2,
+            "conjuration.max": 1,
+            "crafting.max": 1,
+            "lore.max": 3,
+            "spellcraft.max": 3,
+            "mana.max": 4,
+            "mana.rate": "5%",
+            "mysticism.max": 1,
+            "spelllist.max": 5
+        },
+        "flavor": "“别把我当成只会耍廉价把戏的魔术师。”"
+    },
+    {
+        "id": "wizard2",
+        "alias": "dhrunic wizard",
+        "name": "德鲁尼巫师",
+        "desc": "原始魔法力量。",
+        "tags": "t_tier5,t_manaclass,t_knowledgeclass",
+        "require": "g.tier4>0&&g.lore>=30",
+        "cost": {
+            "research": 15000,
+            "arcana": 30,
+            "tomes": 10,
+            "runestones": 10
+        },
+        "mod": {
+            "languages.max": 2,
+            "firelore.max": 1,
+            "waterlore.max": 1,
+            "airlore.max": 1,
+            "lightlore.max": 1,
+            "crafting.max": 2,
+            "lore.max": 5,
+            "mana.max": 4,
+            "mana.rate": "10%",
+            "mysticism.max": 1,
+            "mysticism.mod.mana.rate": 0.05,
+            "spelllist.max": 5
+        },
+        "flavor": "最终，是三位图勒巫师和死灵法师制服了那些锁链。"
+    },
+    {
+        "id": "kell",
+        "name": "凯尔",
+        "desc": "不朽的自然之灵，即使最弱的凯尔也能与巫师匹敌。",
+        "tags": "t_tier5,t_natureclass",
+        "require": "g.tier4>0&&g.naturelore>=21&&g.t_natureclass>0&&g.act_fey>0",
+        "cost": {
+            "research": 15000,
+            "naturegem": 50,
+            "herbs": 75,
+            "arcana": 20,
+            "runestones": 15
+        },
+        "mod": {
+            "lore.max": 2,
+            "airlore.max": 2,
+            "naturelore.max": 3,
+            "animals.max": 2,
+            "herbalism.max": 1
+        },
+        "flavor": "凯尔并非凡人血脉，只有强大的魔法才能将他们的精髓注入凡人。"
+    },
+    {
+        "id": "heresiarch",
+        "name": "异端教主",
+        "desc": "清算时刻来临。",
+        "require": "g.tier4>0&&g.spirit>=15&&g.divination>=17",
+        "tags": "t_tier5,t_divinationclass",
+        "cost": {
+            "research": 15000,
+            "arcana": 25,
+            "tomes": 15,
+            "spiritgem": 50,
+            "runestones": 10
+        },
+        "mod": {
+            "spiritlore.max": 3,
+            "divination.max": 3,
+            "scrying.max": 2,
+            "lore.max": 2
+        },
+        "flavor": "它在时间中等待。"
+    },
+    {
+        "id": "highkell",
+        "name": "高阶凯尔 (已废弃)",
+        "desc": "一个已废弃的职业。",
+        "tags": "t_tier6,t_natureclass",
+        "require": "g.lore>999",
+        "mod": {
+            "airlore.max": 2,
+            "naturelore.max": 3,
+            "animals.max": 2,
+            "earthlore.max": 1
+        }
+    },
+    {
+        "id": "wizard3",
+        "name": "神话巫师",
+        "desc": "他们的名字在各个时代反复出现，但很少有人相信他们真实存在过。",
+        "tags": "t_tier6,t_manaclass,t_knowledgeclass",
+        "require": "g.tier5>0&&g.lore>=35&&g.spellcraft>=10&&(g.evil1==0||g.good2==1)",
+        "cost": {
+            "research": 20000,
+            "arcana": 75,
+            "tomes": 20,
+            "sindel": 3,
+            "runestones": 10
+        },
+        "mod": {
+            "spellcraft.max": 1,
+            "firelore.max": 1,
+            "enchanting.max": 1,
+            "waterlore.max": 1,
+            "earthlore.max": 1,
+            "crafting.max": 2,
+            "history.max": 1,
+            "potions.max": 1,
+            "alchemy.max": 1,
+            "mana.max": 5,
+            "mana.rate": "15%",
+            "mysticism.max": 2,
+            "spelllist.max": 5
+        },
+        "flavor": "当一位神话人物升格后，即使是首席锁匠也会收敛他们的欲望。"
+    },
+    {
+        "id": "astralseer",
+        "name": "星界先知",
+        "desc": "对于能解读的人来说，星辰是一本打开的书。",
+        "tags": "t_tier6",
+        "require": "g.tier5>0&&g.astronomy>=15&&g.planeslore>=12",
+        "cost": {
+            "research": 17000,
+            "arcana": 75,
+            "tomes": 20,
+            "sindel": 3
+        },
+        "mod": {
+            "manadmg": 5,
+            "spellcraft.max": 1,
+            "planeslore.max": 2,
+            "astronomy.max": 2,
+            "scrying.max": 1,
+            "sindel.rate": "5%",
+            "mysticism.max": 2,
+            "crafting.max": 2
+        },
+        "flavor": "站在天界遥远的光芒中，凡人世界显得如此……渺小。"
+    },
+    {
+        "id": "c_avatar",
+        "name": "化身",
+        "desc": "原始元素力量的化身。",
+        "tags": "t_tier6,t_elementalclass",
+        "require": "g.tier5>0&&(g.t_elementalclass+g.t_natureclass+g.heresiarch+g.destined)>=2",
+        "cost": {
+            "research": 20000,
+            "sindel": 3,
+            "managem": 70,
+            "airgem": 40,
+            "earthgem": 40,
+            "firegem": 40,
+            "watergem": 40,
+            "arcana": 35,
+            "runestones": 15
+        },
+        "mod": {
+            "airlore.max": 2,
+            "earthlore.max": 3,
+            "waterlore.max": 2,
+            "firelore.max": 1
+        },
+        "flavor": "“我即是洪水与风暴，低语之风与炼狱。”"
+    },
+    {
+        "id": "conjurer",
+        "name": "传送师",
+        "tags": "t_tier1,t_summonclass",
+        "desc": "快速将物品从一处移动到另一处的大师。",
+        "require": "g.conjuration>=5&&g.tier0>0",
+        "cost": {
+            "research": 250,
+            "arcana": 10,
+            "codices": 5
+        },
+        "mod": {
+            "minions.max": 1,
+            "summoning.max": 2,
+            "charms.max": 1,
+            "lore.max": 2,
+            "mana.max": 2,
+            "conjuration.max": 4
+        },
+        "flavor": "他们肯定不会“凭空出现”吧……"
+    }
+]

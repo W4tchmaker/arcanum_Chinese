@@ -1,0 +1,539 @@
+{
+    "module": "shopkeeping",
+    "author": "wunarg, draxius",
+    "data": {
+        "skills": [
+            {
+                "id": "shopkeeping",
+                "name": "店铺经营",
+                "require": "g.crafting>=2&&g.gold>=1000&&g.languages>=4&&g.tier1>0",
+                "desc": "为追求黄金而买卖一切",
+                "buy": {
+                    "arcana": 15
+                },
+                "run": {
+                    "stamina": 0.2,
+                    "gold": 1
+                },
+                "mod": {
+                    "research.max": 5,
+                    "gold.max": 10
+                }
+            }
+        ],
+        "tasks": [
+            {
+                "id": "sellbooks",
+                "name": "出售巨著",
+                "tags": "t_bulk_sale_task,t_languagework",
+                "desc": "即使有最好的抄写员，这些也总是被低估",
+                "verb": "haggling over tomes",
+                "fill": "gold",
+                "require": "g.shopkeeping>=6&&g.tomes>=1",
+                "length": 10,
+                "cost": {
+                    "tomes": 1
+                },
+                "run": {
+                    "stamina": 1
+                },
+                "result": {
+                    "gold": 115
+                },
+                "mod": {
+                    "shopkeeping.max": "5|500|40",
+                    "tomes.max": "0.01%/0/>=100/2600/-10"
+                },
+                "at": {
+                    "20": {
+                        "result.gold": 10
+                    },
+                    "50": {
+                        "result.gold": 15
+                    },
+                    "100": {
+                        "result.gold": 15
+                    },
+                    "250": {
+                        "result.gold": 20
+                    }
+                },
+                "group": "affluence"
+            },
+            {
+                "id": "sellcodices",
+                "name": "出售典籍",
+                "verb": "haggling over codices",
+                "desc": "将手抄本卖给任何想要的人",
+                "tags": "t_bulk_sale_task,t_languagework",
+                "require": "g.shopkeeping>=3&&g.codices>=1",
+                "fill": "gold",
+                "length": 5,
+                "cost": {
+                    "codices": 1
+                },
+                "run": {
+                    "stamina": 0.8
+                },
+                "result": {
+                    "gold": 28
+                },
+                "mod": {
+                    "shopkeeping.max": "3|300|50",
+                    "codices.max": "0.01%/0/>=100/2600/-10"
+                },
+                "at": {
+                    "20": {
+                        "result.gold": 34,
+                        "cost.codices": 1
+                    },
+                    "50": {
+                        "result.gold": 38,
+                        "cost.codices": 1
+                    },
+                    "100": {
+                        "result.gold": 44,
+                        "cost.codices": 1
+                    },
+                    "250": {
+                        "result.gold": 46,
+                        "cost.codices": 1
+                    }
+                },
+                "group": "affluence"
+            },
+            {
+                "id": "sellscrolls",
+                "name": "出售卷轴",
+                "verb": "haggling over scrolls",
+                "desc": "将卷轴卖给任何来访者",
+                "tags": "t_bulk_sale_task,t_languagework",
+                "require": "g.shopkeeping>=1&&g.scrolls>=1",
+                "fill": "gold",
+                "length": 3,
+                "cost": {
+                    "scrolls": 1
+                },
+                "run": {
+                    "stamina": 0.5
+                },
+                "result": {
+                    "gold": 7
+                },
+                "mod": {
+                    "shopkeeping.max": "2|500|40",
+                    "scrolls.max": "0.01%/0/>=100/2600/-10"
+                },
+                "at": {
+                    "20": {
+                        "result.gold": 8,
+                        "cost.scrolls": 1
+                    },
+                    "50": {
+                        "result.gold": 9,
+                        "cost.scrolls": 1
+                    },
+                    "100": {
+                        "result.gold": 26,
+                        "cost.scrolls": 2
+                    },
+                    "250": {
+                        "result.gold": 50,
+                        "cost.scrolls": 5
+                    }
+                },
+                "group": "affluence"
+            },
+            {
+                "id": "mass_sellherbs",
+                "name": "出售草药",
+                "verb": "haggling over herbs",
+                "desc": "将草药卖给想制作药水或香料的人。",
+                "tags": "t_bulk_sale_task,t_languagework",
+                "require": "g.shopkeeping>=2&&g.herbs>=1",
+                "fill": "gold",
+                "length": 3,
+                "cost": {
+                    "herbs": 1
+                },
+                "run": {
+                    "stamina": 0.2
+                },
+                "result": {
+                    "gold": 2.8
+                },
+                "mod": {
+                    "shopkeeping.max": "2|500|40",
+                    "herbs.max": "0.01%/0/>=100/2600/-10"
+                },
+                "at": {
+                    "20": {
+                        "result.gold": 3.2,
+                        "cost.herbs": 1
+                    },
+                    "50": {
+                        "result.gold": 3.6,
+                        "cost.herbs": 1
+                    },
+                    "100": {
+                        "result.gold": 10.4,
+                        "cost.herbs": 2
+                    },
+                    "250": {
+                        "result.gold": 20,
+                        "cost.herbs": 5
+                    }
+                },
+                "group": "affluence"
+            },
+            {
+                "id": "sellgems",
+                "name": "出售宝石",
+                "verb": "haggling over gems",
+                "desc": "将宝石卖给珠宝商和商人",
+                "tags": "t_bulk_sale_task,t_languagework",
+                "require": "g.shopkeeping>=3&&g.gems>=1",
+                "fill": "gold",
+                "length": 5,
+                "cost": {
+                    "gems": 1
+                },
+                "run": {
+                    "stamina": 0.5
+                },
+                "result": {
+                    "gold": 40
+                },
+                "mod": {
+                    "shopkeeping.max": "3|500|50",
+                    "gems.max": "0.01%/0/>=100/2600/-10"
+                },
+                "at": {
+                    "20": {
+                        "result.gold": 40,
+                        "cost.gems": 1
+                    },
+                    "50": {
+                        "result.gold": 50,
+                        "cost.gems": 1
+                    },
+                    "100": {
+                        "result.gold": 55,
+                        "cost.gems": 1
+                    },
+                    "250": {
+                        "result.gold": 65,
+                        "cost.gems": 1
+                    }
+                },
+                "group": "affluence"
+            },
+            {
+                "id": "accountingbook",
+                "name": "会计账簿",
+                "actname": "计算开支",
+                "desc": "更好地整理你所有的巫师开支",
+                "require": "g.shopkeeping>=4&&g.crafting>=2&&g.languages>=5",
+                "max": 1,
+                "length": 50,
+                "cost": {
+                    "codices": 1,
+                    "scrolls": 20
+                },
+                "run": {
+                    "stamina": 3
+                },
+                "effect": {
+                    "shopkeeping.exp": "g.shopkeeping.rate * 0.2"
+                },
+                "mod": {
+                    "research.max": 20,
+                    "shopkeeping.max": 2,
+                    "shopkeeping.rate": 0.2,
+                    "composure.max": 1,
+                    "composure.rate": 0.1
+                },
+                "group": "knowledge"
+            }
+        ],
+        "upgrades": [
+            {
+                "id": "tradingstall",
+                "name": "交易摊位",
+                "desc": "让买家主动来找你购买卷轴和宝石，而不是你四处寻找他们",
+                "require": "g.shopkeeping>=5",
+                "max": 1,
+                "cost": {
+                    "gold": 400
+                },
+                "mod": {
+                    "shopkeeping.max": 1,
+                    "sellscrolls.run.stamina": -0.1,
+                    "sellgems.run.stamina": -0.1
+                },
+                "group": "affluence"
+            },
+            {
+                "id": "colorfulsigns",
+                "name": "彩色招牌",
+                "desc": "你或许可以通过一些华丽的幻象和效果更快地出售物品",
+                "require": "g.shopkeeping>=7",
+                "max": 1,
+                "cost": {
+                    "gold": 300,
+                    "research": 500,
+                    "managem": 5
+                },
+                "mod": {
+                    "shopkeeping.max": 1,
+                    "sellscrolls.length": -1,
+                    "sellgems.length": -1
+                },
+                "group": "affluence"
+            },
+            {
+                "id": "charmingsigns",
+                "name": "附魔招牌",
+                "desc": "既然有魔法，何必去说服买家",
+                "require": "g.shopkeeping>=7 && g.charms>=5",
+                "max": 1,
+                "cost": {
+                    "gold": 1000,
+                    "research": 2500,
+                    "managem": 15
+                },
+                "mod": {
+                    "shopkeeping.max": 1,
+                    "shopkeeping.rate": 0.1,
+                    "charms.rate": 0.1,
+                    "mass_sellherbs.length": -1,
+                    "sellgems.length": -1
+                },
+                "group": "affluence"
+            },
+            {
+                "id": "taxloopholes",
+                "name": "税务漏洞",
+                "desc": "你厌倦了焚烧税务官。将逃税事宜委托给魔法能找到的最好律师吧。",
+                "require": "g.shopkeeping>=7&&g.demonology>=5",
+                "max": 3,
+                "cost": {
+                    "gold": 1000,
+                    "research": 2500,
+                    "gems": 15,
+                    "hp": 10,
+                    "arcana": 1
+                },
+                "mod": {
+                    "shopkeeping.max": 0.5,
+                    "demonology.rate": 0.5
+                },
+                "flavor": "唯一比税务立法者更熟练的律师来自下界。",
+                "group": "knowledge"
+            },
+            {
+                "id": "gemtradercontact",
+                "name": "宝石商人联系人",
+                "desc": "寻找能以更优惠价格向你出售宝石的人",
+                "require": "g.shopkeeping>=7",
+                "max": 1,
+                "cost": {
+                    "gold": 1500,
+                    "research": 2000
+                },
+                "mod": {
+                    "buygem.cost.gold": -20
+                },
+                "group": "affluence"
+            },
+            {
+                "id": "splendorandriches",
+                "name": "辉煌与财富",
+                "desc": "有时，大量的黄金和贪婪就是你成名所需的一切",
+                "require": "g.shopkeeping>=12",
+                "max": 1,
+                "cost": {
+                    "gold": 50000,
+                    "gems": 150
+                },
+                "result": {
+                    "gold.max": 1000,
+                    "fame": 2
+                },
+                "group": "affluence"
+            }
+        ],
+        "potions": [
+            {
+                "id": "pot_negotiator",
+                "name": "谈判者的狡诈",
+                "desc": "一种清澈粘稠的液体，闻起来像钱，尝起来像便士",
+                "require": "g.potions>=8&&g.shopkeeping>=5",
+                "level": 9,
+                "buy": {
+                    "gold": 1500,
+                    "goldstash": 1,
+                    "research": 2000,
+                    "tomes": 5
+                },
+                "cost": {
+                    "herbs": 30,
+                    "research": 600,
+                    "goldstash": 1,
+                    "gold": 1000
+                },
+                "use": {
+                    "dot": {
+                        "id": "pot_negotiator_effect",
+                        "name": "精明谈判",
+                        "duration": 600,
+                        "effect": {
+                            "shopkeeping.exp": "g.shopkeeping.rate * 0.2"
+                        },
+                        "mod": {
+                            "t_bulk_sale_task.run.stamina": -0.1,
+                            "shopkeeping.rate": 0.5
+                        }
+                    }
+                }
+            }
+        ],
+        "furniture": [
+            {
+                "id": "bazaar",
+                "name": "市集",
+                "desc": "熙熙攘攘的商贩和商人",
+                "require": "g.shopkeeping>=8&&g.tradingstall>0",
+                "max": 1,
+                "cost": {
+                    "gold": 3000,
+                    "gems": 50
+                },
+                "mod": {
+                    "gold.rate": 0.3,
+                    "gold.max": 100,
+                    "space": 30,
+                    "t_shopkeeper_assistant.convert.input": "25%",
+                    "t_shopkeeper_assistant.convert.output.effect": "35%",
+                    "t_shopkeeper_assistant.mod.space": -1,
+                    "t_shopkeeper_assistant.max": 2,
+                    "shopkeeping.mod.gold.max": 5
+                }
+            },
+            {
+                "id": "herbmonger",
+                "name": "草药商人",
+                "tags": "t_shopkeeper_assistant",
+                "desc": "应你的要求，持续出售你新鲜种植的草药。",
+                "require": "g.shopkeeping>=5&&g.herbs>=30",
+                "max": 2,
+                "cost": {
+                    "gold": 100
+                },
+                "mod": {
+                    "space": 3
+                },
+                "convert": {
+                    "input": {
+                        "herbs": 0.5
+                    },
+                    "output": {
+                        "effect": {
+                            "gold": 0.5
+                        }
+                    }
+                }
+            },
+            {
+                "id": "scrollmonger",
+                "name": "卷轴商人",
+                "tags": "t_shopkeeper_assistant",
+                "desc": "应你的要求，持续出售你的卷轴存货。",
+                "require": "g.shopkeeping>=7&&g.scrolls>=30",
+                "max": 2,
+                "cost": {
+                    "gold": 100
+                },
+                "mod": {
+                    "space": 3
+                },
+                "convert": {
+                    "input": {
+                        "scrolls": 0.5
+                    },
+                    "output": {
+                        "effect": {
+                            "gold": 0.15
+                        }
+                    }
+                }
+            },
+            {
+                "id": "gemmonger",
+                "name": "宝石商人",
+                "tags": "t_shopkeeper_assistant",
+                "desc": "应你的要求，持续出售你的宝石存货。",
+                "require": "g.shopkeeping>=9&&g.gems>=30",
+                "max": 2,
+                "cost": {
+                    "gold": 200
+                },
+                "mod": {
+                    "space": 3
+                },
+                "convert": {
+                    "input": {
+                        "gems": 0.1
+                    },
+                    "output": {
+                        "effect": {
+                            "gold": 2.5
+                        }
+                    }
+                }
+            },
+            {
+                "id": "goldpile",
+                "name": "金币堆",
+                "desc": "既然可以像龙一样睡觉，何必像农夫一样",
+                "require": "g.shopkeeping>=7",
+                "max": 1,
+                "tags": "bed",
+                "slot": "bed",
+                "cost": {
+                    "gold": 2000
+                },
+                "mod": {
+                    "t_rest": {
+                        "effect": {
+                            "stamina": 0.25,
+                            "vigor": 0.025,
+                            "prismatic": 0.15,
+                            "stress": -0.5,
+                            "gold": 0.25
+                        }
+                    },
+                    "gold.rate": 0.05,
+                    "space": 2,
+                    "shopkeeping.mod.gold.max": 2
+                }
+            },
+            {
+                "id": "goldstash",
+                "name": "藏金",
+                "desc": "将你的黄金藏起来以保护它",
+                "require": "g.shopkeeping>=8",
+                "repeat": true,
+                "cost": {
+                    "gold": 250
+                },
+                "mod": {
+                    "space": 2
+                },
+                "sell": {
+                    "gold": 500
+                }
+            }
+        ]
+    }
+}

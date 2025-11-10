@@ -1,0 +1,1557 @@
+{
+    "module": "timerip",
+    "data": {
+        "clashes": [
+            {
+                "id": "timerip_clash",
+                "name": "未知时间线",
+                "unreturnable": true,
+                "sym": "⌛️⚔💀",
+                "desc": "你亲手制作的计时器发出清晰的滴答声，引起了你的注意。谁会拥有一个这样的东西呢？",
+                "require": "g.timerip_locale>=15",
+                "level": 1,
+                "run": {
+                    "stamina": 1,
+                    "tempus": 2
+                },
+                "buy": {
+                    "chargedtimepiece": 1
+                },
+                "once": {
+                    "chargedtimepiece": 2
+                },
+                "result": {
+                    "title": "命中注定"
+                },
+                "length": 1,
+                "boss": {
+                    "1": [
+                        "timerip_unknown_wizard"
+                    ]
+                },
+                "runmod": {
+                    "timeparadox.mod.instability.rate": 0.3,
+                    "timeparadox.mod.hp.max": "-2%",
+                    "instability.mod.tempus.rate": "-0.2%"
+                }
+            }
+        ],
+        "locales": [
+            {
+                "id": "timerip_locale",
+                "name": "时间裂缝",
+                "sym": "⌛️",
+                "desc": "这绝不可能是个坏主意。",
+                "level": 15,
+                "require": "evt_timerip",
+                "length": 150,
+                "buy": {
+                    "emptytimepiece": 1
+                },
+                "run": {
+                    "stamina": 3,
+                    "tempus": 1
+                },
+                "runmod": {
+                    "timeparadox.mod.instability.rate": 0.2,
+                    "timeparadox.mod.stress.max": "-3%"
+                },
+                "result": {
+                    "timegem": 25,
+                    "timerune": 2
+                },
+                "at": {
+                    "1": {},
+                    "3": {},
+                    "5": {},
+                    "7": {},
+                    "10": {},
+                    "15": {}
+                },
+                "encs": [
+                    "timerip_stablehorse",
+                    "timerip_stablehorse_paradox",
+                    "timerip_apprentice",
+                    "timerip_neophyte_evil",
+                    "timerip_neophyte_good",
+                    "timerip_neophyte_savant",
+                    "timerip_darkmagician",
+                    "timerip_reanimator",
+                    "timerip_reanimator_paradox",
+                    "timerip_unattended_gems",
+                    "timerip_witch",
+                    "timerip_holdup",
+                    "timerip_trickster",
+                    "timerip_thanophage",
+                    "timerip_battlemage",
+                    "timerip_dragon",
+                    "timerip_bladeweaver",
+                    "timerip_eldritchknight",
+                    "timerip_warlock",
+                    "timerip_mechamancer",
+                    "timerip_mechamancer_paradox",
+                    "timerip_summoner",
+                    "timerip_alchemist",
+                    "timerip_titan",
+                    "timerip_elementalist",
+                    "timerip_druid",
+                    "timerip_druid_paradox",
+                    "timerip_oracle",
+                    "timerip_mage",
+                    "timerip_doomsayer",
+                    "timerip_necromancer",
+                    "timerip_mirror",
+                    "timerip_mirror2",
+                    "timerip_mirror3",
+                    "timerip_workshop"
+                ]
+            }
+        ],
+        "tasks": [],
+        "potions": [
+            {
+                "id": "pot_stability",
+                "name": "记忆药剂",
+                "desc": "在一段时间内，赋予你精确且不可磨灭的记忆。",
+                "level": 5,
+                "require": "g.timerip_locale>=5&&g.potions>=5&&g.chronomancy>=5",
+                "buy": {
+                    "gold": 30000,
+                    "tomes": 150,
+                    "tempus": 150
+                },
+                "cost": {
+                    "tempus": 100,
+                    "timegem": 1
+                },
+                "use": {
+                    "dot": {
+                        "mod": {
+                            "stabilizerest.mod.t_rest.effect.instability": -0.5,
+                            "stabilizerest.mod.t_rest.effect.timeparadox": -0.01
+                        },
+                        "duration": 3600
+                    }
+                }
+            }
+        ],
+        "resources": [
+            {
+                "id": "timeparadox",
+                "name": "时间悖论",
+                "desc": "等等，马厩不是在一个世纪前就被拆了吗？",
+                "group": "adversities",
+                "rate": -0.01,
+                "max": 20,
+                "sortOrder": 810,
+                "flavor": "与邮递员运送易挥发材料无关。"
+            },
+            {
+                "id": "instability",
+                "desc": "时间是危险的东西。尽量不要凭空消失。",
+                "max": 500,
+                "reverse": true,
+                "defeatstat": true,
+                "rate": -0.1,
+                "tags": "menace",
+                "mod": {
+                    "tempus.rate": "-0.2%",
+                    "prismatic.rate": -0.01
+                }
+            }
+        ],
+        "furniture": [
+            {
+                "id": "clepsydra100",
+                "name": "发条柜",
+                "desc": "一个巨大的时钟收藏，每个都调到了不同的时间。",
+                "require": "tier6",
+                "tags": "timesource",
+                "max": 5,
+                "cost": {
+                    "gold": 10000,
+                    "research": 10000
+                },
+                "mod": {
+                    "tempus.max": 100,
+                    "tempus.rate": 1,
+                    "water.rate": 1,
+                    "space": 80
+                },
+                "flavor": "制作这个花了很多时间，你对此有大约80%的信心。"
+            }
+        ],
+        "rares": [
+            {
+                "id": "timeedge",
+                "name": "时间之刃",
+                "desc": "时间之流在你眼前汇聚成一道锋利的刀刃。",
+                "type": "weapon",
+                "slot": "mainhand",
+                "damage": "15~20",
+                "unique": true,
+                "attack": [
+                    {
+                        "name": "旋风斩",
+                        "kind": "slash",
+                        "targets": "enemies",
+                        "maxTargets": 999,
+                        "damage": "(i.damage||0)*0.75",
+                        "potencies": [
+                            "sworddmg",
+                            "slashdmg",
+                            "physdmg"
+                        ]
+                    },
+                    {
+                        "name": "清除",
+                        "kind": "slash",
+                        "targets": "enemy",
+                        "damage": "(i.damage||0)",
+                        "potencies": [
+                            "sworddmg",
+                            "slashdmg",
+                            "physdmg"
+                        ]
+                    },
+                    {
+                        "name": "刀法",
+                        "kind": "slash",
+                        "targets": "enemyleader",
+                        "damage": "(i.damage||0)",
+                        "tohit": 5,
+                        "potencies": [
+                            "sworddmg",
+                            "slashdmg",
+                            "physdmg"
+                        ]
+                    }
+                ],
+                "alter": {
+                    "mod": {
+                        "tempus.rate": 0.5,
+                        "tempus.max": 50,
+                        "player.dodge": 3,
+                        "player.speed": 5,
+                        "instability.rate": -0.1,
+                        "timeparadox.rate": -0.01
+                    }
+                },
+                "tags": "t_martial,t_slash,t_sword,t_artifact",
+                "level": 15,
+                "enchants": 3,
+                "sell": {
+                    "timegem": 25,
+                    "timerune": 5
+                }
+            },
+            {
+                "id": "stabilize",
+                "slot": "rest",
+                "group": "rest"
+            }
+        ],
+        "upgrades": [
+            {
+                "id": "stabilizerest",
+                "name": "稳定",
+                "desc": "解开悖论。确立你的存在。",
+                "require": "g.instability>=25",
+                "tags": "t_restmod",
+                "slot": "leisure",
+                "max": 1,
+                "buy": {
+                    "tempus": 100
+                },
+                "mod": {
+                    "t_rest.effect.tempus": 0.1,
+                    "t_rest.effect.instability": -1,
+                    "t_rest.effect.timeparadox": -0.01
+                },
+                "flavor": "仿佛你从未存在过。",
+                "group": "rest"
+            },
+            {
+                "id": "timeledger",
+                "name": "时间账本",
+                "desc": "一本维度不确定的书，其中包含关于宇宙各种状态的精确信息。",
+                "require": "g.timerip_locale>=1&&g.chronomancy>=5",
+                "cost": {
+                    "research": 33333,
+                    "timegem": 20,
+                    "timerune": 2
+                },
+                "mod": {
+                    "stabilizerest.mod.t_rest.effect.instability": -0.3,
+                    "stabilizerest.mod.t_rest.effect.timeparadox": -0.01
+                },
+                "group": "instability"
+            },
+            {
+                "id": "paradoxmitigation",
+                "name": "悖论解缠",
+                "desc": "悖论不过是宇宙中一个简单的不一致。一点点数学魔法就能解决。",
+                "require": "g.timerip_locale>=10&&g.chronomancy>=5",
+                "cost": {
+                    "research": 33333,
+                    "timeparadox": 10,
+                    "timerune": 3
+                },
+                "mod": {
+                    "timeparadox.rate": -0.01,
+                    "timerip_locale.runmod.timeparadox.mod.instability.rate": -0.04
+                },
+                "group": "instability"
+            },
+            {
+                "id": "instabilitymitigation",
+                "name": "不稳定缓解",
+                "desc": "时间对滥用它的人毫不留情。然而，也许有办法减轻打击。",
+                "require": "g.timerip_locale>=10&&g.chronomancy>=5",
+                "cost": {
+                    "research": 33333,
+                    "instability": -90,
+                    "timerune": 3
+                },
+                "mod": {
+                    "instability.rate": -0.3,
+                    "instability.mod.tempus.rate": "0.1%"
+                },
+                "group": "instability"
+            },
+            {
+                "id": "restfulstabilization",
+                "name": "安稳稳定",
+                "desc": "经过大量的练习，你可以简化稳定过程，在使用时恢复更多力量。",
+                "require": "g.timerip_locale>=5&&g.chronomancy>=5",
+                "cost": {
+                    "research": 3333,
+                    "timegem": 6
+                },
+                "mod": {
+                    "stabilizerest.mod.t_rest.effect.stress": -0.2,
+                    "stabilizerest.mod.t_rest.effect.tempus": 0.1
+                },
+                "group": "instability"
+            },
+            {
+                "id": "ripexploitation",
+                "name": "时间裂缝利用",
+                "desc": "既然你已经多次穿越时间线，你可以大大缩短获取时间宝石所需的时间。",
+                "require": "g.timerip_locale>=15&&g.chronomancy>=5",
+                "cost": {
+                    "research": 55555,
+                    "timegem": 50,
+                    "timerune": 3
+                },
+                "mod": {
+                    "timerip_locale.length": -50
+                },
+                "group": "rip in time"
+            },
+            {
+                "id": "ripshortening",
+                "name": "裂缝集中",
+                "desc": "通过消耗特殊准备的导管，可以进一步提高时间收集效率。",
+                "require": "g.ripexploitation>0",
+                "max": 5,
+                "cost": {
+                    "chargedtimepiece": 1
+                },
+                "mod": {
+                    "timerip_locale.length": -10,
+                    "timerip_locale.run.stamina": 0.2,
+                    "timerip_locale.run.tempus": 0.2
+                },
+                "group": "rip in time"
+            }
+        ],
+        "spells": [
+            {
+                "id": "perfectstability",
+                "name": "完美稳定",
+                "desc": "释放储存的时间来掩盖你的干预。",
+                "sortOrder": 1470,
+                "level": 25,
+                "school": "tempus",
+                "keywords": {
+                    "type": [
+                        "recovery"
+                    ],
+                    "target": [
+                        "self"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ],
+                    "special": [
+                        "explore"
+                    ]
+                },
+                "require": "g.instability>=50&&g.chronomancy>=5",
+                "buy": {
+                    "research": 50000,
+                    "clepsydra100": 1
+                },
+                "cost": {
+                    "chargedtimepiece": 1
+                },
+                "cd": 1800,
+                "dot": {
+                    "duration": 3600,
+                    "mod": {
+                        "instability.rate": -100,
+                        "timeparadox.rate": -10
+                    }
+                }
+            },
+            {
+                "id": "temporalanchor",
+                "name": "时间锚",
+                "desc": "利用一个锚点来实现短暂的时间稳定性。",
+                "sortOrder": 1471,
+                "level": 15,
+                "school": "tempus",
+                "keywords": {
+                    "type": [
+                        "recovery"
+                    ],
+                    "target": [
+                        "self"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ],
+                    "special": [
+                        "explore"
+                    ]
+                },
+                "require": "g.instability>=50&&g.chronomancy>=5",
+                "buy": {
+                    "research": 30000,
+                    "clepsydra": 5
+                },
+                "cost": {
+                    "tempus": 25
+                },
+                "cd": 100,
+                "dot": {
+                    "duration": 120,
+                    "mod": {
+                        "instability.rate": -0.3,
+                        "timeparadox.rate": -0.01
+                    }
+                }
+            },
+            {
+                "id": "temporalalignment",
+                "name": "时间校准",
+                "desc": "将自己与主时间线重新对齐。",
+                "sortOrder": 1430,
+                "level": 15,
+                "school": "tempus",
+                "keywords": {
+                    "type": [
+                        "recovery"
+                    ],
+                    "target": [
+                        "self"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ],
+                    "special": [
+                        "explore"
+                    ]
+                },
+                "require": "g.instability>=50&&g.chronomancy>=5",
+                "buy": {
+                    "research": 25000,
+                    "clepsydra": 5
+                },
+                "cost": {
+                    "tempus": 50,
+                    "instability": -15,
+                    "timeparadox": 1
+                },
+                "cd": 300,
+                "result": {
+                    "instability": -45,
+                    "timeparadox": -5
+                }
+            },
+            {
+                "id": "timerip_stress",
+                "name": "精神韧性",
+                "desc": "让你的思想坚韧不拔，抵御时间的侵蚀。",
+                "sortOrder": 1472,
+                "level": 15,
+                "school": "tempus",
+                "keywords": {
+                    "type": [
+                        "recovery"
+                    ],
+                    "target": [
+                        "self"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ],
+                    "special": [
+                        "explore"
+                    ]
+                },
+                "require": "g.instability>=50&&g.chronomancy>=5",
+                "buy": {
+                    "research": 25000,
+                    "clepsydra": 5
+                },
+                "cost": {
+                    "tempus": 80
+                },
+                "cd": 100,
+                "dot": {
+                    "duration": 120,
+                    "mod": {
+                        "stress.max": 5,
+                        "stress.rate": -0.1,
+                        "timerip_locale.runmod.stress.max": "20+50%",
+                        "timerip_locale.runmod.stress.rate": -1,
+                        "timerip_locale.run.tempus": 0.5
+                    }
+                }
+            },
+            {
+                "id": "timerip_aeon",
+                "name": "永恒冲击",
+                "desc": "终有时，万物皆逝。",
+                "sortOrder": 1400,
+                "level": 25,
+                "school": "tempus",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.timerip_clash>0",
+                "buy": {
+                    "research": 35000,
+                    "clepsydra": 5
+                },
+                "cost": {
+                    "tempus": 100
+                },
+                "cd": 30,
+                "attack": {
+                    "targets": "enemies",
+                    "maxTargets": 999,
+                    "damage": "125~250",
+                    "kind": "tempus",
+                    "tohit": 5,
+                    "potencies": [
+                        "spelldmg",
+                        "timedmg"
+                    ]
+                }
+            },
+            {
+                "id": "mon_aeon",
+                "name": "永恒冲击",
+                "desc": "终有时，万物皆逝。你为何能读到这些？",
+                "level": 25,
+                "school": "tempus",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.chronomancy>=9999",
+                "cd": 5,
+                "attack": {
+                    "targets": "enemies",
+                    "maxTargets": 999,
+                    "damage": "80~110",
+                    "kind": "tempus",
+                    "tohit": 10,
+                    "potencies": [
+                        "spelldmg",
+                        "timedmg"
+                    ]
+                }
+            },
+            {
+                "id": "timerip_distort",
+                "name": "扭曲",
+                "desc": "改变对手体内的时间流，使其失去同步。",
+                "sortOrder": 1402,
+                "level": 15,
+                "school": "tempus",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ]
+                },
+                "require": "g.timerip_locale>=7",
+                "buy": {
+                    "research": 25000,
+                    "clepsydra": 5
+                },
+                "cost": {
+                    "tempus": 60
+                },
+                "cd": 10,
+                "attack": {
+                    "targets": "enemy",
+                    "dot": {
+                        "duration": 15,
+                        "damage": "25~50",
+                        "potencies": [
+                            "spelldmg",
+                            "timedmg"
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "mon_distort",
+                "name": "扭曲",
+                "desc": "改变对手体内的时间流，使其失去同步。你为何能读到这些？",
+                "level": 25,
+                "school": "tempus",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ]
+                },
+                "require": "g.chronomancy>=9999",
+                "cd": 15,
+                "attack": {
+                    "hits": [
+                        {
+                            "targets": "enemyleader",
+                            "dot": {
+                                "name": "扭曲",
+                                "id": "mon_distortion",
+                                "duration": 15,
+                                "damage": "15~25"
+                            }
+                        },
+                        {
+                            "targets": "enemyleader",
+                            "harmless": true,
+                            "dot": {
+                                "duration": 4,
+                                "name": "失稳",
+                                "id": "mon_instability",
+                                "effect": {
+                                    "instability": 10
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "timerip_dilate",
+                "name": "时间膨胀",
+                "desc": "改变时间流，创造一个局部时间膨胀区。",
+                "level": 15,
+                "school": "tempus",
+                "keywords": {
+                    "type": [
+                        "debuff"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ]
+                },
+                "require": "g.timerip_locale>=3",
+                "buy": {
+                    "research": 15000,
+                    "clepsydra": 5
+                },
+                "cost": {
+                    "tempus": 30
+                },
+                "cd": 20,
+                "attack": {
+                    "targets": "enemies",
+                    "maxTargets": 999,
+                    "dot": {
+                        "duration": 20,
+                        "mod": {
+                            "self.speed": -10
+                        }
+                    }
+                }
+            },
+            {
+                "id": "mon_dilate",
+                "name": "时间膨胀",
+                "desc": "改变时间流，创造一个局部时间膨胀区。你为何能读到这些？",
+                "level": 25,
+                "school": "tempus",
+                "keywords": {
+                    "type": [
+                        "damage",
+                        "debuff"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ]
+                },
+                "require": "g.chronomancy>=9999",
+                "cd": 15,
+                "attack": {
+                    "hits": [
+                        {
+                            "targets": "enemies",
+                            "maxTargets": 999,
+                            "dot": {
+                                "name": "时间膨胀",
+                                "id": "mon_dilation",
+                                "duration": 15,
+                                "damage": "5~10",
+                                "mod": {
+                                    "self.speed": -15
+                                }
+                            }
+                        },
+                        {
+                            "targets": "enemyleader",
+                            "harmless": true,
+                            "dot": {
+                                "name": "冲突存在",
+                                "id": "mon_paradox",
+                                "duration": 4,
+                                "effect": {
+                                    "timeparadox": 0.75
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "mon_temporalrestoration",
+                "name": "非因果恢复",
+                "desc": "一个未知巫师的再生法术。你为何能读到这些？",
+                "level": 25,
+                "school": "tempus",
+                "keywords": {
+                    "type": [
+                        "damage",
+                        "recovery"
+                    ],
+                    "target": [
+                        "self",
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant",
+                        "over time"
+                    ]
+                },
+                "require": "g.chronomancy>=9999",
+                "cd": 25,
+                "attack": {
+                    "hits": [
+                        {
+                            "targets": "self",
+                            "result": {
+                                "hp": 250
+                            }
+                        },
+                        {
+                            "targets": "enemyleader",
+                            "harmless": true,
+                            "dot": {
+                                "name": "因果强制",
+                                "id": "mon_causality",
+                                "duration": 5,
+                                "effect": {
+                                    "timeparadox": 0.5,
+                                    "instability": 6
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "mon_quicken",
+                "name": "加速",
+                "desc": "一个未知巫师的增益法术。你为何能读到这些？",
+                "level": 25,
+                "school": "tempus",
+                "keywords": {
+                    "type": [
+                        "damage",
+                        "buff"
+                    ],
+                    "target": [
+                        "self",
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant",
+                        "over time"
+                    ]
+                },
+                "require": "g.chronomancy>=9999",
+                "cd": 15,
+                "attack": {
+                    "hits": [
+                        {
+                            "targets": "self",
+                            "dot": {
+                                "name": "加速",
+                                "id": "mon_quicken",
+                                "duration": 15,
+                                "mod": {
+                                    "self.speed": 15
+                                }
+                            }
+                        },
+                        {
+                            "targets": "enemyleader",
+                            "harmless": true,
+                            "dot": {
+                                "name": "时间鞭笞",
+                                "id": "mon_whiplash",
+                                "duration": 4,
+                                "effect": {
+                                    "instability": 10
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "encounters": [
+            {
+                "id": "enc_test",
+                "level": 2,
+                "name": "马夫",
+                "desc": "你看到有人在喂马。这是一个测试遭遇，笨蛋。",
+                "effect": {
+                    "unease": 1,
+                    "instability": 1
+                },
+                "result": {
+                    "timeparadox": 1,
+                    "timegem": 1,
+                    "timerune": 1
+                },
+                "loot": {
+                    "timeedge": 1
+                }
+            },
+            {
+                "id": "timerip_stablehorse",
+                "name": "马夫",
+                "desc": "你看到有人在喂马。这似乎是一份极其平凡的工作。",
+                "effect": {
+                    "unease": "5~7",
+                    "instability": 1.5,
+                    "animals.exp": "g.animals.rate*2"
+                }
+            },
+            {
+                "id": "timerip_stablehorse_paradox",
+                "name": "马夫",
+                "desc": "你看到有人在喂马。当你转身离开时，你不小心碰倒了一支蜡烛。",
+                "effect": {
+                    "unease": "5~7",
+                    "animals.exp": "g.animals.rate*2",
+                    "instability": 2
+                },
+                "result": {
+                    "timeparadox": 1
+                },
+                "loot": {
+                    "timegem": "5%",
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_apprentice",
+                "name": "学徒",
+                "desc": "一个学徒笨手笨脚地为他的师傅跑腿。",
+                "effect": {
+                    "rage": "5~7",
+                    "instability": 1.5,
+                    "composure.exp": "g.composure.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_neophyte_evil",
+                "name": "宁静之夜",
+                "desc": "寂静无声，一个抱着枕头的人影走向卧室。",
+                "effect": {
+                    "madness": "5~7",
+                    "instability": 1.5,
+                    "trickery.exp": "g.trickery.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_neophyte_good",
+                "name": "毕业",
+                "desc": "一个老财迷向一个年轻的能手收取不公平的费用。",
+                "effect": {
+                    "rage": "5~7",
+                    "instability": 1.5,
+                    "lore.exp": "g.lore.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_neophyte_savant",
+                "name": "非凡洞察",
+                "desc": "一个学徒离开了他的师傅，不再需要正式的指导。这非常不寻常……",
+                "effect": {
+                    "bf": "5~7",
+                    "mysticism.exp": "g.mysticism.rate*2",
+                    "instability": 2
+                },
+                "result": {
+                    "timeparadox": 1
+                },
+                "loot": {
+                    "timegem": "5%",
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_darkmagician",
+                "name": "黑暗誓约",
+                "desc": "诅咒之语在周围的黑暗中回荡，宣誓效忠于黑暗魔法。",
+                "effect": {
+                    "madness": "5~7",
+                    "instability": 1.5,
+                    "shadowlore.exp": "g.shadowlore.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_reanimator",
+                "name": "黏腻声",
+                "desc": "你看到一罐罐整齐保存的器官。隔壁房间传来解剖的声音。",
+                "effect": {
+                    "madness": "5~7",
+                    "instability": 1.5,
+                    "dissection.exp": "g.dissection.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_reanimator_paradox",
+                "name": "黏腻声",
+                "desc": "你看到一罐罐整齐保存的器官。脚下传来骨头碎裂的声音。",
+                "effect": {
+                    "madness": "5~7",
+                    "instability": 1.5,
+                    "dissection.exp": "g.dissection.rate*2"
+                },
+                "result": {
+                    "timeparadox": 1
+                },
+                "loot": {
+                    "timegem": "5%",
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_unattended_gems",
+                "name": "宝库",
+                "desc": "金币和宝石堆积如山。你随手拿走了一颗宝石。",
+                "effect": {
+                    "bf": "5~7",
+                    "instability": 3
+                },
+                "result": {
+                    "timeparadox": 1
+                },
+                "loot": {
+                    "timegem": "50%",
+                    "gems": 1,
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_witch",
+                "name": "冒烟的坩埚",
+                "desc": "某种汤在大锅里沸腾。汤汁似乎蕴含着极其丰富的生命力。",
+                "effect": {
+                    "unease": "5~7",
+                    "instability": 1.5,
+                    "potions.exp": "g.potions.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_holdup",
+                "name": "一个 ⚔👗♨️⚗️✒️♾️",
+                "desc": "一个铁匠将他的针锤入柔软的丝绸。每缝一针，药剂的颜色都会略微改变，雕刻也随之蔓延到时钟表面。",
+                "tags": "loot_equip_gen",
+                "effect": {
+                    "unease": 7,
+                    "madness": 7,
+                    "rage": 7,
+                    "bf": 7,
+                    "weary": 7,
+                    "instability": 5
+                },
+                "result": {
+                    "timeparadox": 2,
+                    "timegem": 1,
+                    "timerune": "10%"
+                },
+                "loot": {
+                    "timeedge": "2%"
+                }
+            },
+            {
+                "id": "timerip_trickster",
+                "name": "繁忙街道",
+                "desc": "当你走在街上时，你的口袋突然感觉轻了许多。",
+                "effect": {
+                    "bf": "5~7",
+                    "instability": 2,
+                    "trickery.exp": "g.trickery.rate*2"
+                },
+                "result": {
+                    "timeparadox": 1,
+                    "gold": -50
+                },
+                "loot": {
+                    "timegem": "5%",
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_thanophage",
+                "name": "异味",
+                "desc": "一间堆满腐肉的房间在你面前。你突然感到有些饿了。",
+                "effect": {
+                    "madness": "5~7",
+                    "instability": 1.5,
+                    "embalming.exp": "g.embalming.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_battlemage",
+                "name": "法术闪烁",
+                "desc": "一个法术使用者正用他可靠的刀刃和真正的法术库击退一群怪物。",
+                "effect": {
+                    "weary": "5~7",
+                    "instability": 1.5,
+                    "firelore.exp": "g.firelore.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_dragon",
+                "name": "炽热密室",
+                "desc": "一个古怪的巫师大口喝下一瓶药剂，然后倒下，身体扭曲成一个怪诞的鳞片状形态。",
+                "effect": {
+                    "bf": "5~7",
+                    "instability": 1.5,
+                    "firelore2.exp": "g.firelore2.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_bladeweaver",
+                "name": "凛冽空气",
+                "desc": "一把刀停在你脸前一英寸处，一个困惑的剑士看着你。",
+                "effect": {
+                    "rage": "5~7",
+                    "instability": 2,
+                    "bladelore.exp": "g.bladelore.rate*2"
+                },
+                "result": {
+                    "timeparadox": 1
+                },
+                "loot": {
+                    "timegem": "5%",
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_eldritchknight",
+                "name": "死亡编织",
+                "desc": "怪物被干净利落地劈成两半，倒下后露出了一个身披盔甲的身影。",
+                "effect": {
+                    "rage": "5~7",
+                    "instability": 1.5,
+                    "bladelore.exp": "g.bladelore.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_warlock",
+                "name": "异界传送门",
+                "desc": "一个遥远的身影高举法杖，打开了一道传送门，让恶魔大军通过。",
+                "effect": {
+                    "madness": "5~7",
+                    "instability": 1.5,
+                    "demonology.exp": "g.demonology.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_mechamancer",
+                "name": "可怕的景象",
+                "desc": "一排自动机从你面前经过，寻找着那个设法逃脱的。",
+                "effect": {
+                    "weary": "5~7",
+                    "instability": 1.5,
+                    "automatasculpting.exp": "g.automatasculpting.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_mechamancer_paradox",
+                "name": "可怕的景象",
+                "desc": "一排自动机从你面前经过，它们是被一股不寻常的魔法灵气吸引到这里的。",
+                "effect": {
+                    "weary": "5~7",
+                    "instability": 2,
+                    "automatasculpting.exp": "g.automatasculpting.rate*2"
+                },
+                "result": {
+                    "timeparadox": 1
+                },
+                "loot": {
+                    "timegem": "5%",
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_summoner",
+                "name": "维度裂隙",
+                "desc": "多只生物聚集在此地，它们是由一位友善的巫师召唤而来的。",
+                "effect": {
+                    "bf": "5~7",
+                    "instability": 1.5,
+                    "conjuration.exp": "g.conjuration.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_alchemist",
+                "name": "繁忙的实验室",
+                "desc": "各种形状和大小的曲颈瓶、蒸馏器和药瓶占据了这片空间。",
+                "effect": {
+                    "bf": "5~7",
+                    "instability": 1.5,
+                    "alchemy.exp": "g.alchemy.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_titan",
+                "name": "深邃洞穴",
+                "desc": "你大喊一声，但回声却没有传来。",
+                "effect": {
+                    "bf": "5~7",
+                    "instability": 1.5,
+                    "earthlore.exp": "g.earthlore.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_elementalist",
+                "name": "风暴之心",
+                "desc": "这里很平静，即使元素正在撕裂世界。",
+                "effect": {
+                    "madness": "5~7",
+                    "instability": 1.5,
+                    "waterlore.exp": "g.waterlore.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_druid",
+                "name": "娇嫩的幼苗",
+                "desc": "在一个异常大的花园里，种下了一株幼苗。",
+                "effect": {
+                    "weary": "5~7",
+                    "instability": 1.5,
+                    "naturelore.exp": "g.naturelore.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_druid_paradox",
+                "name": "娇嫩的幼苗",
+                "desc": "在一个异常大的花园里，曾种下了一株幼苗。",
+                "effect": {
+                    "weary": "5~7",
+                    "instability": 2,
+                    "naturelore.exp": "g.naturelore.rate*2"
+                },
+                "result": {
+                    "timeparadox": 1
+                },
+                "loot": {
+                    "timegem": "5%",
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_oracle",
+                "name": "先知",
+                "desc": "躲藏毫无意义。毕竟，他知道你会来。",
+                "effect": {
+                    "weary": "5~7",
+                    "instability": 2,
+                    "divination.exp": "g.divination.rate*2"
+                },
+                "result": {
+                    "timeparadox": 1
+                },
+                "loot": {
+                    "timegem": "5%",
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_mage",
+                "name": "高塔",
+                "desc": "在云层之上的一间隐秘房间里，知识大师正在进行他的研究。",
+                "effect": {
+                    "bf": "5~7",
+                    "instability": 1.5,
+                    "lore.exp": "g.lore.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_doomsayer",
+                "name": "终结",
+                "desc": "空无一物。正如他所预言的那样。",
+                "effect": {
+                    "madness": "5~7",
+                    "instability": 1.5,
+                    "scrying.exp": "g.scrying.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_necromancer",
+                "name": "白骨平原",
+                "desc": "一片生者无人敢踏足的荒地。",
+                "effect": {
+                    "weary": "5~7",
+                    "instability": 1.5,
+                    "necromancy.exp": "g.necromancy.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_mirror",
+                "name": "一面镜子",
+                "desc": "一块巨大的镜面立在你面前，完美地反射着一切。你眨了眨眼。",
+                "effect": {
+                    "bf": "5~7",
+                    "instability": 2,
+                    "mysticism.exp": "g.mysticism.rate*2"
+                },
+                "result": {
+                    "timeparadox": 1
+                },
+                "loot": {
+                    "timegem": "5%",
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_mirror2",
+                "name": "一面镜子",
+                "desc": "一块巨大的镜面立在你面前，完美地反射着一切。你的倒影眨了眨眼。",
+                "effect": {
+                    "bf": "5~7",
+                    "instability": 2,
+                    "mysticism.exp": "g.mysticism.rate*2"
+                },
+                "result": {
+                    "timeparadox": 1
+                },
+                "loot": {
+                    "timegem": "5%",
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_mirror3",
+                "name": "高原",
+                "desc": "两位巫师站在一个对称的、毫无特征的平面上，彼此相对。他们眨了眨眼。",
+                "effect": {
+                    "bf": "5~7",
+                    "instability": 1.5,
+                    "chronomancy.exp": "g.chronomancy.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            },
+            {
+                "id": "timerip_workshop",
+                "name": "工坊",
+                "desc": "工具散落一地，看似毫无章法。",
+                "effect": {
+                    "weary": "5~7",
+                    "instability": 1.5,
+                    "crafting.exp": "g.crafting.rate*2"
+                },
+                "loot": {
+                    "timerune": "1%"
+                }
+            }
+        ],
+        "events": [
+            {
+                "id": "evt_timerip",
+                "name": "奇怪的感觉",
+                "desc": "零散的记忆在你的意识边缘徘徊。",
+                "require": "g.tier6>0&&g.hall_time_1>0"
+            }
+        ],
+        "monsters": [
+            {
+                "id": "timerip_unknown_wizard",
+                "name": "未知巫师",
+                "level": 30,
+                "spells": "mon_aeon,mon_distort,mon_dilate,mon_temporalrestoration,prismaticmissile,mon_quicken",
+                "chaincast": 0.7,
+                "kind": "unknown",
+                "desc": "你知道你会赢得这场战斗。但这知识带来的安慰微乎其微。",
+                "noproc": true,
+                "hp": 2500,
+                "regen": 5,
+                "defense": 80,
+                "dodge": 20,
+                "tohit": 25,
+                "speed": 30,
+                "attack": [
+                    {
+                        "name": "旋风斩",
+                        "targets": "enemies",
+                        "maxTargets": 999,
+                        "damage": "40~45"
+                    },
+                    {
+                        "name": "清除",
+                        "targets": "enemy",
+                        "damage": "70~90"
+                    },
+                    {
+                        "name": "剑术",
+                        "targets": "enemyleader",
+                        "damage": "70~90",
+                        "tohit": 5
+                    }
+                ],
+                "loot": {
+                    "timeedge": 1
+                },
+                "statedata": {
+                    "prismaticmissile": {
+                        "need": null,
+                        "cd": 3,
+                        "result": null,
+                        "attack": {
+                            "kind": "mana",
+                            "hits": [
+                                {
+                                    "damage": "10~15",
+                                    "kind": "mana",
+                                    "tohit": -2
+                                },
+                                {
+                                    "damage": "10~15",
+                                    "kind": "fire",
+                                    "tohit": -2
+                                },
+                                {
+                                    "damage": "10~15",
+                                    "kind": "water",
+                                    "tohit": -2
+                                },
+                                {
+                                    "damage": "10~15",
+                                    "kind": "nature",
+                                    "tohit": -2
+                                },
+                                {
+                                    "damage": "10~15",
+                                    "kind": "air",
+                                    "tohit": -2
+                                },
+                                {
+                                    "damage": "10~15",
+                                    "kind": "chaos",
+                                    "tohit": -2
+                                },
+                                {
+                                    "damage": "10~15",
+                                    "kind": "earth",
+                                    "tohit": -2
+                                },
+                                {
+                                    "damage": "10~15",
+                                    "kind": "shadow",
+                                    "tohit": -2
+                                },
+                                {
+                                    "damage": "10~15",
+                                    "kind": "light",
+                                    "tohit": -2
+                                },
+                                {
+                                    "damage": "10~15",
+                                    "kind": "spirit",
+                                    "tohit": -2
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        ],
+        "hall": {
+            "data": {
+                "upgrades": [
+                    {
+                        "id": "unknown_trophy",
+                        "name": "未知长袍",
+                        "sym": "🏰",
+                        "tags": "hall",
+                        "desc": "曾装饰着一位未知巫师的长袍。它们的存在本身就给所有现在、过去和未来的人带来一种永恒感。",
+                        "require": "g.timerip_clash>0",
+                        "max": 1,
+                        "mod": {
+                            "timespiral.cost.chargedtimepiece": -1,
+                            "imbuetimepiece.run.timegem": -0.01
+                        },
+                        "result": {
+                            "fame": 20
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

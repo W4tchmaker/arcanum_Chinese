@@ -1,0 +1,735 @@
+[
+    {
+        "id": "alcove",
+        "name": "壁龛",
+        "desc": "你主人住所楼梯下的一个小角落。",
+        "flavor": "告别干草棚。",
+        "require": "apprentice",
+        "mod": {
+            "space.max": 5
+        }
+    },
+    {
+        "id": "earthspire",
+        "name": "土质尖塔",
+        "desc": "一座坚不可摧的金属与石质尖塔。",
+        "buy": {
+            "research": 500,
+            "gold": 3000,
+            "codices": 15
+        },
+        "require": "g.geosculpting>=5",
+        "mod": {
+            "space.max": 150,
+            "minions.max": 10,
+            "earthlore.mod.earth.max": 1,
+            "geosculpting.mod.player.defense": 0.2,
+            "earth.max": 5,
+            "earth.rate": 0.5
+        },
+        "flavor": "你大地塑形技艺的丰碑。"
+    },
+    {
+        "id": "atticbedroom",
+        "name": "阁楼卧室",
+        "desc": "注意到你的进步，你的主人不情愿地在阁楼里给你腾出了一些空间。",
+        "flavor": "别得意忘形。",
+        "require": "neophyte",
+        "lock": [
+            "alcove"
+        ],
+        "buy": {
+            "research": 50
+        },
+        "mod": {
+            "space.max": 10
+        }
+    },
+    {
+        "id": "innroom",
+        "name": "旅店住宿",
+        "desc": "当地旅店的租用房间",
+        "require": "tier0",
+        "log": {
+            "name": "Rented Room",
+            "desc": "You are now living at a local inn, losing precious coins to pay the rent."
+        },
+        "mod": {
+            "space.max": 12,
+            "gold.rate": -0.25
+        }
+    },
+    {
+        "id": "hut",
+        "name": "茅屋",
+        "desc": "村庄边缘的一间小茅屋。",
+        "disable": "innroom",
+        "require": "tier0",
+        "buy": {
+            "gold": 300
+        },
+        "mod": {
+            "space.max": 15
+        }
+    },
+    {
+        "id": "camp",
+        "name": "野营地",
+        "desc": "一个野外营地及其周边。",
+        "require": "g.tier0>0&&g.naturelore>=5",
+        "tags": "outdoors,starsource,t_mobilehome",
+        "disable": "innroom",
+        "buy": {
+            "gold": 75
+        },
+        "mod": {
+            "space.max": 14,
+            "lore.rate": -0.1,
+            "research.rate": -0.1,
+            "naturelore.mod.nature.max": 0.25
+        }
+    },
+    {
+        "id": "wagon",
+        "name": "修补匠的马车",
+        "desc": "用于游牧生活的带轮马车。现在还有了驴子。",
+        "require": "g.tier0>0&&g.naturelore>=5",
+        "disable": "innroom",
+        "tags": "outdoors,t_pets,starsource,t_mobilehome",
+        "buy": {
+            "gold": 150
+        },
+        "mod": {
+            "space.max": 12,
+            "naturelore.mod.minions.max": 0.2,
+            "animals.mod.steed.mod.dist": 2,
+            "inv.max": 5,
+            "gold.max": 100,
+            "mule.mod.inv.max": 2,
+            "mule.mod.gold.max": 50
+        }
+    },
+    {
+        "id": "cottage",
+        "name": "小屋",
+        "desc": "舒适而古雅。",
+        "require": "tier0",
+        "disable": "innroom",
+        "buy": {
+            "gold": 500,
+            "gems": 5
+        },
+        "mod": {
+            "space.max": 20,
+            "minions.max": 1
+        }
+    },
+    {
+        "id": "house",
+        "name": "房屋",
+        "desc": "小镇上的一栋普通房子。",
+        "buy": {
+            "gold": 900,
+            "gems": 10
+        },
+        "disable": "innroom",
+        "require": "g.tier0>0&&g.arcana.max>=8",
+        "mod": {
+            "space.max": 30,
+            "minions.max": 3
+        }
+    },
+    {
+        "id": "shop",
+        "name": "商店",
+        "desc": "繁华城市中的一家小商店。",
+        "buy": {
+            "gold": 850,
+            "gems": 9
+        },
+        "require": "g.tier1>0&&g.crafting>=9",
+        "mod": {
+            "space.max": 25,
+            "minions.max": 2,
+            "magicgems.max": 1,
+            "gold.rate": 0.2,
+            "gold.max": 25,
+            "nature.rate": "-5%",
+            "arcana.rate": -0.002
+        }
+    },
+    {
+        "id": "inn",
+        "name": "旅店",
+        "desc": "一家安静的旅店，供旅行者住宿。",
+        "buy": {
+            "gold": 2000,
+            "gems": 15
+        },
+        "require": "g.tier1>0&&g.languages>=7",
+        "mod": {
+            "space.max": 50,
+            "minions.max": 5,
+            "research.rate": -0.5,
+            "gold.max": 40,
+            "gold.rate": 0.4,
+            "arcana.rate": -0.001
+        }
+    },
+    {
+        "id": "lodge",
+        "name": "小屋",
+        "desc": "树林中一座简朴的小屋。",
+        "buy": {
+            "gold": 950,
+            "gems": 5
+        },
+        "require": "g.tier1>0&&g.naturelore>=7",
+        "mod": {
+            "space.max": 30,
+            "minions.max": 5,
+            "nature.max": 1,
+            "nature.rate": 0.1
+        }
+    },
+    {
+        "id": "gabledhouse",
+        "name": "山墙宅邸",
+        "desc": "一栋宽敞的房子，有许多山墙窗户。",
+        "buy": {
+            "gold": 2000,
+            "gems": 10
+        },
+        "require": "g.tier1>0&&g.arcana>=10",
+        "mod": {
+            "space.max": 65,
+            "minions.max": 5
+        }
+    },
+    {
+        "id": "halftimber",
+        "name": "半木结构房屋",
+        "desc": "一栋设计质朴的宽敞住宅。",
+        "buy": {
+            "gold": 3000,
+            "gems": 15
+        },
+        "require": "g.tier1>0&&g.arcana>=10",
+        "mod": {
+            "space.max": 75,
+            "minions.max": 7
+        }
+    },
+    {
+        "id": "cave",
+        "name": "洞穴",
+        "desc": "一处原始住所，非常适合某些研究领域。其他领域则不那么适合。",
+        "require": "g.tier0>0&&(g.shadow+g.earth+g.nature)>0",
+        "tags": "outdoors,starsource,t_underground",
+        "buy": {
+            "gold": 150
+        },
+        "mod": {
+            "space.max": 25,
+            "minions.max": 2,
+            "research.rate": -0.5,
+            "earthlore.mod.earth.max": 0.5,
+            "shadowlore.mod.shadow.max": 0.25,
+            "light.max": -2,
+            "light.rate": "-2%"
+        },
+        "lock": [
+            "latticewindow"
+        ]
+    },
+    {
+        "id": "pavilion",
+        "name": "亭阁",
+        "desc": "一片开阔田野上的一座开放式优雅建筑。",
+        "buy": {
+            "gold": 800,
+            "gems": 15
+        },
+        "tags": "lightsource",
+        "require": "t_divinationclass",
+        "mod": {
+            "space.max": 50,
+            "minions.max": 3,
+            "light.rate": 0.1,
+            "air.rate": 0.1,
+            "mana.rate": 0.1,
+            "shadow.max": -1,
+            "shadow.rate": "-5%"
+        }
+    },
+    {
+        "id": "hauntedmanse",
+        "name": "闹鬼庄园",
+        "desc": "关于这座宅邸的传说讲述着鬼魂和恐怖。",
+        "buy": {
+            "gold": 2500
+        },
+        "require": "g.hauntedmanor>0&&g.tier0>0",
+        "tags": "spiritsource",
+        "mod": {
+            "space.max": 75,
+            "spiritlore.mod.spirit.max": 0.25,
+            "shadow.rate": 0.1,
+            "demonology.mod.minions.max": 1
+        }
+    },
+    {
+        "id": "ancientruins",
+        "name": "古代遗迹",
+        "desc": "一座由碎石构成的蜿蜒堡垒。每个角落都能找到古老的图案。",
+        "buy": {
+            "gold": 5000
+        },
+        "require": "g.spirit>=15&&g.arcana>=12&&g.tier2>0",
+        "mod": {
+            "space.max": 110,
+            "minions.max": 10,
+            "craftrune.cost.tomes": "-50%",
+            "craftrune.cost.managem": "-50%",
+            "demonology.mod.arcana.max": 0.4,
+            "spiritlore.mod.spirit.max": 0.5
+        }
+    },
+    {
+        "id": "tower",
+        "name": "塔楼",
+        "desc": "一座石塔，用于进行你的奥术调查。",
+        "buy": {
+            "gold": 2500
+        },
+        "require": "g.t_knowledgeclass>0&&g.arcana>=20",
+        "tags": "airsource",
+        "mod": {
+            "space.max": 55,
+            "minions.max": 5,
+            "airlore.mod.air.max": 0.25
+        }
+    },
+    {
+        "id": "lighthouse",
+        "name": "灯塔",
+        "desc": "海边的一座灯塔。",
+        "buy": {
+            "gold": 3000
+        },
+        "require": "(g.t_knowledgeclass+g.t_elementalclass+g.t_airclass+g.t_waterclass)>0&&g.arcana>=20",
+        "mod": {
+            "space.max": 80,
+            "minions.max": 5,
+            "waterlore.mod.water.max": 0.25,
+            "lightlore.mod.light.max": 0.5
+        }
+    },
+    {
+        "id": "cataract",
+        "name": "瀑布",
+        "desc": "一个隐藏在巨大瀑布后面的深邃空洞。",
+        "require": "g.excavatewaterfall>0",
+        "tags": "watersource",
+        "buy": {
+            "gold": 500
+        },
+        "mod": {
+            "space.max": 330,
+            "minions.max": 4,
+            "research.rate": "-10%",
+            "waterlore.mod.water.max": 1
+        },
+        "lock": [
+            "latticewindow"
+        ],
+        "flavor": "更多的空间，更多的瀑布。令人振奋！"
+    },
+    {
+        "id": "citadel",
+        "name": "堡垒",
+        "desc": "一座堡垒，保护你免受世俗琐碎力量的侵扰。",
+        "buy": {
+            "gold": 1000
+        },
+        "require": "(g.t_knowledgeclass+g.t_swordclass+g.t_hammerclass)>0&&g.arcana>=20",
+        "mod": {
+            "space.max": 60,
+            "minions.max": 15,
+            "nature.max": -1,
+            "nature.rate": "-5%"
+        }
+    },
+    {
+        "id": "academy",
+        "name": "学院",
+        "desc": "简朴的学舍。",
+        "buy": {
+            "gold": 1000,
+            "research": 500
+        },
+        "require": "g.research>=400&&g.t_knowledgeclass>0",
+        "mod": {
+            "space.max": 75,
+            "minions.max": 20,
+            "research.max": 50,
+            "research.rate": 0.4
+        }
+    },
+    {
+        "id": "temple",
+        "name": "神殿",
+        "desc": "冥想与独处的圣所。",
+        "buy": {
+            "gold": 2000
+        },
+        "require": "(g.t_divinationclass+g.t_lightclass)>0",
+        "mod": {
+            "space.max": 60,
+            "composure.mod.stress.rate": -0.01,
+            "virtue.rate": 0.001,
+            "arcana.rate": 0.001,
+            "minions.max": 8,
+            "lightlore.mod.light.max": 0.6,
+            "shadow.max": -3,
+            "shadow.rate": "-10%"
+        }
+    },
+    {
+        "id": "magetower",
+        "name": "法师塔",
+        "desc": "没有什么比塔中的巫师更能代表这门技艺了。",
+        "require": "g.tier4>0&&g.t_knowledgeclass>=2",
+        "buy": {
+            "gold": 7000,
+            "research": 5000,
+            "managem": 30,
+            "tomes": 10
+        },
+        "mod": {
+            "space.max": 420,
+            "minions.max": 10,
+            "mysticism.mod.prismatic.rate": 0.01,
+            "prismatic.rate": 0.05,
+            "history.mod.arcana.max": 0.9,
+            "arcana.rate": 0.0001
+        }
+    },
+    {
+        "id": "home_idrasil_sapling",
+        "name": "伊德拉希尔树苗",
+        "desc": "世界树的树苗长成可与山脉媲美的巨树。",
+        "tags": "outdoors,starsource",
+        "require": "g.idrasilgrow1>0",
+        "buy": {
+            "gems": 15,
+            "herbs": 25
+        },
+        "mod": {
+            "space.max": 300,
+            "minions.max": 10,
+            "naturelore.mod.nature.max": "0.5",
+            "airlore.mod.air.max": 0.1,
+            "fire.rate": "-3%"
+        }
+    },
+    {
+        "id": "palace",
+        "name": "宫殿",
+        "desc": "豪华宽敞的庄园，助你精进学业，并以最舒适的方式款待同僚。",
+        "require": "g.palacerestoration>0",
+        "buy": {
+            "gold": 2500
+        },
+        "mod": {
+            "space.max": 400,
+            "gold.mod.stress.rate": -4e-06,
+            "stress.rate": -0.05,
+            "magicadvice.result.gold": 0.65,
+            "research.rate": -0.5
+        },
+        "flavor": "谁说钱多事就多？"
+    },
+    {
+        "id": "castle",
+        "name": "城堡",
+        "desc": "一座宏伟实用的城堡，专为有敌人的魔法使用者而设。或者，为目标而设。",
+        "require": "g.castlerestoration>0",
+        "buy": {
+            "gold": 2500
+        },
+        "mod": {
+            "space.max": 400,
+            "minions.max": 30,
+            "hall_quest.run": {
+                "hp": "-50%",
+                "stamina": "-50%"
+            },
+            "earthlore.mod.earth.max": 0.1,
+            "earth.rate": 0.1
+        }
+    },
+    {
+        "id": "cove",
+        "name": "隐秘海湾",
+        "tags": "outdoors,starsource",
+        "desc": "隐秘海湾。",
+        "require": "g.tier3>0&&(g.t_elementalclass+g.t_waterclass*2)>=2",
+        "buy": {
+            "gold": 3000
+        },
+        "mod": {
+            "space.max": 300,
+            "minions.max": 20,
+            "airlore.mod.air.max": 0.25,
+            "waterlore.mod.water.max": 0.5,
+            "water.max": 2,
+            "water.rate": 0.1
+        }
+    },
+    {
+        "id": "cavern",
+        "name": "洞穴",
+        "desc": "一个宽阔而巨大的洞穴，深藏于地下。",
+        "require": "g.tier2>0&&g.earthlore>=10",
+        "tags": "earthsource,t_underground",
+        "buy": {
+            "research": 500,
+            "gold": 3000,
+            "earthgem": 20
+        },
+        "mod": {
+            "space.max": 200,
+            "minions.max": 20,
+            "research.rate": -0.5,
+            "earth.rate": 0.2,
+            "earthlore.mod.earth.max": 0.5,
+            "shadow.max": 3,
+            "shadow.rate": 0.2,
+            "demonology.mod.arcana.max": 0.4,
+            "light.max": -3,
+            "light.rate": "-10%"
+        },
+        "lock": [
+            "latticewindow"
+        ]
+    },
+    {
+        "id": "grove",
+        "name": "魔法树林",
+        "desc": "魔法树林。",
+        "tags": "outdoors,starsource",
+        "require": "g.tier3>0&&(g.t_enchantingclass+g.t_natureclass)>0",
+        "buy": {
+            "gold": 4000,
+            "research": 1600,
+            "gems": 40
+        },
+        "mod": {
+            "space.max": 320,
+            "minions.max": 20,
+            "naturelore.mod.nature.max": 0.5,
+            "enchanting.mod.enchantslots.max": 1
+        }
+    },
+    {
+        "id": "island",
+        "name": "迷雾之岛",
+        "tags": "outdoors,starsource",
+        "desc": "海上的一座孤岛。",
+        "require": "g.tier3>0&&(g.t_enchantingclass+g.t_elementalclass+g.t_spiritclass)>0",
+        "buy": {
+            "gold": 4000,
+            "gems": 40,
+            "research": 1600
+        },
+        "mod": {
+            "space.max": 320,
+            "minions.max": 25,
+            "waterlore.mod.water.max": 0.5,
+            "airlore.mod.air.max": 0.5,
+            "water.rate": 0.1,
+            "air.rate": 0.05
+        }
+    },
+    {
+        "id": "facemuseum",
+        "name": "面具博物馆",
+        "desc": "一个收藏无数伪装以助你研究的宝库。",
+        "require": "g.tier3>0&&g.trickery>=13",
+        "buy": {
+            "gold": 6666,
+            "research": 666,
+            "gems": 66,
+            "tomes": 6
+        },
+        "mod": {
+            "space.max": 300,
+            "chaosgem.mod.chaos.max": "0.01",
+            "chaosrune.mod.research.max": "1%",
+            "facecollect.length": -2
+        }
+    },
+    {
+        "id": "home_idrasil_sprout",
+        "name": "伊德拉希尔幼苗",
+        "tags": "outdoors,starsource",
+        "desc": "伊德拉希尔种子的幼苗。在你的照料下它还有很长的路要走，但即使现在它也已高耸于大部分森林之上。",
+        "require": "g.tier2>0&&g.nature>=8&&g.arcana>=8",
+        "buy": {
+            "gems": 15,
+            "herbs": 25
+        },
+        "mod": {
+            "space.max": 150,
+            "minions.max": 5,
+            "naturelore.mod.nature.max": "0.25",
+            "airlore.mod.air.max": 0.05,
+            "fire.rate": "-3%"
+        }
+    },
+    {
+        "id": "home_idrasil_tree",
+        "name": "伊德拉希尔巨树",
+        "desc": "一棵长得足够大，足以自成微观世界的树。",
+        "tags": "outdoors,starsource",
+        "require": "g.idrasilgrow2>0",
+        "buy": {
+            "gems": 15,
+            "herbs": 25
+        },
+        "mod": {
+            "space.max": 400,
+            "minions.max": 20,
+            "naturelore.mod.nature.max": "1",
+            "airlore.mod.air.max": 0.2,
+            "fire.rate": "-3%"
+        },
+        "flavor": "世界树宏伟壮丽的一瞥。"
+    },
+    {
+        "id": "home_collective",
+        "name": "集体营地",
+        "desc": "一群志同道合的自然爱好者在荒野中的聚会。",
+        "tags": "outdoors,starsource,plantsource,t_pets,t_mobilehome",
+        "require": "g.foundcollective>0",
+        "mod": {
+            "space.max": 150,
+            "minions.max": 10,
+            "allies.max": 10,
+            "charms.mod": {
+                "minions.max": "5%",
+                "allies.max": 1
+            },
+            "summoning.mod": {
+                "minions.max": 1.5,
+                "allies.max": 1
+            },
+            "animals.mod.minions.max": 0.1,
+            "magicbeasts.mod.allies.max": 0.25
+        }
+    },
+    {
+        "id": "home_caravan",
+        "name": "商队",
+        "desc": "一整队马车为了安全和便利而结伴而行。",
+        "tags": "outdoors,t_pets,starsource,t_mobilehome",
+        "require": "g.establishcaravan>0",
+        "mod": {
+            "space.max": 150,
+            "inv.max": 30,
+            "gold.max": 100,
+            "allies.max": 8,
+            "minions.max": 8,
+            "animals.mod.steed.mod.dist": 2,
+            "magicbeasts.mod.steed.mod.dist": 2,
+            "steed.mod": {
+                "dist": 50,
+                "inv.max": 20,
+                "gold.max": 50
+            }
+        }
+    },
+    {
+        "id": "home_emporium",
+        "name": "商贸中心",
+        "desc": "繁华都市中商业的丰碑。",
+        "tags": "watersource,plantsource,booksource,t_pets,workspace,firesource,earthsource,airsource,potsource,spiritsource,shadowsource,lightsource,starsource,enchantsource,armssource,legssource",
+        "require": "g.buildemporium>0",
+        "mod": {
+            "space.max": 150,
+            "gold": {
+                "max": 1000,
+                "rate": 2.5
+            },
+            "gems": {
+                "max": 10,
+                "rate": 0.01
+            },
+            "magicgems.max": 3,
+            "minions.max": 10,
+            "arcana.rate": -0.001,
+            "shopkeeping.mod": {
+                "gold": {
+                    "max": 10,
+                    "rate": 0.01
+                },
+                "gems": {
+                    "max": 1,
+                    "rate": 0.001
+                }
+            },
+            "t_bulk_sale_task.result.gold": "15%"
+        },
+        "flavor": "如果你不卖它，它就不存在。"
+    },
+    {
+        "id": "home_waterfall",
+        "name": "瀑布",
+        "desc": "就在瀑布下放松一下。",
+        "tags": "watersource",
+        "require": "g.water>=6&&g.naturelore>=6&&g.tier1>0",
+        "buy": {
+            "gold": 500
+        },
+        "mod": {
+            "space.max": 50,
+            "minions.max": 2,
+            "research.rate": "-5%",
+            "waterlore.mod.water.max": 0.5,
+            "lightlore.rate": -0.4
+        },
+        "lock": [
+            "latticewindow"
+        ],
+        "flavor": "瀑布后面总有空间。你的东西现在就住在那儿了。"
+    },
+    {
+        "id": "ruinedpalace",
+        "name": "腐朽宫殿",
+        "desc": "一座曾经奢华而广阔的庄园，大部分设施已毁坏。但仍比大多数住宅舒适得多。",
+        "require": "g.tier2>0",
+        "buy": {
+            "gold": 2500
+        },
+        "mod": {
+            "space.max": 150,
+            "stress.rate": -0.025,
+            "research.rate": -0.5
+        }
+    },
+    {
+        "id": "ruinedcastle",
+        "name": "残破城堡",
+        "desc": "一座曾经宏伟实用的堡垒，被时间的侵蚀所摧毁。它仍然有雇佣兵的容身之处。",
+        "require": "g.tier2>0",
+        "buy": {
+            "gold": 2500
+        },
+        "mod": {
+            "space.max": 150,
+            "minions.max": 10,
+            "earth.rate": 0.1
+        }
+    }
+]

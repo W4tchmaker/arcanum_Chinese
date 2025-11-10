@@ -1,0 +1,671 @@
+[
+    {
+        "id": "magicgems",
+        "name": "魔法宝石"
+    },
+    {
+        "id": "gemimbue",
+        "name": "灌注宝石"
+    },
+    {
+        "id": "manas",
+        "name": "法力能量"
+    },
+    {
+        "id": "fundamentalgems",
+        "name": "基础宝石"
+    },
+    {
+        "id": "prismaticgems",
+        "name": "棱彩宝石"
+    },
+    {
+        "id": "elementalgems",
+        "name": "元素宝石"
+    },
+    {
+        "id": "primalgems",
+        "name": "原始宝石"
+    },
+    {
+        "id": "fundamentalrunes",
+        "name": "基础符文"
+    },
+    {
+        "id": "prismaticrunes",
+        "name": "棱彩符文"
+    },
+    {
+        "id": "elementalrunes",
+        "name": "元素符文"
+    },
+    {
+        "id": "t_nospellcraft",
+        "name": "无法施法"
+    },
+    {
+        "id": "t_rest",
+        "name": "休息"
+    },
+    {
+        "id": "t_restmod",
+        "name": "休闲专注"
+    },
+    {
+        "id": "manadot",
+        "name": "法力"
+    },
+    {
+        "id": "stamdot",
+        "name": "源泉"
+    },
+    {
+        "id": "whirlingstep",
+        "name": "旋风步"
+    },
+    {
+        "id": "toughskin",
+        "name": "坚韧皮肤"
+    },
+    {
+        "id": "lightregen",
+        "name": "脉动之光"
+    },
+    {
+        "id": "strike",
+        "name": "强化打击"
+    },
+    {
+        "id": "bloodbuff",
+        "name": "反抗"
+    },
+    {
+        "id": "t_animalcompanion",
+        "name": "动物伙伴"
+    },
+    {
+        "id": "t_goodcompanion",
+        "name": "善良伙伴"
+    },
+    {
+        "id": "t_extremegood",
+        "name": "善行"
+    },
+    {
+        "id": "t_extremeevil",
+        "name": "恶行"
+    },
+    {
+        "id": "t_goodact",
+        "name": "善举"
+    },
+    {
+        "id": "t_evilact",
+        "name": "恶举"
+    },
+    {
+        "id": "t_graveyard_remodel",
+        "name": "墓地改造"
+    },
+    {
+        "id": "t_healspell",
+        "name": "治疗法术"
+    },
+    {
+        "id": "t_furn_portal",
+        "name": "家园传送门"
+    },
+    {
+        "id": "t_furn_researchable",
+        "name": "研究对象"
+    },
+    {
+        "id": "t_infusion",
+        "name": "灌注",
+        "sharecd": true
+    },
+    {
+        "id": "t_glossary_entry",
+        "name": "词汇表条目"
+    },
+    {
+        "id": "t_gloss_tasks",
+        "name": "任务"
+    },
+    {
+        "id": "t_gloss_stats",
+        "name": "属性"
+    },
+    {
+        "id": "t_gloss_school",
+        "name": "法术学派"
+    },
+    {
+        "id": "t_gloss_animation",
+        "name": "活化"
+    },
+    {
+        "id": "t_gloss_crafting",
+        "name": "制作"
+    },
+    {
+        "id": "t_gloss_minions",
+        "name": "仆从"
+    },
+    {
+        "id": "t_gloss_skill",
+        "name": "技能"
+    },
+    {
+        "id": "t_gloss_resource",
+        "name": "资源"
+    },
+    {
+        "id": "t_gloss_hall",
+        "name": "大厅"
+    },
+    {
+        "id": "t_gloss_player",
+        "name": "玩家"
+    },
+    {
+        "id": "t_gloss_action",
+        "name": "行动"
+    },
+    {
+        "id": "t_gloss_enchant",
+        "name": "附魔"
+    },
+    {
+        "id": "t_gloss_combat",
+        "name": "战斗"
+    },
+    {
+        "id": "t_gloss_exploration",
+        "name": "探索"
+    },
+    {
+        "id": "t_gloss_chaos",
+        "name": "混沌"
+    },
+    {
+        "id": "t_gloss_equipment",
+        "name": "装备"
+    },
+    {
+        "id": "t_summon",
+        "name": "召唤"
+    },
+    {
+        "id": "t_healthpot",
+        "name": "生命药水",
+        "sharecd": true
+    },
+    {
+        "id": "t_manapot",
+        "name": "法力药水",
+        "sharecd": true
+    },
+    {
+        "id": "t_stampot",
+        "name": "体力药水",
+        "sharecd": true
+    },
+    {
+        "id": "t_combatpot",
+        "name": "战斗药水"
+    },
+    {
+        "id": "t_explodypot",
+        "name": "爆炸药水",
+        "sharecd": true
+    },
+    {
+        "id": "t_statuspot",
+        "name": "状态恢复药水",
+        "sharecd": true
+    },
+    {
+        "id": "t_coating",
+        "name": "涂层",
+        "sharecd": true
+    },
+    {
+        "id": "t_oneiropot",
+        "name": "梦境药水",
+        "sharecd": true
+    },
+    {
+        "id": "t_speeddown",
+        "name": "速度降低"
+    },
+    {
+        "id": "t_tohitdown",
+        "name": "精准降低"
+    },
+    {
+        "id": "t_tohitup",
+        "name": "精准提高"
+    },
+    {
+        "id": "t_speedup",
+        "name": "速度提高"
+    },
+    {
+        "id": "t_craftwork",
+        "name": "工艺品"
+    },
+    {
+        "id": "t_languagework",
+        "name": "话术"
+    },
+    {
+        "id": "t_enchantment",
+        "name": "附魔"
+    },
+    {
+        "id": "t_stambuff",
+        "name": "体力增益",
+        "sharecd": true
+    },
+    {
+        "id": "t_dodgebuff",
+        "name": "闪避增益",
+        "sharecd": true
+    },
+    {
+        "id": "t_manabuff",
+        "name": "法力增益",
+        "sharecd": true
+    },
+    {
+        "id": "t_regenbuff",
+        "name": "恢复增益",
+        "sharecd": true
+    },
+    {
+        "id": "t_defbuff",
+        "name": "防御增益",
+        "sharecd": true
+    },
+    {
+        "id": "t_speedbuff",
+        "name": "速度增益",
+        "sharecd": true
+    },
+    {
+        "id": "t_accuracybuff",
+        "name": "精准增益",
+        "sharecd": true
+    },
+    {
+        "id": "t_immunitybuff",
+        "name": "免疫增益",
+        "sharecd": true
+    },
+    {
+        "id": "t_waterhealbuff",
+        "name": "水疗增益",
+        "sharecd": true
+    },
+    {
+        "id": "t_naturehealbuff",
+        "name": "自然治疗增益",
+        "sharecd": true
+    },
+    {
+        "id": "t_obscurebuff",
+        "name": "遮蔽增益",
+        "sharecd": true
+    },
+    {
+        "id": "t_etherealbuff",
+        "name": "虚无增益",
+        "sharecd": true
+    },
+    {
+        "id": "t_silencespell",
+        "name": "沉默法术",
+        "sharecd": true
+    },
+    {
+        "id": "t_confusespell",
+        "name": "混乱法术",
+        "sharecd": true
+    },
+    {
+        "id": "t_resist_debuff",
+        "name": "抗性减益",
+        "sharecd": true
+    },
+    {
+        "id": "t_actionexpansion",
+        "name": "高级额外行动升级"
+    },
+    {
+        "id": "t_bulk_sale_task",
+        "name": "批量销售任务"
+    },
+    {
+        "id": "t_quest",
+        "name": "任务"
+    },
+    {
+        "id": "t_chaosclass",
+        "name": "混沌大师"
+    },
+    {
+        "id": "t_lightclass",
+        "name": "光明大师"
+    },
+    {
+        "id": "t_mobilehome",
+        "name": "移动之家"
+    },
+    {
+        "id": "t_underground",
+        "name": "地下"
+    },
+    {
+        "id": "t_natureclass",
+        "name": "自然大师"
+    },
+    {
+        "id": "t_earthclass",
+        "name": "大地大师"
+    },
+    {
+        "id": "t_waterclass",
+        "name": "水之大师"
+    },
+    {
+        "id": "t_airclass",
+        "name": "风之大师"
+    },
+    {
+        "id": "t_fireclass",
+        "name": "火焰大师"
+    },
+    {
+        "id": "t_elementalclass",
+        "name": "元素大师"
+    },
+    {
+        "id": "t_divinationclass",
+        "name": "占卜大师"
+    },
+    {
+        "id": "t_manaclass",
+        "name": "奥术大师"
+    },
+    {
+        "id": "t_knowledgeclass",
+        "name": "知识大师"
+    },
+    {
+        "id": "t_shadowclass",
+        "name": "暗影大师"
+    },
+    {
+        "id": "t_demonclass",
+        "name": "恶魔学大师"
+    },
+    {
+        "id": "t_healingclass",
+        "name": "治疗大师"
+    },
+    {
+        "id": "t_necroclass",
+        "name": "死灵法术大师"
+    },
+    {
+        "id": "t_spiritclass",
+        "name": "灵魂大师"
+    },
+    {
+        "id": "t_swordclass",
+        "name": "剑术大师"
+    },
+    {
+        "id": "t_duelingclass",
+        "name": "决斗大师"
+    },
+    {
+        "id": "t_hammerclass",
+        "name": "锤术大师"
+    },
+    {
+        "id": "t_bloodclass",
+        "name": "鲜血大师"
+    },
+    {
+        "id": "t_summonclass",
+        "name": "召唤大师"
+    },
+    {
+        "id": "t_minionclass",
+        "name": "仆从大师"
+    },
+    {
+        "id": "t_potionclass",
+        "name": "药剂大师"
+    },
+    {
+        "id": "t_craftingclass",
+        "name": "制作大师"
+    },
+    {
+        "id": "t_enchantingclass",
+        "name": "附魔大师"
+    },
+    {
+        "id": "t_mechaclass",
+        "name": "机械大师"
+    },
+    {
+        "id": "t_body_preparation",
+        "name": "身体准备"
+    },
+    {
+        "id": "t_omendot",
+        "name": "预兆"
+    },
+    {
+        "id": "t_fortunedot",
+        "name": "好运"
+    },
+    {
+        "id": "t_misfortunedot",
+        "name": "厄运"
+    },
+    {
+        "id": "t_prophecydot",
+        "name": "预言"
+    },
+    {
+        "id": "t_brand",
+        "name": "烙印"
+    },
+    {
+        "id": "t_birthsign",
+        "name": "出生星象"
+    },
+    {
+        "id": "t_school",
+        "name": "魔法学派"
+    },
+    {
+        "id": "t_locale",
+        "name": "地点"
+    },
+    {
+        "id": "t_dungeon",
+        "name": "地下城"
+    },
+    {
+        "id": "t_clash",
+        "name": "冲突"
+    },
+    {
+        "id": "t_craftedbag",
+        "name": "非法麻袋"
+    },
+    {
+        "id": "site_of_learning",
+        "name": "学习场所"
+    },
+    {
+        "id": "loot_equip_gen",
+        "name": "战利品生成器",
+        "hide": true
+    },
+    {
+        "id": "t_bookfurn",
+        "name": "书籍家具",
+        "hide": true
+    },
+    {
+        "id": "t_heist_act",
+        "name": "大盗窃"
+    },
+    {
+        "id": "t_stance",
+        "name": "战斗姿态"
+    },
+    {
+        "id": "t_shade_spell",
+        "name": "阴影",
+        "hide": true
+    },
+    {
+        "id": "t_undead_spell",
+        "name": "亡灵",
+        "hide": true
+    },
+    {
+        "id": "t_ventspell",
+        "name": "发泄法术"
+    },
+    {
+        "id": "class",
+        "name": "职业",
+        "hide": true
+    },
+    {
+        "id": "t_spell",
+        "name": "法术",
+        "hide": true
+    },
+    {
+        "id": "hall",
+        "name": "大厅",
+        "hide": true
+    },
+    {
+        "id": "t_permanent_transformation",
+        "name": "永久变形"
+    },
+    {
+        "id": "t_summon_beast",
+        "name": "召唤动物"
+    },
+    {
+        "id": "t_bodyplan",
+        "name": "身体构造"
+    },
+    {
+        "id": "t_fauna_spell",
+        "name": "动物法术",
+        "hide": true
+    },
+    {
+        "id": "t_shopkeeper_assistant",
+        "name": "助理店员"
+    },
+
+
+    {
+        "id": "plantsource",
+        "name": "植物之源"
+    },
+    {
+        "id": "skill",
+        "name": "技能"
+    },
+    {
+        "id": "elemental",
+        "name": "元素"
+    },
+    {
+        "id": "furniture",
+        "name": "家具"
+    },
+    {
+        "id": "lightsrouce",
+        "name": "光明之源"
+    },
+    {
+        "id": "firesource",
+        "name": "火焰之源"
+    },
+    {
+        "id": "earthsource",
+        "name": "大地之源"
+    },
+    {
+        "id": "airsource",
+        "name": "风之源"
+    },
+    {
+        "id": "watersource",
+        "name": "水之源"
+    },
+    {
+        "id": "shadowsource",
+        "name": "暗影之源"
+    },
+    {
+        "id": "bed",
+        "name": "床"
+    },
+    {
+        "id": "armssource",
+        "name": "武器之源"
+    },
+    {
+        "id": "starsource",
+        "name": "星象之源"
+    },
+    {
+        "id": "spiritsource",
+        "name": "灵魂之源"
+    },
+    {
+        "id": "weavesource",
+        "name": "纺织之源"
+    },
+    {
+        "id": "stables",
+        "name": "雕像"
+    },
+    {
+        "id": "candelabra",
+        "name": "蜡烛台"
+    },
+    {
+        "id": "prison",
+        "name": "监狱"
+    },
+    {
+        "id": "wardsource",
+        "name": "法杖之源"
+    },
+    {
+        "id": "summonsouce",
+        "name": "召唤之源"
+    },
+    {
+        "id": "bookshelf",
+        "name": "书架"
+    }
+]

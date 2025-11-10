@@ -1,0 +1,331 @@
+{
+    "module": "sackmakers",
+    "data": {
+        "dungeons": [
+            {
+                "id": "sackguild",
+                "name": "麻袋制造者公会",
+                "start": {
+                    "name": "公会惯例",
+                    "desc": "你未经授权制作袋子的行为激怒了麻袋制造者公会。"
+                },
+                "difficulty": "💀💀💀💀💀",
+                "sortOrder": 65,
+                "require": "g.t_craftedbag>0",
+                "dist": 1830,
+                "run": {
+                    "stamina": 3.5
+                },
+                "result": {
+                    "title": "公会破坏者",
+                    "iron": "0~5",
+                    "leather": "0~5",
+                    "cotton": "0~5",
+                    "quicksteel": "0~5",
+                    "serpentskin": "0~5",
+                    "spidersilk": "0~5",
+                    "rubies": "0~5",
+                    "adamant": "0~5",
+                    "aetherhide": "0~5",
+                    "amberroot": "5~9",
+                    "diamonds": "0~5"
+                },
+                "length": 32,
+                "boss": "sackmaster",
+                "spawns": [
+                    "rumpelstiltskin",
+                    "sackweaver",
+                    "pouchmerchant",
+                    "m_gemcutter",
+                    [
+                        "sackenforcer",
+                        "sackthug",
+                        "sackthug"
+                    ],
+                    [
+                        "irongolem",
+                        "irongolem",
+                        "sackenforcer"
+                    ],
+                    "sackjman",
+                    [
+                        "burlapgolem",
+                        "burlapgolem",
+                        "burlapgolem"
+                    ],
+                    [
+                        "sackthug",
+                        "sackthug"
+                    ]
+                ]
+            }
+        ],
+        "monsters": [
+            {
+                "id": "rumpelstiltskin",
+                "desc": "一个会纺织魔法线的奇怪小鬼。",
+                "noproc": true,
+                "level": 62,
+                "attack": {
+                    "name": "木线轴",
+                    "kind": "blunt",
+                    "damage": "a.damage*0.7"
+                },
+                "loot": {
+                    "aetherhide": {
+                        "%": "60%",
+                        "value": "4~6"
+                    }
+                }
+            },
+            {
+                "id": "sackapprentice",
+                "name": "麻袋匠学徒",
+                "desc": "他们不尊重巫师学徒。",
+                "noproc": true,
+                "level": 4,
+                "hp": 50,
+                "attack": {
+                    "name": "缝纫针",
+                    "damage": "5~10"
+                }
+            },
+            {
+                "id": "sackthug",
+                "name": "公会恶棍",
+                "desc": "公会严格执行未经授权的袋子销售政策。",
+                "level": 51,
+                "attack": {
+                    "name": "沙袋",
+                    "kind": "earth",
+                    "damage": "a.damage"
+                }
+            },
+            {
+                "id": "sackenforcer",
+                "name": "麻袋公会执法者",
+                "level": 55,
+                "attack": {
+                    "name": "砖袋",
+                    "kind": "earth",
+                    "damage": "a.damage"
+                },
+                "loot": {
+                    "amberroot": {
+                        "%": "60%",
+                        "value": "4~6"
+                    }
+                }
+            },
+            {
+                "id": "m_gemcutter",
+                "name": "宝石切割师",
+                "flavor": "公会廉价出售宝石。现在，如果你想要一个存放它们的地方……",
+                "noproc": true,
+                "level": 61,
+                "attack": {
+                    "name": "精准切割",
+                    "kind": "air",
+                    "damage": "a.damage",
+                    "tohit": 30
+                },
+                "loot": {
+                    "gems": "5~10",
+                    "rubies": "6~8",
+                    "diamonds": "3~5"
+                }
+            },
+            {
+                "id": "pouchmerchant",
+                "name": "袋子商人",
+                "desc": "公会雇佣商人从他人的袋子里榨取金币。",
+                "noproc": true,
+                "level": 63,
+                "immune": "charm",
+                "speed": 20,
+                "attack": {
+                    "name": "转移金币",
+                    "kind": "spirit",
+                    "damage": "66~77",
+                    "result": {
+                        "gold": "-100~-200"
+                    }
+                },
+                "loot": {
+                    "iron": {
+                        "%": "50%",
+                        "value": "1~2"
+                    },
+                    "leather": {
+                        "%": "50%",
+                        "value": "1~2"
+                    },
+                    "cotton": {
+                        "%": "50%",
+                        "value": "1~2"
+                    },
+                    "quicksteel": {
+                        "%": "50%",
+                        "value": "1~2"
+                    },
+                    "serpentskin": {
+                        "%": "50%",
+                        "value": "1~2"
+                    },
+                    "spidersilk": {
+                        "%": "50%",
+                        "value": "1~2"
+                    },
+                    "rubies": {
+                        "%": "50%",
+                        "value": "1~2"
+                    },
+                    "adamant": {
+                        "%": "50%",
+                        "value": "1~2"
+                    },
+                    "aetherhide": {
+                        "%": "50%",
+                        "value": "1~2"
+                    },
+                    "amberroot": {
+                        "%": "50%",
+                        "value": "1~2"
+                    },
+                    "diamonds": {
+                        "%": "50%",
+                        "value": "1~2"
+                    }
+                }
+            },
+            {
+                "id": "burlapgolem",
+                "name": "麻布傀儡",
+                "desc": "由重沙填充的编织傀儡",
+                "noproc": true,
+                "level": 50,
+                "attack": {
+                    "name": "沙拳",
+                    "kind": "earth",
+                    "damage": "a.damage"
+                },
+                "loot": {
+                    "amberroot": {
+                        "%": "60%",
+                        "value": "5~8"
+                    }
+                }
+            },
+            {
+                "id": "sum_burlapgolem",
+                "name": "麻布傀儡",
+                "tags": "t_summon",
+                "desc": "召唤出的由重沙填充的编织傀儡",
+                "level": 28,
+                "noproc": true,
+                "hp": 400,
+                "attack": {
+                    "name": "沙拳",
+                    "kind": "earth",
+                    "damage": "20~30"
+                },
+                "immune": "spirit,sleep,fear,paralysis,blunt"
+            },
+            {
+                "id": "sackjman",
+                "name": "麻袋匠熟练工",
+                "desc": "游走于城镇，售卖最优质的包和袋子。",
+                "level": 60,
+                "attack": {
+                    "name": "拳击",
+                    "kind": "blunt",
+                    "damage": "60~80"
+                },
+                "loot": {
+                    "amberroot": {
+                        "%": "60%",
+                        "value": "3~5"
+                    }
+                }
+            },
+            {
+                "id": "sackweaver",
+                "desc": "利用魔法流编织袋子出售。",
+                "noproc": true,
+                "level": 61,
+                "attack": {
+                    "name": "魔法针",
+                    "kind": "mana",
+                    "damage": "a.damage"
+                },
+                "loot": {
+                    "adamant": 1
+                }
+            },
+            {
+                "id": "sackmaster",
+                "name": "麻袋匠公会大师",
+                "desc": "被一团针线、织物和半成品袋子环绕。",
+                "extdesc": "几秒钟内，你看到麻布傀儡从云团中出现并向你跳来！",
+                "noproc": true,
+                "level": 40,
+                "hp": 900,
+                "spells": "mon_mk_burlapgolem",
+                "attack": {
+                    "name": "飞针",
+                    "kind": "pierce",
+                    "damage": "40~75"
+                }
+            }
+        ],
+        "spells": [
+            {
+                "id": "mk_burlapgolem",
+                "name": "制造麻布傀儡",
+                "sortOrder": 1755,
+                "level": 9,
+                "school": "summoning",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.sackguild>0",
+                "buy": {
+                    "arcana": 10,
+                    "tomes": 10
+                },
+                "cost": {
+                    "mana": 20
+                },
+                "cd": 20,
+                "summon": [
+                    {
+                        "id": "sum_burlapgolem",
+                        "count": 1,
+                        "max": 1
+                    }
+                ]
+            },
+            {
+                "id": "mon_mk_burlapgolem",
+                "name": "制造麻布傀儡",
+                "require": "g.lore>999",
+                "summon": {
+                    "id": "sum_burlapgolem",
+                    "count": 1,
+                    "max": 2
+                }
+            }
+        ]
+    }
+}

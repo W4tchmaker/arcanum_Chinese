@@ -1,0 +1,635 @@
+{
+    "module": "duelist",
+    "author": "Regallion",
+    "data": {
+        "skills": [
+            {
+                "id": "duelinglore",
+                "name": "决斗",
+                "desc": "精通一对一战斗。",
+                "flavor": "包含如何将松散的泥土颗粒藏在衣服里的基础教学",
+                "level": 10,
+                "require": "g.t_duelingclass>0",
+                "need": "armssource",
+                "max": 1,
+                "buy": {
+                    "arcana": 40
+                },
+                "run": {
+                    "stamina": 1.5
+                },
+                "mod": {
+                    "duelingdmg": 2,
+                    "piercedmg": 2
+                }
+            }
+        ],
+        "upgrades": [
+            {
+                "id": "dueling_lessons",
+                "name": "决斗课程",
+                "require": "g.duelinglore>=1",
+                "desc": "安排决斗艺术的辅导。",
+                "max": 1,
+                "cost": {
+                    "codices": "10+g.dueling_lessons*5",
+                    "research": "1500+g.dueling_lessons*500",
+                    "stamina": "10+g.dueling_lessons*5"
+                },
+                "mod": {
+                    "duelinglore.max": 1,
+                    "duelinglore.rate": 0.5
+                },
+                "flavor": "这里一记反击，那里一记重击，你很快就会掌握诀窍",
+                "group": "martial"
+            },
+            {
+                "id": "quickthoughts",
+                "name": "主动思考",
+                "require": "g.duelinglore>=5",
+                "desc": "通过练习，你可以在进行剑术动作的同时施放法术。",
+                "max": 1,
+                "cost": {
+                    "codices": 20,
+                    "research": 5000,
+                    "gems": 100
+                },
+                "mod": {
+                    "self.chaincast": 0.5
+                },
+                "flavor": "快速思考所有想法。",
+                "group": "spellcasting"
+            },
+            {
+                "id": "quickthoughts2",
+                "name": "专注的华丽招式",
+                "require": "g.duelinglore>=8",
+                "desc": "你的精通使你能够将挥舞动作转化为施法动作。",
+                "max": 1,
+                "cost": {
+                    "tomes": 10,
+                    "research": 1200,
+                    "gems": 200,
+                    "runestones": 5
+                },
+                "mod": {
+                    "self.chaincast": 0.5
+                },
+                "flavor": "我们将施法融入你的施法，让你在施法时也能施法。",
+                "group": "spellcasting"
+            }
+        ],
+        "classes": [
+            {
+                "id": "duelist",
+                "name": "决斗者",
+                "tags": "t_tier3,t_duelingclass,t_swordclass",
+                "desc": "一对一战斗的大师，你的施法速度只有你的细剑能与之匹敌。",
+                "require": "g.tier2>0&&(g.t_swordclass>0||g.redadept>0||g.t_chaosclass>0)&&g.tier3==0",
+                "cost": {
+                    "research": 3000,
+                    "tomes": 3,
+                    "arcana": 20,
+                    "gold": 1000
+                },
+                "mod": {
+                    "duelingdmg": 5,
+                    "dueling_lessons.max": 3,
+                    "sworddmg": 5,
+                    "self.chaincast": 0.5,
+                    "spelldmg": -10
+                }
+            },
+            {
+                "id": "rune_fencer",
+                "name": "符文剑士",
+                "tags": "t_tier4,t_duelingclass,t_swordclass",
+                "desc": "敏锐的智慧，更锋利的刀刃，加上一些快速法术作为后援，造就了一个强大的对手。",
+                "require": "g.tier3>0&&(g.t_swordclass>=2||g.duelist>0)&&g.tier4==0",
+                "cost": {
+                    "research": 5000,
+                    "tomes": 10,
+                    "arcana": 20,
+                    "gold": 2500,
+                    "airgem": 10,
+                    "firegem": 5,
+                    "earthgem": 5,
+                    "watergem": 5
+                },
+                "mod": {
+                    "duelingdmg": 10,
+                    "dueling_lessons.max": 5,
+                    "runicdmg": 5,
+                    "sworddmg": 10,
+                    "self.chaincast": 0.5,
+                    "spelldmg": -10
+                }
+            }
+        ],
+        "states": [
+            {
+                "id": "duel_engagement",
+                "name": "交战",
+                "adj": "engaged",
+                "kind": "engagement"
+            }
+        ],
+        "spells": [
+            {
+                "id": "engagement",
+                "desc": "与敌近身交战，牺牲防御换取进攻。",
+                "flavor": "预备！",
+                "sortOrder": 380,
+                "level": 2,
+                "school": "martial",
+                "tags": "t_nospellcraft",
+                "keywords": {
+                    "type": [
+                        "buff",
+                        "debuff"
+                    ],
+                    "target": [
+                        "self",
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ]
+                },
+                "require": "g.duelinglore>=1",
+                "buy": {
+                    "research": 1000,
+                    "tomes": 5
+                },
+                "caststoppers": [
+                    1
+                ],
+                "need": "g.player.getWeapon().hasTag('t_rapier')",
+                "needtext": "Currently equipped weapon must be a rapier.",
+                "cost": {
+                    "vigor": 5
+                },
+                "cd": 10,
+                "result": {
+                    "duelinglore.exp": 0.5
+                },
+                "attack": {
+                    "hits": [
+                        {
+                            "targets": "enemyleader",
+                            "harmless": true,
+                            "dot": {
+                                "name": "已交战",
+                                "id": "enemy_engagement",
+                                "mod": {
+                                    "self.speed": -5,
+                                    "self.resist.pierce": -25,
+                                    "self.dodge": -50
+                                },
+                                "duration": 15
+                            }
+                        },
+                        {
+                            "targets": "self",
+                            "dot": {
+                                "id": "duel_engagement",
+                                "name": "正在交战",
+                                "duration": 15,
+                                "mod": {
+                                    "self.defense": "-25%",
+                                    "physdmg": 25,
+                                    "spelldmg": 25
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "disengage",
+                "desc": "跳离敌人，恢复你的防御能力",
+                "flavor": "再见！",
+                "sortOrder": 381,
+                "level": 2,
+                "school": "martial",
+                "tags": "t_nospellcraft",
+                "keywords": {
+                    "type": [
+                        "recovery"
+                    ],
+                    "target": [
+                        "self"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.duelinglore>=1",
+                "buy": {
+                    "research": 1000,
+                    "tomes": 5
+                },
+                "caststoppers": [
+                    1
+                ],
+                "need": "g.player.getWeapon().hasTag('t_rapier')",
+                "needtext": "Currently equipped weapon must be a rapier.",
+                "cost": {
+                    "vigor": 5
+                },
+                "cd": 10,
+                "result": {
+                    "duelinglore.exp": 0.5
+                },
+                "action": {
+                    "cure": "duel_engagement",
+                    "targets": "self"
+                }
+            },
+            {
+                "id": "moulinet",
+                "name": "风车斩",
+                "desc": "优雅的一击，撕裂敌人。",
+                "flavor": "手腕的旋转。",
+                "sortOrder": 332,
+                "level": 3,
+                "school": "martial",
+                "tags": "t_nospellcraft",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ],
+                    "special": [
+                        "weapon"
+                    ]
+                },
+                "require": "g.duelinglore>=5",
+                "buy": {
+                    "research": 1500,
+                    "tomes": 2
+                },
+                "caststoppers": [
+                    1
+                ],
+                "need": "g.player.getWeapon().hasTag('t_rapier')",
+                "needtext": "Currently equipped weapon must be a rapier.",
+                "cost": {
+                    "vigor": 5
+                },
+                "result": {
+                    "duelinglore.exp": 0.5
+                },
+                "attack": {
+                    "damage": "(a.getWeapon().damage)||0",
+                    "targets": "enemies",
+                    "maxTargets": 999,
+                    "kind": "slash",
+                    "potencies": [
+                        "physdmg",
+                        "slashdmg",
+                        "sworddmg",
+                        "duelingdmg"
+                    ],
+                    "tohit": -2
+                }
+            },
+            {
+                "id": "duel_thrust",
+                "name": "决斗者突刺",
+                "desc": "对对手的直接打击。",
+                "flavor": "一个基本动作，却异常有效。",
+                "sortOrder": 353,
+                "level": 3,
+                "school": "martial",
+                "tags": "t_nospellcraft",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ],
+                    "special": [
+                        "weapon"
+                    ]
+                },
+                "require": "g.duelinglore>=2",
+                "buy": {
+                    "research": 1500,
+                    "tomes": 2
+                },
+                "caststoppers": [
+                    1
+                ],
+                "need": "g.player.getWeapon().hasTag('t_rapier')",
+                "needtext": "Currently equipped weapon must be a rapier.",
+                "cost": {
+                    "vigor": 3
+                },
+                "result": {
+                    "duelinglore.exp": 0.3
+                },
+                "attack": {
+                    "damage": "(a.getWeapon().damage*1.5)||0",
+                    "targetspec": {
+                        "affectedby": {
+                            "condition": [
+                                "enemy_engagement"
+                            ],
+                            "conditiontext": "engagement"
+                        }
+                    },
+                    "targets": "enemy",
+                    "kind": "pierce",
+                    "potencies": [
+                        "physdmg",
+                        "piercedmg",
+                        "sworddmg",
+                        "duelingdmg"
+                    ]
+                }
+            },
+            {
+                "id": "one_two",
+                "name": "一二连击",
+                "desc": "一种复杂的技巧，能短暂绕过对手的防御。",
+                "flavor": "一种精致的招式，适合更文明的法师。",
+                "sortOrder": 352,
+                "level": 4,
+                "school": "martial",
+                "tags": "t_nospellcraft",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ],
+                    "special": [
+                        "weapon"
+                    ]
+                },
+                "require": "g.duelinglore>=4",
+                "buy": {
+                    "research": 4000,
+                    "tomes": 5
+                },
+                "caststoppers": [
+                    1
+                ],
+                "need": "g.player.getWeapon().hasTag('t_rapier')",
+                "needtext": "Currently equipped weapon must be a rapier.",
+                "cost": {
+                    "vigor": 6
+                },
+                "result": {
+                    "duelinglore.exp": 0.6
+                },
+                "attack": {
+                    "damage": "(a.getWeapon().damage*1.6)||0",
+                    "targetspec": {
+                        "affectedby": {
+                            "condition": [
+                                "enemy_engagement"
+                            ],
+                            "conditiontext": "engagement"
+                        }
+                    },
+                    "targets": "enemy",
+                    "kind": "pierce",
+                    "potencies": [
+                        "physdmg",
+                        "piercedmg",
+                        "sworddmg",
+                        "duelingdmg"
+                    ],
+                    "tohit": 1
+                }
+            },
+            {
+                "id": "colpo_fendente",
+                "name": "劈砍",
+                "desc": "一次向下劈砍，不准确，但极具破坏力。",
+                "flavor": "一种野蛮的招式，适合不那么文明的法师。",
+                "sortOrder": 331,
+                "level": 6,
+                "school": "martial",
+                "tags": "t_nospellcraft",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ],
+                    "special": [
+                        "weapon"
+                    ]
+                },
+                "require": "g.duelinglore>=6",
+                "buy": {
+                    "research": 4000,
+                    "tomes": 5
+                },
+                "caststoppers": [
+                    1
+                ],
+                "need": "g.player.getWeapon().hasTag('t_rapier')",
+                "needtext": "Currently equipped weapon must be a rapier.",
+                "cost": {
+                    "vigor": 10
+                },
+                "cd": 3,
+                "result": {
+                    "duelinglore.exp": 1
+                },
+                "attack": {
+                    "damage": "(a.getWeapon().damage*2.5)||0",
+                    "targetspec": {
+                        "affectedby": {
+                            "condition": [
+                                "enemy_engagement"
+                            ],
+                            "conditiontext": "engagement"
+                        }
+                    },
+                    "targets": "enemy",
+                    "kind": "slash",
+                    "potencies": [
+                        "physdmg",
+                        "slashdmg",
+                        "sworddmg",
+                        "duelingdmg"
+                    ],
+                    "tohit": -2
+                }
+            },
+            {
+                "id": "imbroccata",
+                "name": "直刺",
+                "desc": "直击心脏。必须对已交战的敌人施展。",
+                "flavor": "细剑技巧的巅峰。",
+                "sortOrder": 351,
+                "level": 5,
+                "school": "martial",
+                "tags": "t_nospellcraft",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ],
+                    "special": [
+                        "weapon"
+                    ]
+                },
+                "require": "g.duelinglore>=8",
+                "buy": {
+                    "research": 6000,
+                    "tomes": 10
+                },
+                "caststoppers": [
+                    1
+                ],
+                "need": "g.player.getWeapon().hasTag('t_rapier')",
+                "needtext": "Currently equipped weapon must be a rapier.",
+                "cost": {
+                    "vigor": 15
+                },
+                "cd": 10,
+                "result": {
+                    "duelinglore.exp": 1.5
+                },
+                "attack": {
+                    "damage": "(a.getWeapon().damage*4)||0",
+                    "targetspec": {
+                        "affectedby": {
+                            "condition": [
+                                "enemy_engagement"
+                            ],
+                            "strict": true,
+                            "conditiontext": "engagement"
+                        }
+                    },
+                    "targets": "enemy",
+                    "kind": "pierce",
+                    "potencies": [
+                        "physdmg",
+                        "piercedmg",
+                        "sworddmg",
+                        "duelingdmg"
+                    ]
+                }
+            },
+            {
+                "id": "ripostestance",
+                "name": "反击姿态",
+                "desc": "运用你的细剑精通来反击所有来犯者。",
+                "flavor": "所有胆敢攻击你的人都将被鲜血染红",
+                "sortOrder": 397,
+                "level": 1,
+                "school": "martial",
+                "tags": "t_stance",
+                "keywords": {
+                    "target": [
+                        "self"
+                    ],
+                    "special": [
+                        "stance"
+                    ]
+                },
+                "require": "g.duelinglore>=5",
+                "buy": {
+                    "research": 2000,
+                    "tomes": 5
+                },
+                "dot": {
+                    "id": "ripostestance_dot",
+                    "name": "反击姿态",
+                    "tags": "t_stance",
+                    "mod": {
+                        "self.defense": "-10%",
+                        "self.dodge": "-10%"
+                    },
+                    "dotcondition": "t.getWeapon().hasTag('t_rapier')",
+                    "conditiontext": "Must be using a rapier",
+                    "conditional": {
+                        "onSuccess": {
+                            "onHit": {
+                                "name": "反击",
+                                "damage": "a.getWeapon().damage*0.5||0",
+                                "targets": "fixed",
+                                "unreflectable": true,
+                                "potencies": [
+                                    "physdmg",
+                                    "duelingdmg",
+                                    "piercedmg"
+                                ]
+                            },
+                            "onMiss": {
+                                "name": "借机攻击",
+                                "damage": "a.getWeapon().damage*0.25||0",
+                                "targets": "fixed",
+                                "unreflectable": true,
+                                "potencies": [
+                                    "physdmg",
+                                    "duelingdmg",
+                                    "piercedmg"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "potencies": [
+            {
+                "id": "duelingdmg",
+                "name": "决斗效能",
+                "val": 100,
+                "damage": "Math.max((i.value/100)||0,0)"
+            }
+        ],
+        "weapons": []
+    }
+}

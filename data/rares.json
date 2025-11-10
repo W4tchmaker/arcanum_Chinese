@@ -1,0 +1,457 @@
+[
+    {
+        "id": "karnivexcrown",
+        "name": "卡尼维克斯之冠",
+        "type": "armor",
+        "desc": "卡尼维克斯的自负毫无止境。",
+        "slot": "head",
+        "tags": "t_crown,t_helm",
+        "unique": true,
+        "level": 7,
+        "enchants": 1,
+        "armor": 5,
+        "alter": {
+            "mod": {
+                "firedmg": "5%",
+                "self.resist.fire": 10,
+                "self.negate.silence": 5,
+                "self.tohit": 1,
+                "rage.rate": 0.5
+            }
+        }
+    },
+    {
+        "id": "veldranearring",
+        "name": "维尔德兰的耳环",
+        "type": "armor",
+        "desc": "一块带有白色漩涡的小蓝石。",
+        "tags": "t_earring,t_trinket",
+        "unique": true,
+        "level": 5,
+        "enchants": 0,
+        "armor": 1,
+        "slot": "trinket",
+        "alter": {
+            "mod": {
+                "water.rate": 0.1,
+                "self.resist.water": 5,
+                "self.negate.silence": 10
+            }
+        }
+    },
+    {
+        "id": "ecdysiastwrap",
+        "name": "蜕皮者之缠布",
+        "type": "armor",
+        "slot": "shins",
+        "tags": "t_ankleguard,t_greaves",
+        "unique": true,
+        "material": "mat_armor_runecloth",
+        "level": 7,
+        "enchants": 1,
+        "desc": "德西拉用衣物奖赏她的仆人。",
+        "alter": {
+            "mod": {
+                "self.negate.paralysis": 10,
+                "charms.mod.magicadvice.result.gold": 0.13,
+                "charms.rate": 0.3
+            }
+        },
+        "flavor": "然而，这些奖赏却寥寥无几。"
+    },
+    {
+        "id": "lillitscord",
+        "name": "莉莉特的绳索",
+        "type": "armor",
+        "slot": "waist",
+        "tags": "t_cord,t_accessory,t_belt",
+        "armor": 2,
+        "unique": true,
+        "level": 5,
+        "enchants": 1,
+        "desc": "莉莉特以其抚慰人心的存在而闻名。",
+        "alter": {
+            "mod": {
+                "rage.rate": -0.25
+            }
+        }
+    },
+    {
+        "id": "botanistgloves",
+        "name": "植物学家手套",
+        "tags": "t_gloves",
+        "unique": true,
+        "type": "armor",
+        "slot": "hands",
+        "material": "mat_armor_basiliskhide",
+        "armor": 5,
+        "enchants": 3,
+        "alter": {
+            "mod": {
+                "self.resist.nature": 10
+            }
+        }
+    },
+    {
+        "id": "jazidscompass",
+        "name": "贾兹德的指南针",
+        "unique": true,
+        "level": 10,
+        "enchants": 0,
+        "desc": "指引你道路的，也能指引你自身。",
+        "type": "armor",
+        "slot": "trinket",
+        "tags": "t_trinket",
+        "alter": {
+            "mod": {
+                "s_travel.mod.dist": "5%",
+                "bf.rate": -0.5
+            }
+        },
+        "flavor": "贾兹德总能找到他的指南针。"
+    },
+    {
+        "id": "patronring1",
+        "name": "赞助人戒指",
+        "unique": true,
+        "material": "mat_armor_adamant",
+        "tags": "t_ring",
+        "desc": "一件赐予卷入世俗事务的法师的饰品。",
+        "alter": {
+            "mod": {
+                "space.max": "1%"
+            }
+        }
+    },
+    {
+        "id": "icedagg",
+        "name": "冰冷匕首",
+        "material": "ice",
+        "enchants": 3,
+        "type": "weapon",
+        "slot": "mainhand",
+        "tags": "t_martial,t_pierce,t_dagger",
+        "unique": true,
+        "attack": {
+            "kind": "pierce",
+            "damage": "2~4",
+            "tohit": 1,
+            "dot": {
+                "duration": 5,
+                "damage": "1~3",
+                "name": "frosty",
+                "kind": "frost"
+            }
+        },
+        "cost": {
+            "gold": 20
+        },
+        "level": 3
+    },
+    {
+        "id": "tenwickstick",
+        "name": "特恩威克的拐杖",
+        "level": 5,
+        "enchants": 3,
+        "sell": {
+            "gold": 100
+        },
+        "unique": true,
+        "type": "weapon",
+        "slot": "mainhand",
+        "tags": "t_martial,t_blunt,t_cane",
+        "material": "mat_martial_wood",
+        "alter": {
+            "mod": {
+                "unease.rate": "-5%",
+                "weary.rate": "-10%",
+                "dist": "5%"
+            }
+        },
+        "attack": {
+            "damage": "5~10",
+            "kind": "blunt"
+        }
+    },
+    {
+        "id": "titanhammer",
+        "name": "泰坦之锤",
+        "desc": "由坚不可摧的金刚石锻造而成，它嗡鸣着大地的能量。",
+        "type": "weapon",
+        "slot": "mainhand",
+        "damage": "15~20",
+        "attack": [
+            {
+                "name": "titanic slam",
+                "kind": "blunt",
+                "targets": "enemy",
+                "damage": "(i.damage||0)*1.5",
+                "potencies": [
+                    "physdmg",
+                    "bluntdmg",
+                    "hammerdmg"
+                ]
+            },
+            {
+                "name": "earthbreaker",
+                "targets": "enemies",
+                "maxTargets": 999,
+                "damage": "(i.damage||0)*0.33",
+                "kind": "blunt",
+                "potencies": [
+                    "physdmg",
+                    "bluntdmg",
+                    "hammerdmg"
+                ],
+                "dot": {
+                    "duration": 6,
+                    "damage": "3~6",
+                    "mod": {
+                        "self.speed": -5
+                    },
+                    "potencies": [
+                        "physdmg",
+                        "bluntdmg",
+                        "hammerdmg"
+                    ]
+                }
+            },
+            {
+                "name": "earth barrier",
+                "targets": "allies",
+                "maxTargets": 999,
+                "harmless": true,
+                "dot": {
+                    "level": 1,
+                    "id": "dot_adamantskin",
+                    "name": "earth barrier",
+                    "tags": "toughskin",
+                    "duration": 15,
+                    "mod": {
+                        "self.defense": 50
+                    }
+                }
+            }
+        ],
+        "alter": {
+            "mod": {
+                "earth.rate": 1,
+                "earth.max": 10,
+                "self.defense": 30,
+                "self.dodge": "-50%",
+                "smite.attack.tohit": 2,
+                "smite.level": -2,
+                "smite.attack.damage": "20%",
+                "fissure.cd": "-25%",
+                "fissure.attack.dot.duration": 1
+            }
+        },
+        "tags": "t_martial,t_blunt,t_hammer,t_artifact",
+        "level": 10,
+        "enchants": 0,
+        "unique": true,
+        "sell": {
+            "gold": 1000
+        }
+    },
+    {
+        "id": "jesterhat",
+        "name": "小丑帽",
+        "tags": "t_helm",
+        "type": "armor",
+        "enchants": 3,
+        "slot": "head",
+        "desc": "一顶色彩鲜艳的帽子，在你行走时欢快地叮当作响。",
+        "unique": true,
+        "level": 1,
+        "evasion": 15,
+        "sell": {
+            "gold": 2
+        },
+        "alter": {
+            "mod": {
+                "chaosdmg": 5,
+                "stress.rate": -0.025
+            }
+        }
+    },
+    {
+        "id": "jestershirt",
+        "name": "小丑束腰外衣",
+        "tags": "t_chestplate",
+        "type": "armor",
+        "enchants": 3,
+        "slot": "chest",
+        "desc": "一件色彩鲜艳、图案令人眼花缭乱的束腰外衣。",
+        "unique": true,
+        "level": 1,
+        "evasion": 15,
+        "sell": {
+            "gold": 2
+        },
+        "alter": {
+            "mod": {
+                "chaosdmg": 5,
+                "stress.rate": -0.025
+            }
+        }
+    },
+    {
+        "id": "jesterpants",
+        "name": "小丑裤",
+        "tags": "t_greaves",
+        "type": "armor",
+        "enchants": 3,
+        "slot": "shins",
+        "desc": "一条色彩鲜艳、足以迷惑眼睛的裤子。",
+        "unique": true,
+        "level": 1,
+        "evasion": 15,
+        "sell": {
+            "gold": 2
+        },
+        "alter": {
+            "mod": {
+                "chaosdmg": 5,
+                "stress.rate": -0.025
+            }
+        }
+    },
+    {
+        "id": "jestershoes",
+        "name": "小丑靴",
+        "tags": "t_boots",
+        "type": "armor",
+        "enchants": 3,
+        "slot": "feet",
+        "desc": "一双色彩鲜艳的尖头鞋，能掩盖你的脚步。",
+        "unique": true,
+        "level": 1,
+        "evasion": 15,
+        "sell": {
+            "gold": 2
+        },
+        "alter": {
+            "mod": {
+                "chaosdmg": 5,
+                "stress.rate": -0.025
+            }
+        }
+    },
+    {
+        "id": "fishysword",
+        "name": "剑鱼",
+        "desc": "一件出人意料，难以防范的武器。",
+        "type": "weapon",
+        "slot": "mainhand",
+        "material": "mat_martial_fish",
+        "damage": "1~4",
+        "enchants": 3,
+        "attack": {
+            "kind": "slash",
+            "damage": "i.damage||0",
+            "harmless": true,
+            "potencies": [
+                "sworddmg",
+                "physdmg",
+                "slashdmg",
+                "waterdmg",
+                "chaosdmg"
+            ]
+        },
+        "tags": "t_martial,t_slash,t_sword",
+        "unique": true,
+        "cost": 30,
+        "level": 1,
+        "flavor": "总是剑鱼。"
+    },
+    {
+        "id": "fishyspear",
+        "name": "梭鱼",
+        "desc": "一件出人意料，难以防范的武器。",
+        "type": "weapon",
+        "slot": "mainhand",
+        "material": "mat_martial_fish",
+        "damage": "1~4",
+        "enchants": 3,
+        "attack": {
+            "kind": "pierce",
+            "damage": "i.damage||0",
+            "harmless": true,
+            "potencies": [
+                "physdmg",
+                "piercedmg",
+                "waterdmg",
+                "chaosdmg"
+            ]
+        },
+        "tags": "t_martial,t_pierce,t_spear",
+        "unique": true,
+        "cost": 30,
+        "level": 1,
+        "flavor": "啊？有些人喜欢它们，但对我来说它们太腥了。"
+    },
+    {
+        "id": "fishyhammer",
+        "name": "锤头鲨",
+        "desc": "一件出人意料，难以防范的武器。",
+        "type": "weapon",
+        "slot": "mainhand",
+        "material": "mat_martial_fish",
+        "damage": "1~4",
+        "enchants": 3,
+        "attack": {
+            "kind": "blunt",
+            "damage": "i.damage||0",
+            "harmless": true,
+            "potencies": [
+                "hammerdmg",
+                "physdmg",
+                "bluntdmg",
+                "waterdmg",
+                "chaosdmg"
+            ]
+        },
+        "tags": "t_martial,t_blunt,t_hammer",
+        "unique": true,
+        "cost": 30,
+        "level": 1,
+        "flavor": "当你难以击倒敌人时使用。"
+    },
+    {
+        "id": "fishyrapier",
+        "name": "恩加尔",
+        "desc": "一件出人意料，难以防范的武器。",
+        "type": "weapon",
+        "slot": "mainhand",
+        "material": "mat_martial_fish",
+        "damage": 2,
+        "enchants": 3,
+        "attack": {
+            "kind": "pierce",
+            "damage": "i.damage||0",
+            "harmless": true,
+            "targetspec": {
+                "affectedby": {
+                    "condition": [
+                        "enemy_engagement"
+                    ],
+                    "conditiontext": "engagement"
+                }
+            },
+            "targets": "enemy",
+            "potencies": [
+                "physdmg",
+                "piercedmg",
+                "duelingdmg",
+                "waterdmg",
+                "chaosdmg"
+            ]
+        },
+        "tags": "t_martial,t_pierce,t_rapier",
+        "unique": true,
+        "cost": 30,
+        "level": 1,
+        "flavor": "你是说‘预备’？不。"
+    }
+]

@@ -1,0 +1,4922 @@
+[
+    {
+        "id": "cleanstables",
+        "name": "清理马厩",
+        "desc": "在家工作。",
+        "verb": "cleaning",
+        "fill": "gold",
+        "locked": false,
+        "cost": {
+            "stamina": 1
+        },
+        "result": {
+            "gold": 2.5
+        },
+        "flavor": "这是一份稳定的工作。",
+        "group": "starting out"
+    },
+    {
+        "id": "smith_work",
+        "name": "锻造",
+        "verb": "Smithing",
+        "desc": "锻造附魔装备。",
+        "group": "affluence",
+        "tags": "t_craftwork",
+        "require": "g.job_smith>0||g.crafting>=8",
+        "length": 15,
+        "run": {
+            "stamina": 0.4
+        },
+        "result": {
+            "gold": 5
+        },
+        "at": {
+            "20": {
+                "run.stamina": -0.1
+            },
+            "50": {
+                "run.stamina": -0.1
+            }
+        }
+    },
+    {
+        "id": "chores",
+        "name": "做杂务",
+        "desc": "标准的学徒工作。",
+        "verb": "working",
+        "require": "apprentice",
+        "at": {
+            "5": {
+                "result.gold": 1
+            },
+            "25": {
+                "result.gold": 1
+            },
+            "500": {
+                "result.virtue": -0.3
+            }
+        },
+        "cost": {
+            "stamina": 1.7
+        },
+        "result": {
+            "virtue": 0.3,
+            "gold": 3
+        },
+        "group": "apprenticeship"
+    },
+    {
+        "id": "study",
+        "name": "学习",
+        "verb": "studying scrolls",
+        "desc": "研习奥术卷轴。",
+        "group": "research",
+        "require": "g.scrolls>=1",
+        "fill": [
+            "research",
+            "arcana"
+        ],
+        "perpetual": true,
+        "run": {
+            "stamina": 0.2
+        },
+        "effect": {
+            "research": 0.55,
+            "arcana": {
+                "value": 0.002,
+                "skipLocked": true
+            }
+        },
+        "every": {
+            "100": {
+                "effect.research": "0.05:100"
+            }
+        }
+    },
+    {
+        "id": "errands",
+        "name": "跑腿",
+        "desc": "标准的学徒工作。",
+        "verb": "running errands",
+        "require": "apprentice",
+        "length": 10,
+        "at": {
+            "10": {
+                "effect.gold": 0.1
+            },
+            "100": {
+                "effect.gold": 0.1
+            },
+            "150": {
+                "effect.virtue": -0.1
+            }
+        },
+        "run": {
+            "stamina": 0.2
+        },
+        "effect": {
+            "virtue": 0.1,
+            "gold": 0.5
+        },
+        "group": "apprenticeship"
+    },
+    {
+        "id": "prestidigitation",
+        "name": "魔法伎俩",
+        "desc": "既然能用小把戏赚钱，何必学习？",
+        "extdesc": "这种小儿科只适合新手法师。作为专业人士，自降身价到这种程度会很丢脸。",
+        "verb": "performing",
+        "require": "spellbook",
+        "length": 15,
+        "every": {
+            "10": {
+                "effect.gold": "0.01:10"
+            }
+        },
+        "run": {
+            "stamina": 0.2,
+            "mana": 0.2
+        },
+        "effect": {
+            "research": -1,
+            "gold": 0.8
+        },
+        "group": "affluence"
+    },
+    {
+        "id": "thievery",
+        "name": "奥术盗窃",
+        "desc": "运用你的力量诱骗、胁迫并从平民口袋里敲诈金币。",
+        "require": "g.trickery>=4",
+        "tags": "t_evilact",
+        "cost": {
+            "stamina": 2,
+            "mana": 1,
+            "research": 5
+        },
+        "result": {
+            "gold": 4,
+            "trickery.exp": 3,
+            "evilamt": 5,
+            "virtue": -3
+        },
+        "at": {
+            "5": {
+                "result.gold": 1
+            },
+            "15": {
+                "result.gold": 2
+            },
+            "50": {
+                "result.gold": 3
+            },
+            "150": {
+                "result.gold": 5
+            }
+        },
+        "group": "affluence"
+    },
+    {
+        "id": "heist",
+        "name": "魔法抢劫",
+        "desc": "策划一场针对守卫金库的盗窃。",
+        "verb": "thieving",
+        "require": "g.t_chaosclass>0&&g.trickery>=5",
+        "length": 50,
+        "tags": "t_heist_act",
+        "run": {
+            "stamina": 0.4,
+            "mana": 0.4
+        },
+        "effect": {
+            "research": -0.8,
+            "trickery.exp": "g.trickery.rate*0.2",
+            "virtue": -0.3
+        },
+        "result": {
+            "gems": "4~10",
+            "gold": 200
+        },
+        "mod": {
+            "trickery.max": "0.05//100/-10"
+        },
+        "group": "affluence"
+    },
+    {
+        "id": "spellbook",
+        "name": "编纂魔法书",
+        "actname": "编纂魔法书",
+        "verb": "binding spells",
+        "require": "g.lore>=2&&g.crafting>=2&&g.languages>=1",
+        "desc": "通往真正魔法的门户。",
+        "length": 50,
+        "max": 1,
+        "cost": {
+            "research": 20,
+            "codices": 1,
+            "arcana": 1,
+            "mana": 5
+        },
+        "log": {
+            "name": "Book of Spells",
+            "desc": "Under your master's critical eye, you compile your very own book of spells."
+        },
+        "run": {
+            "stamina": 0.2
+        },
+        "effect": {
+            "lore.exp": 0.5,
+            "player.exp": 0.5
+        },
+        "mod": {
+            "research.max": 25,
+            "research.rate": 0.07,
+            "arcana.rate": 0.005,
+            "lore.mod.arcana.max": 0.5,
+            "lore.mod.spelllist.max": 0.5
+        },
+        "group": "spellcasting"
+    },
+    {
+        "id": "tools_1",
+        "name": "基础工具",
+        "actname": "基础工具",
+        "verb": "Creating Tools",
+        "require": "g.crafting>=(10-5*g.job_smith)",
+        "desc": "改进你的工具",
+        "length": 20,
+        "max": 1,
+        "cost": {
+            "gold": 50
+        },
+        "log": {
+            "name": "Tools Completed",
+            "desc": "Your new and improved tools should make your work a lot more efficient."
+        },
+        "run": {
+            "stamina": 0.4
+        },
+        "mod": {
+            "smith_work.length": -3
+        },
+        "group": "crafting"
+    },
+    {
+        "id": "tools_2",
+        "name": "高级工具",
+        "actname": "高级工具",
+        "verb": "Creating Tools",
+        "require": "g.crafting>=(15-5*g.job_smith)&&g.tools_1>0",
+        "desc": "改进你的工具。",
+        "length": 50,
+        "max": 1,
+        "cost": {
+            "gold": 250,
+            "gems": 10,
+            "firegem": 5
+        },
+        "log": {
+            "name": "Tools Completed",
+            "desc": "Your new and improved tools should make your work a lot more efficient."
+        },
+        "run": {
+            "stamina": 0.7
+        },
+        "mod": {
+            "smith_work.length": -2
+        },
+        "group": "crafting"
+    },
+    {
+        "id": "tools_3",
+        "name": "专家工具",
+        "actname": "专家工具",
+        "verb": "Creating Tools",
+        "require": "g.crafting>=(20-5*g.job_smith)&&g.tools_2>0",
+        "desc": "改进你的工具。",
+        "length": 250,
+        "max": 1,
+        "cost": {
+            "gold": 250,
+            "gems": 10,
+            "runestones": 3,
+            "firerune": 2
+        },
+        "log": {
+            "name": "Tools Completed",
+            "desc": "Your new and improved tools should make your work a lot more efficient."
+        },
+        "run": {
+            "stamina": 0.7
+        },
+        "mod": {
+            "smith_work.length": -2
+        },
+        "group": "crafting"
+    },
+    {
+        "id": "service",
+        "name": "提供服务",
+        "desc": "向附近的镇民提供你的魔法服务。",
+        "verb": "servicing",
+        "require": "(g.adept+g.blueadept)>0",
+        "perpetual": true,
+        "at": {
+            "150": {
+                "effect.gold": 0.3
+            },
+            "600": {
+                "effect.gold": 0.6
+            },
+            "1200": {
+                "effect.gold": 1
+            }
+        },
+        "run": {
+            "stamina": 0.35,
+            "mana": 0.1
+        },
+        "effect": {
+            "gold": 1.6
+        },
+        "group": "affluence"
+    },
+    {
+        "id": "tendanimals",
+        "name": "照料动物",
+        "desc": "照料野外生病和受伤的动物。",
+        "verb": "tending",
+        "require": "tier0",
+        "perpetual": true,
+        "tags": "t_goodact",
+        "at": {
+            "25": {
+                "effect.animals.exp": 0.1
+            },
+            "300": {
+                "effect.animals.exp": 0.2
+            },
+            "1000": {
+                "effect.animals.exp": 0.3
+            }
+        },
+        "run": {
+            "stamina": 0.3,
+            "nature": 0.1
+        },
+        "effect": {
+            "virtue": 0.3,
+            "naturelore.exp": 0.2,
+            "animals.exp": 0.2
+        }
+    },
+    {
+        "id": "act_garden",
+        "name": "园艺",
+        "perpetual": true,
+        "verb": "botanicalizing",
+        "desc": "研究植物和草药。",
+        "tags": "t_contemplation",
+        "need": "plantsource",
+        "require": "(g.druid+g.alchemist+g.warden)>0",
+        "run": {
+            "stamina": 0.3,
+            "nature": 0.1
+        },
+        "at": {
+            "100": {
+                "effect.herbs": 0.1
+            },
+            "1200": {
+                "effect.herbs": 0.2
+            },
+            "5000": {
+                "effect.research": 0.1
+            }
+        },
+        "effect": {
+            "research": 1.5,
+            "arcana": 0.01,
+            "herbs": 0.2,
+            "herbalism.exp": "g.herbalism.rate*0.1",
+            "naturelore.exp": "g.naturelore.rate*0.1"
+        },
+        "exclude": "t_contemplation",
+        "group": "research"
+    },
+    {
+        "id": "act_scry",
+        "name": "占卜",
+        "verb": "peering",
+        "desc": "为寻求者提供知识。",
+        "require": "(g.t_divinationclass+g.astralseer)>0&&g.chronomancy>=3&&g.scrying>=5",
+        "perpetual": true,
+        "length": 5,
+        "run": {
+            "stamina": 0.5,
+            "mana": 0.3,
+            "tempus": 0.1
+        },
+        "effect": {
+            "scrying.exp": "g.scrying.rate*0.2"
+        },
+        "result": {
+            "research": 50,
+            "arcana": 0.25
+        },
+        "at": {
+            "60": {
+                "result.research": 10
+            },
+            "240": {
+                "result.research": 20,
+                "result.arcana": 0.25
+            },
+            "600": {
+                "result.research": 20,
+                "result.arcana": 0.5
+            }
+        },
+        "group": "research"
+    },
+    {
+        "id": "act_concoct",
+        "name": "调制药剂",
+        "perpetual": true,
+        "verb": "concocting",
+        "desc": "试验药剂。",
+        "require": "g.t_potionclass>0&&g.tier2>0",
+        "need": [
+            "workspace",
+            "potsource"
+        ],
+        "length": 25,
+        "cost": {
+            "herbs": 5
+        },
+        "run": {
+            "stamina": 0.5
+        },
+        "at": {
+            "30": {
+                "effect.research": 0.05
+            },
+            "120": {
+                "effect.research": 0.05,
+                "result.gold": 0.5
+            },
+            "500": {
+                "effect.research": 0.1,
+                "effect.potions.max": 0.0001
+            }
+        },
+        "effect": {
+            "research": 1.3,
+            "alchemy.exp": "g.alchemy.rate*0.1",
+            "potions.exp": "g.potions.rate*0.1"
+        },
+        "result": {
+            "gold": 2
+        },
+        "loot": {
+            "pot_heal1": "5%",
+            "pot_stam1": "5%",
+            "pot_mana1": "5%"
+        },
+        "group": "crafting"
+    },
+    {
+        "id": "act_element",
+        "name": "元素调和",
+        "perpetual": true,
+        "verb": "attuning",
+        "desc": "与世界的原始力量调和。",
+        "require": "g.t_elementalclass>0",
+        "run": {
+            "stamina": 0.5,
+            "fire": 0.1,
+            "water": 0.1,
+            "air": 0.1,
+            "earth": 0.1
+        },
+        "at": {
+            "30": {
+                "effect.research": 0.05,
+                "effect.arcana": 0.001,
+                "effect.elemental.exp": 0.2
+            },
+            "120": {
+                "effect.research": 0.05,
+                "effect.elemental.exp": 0.3,
+                "effect.elemental.rate": 0.01
+            },
+            "500": {
+                "effect.research": 0.2,
+                "effect.arcana": 0.001
+            }
+        },
+        "effect": {
+            "research": 1.3
+        },
+        "mod": {
+            "alchemy.max": "0.001//3000/-1",
+            "firelore.max": "0.001//3000/-1",
+            "waterlore.max": "0.001//3000/-1",
+            "earthlore.max": "0.001//3000/-1",
+            "airlore.max": "0.001//3000/-1"
+        },
+        "group": "research"
+    },
+    {
+        "id": "act_mine",
+        "name": "采矿",
+        "desc": "深入地下寻找蕴含神秘潜力的宝石。需要矿井或足够的塑地术。",
+        "verb": "mining",
+        "need": "g.t_mine>0||g.geosculpting>=10",
+        "needtext": "Must own a mineshaft or be a specialized earth mage.",
+        "length": 40,
+        "perpetual": true,
+        "run": {
+            "stamina": 0.5,
+            "earth": 0.2
+        },
+        "at": {
+            "20": {
+                "effect.gold.min": 0.3,
+                "effect.gold.max": 0.4,
+                "effect.gems": 0.05
+            },
+            "150": {
+                "effect.gold.min": 0.4,
+                "effect.gold.max": 0.6,
+                "effect.gems": 0.05
+            },
+            "550": {
+                "effect.gold.min": 0.5,
+                "effect.gold.max": 0.8
+            },
+            "2000": {
+                "effect.gold.min": 0.8,
+                "effect.gold.max": 0.5,
+                "effect.gems": 0.15
+            }
+        },
+        "effect": {
+            "gold": "0.5~1"
+        },
+        "group": "affluence"
+    },
+    {
+        "id": "dreamweaver",
+        "name": "织梦",
+        "desc": "将你的梦想编织成一幅挂毯。",
+        "verb": "dream weaving",
+        "require": "g.dreams>0&&g.weaving>=5",
+        "perpetual": true,
+        "length": 10,
+        "run": {
+            "stamina": 0.7,
+            "mana": 1,
+            "gold": 8,
+            "research": 1,
+            "arcana": 0.02
+        },
+        "at": {
+            "500": {
+                "effect.dreams": 0.0002
+            },
+            "2000": {
+                "effect.dreams": 0.0002
+            },
+            "5000": {
+                "effect.dreams": 0.0002
+            }
+        },
+        "effect": {
+            "dreams": 0.0005
+        },
+        "flavor": "我们是造梦者。",
+        "group": "crafting"
+    },
+    {
+        "id": "starwish",
+        "name": "星愿",
+        "desc": "将星辰碎片转化为梦想。",
+        "require": "g.astrallore>=5&&g.divination>=10&&g.dreams>0",
+        "fill": "dreams",
+        "cost": {
+            "arcana": 1,
+            "sindel": 1
+        },
+        "result": {
+            "dreams": 1
+        },
+        "flavor": "星光，星亮...",
+        "group": "crafting"
+    },
+    {
+        "id": "spingold",
+        "name": "点石成金",
+        "desc": "将稻草变成黄金。",
+        "verb": "spinning",
+        "tags": "t_craftwork",
+        "require": "g.weaving>0",
+        "need": "weavesource",
+        "perpetual": true,
+        "length": 10,
+        "run": {
+            "stamina": 0.3,
+            "mana": 0.2
+        },
+        "mod": {
+            "weaving.max": "?1"
+        },
+        "effect": {
+            "gold": 0.75
+        },
+        "at": {
+            "15": {
+                "effect.gold": 0.25
+            },
+            "60": {
+                "effect.gold": 0.5
+            },
+            "120": {
+                "effect.gold": 0.75
+            }
+        },
+        "group": "affluence"
+    },
+    {
+        "id": "murder",
+        "name": "谋杀",
+        "desc": "魔法进步的偶然必需品。",
+        "flavor": "他们为何来我这里等死？",
+        "group": "materials",
+        "tags": "t_evilact",
+        "require": "g.anatomy>=5&&g.shadowlore>=5",
+        "length": 10,
+        "run": {
+            "stamina": 1
+        },
+        "result": {
+            "evilamt": 15,
+            "stress": -2,
+            "bodies": {
+                "value": 1,
+                "skipLocked": true
+            },
+            "gold": 40
+        }
+    },
+    {
+        "id": "paidseance",
+        "name": "举行降神会",
+        "verb": "holding seance",
+        "desc": "收取少量费用，召唤灵魂。",
+        "require": [
+            "divination",
+            "tier0",
+            "spiritlore"
+        ],
+        "perpetual": true,
+        "length": 10,
+        "run": {
+            "stamina": 0.3,
+            "spirit": 0.1
+        },
+        "at": {
+            "15": {
+                "effect.gold": 0.5
+            },
+            "30": {
+                "effect.gold": 0.5
+            },
+            "60": {
+                "effect.gold": 0.5
+            },
+            "90": {
+                "effect.gold": 0.5
+            },
+            "120": {
+                "effect.gold": 0.5
+            }
+        },
+        "effect": {
+            "gold": 0.5,
+            "divination.exp": "g.divination.rate*0.2"
+        },
+        "group": "affluence"
+    },
+    {
+        "id": "treatailments",
+        "name": "治疗疾病",
+        "desc": "治愈顾客的魔法疾病。",
+        "require": "g.neophyte>0&&g.anatomy>=3",
+        "tags": "t_goodact",
+        "cost": {
+            "stamina": 2
+        },
+        "at": {
+            "5": {
+                "result.gold": 1
+            },
+            "15": {
+                "result.gold": 2
+            },
+            "50": {
+                "result.gold": 2
+            },
+            "150": {
+                "result.gold": 3
+            }
+        },
+        "result": {
+            "virtue": 5,
+            "evilamt": -3,
+            "gold": 3
+        },
+        "group": "affluence"
+    },
+    {
+        "id": "readpalms",
+        "name": "看手相",
+        "verb": "reading palms",
+        "require": "g.divination>=5||g.trickster>0",
+        "desc": "收取少量费用，看手相。",
+        "cost": {
+            "stamina": 2,
+            "mana": 2
+        },
+        "at": {
+            "5": {
+                "result.gold": 1
+            },
+            "15": {
+                "result.gold": 2
+            },
+            "30": {
+                "result.gold": 2.5
+            },
+            "60": {
+                "result.gold": 3
+            }
+        },
+        "result": {
+            "gold": 5.5
+        },
+        "group": "affluence"
+    },
+    {
+        "id": "magicadvice",
+        "name": "为显贵出谋划策",
+        "desc": "从忧心忡忡的村议会到笨手笨脚的男爵，他们都需要你的建议。",
+        "flavor": "无论他们是否知道。",
+        "group": "affluence",
+        "require": "(g.t_knowledgeclass+g.t_divinationclass)>0",
+        "cost": {
+            "stamina": 0.3
+        },
+        "at": {
+            "50": {
+                "result.gold": 0.1
+            },
+            "150": {
+                "result.gold": 0.1
+            },
+            "500": {
+                "result.gold": 0.3
+            },
+            "1500": {
+                "result.gold": 0.5
+            }
+        },
+        "result": {
+            "virtue": 0.3,
+            "evilamt": -0.2,
+            "gold": 0.35
+        }
+    },
+    {
+        "id": "hattrick",
+        "name": "帽子戏法",
+        "desc": "凭空变出小物件。",
+        "flavor": "一顶普通的巫师帽。",
+        "group": "materials",
+        "require": "g.trickster>0&&g.conjuration>=2",
+        "cost": {
+            "mana": 5,
+            "stamina": 4,
+            "gold": 50
+        },
+        "result": {
+            "gems": "40%",
+            "managem": "14%",
+            "firegem": "2%",
+            "earthgem": "2%",
+            "airgem": "2%",
+            "watergem": "2%",
+            "runestones": "2%",
+            "trickery.exp": 2,
+            "conjuration.exp": 2
+        }
+    },
+    {
+        "id": "gatherherbs",
+        "name": "采集草药",
+        "desc": "采集用于药剂和炼金术的草药。",
+        "require": "g.herbalism>=2",
+        "need": "plantsource",
+        "cost": {
+            "stamina": 3
+        },
+        "result": {
+            "herbalism.exp": 5,
+            "herbs": 2
+        },
+        "group": "materials"
+    },
+    {
+        "id": "sellherbs",
+        "name": "出售草药",
+        "require": "gatherherbs",
+        "cost": {
+            "herbs": 1
+        },
+        "result": {
+            "gold": 2
+        },
+        "group": "affluence"
+    },
+    {
+        "id": "rest",
+        "tags": "t_rest",
+        "name": "放松",
+        "verb": "放松",
+        "slot": "rest",
+        "locked": false,
+        "owned": true,
+        "perpetual": true,
+        "fill": [
+            "stamina",
+            "hp",
+            "prismatic",
+            "stress"
+        ],
+        "effect": {
+            "prismatic": {
+                "value": 0.5
+            },
+            "stamina": 0.8,
+            "vigor": 0.08,
+            "hp": 1,
+            "stress": -1
+        },
+        "group": "rest"
+    },
+    {
+        "id": "slumber",
+        "desc": "最深的睡眠守护着最伟大的洞察力。",
+        "require": "g.up_slumber>0",
+        "tags": "t_rest",
+        "verb": "sleeping",
+        "slot": "rest",
+        "perpetual": true,
+        "effect": {
+            "prismatic": 0.6,
+            "fundamental": 0.5,
+            "stamina": 1,
+            "vigor": 0.1,
+            "hp": 1.2,
+            "stress": -1.1,
+            "dreams": 0.0003
+        },
+        "group": "rest"
+    },
+    {
+        "id": "a_travel",
+        "alias": "travel",
+        "name": "旅行",
+        "perpetual": true,
+        "verb": "travelling",
+        "desc": "游历广阔的世界。",
+        "need": "g.t_mobilehome>0||g.mendicant>0",
+        "needtext": "Must live in a wagon or camp, or must eschew material attachments by becoming a mendicant.",
+        "run": {
+            "stamina": 0.4
+        },
+        "mod": {
+            "naturelore.max": "0.0024//1250/-10"
+        },
+        "effect": {
+            "nature": 0.3,
+            "naturelore.exp": "g.naturelore.rate*0.2",
+            "animals.exp": 1,
+            "herbalism.exp": 1
+        },
+        "flavor": "一个流浪汉在国外。",
+        "group": "knowledge"
+    },
+    {
+        "id": "pace",
+        "name": "踱步沉思",
+        "perpetual": true,
+        "verb": "踱步",
+        "desc": "在家中踱步，沉思奥术。",
+        "tags": "t_contemplation",
+        "require": "tier0",
+        "run": {
+            "stamina": 0.4
+        },
+        "at": {
+            "30": {
+                "effect.research": 0.05
+            },
+            "120": {
+                "effect.research": 0.1,
+                "effect.arcana": 0.01
+            },
+            "500": {
+                "effect.research": 0.2,
+                "effect.arcana": 0.01
+            }
+        },
+        "effect": {
+            "research": 1.75,
+            "arcana": {
+                "value": 0.01
+            }
+        },
+        "exclude": "t_contemplation",
+        "group": "research"
+    },
+    {
+        "id": "buyscroll",
+        "name": "购买卷轴",
+        "desc": "新手可以用非常基础的卷轴，希望你不需要那些更昂贵的。",
+        "require": "g.gold>=10",
+        "cost": {
+            "gold": 10
+        },
+        "fill": "scrolls",
+        "result": {
+            "scrolls": 1
+        },
+        "group": "materials"
+    },
+    {
+        "id": "scribescroll",
+        "name": "抄写卷轴",
+        "tags": "t_craftwork",
+        "require": "g.crafting>=1&&g.lore>=1",
+        "cost": {
+            "research": 10,
+            "mana": 1
+        },
+        "fill": "scrolls",
+        "result": {
+            "scrolls": 1
+        },
+        "group": "crafting"
+    },
+    {
+        "id": "bindcodex",
+        "name": "装订典籍",
+        "tags": "t_craftwork",
+        "require": "g.research.max>=30&&g.crafting>=2&&g.lore>=1",
+        "cost": {
+            "scrolls": 10,
+            "research": 20,
+            "mana": 3
+        },
+        "fill": "codices",
+        "result": {
+            "codices": 1
+        },
+        "group": "crafting"
+    },
+    {
+        "id": "craftrune",
+        "name": "制作符文",
+        "tags": "t_craftwork",
+        "require": "g.crafting>=14&&g.runelore>=1",
+        "need": "workspace",
+        "length": 10,
+        "cost": {
+            "tomes": 0.75,
+            "research": 300,
+            "managem": 4
+        },
+        "run": {
+            "stamina": 1,
+            "mana": 0.75
+        },
+        "fill": "runestones",
+        "result": {
+            "runestones": 1
+        },
+        "group": "crafting"
+    },
+    {
+        "id": "chaosbag",
+        "name": "混乱之袋",
+        "actname": "创造混乱之袋",
+        "require": "g.t_chaosclass>0&&g.crafting>=20&&g.tier3>0&&g.chaosgem>=3",
+        "tags": "t_craftedbag",
+        "max": 1,
+        "length": 200,
+        "desc": "獾，獾，獾，獾，为什么里面有这么多獾？？？",
+        "cost": {
+            "gold": 1000,
+            "chaosgem": 3,
+            "arcana": 10
+        },
+        "run": {
+            "stamina": 2,
+            "chaos": 0.2
+        },
+        "mod": {
+            "chaosgem.max": 10,
+            "chaosrune.max": 5,
+            "animals.max": 2,
+            "allies.max": 10
+        },
+        "flavor": "现在还有一条蛇？",
+        "group": "storage"
+    },
+    {
+        "id": "timesiphon",
+        "name": "时间虹吸",
+        "perpetual": true,
+        "desc": "取回失去之物。",
+        "require": "timegem",
+        "length": 10,
+        "cost": {
+            "timegem": 1
+        },
+        "effect": {
+            "hp": 10,
+            "offlinetime": 1,
+            "tempus": 2
+        },
+        "flavor": "如果我能让时光倒流...",
+        "group": "crafting"
+    },
+    {
+        "id": "bestiary",
+        "name": "生物纲要",
+        "actname": "编译纲要",
+        "verb": "researching beasts",
+        "require": "g.animals>=3",
+        "length": 75,
+        "desc": "常见生物纲要。",
+        "max": 1,
+        "cost": {
+            "scrolls": 5
+        },
+        "run": {
+            "stamina": 0.5
+        },
+        "effect": {
+            "animals.exp": 2
+        },
+        "mod": {
+            "research.max": 10,
+            "animals.max": 2,
+            "animals.rate": 0.2
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "travelogue",
+        "name": "旅行编年史",
+        "actname": "编译编年史",
+        "verb": "recording travels",
+        "require": "g.s_travel>0",
+        "length": 75,
+        "desc": "编年史记载了德鲁恩无数奇特的景象。",
+        "max": 1,
+        "cost": {
+            "codices": 1
+        },
+        "run": {
+            "research": 1,
+            "stamina": 0.5
+        },
+        "effect": {
+            "s_travel.exp": 2
+        },
+        "mod": {
+            "encounter.effect.research": 1,
+            "encounter.effect.runner.skillprogress": 0.2,
+            "s_travel.rate": 0.5
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "bestiary2",
+        "name": "奥术异兽志",
+        "desc": "魔法生物纲要。",
+        "require": "g.loc_menagerie.locked==0",
+        "need": "loc_menagerie",
+        "max": 1,
+        "length": 500,
+        "cost": {
+            "tomes": 10,
+            "research": 2500,
+            "waterrune": 2,
+            "earthrune": 2
+        },
+        "run": {
+            "stamina": 1
+        },
+        "mod": {
+            "magicbeasts.max": 1,
+            "animals.max": 1,
+            "herbalism.max": 1
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "compiletome",
+        "name": "编纂巨著",
+        "tags": "t_craftwork",
+        "require": "g.lore.max>=9&&g.crafting>=7",
+        "length": 20,
+        "cost": {
+            "codices": 10,
+            "research": 100,
+            "mana": 10
+        },
+        "fill": "tomes",
+        "effect": {
+            "lore.exp": "g.lore.rate*0.2"
+        },
+        "run": {
+            "stamina": 0.7
+        },
+        "result": {
+            "tomes": 1
+        },
+        "group": "crafting"
+    },
+    {
+        "id": "codexannih",
+        "name": "湮灭法典",
+        "require": "(g.t_shadowclass*5+g.t_swordclass*3+g.t_hammerclass*3)>=7",
+        "desc": "卡尼维克斯的毁灭手册。",
+        "length": 75,
+        "max": 1,
+        "cost": {
+            "research": 400,
+            "codices": 10
+        },
+        "run": {
+            "research": 1,
+            "stamina": 2
+        },
+        "mod": {
+            "spelldmg": 5,
+            "physdmg": 5,
+            "player.tohit": 1
+        },
+        "flavor": "卡尼维克斯虽然缺乏深度，但其纯粹的毁灭力量弥补了这一点。",
+        "group": "spellcasting"
+    },
+    {
+        "id": "cursedslab",
+        "name": "诅咒石板",
+        "desc": "你在废弃墓穴中发现的一块奇特的黑曜石板，上面刻有血红色符文。",
+        "flavor": "远处传来一个萦绕不绝的回声，要求归还它。你一定是幻听了。",
+        "require": "g.ruinedcrypt.locked==0",
+        "need": "ruinedcrypt",
+        "max": 1,
+        "length": 50,
+        "cost": {
+            "scrolls": 25,
+            "shadowgem": 2,
+            "spiritgem": 2
+        },
+        "run": {
+            "stamina": 1.5
+        },
+        "mod": {
+            "spirit.rate": 0.1,
+            "shadow.rate": 0.1,
+            "arcana.max": 2,
+            "arcana.rate": 0.02
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "markhulcodex",
+        "name": "马库尔法典",
+        "desc": "一本来自吉尼泽雷斯图书馆的布满灰尘的法典。",
+        "require": "g.genezereth.locked==0",
+        "need": "genezereth",
+        "max": 1,
+        "length": 75,
+        "cost": {
+            "codices": 5,
+            "managem": 10,
+            "research": 100
+        },
+        "run": {
+            "stamina": 2
+        },
+        "mod": {
+            "spellcraft.max": 1,
+            "spellcraft.rate": 0.5,
+            "arcana.max": 3,
+            "arcana.rate": 0.03
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "sylvansyllabary",
+        "name": "森林音节表",
+        "desc": "一本精灵符号之书。",
+        "tags": "t_languagework",
+        "require": "g.languages>=5&&g.tier0>0",
+        "max": 1,
+        "length": 60,
+        "cost": {
+            "codices": 2
+        },
+        "run": {
+            "research": 1
+        },
+        "mod": {
+            "research.max": 10,
+            "languages.max": 1,
+            "languages.rate": 0.1,
+            "naturelore.max": 1,
+            "naturelore.rate": 0.1
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "dwarfbook",
+        "name": "矮人挽歌",
+        "desc": "一本忧郁的矮人饮酒歌合集。",
+        "flavor": "穿过深邃的地牢和古老的洞穴...",
+        "tags": "t_languagework",
+        "require": "g.languages>=5&&g.tier0>0",
+        "max": 1,
+        "length": 60,
+        "cost": {
+            "codices": 2
+        },
+        "run": {
+            "research": 1
+        },
+        "mod": {
+            "research.max": 10,
+            "languages.max": 1,
+            "languages.rate": 0.1,
+            "crafting.max": 1,
+            "crafting.rate": 0.1
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "lemurlexicon",
+        "name": "利莫里亚词典",
+        "desc": "解读灵魂的奇怪低语。",
+        "tags": "t_languagework",
+        "require": "g.languages>=7&&g.spiritlore>=6&&g.tier0>0",
+        "max": 1,
+        "length": 50,
+        "cost": {
+            "codices": 2
+        },
+        "run": {
+            "research": 1
+        },
+        "mod": {
+            "research.max": 10,
+            "languages.max": 2,
+            "languages.rate": 0.2,
+            "spiritlore.max": 2,
+            "spiritlore.rate": 0.2
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "arazorannals",
+        "name": "阿拉佐编年史",
+        "require": "g.aragwastes.locked==0",
+        "need": "aragwastes",
+        "desc": "阿拉佐东部地区的历史。",
+        "tags": "book",
+        "max": 1,
+        "length": 50,
+        "cost": {
+            "codices": 2
+        },
+        "run": {
+            "research": 1
+        },
+        "mod": {
+            "history.max": 1,
+            "history.rate": 0.1
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "orremannals",
+        "name": "奥雷姆编年史",
+        "require": "g.loc_orrem.locked==0",
+        "need": "loc_orrem",
+        "desc": "奥雷姆失落之城的历史。",
+        "tags": "book",
+        "max": 1,
+        "length": 100,
+        "cost": {
+            "tomes": 10
+        },
+        "run": {
+            "research": 10
+        },
+        "mod": {
+            "history.max": 1,
+            "history.rate": 0.1,
+            "arcana.max": 10,
+            "arcana.rate": 0.05
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "malleus",
+        "name": "女巫之锤",
+        "actname": "编译女巫之锤",
+        "require": "g.crafting>=15&&g.lightlore>=15",
+        "desc": "一本对抗黑暗的手册。",
+        "length": 50,
+        "max": 1,
+        "cost": {
+            "tomes": 5
+        },
+        "run": {
+            "research": 2,
+            "stamina": 2
+        },
+        "mod": {
+            "player.resist.shadow": 10,
+            "research.max": 20,
+            "spiritlore.max": 2,
+            "spiritlore.rate": 0.2,
+            "summoning.max": 2,
+            "summoning.rate": 0.2
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "terraform",
+        "name": "扭曲地貌",
+        "desc": "改善你当地乡村的状况。",
+        "verb": "terraforming",
+        "require": "geosculpting",
+        "length": 15,
+        "at": {
+            "10": {
+                "effect.gems.max": 0.0002,
+                "effect.prismaticgems.max": 0.0002
+            },
+            "50": {
+                "effect.earthgem": 0.01
+            },
+            "100": {
+                "effect.gems.max": 0.0002,
+                "effect.prismaticgems.max": 0.0002
+            },
+            "250": {
+                "effect.earthgem": 0.01
+            }
+        },
+        "run": {
+            "stamina": 1,
+            "earth": 1
+        },
+        "effect": {
+            "earthgem": 0.01,
+            "gems.max": 0.0002,
+            "prismaticgems.max": 0.0002
+        },
+        "mod": {
+            "geosculpting.max": "0.01//1400/-10",
+            "geosculpting.rate": "0.005//1400/-10"
+        },
+        "group": "storage"
+    },
+    {
+        "id": "remakehammer",
+        "name": "召唤战锤",
+        "desc": "你曾锻造过它，现在再召唤一把。",
+        "need": "g.inv.max-g.inv._used>=1",
+        "needtext": "Must have at least 1 inventory space free.",
+        "verb": "Recalling",
+        "require": "g.maketitanhammer>0",
+        "length": 10,
+        "cost": {
+            "earthgem": 30,
+            "earthrune": 10,
+            "sindel": 1,
+            "deepsteel": 1
+        },
+        "run": {
+            "stamina": 8,
+            "earth": 5
+        },
+        "loot": {
+            "titanhammer": 1
+        },
+        "group": "weapon"
+    },
+    {
+        "id": "maketitanhammer",
+        "name": "泰坦之锤",
+        "desc": "创造与毁灭的力量，尽在你掌握。",
+        "need": "g.inv.max-g.inv._used>=1",
+        "needtext": "Must have at least 1 inventory space free.",
+        "max": 1,
+        "verb": "Creating Masterpiece",
+        "require": "g.titan>0&&g.mythicanvil>0&&g.deepsteel>=1",
+        "length": 180,
+        "cost": {
+            "earthgem": 300,
+            "earthrune": 20,
+            "ichor": 5,
+            "sindel": 5,
+            "deepsteel": 15
+        },
+        "run": {
+            "stamina": 4,
+            "earth": 3
+        },
+        "loot": {
+            "titanhammer": 1
+        },
+        "group": "weapon"
+    },
+    {
+        "id": "fazbitfixate",
+        "name": "法兹比特的执念",
+        "desc": "抄录一份实用炼金术的开创性文本。",
+        "require": "g.fazbitshop.locked==0",
+        "need": "fazbitshop",
+        "length": 50,
+        "max": 1,
+        "cost": {
+            "codices": 2
+        },
+        "run": {
+            "research": 1,
+            "stamina": 1
+        },
+        "mod": {
+            "research.max": 10,
+            "alchemy.max": 2,
+            "alchemy.rate": 0.2,
+            "fire.max": 1,
+            "mana.max": 1,
+            "mana.rate": 0.1,
+            "arcana.max": 5,
+            "arcana.rate": 0.05
+        },
+        "flavor": "科里瓦尔称法兹比特是个疯子，但还是试图偷走他的手册。",
+        "group": "knowledge"
+    },
+    {
+        "id": "corporisfabrica",
+        "name": "人体构造",
+        "require": "g.anatomy>=5",
+        "desc": "一本关于人体的手册。",
+        "tags": "book",
+        "length": 40,
+        "max": 1,
+        "cost": {
+            "codices": 2
+        },
+        "run": {
+            "research": 1
+        },
+        "mod": {
+            "research.max": 10,
+            "anatomy.max": 3,
+            "anatomy.rate": 0.6
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "unendingscroll",
+        "name": "无尽卷轴",
+        "require": "g.languages>=7",
+        "desc": "有些卷轴感觉永无止境。",
+        "length": 50,
+        "max": 1,
+        "cost": {
+            "scrolls": 15,
+            "mana": 7,
+            "gems": 10
+        },
+        "run": {
+            "research": 2,
+            "stamina": 3
+        },
+        "mod": {
+            "scrolls.rate": 0.02
+        },
+        "group": "crafting"
+    },
+    {
+        "id": "unendingcodex",
+        "name": "无尽法典",
+        "require": "g.unendingscroll>0&&g.tier1>0",
+        "desc": "有些书似乎永远读不完。",
+        "length": 100,
+        "max": 1,
+        "cost": {
+            "codices": 5,
+            "mana": 10,
+            "gems": 20
+        },
+        "run": {
+            "research": 1,
+            "stamina": 3
+        },
+        "mod": {
+            "unendingscroll.mod.scrolls.rate.base": "50%",
+            "codices.rate": 0.01
+        },
+        "group": "crafting"
+    },
+    {
+        "id": "unendingtome",
+        "name": "无尽巨著",
+        "require": "g.tier2>0&&g.unendingcodex>0",
+        "desc": "有些巨著永远无法完成。",
+        "length": 200,
+        "max": 1,
+        "cost": {
+            "tomes": 2,
+            "mana": 10,
+            "managem": 10
+        },
+        "run": {
+            "research": 2,
+            "stamina": 5
+        },
+        "mod": {
+            "unendingcodex.mod.codices.rate.base": "50%",
+            "tomes.rate": 0.005
+        },
+        "group": "crafting"
+    },
+    {
+        "id": "almagest",
+        "name":"星辰之书",
+        "desc": "编纂一本关于太阳和星辰的手册。",
+        "require": "g.astronomy>=7&&g.tier1>0",
+        "max": 1,
+        "length": 50,
+        "cost": {
+            "codices": 5
+        },
+        "run": {
+            "research": 1,
+            "scrolls": 0.1
+        },
+        "log": {
+            "name": "almagest",
+            "desc": "Your map of the heavens is complete."
+        },
+        "mod": {
+            "research.max": 50,
+            "divination": {
+                "max": 1,
+                "rate": 0.1
+            },
+            "lore": {
+                "max": 1,
+                "rate": 0.1
+            },
+            "astronomy": {
+                "max": 3,
+                "rate": "0.1+1%"
+            },
+            "planeslore": {
+                "max": 1,
+                "rate": 0.1
+            }
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "buygem",
+        "name": "购买宝石",
+        "require": "g.tier0>0&&g.gold>=100",
+        "cost": {
+            "gold": 100
+        },
+        "fill": "gems",
+        "result": {
+            "gems": 1
+        },
+        "group": "materials"
+    },
+    {
+        "id": "craftgem",
+        "name": "制作宝石",
+        "tags": "t_craftwork",
+        "desc": "用原始矿物制作一颗宝石。",
+        "require": "g.crafting>=7&&g.alchemy>=5",
+        "length": 10,
+        "fill": "gems",
+        "run": {
+            "stamina": 1,
+            "mana": 2
+        },
+        "result": {
+            "gems": 1
+        },
+        "mod": {
+            "crafting.max": "0.01//300/-10"
+        },
+        "group": "crafting"
+    },
+    {
+        "id": "sellgem",
+        "name": "出售宝石",
+        "require": "g.gems>0",
+        "cost": {
+            "gems": 1
+        },
+        "result": {
+            "gold": 35
+        },
+        "group": "affluence"
+    },
+    {
+        "id": "imbuelifegem",
+        "name": "灌注宝石（自然）",
+        "require": "g.naturelore>=6&&g.enchanting>0",
+        "fill": "naturegem",
+        "tags": "gemimbue,t_enchantment",
+        "cost": {
+            "gems": 1,
+            "nature": 5
+        },
+        "result": {
+            "naturegem": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "imbuemanagem",
+        "name": "灌注宝石（奥术）",
+        "require": "g.mana.max>=5&&g.enchanting>0",
+        "fill": "managem",
+        "tags": "gemimbue,t_enchantment",
+        "cost": {
+            "gems": 1,
+            "mana": 5
+        },
+        "result": {
+            "managem": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "imbuechaosgem",
+        "name": "灌注宝石（混沌）",
+        "require": "(g.chaoslore+g.t_chaosclass)>0&&g.enchanting>0",
+        "fill": "chaosgem",
+        "tags": "gemimbue,t_enchantment",
+        "cost": {
+            "gems": 1,
+            "chaos": 3
+        },
+        "result": {
+            "chaosgem": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "imbuebloodgem",
+        "name": "凝结宝石（鲜血）",
+        "require": "g.alchemy>=5&&g.anatomy>=5",
+        "need": "g.waterlore>0&&g.earthlore>0",
+        "fill": "bloodgem",
+        "tags": "gemimbue,t_enchantment",
+        "cost": {
+            "gems": 1,
+            "earth": 1,
+            "water": 1,
+            "hp": 20
+        },
+        "result": {
+            "bloodgem": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "imbuefiregem",
+        "name": "灌注宝石（火焰）",
+        "require": "g.firelore>=4&&g.enchanting>=3",
+        "fill": "firegem",
+        "tags": "gemimbue,t_enchantment",
+        "cost": {
+            "gems": 1,
+            "fire": 5
+        },
+        "result": {
+            "firegem": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "imbueairgem",
+        "name": "灌注宝石（空气）",
+        "require": "g.airlore>=4&&g.enchanting>=3",
+        "fill": "airgem",
+        "tags": "gemimbue,t_enchantment",
+        "cost": {
+            "gems": 1,
+            "air": 5
+        },
+        "result": {
+            "airgem": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "imbueearthgem",
+        "name": "灌注宝石（大地）",
+        "require": "g.earthlore>=4&&g.enchanting>=3",
+        "fill": "earthgem",
+        "tags": "gemimbue,t_enchantment",
+        "cost": {
+            "gems": 1,
+            "earth": 5
+        },
+        "result": {
+            "earthgem": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "imbuewatergem",
+        "name": "灌注宝石（水）",
+        "require": "g.waterlore>=4&&g.enchanting>=3",
+        "fill": "watergem",
+        "tags": "gemimbue,t_enchantment",
+        "cost": {
+            "gems": 1,
+            "water": 5
+        },
+        "result": {
+            "watergem": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "imbuelightgem",
+        "name": "灌注宝石（光明）",
+        "require": "g.lightlore>=4&&g.enchanting>=3",
+        "fill": "lightgem",
+        "tags": "gemimbue,t_enchantment",
+        "cost": {
+            "gems": 1,
+            "light": 5
+        },
+        "result": {
+            "lightgem": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "imbueshadowgem",
+        "name": "灌注宝石（暗影）",
+        "require": "g.shadowlore>=4&&g.enchanting>=3",
+        "fill": "shadowgem",
+        "tags": "gemimbue,t_enchantment",
+        "cost": {
+            "gems": 1,
+            "shadow": 5
+        },
+        "result": {
+            "shadowgem": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "imbuespiritgem",
+        "name": "灌注宝石（灵魂）",
+        "require": "g.spirit.max>=4&&g.enchanting>=3",
+        "fill": "spiritgem",
+        "tags": "gemimbue,t_enchantment",
+        "cost": {
+            "gems": 1,
+            "spirit": 5
+        },
+        "result": {
+            "spiritgem": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "craftfirerune",
+        "name": "制作符文（火焰）",
+        "tags": "t_enchantment",
+        "require": "g.firelore>=10&&g.tier4>0",
+        "fill": "firerune",
+        "length": 10,
+        "cost": {
+            "runestones": 1,
+            "firegem": 10
+        },
+        "run": {
+            "stamina": 1
+        },
+        "result": {
+            "firerune": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "craftearthrune",
+        "name": "制作符文（大地）",
+        "tags": "t_enchantment",
+        "require": "g.earthlore>=10&&g.tier4>0",
+        "fill": "earthrune",
+        "length": 10,
+        "cost": {
+            "runestones": 1,
+            "earthgem": 10
+        },
+        "run": {
+            "stamina": 1
+        },
+        "result": {
+            "earthrune": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "craftairrune",
+        "name": "制作符文（空气）",
+        "tags": "t_enchantment",
+        "require": "g.airlore>=10&&g.tier4>0",
+        "fill": "airrune",
+        "length": 10,
+        "cost": {
+            "runestones": 1,
+            "airgem": 10
+        },
+        "run": {
+            "stamina": 1
+        },
+        "result": {
+            "airrune": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "craftwaterrune",
+        "name": "制作符文（水）",
+        "tags": "t_enchantment",
+        "require": "g.waterlore>=10&&g.tier4>0",
+        "fill": "waterrune",
+        "length": 10,
+        "cost": {
+            "runestones": 1,
+            "watergem": 10
+        },
+        "run": {
+            "stamina": 1
+        },
+        "result": {
+            "waterrune": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "craftspiritrune",
+        "name": "制作符文（灵魂）",
+        "tags": "t_enchantment",
+        "require": "g.spirit.max>=999&&g.tier4>0",
+        "fill": "spiritrune",
+        "length": 10,
+        "cost": {
+            "runestones": 1,
+            "spiritgem": 10
+        },
+        "run": {
+            "stamina": 1
+        },
+        "result": {
+            "spiritrune": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "craftchaosrune",
+        "name": "制作符文（混沌）",
+        "tags": "t_enchantment",
+        "require": "(g.chaoslore+g.t_chaosclass)>0&&g.tier4>0",
+        "fill": "chaosrune",
+        "length": 10,
+        "cost": {
+            "runestones": 1,
+            "chaosgem": 10
+        },
+        "run": {
+            "stamina": 1
+        },
+        "result": {
+            "chaosrune": 1
+        },
+        "group": "imbuement"
+    },
+    {
+        "id": "sellscroll",
+        "name": "出售卷轴",
+        "require": "g.scribescroll>0&&g.scrolls>=5",
+        "cost": {
+            "scrolls": 1
+        },
+        "result": {
+            "gold": 5
+        },
+        "group": "affluence"
+    },
+    {
+        "id": "focus",
+        "name": "专注",
+        "desc": "用魔法能量加快你的技能。",
+        "require": "mana",
+        "need": "g.runner.hasType('skill')",
+        "cost": {
+            "mana": 0.02
+        },
+        "result": {
+            "runner.skillprogress": 0.02
+        }
+    },
+    {
+        "id": "grind",
+        "require": "g.lore>=6&&g.research.max<5",
+        "desc": "通过魔法实验来扩展你的研究。",
+        "cost": {
+            "mana": 0.15
+        },
+        "result": {
+            "research.max": 0.05,
+            "research": 0.05
+        },
+        "group": "special"
+    },
+    {
+        "id": "animalfriend",
+        "name": "动物伙伴",
+        "require": "(g.druid+g.warden)>0",
+        "need": "outdoors",
+        "desc": "与野生动物建立魔法联系。",
+        "max": 1,
+        "length": 50,
+        "cost": {
+            "gold": 400,
+            "arcana": 2,
+            "research": 800
+        },
+        "mod": {
+            "animals.max": 2,
+            "animals.rate": 0.2,
+            "lore.max": 1,
+            "lore.rate": 0.1,
+            "naturelore.max": 2,
+            "naturelore.rate": 0.2
+        },
+        "group": "minions"
+    },
+    {
+        "id": "summonfamiliar",
+        "name": "召唤魔宠",
+        "desc": "准备一个召唤魔宠的仪式。确切的形态将在事后选择。",
+        "group": "familliar",
+        "require": "g.animals>=5&&g.planeslore>=2&&g.summoning>=2",
+        "need": "summonsource",
+        "max": 1,
+        "length": 100,
+        "cost": {
+            "gold": 400,
+            "arcana": 3,
+            "gems": 10,
+            "research": 1000
+        }
+    },
+    {
+        "id": "petfamiliar",
+        "name": "抚摸魔宠",
+        "desc": "抚摸你的魔宠以平复你的神经。",
+        "require": "g.t_familiar>0",
+        "cd": 120,
+        "result": {}
+    },
+    {
+        "id": "planar_exploration",
+        "name": "位面探索",
+        "desc": "探索此位面与其他位面之间的联系。",
+        "flavor": "就像解开一张蜘蛛网，甚至包括蜘蛛。",
+        "require": "g.gate>0",
+        "need": [
+            "gate"
+        ],
+        "max": 3,
+        "length": 300,
+        "run": {
+            "tomes": 0.03,
+            "research": 5
+        },
+        "mod": {
+            "arcana.rate": 0.001,
+            "planeslore.max": 1,
+            "voidlore.max": 1,
+            "voidlore.rate": 0.2
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "makeamends",
+        "name": "弥补过失",
+        "desc": "辛勤劳动和慈善工作可以帮助洗净先前邪恶行为的污点。",
+        "verb": "making amends",
+        "need": "g.evilamt>0&&g.neophyte",
+        "length": 10,
+        "perpetual": true,
+        "tags": "t_goodact",
+        "at": {
+            "50": {
+                "run.stamina": 0.3,
+                "run.hp": 0.3,
+                "run.gold": 0.2,
+                "effect.evilamt": -0.4
+            },
+            "150": {
+                "run.stamina": 0.3,
+                "run.hp": 0.3,
+                "run.gold": 0.2,
+                "effect.evilamt": -0.4
+            }
+        },
+        "run": {
+            "stamina": 0.4,
+            "hp": 0.4,
+            "gold": 0.2
+        },
+        "effect": {
+            "evilamt": -0.4
+        }
+    },
+    {
+        "id": "securityconsultant",
+        "name": "安全顾问",
+        "desc": "向希望保护其财富的赞助人提供你的服务。",
+        "verb": "consulting",
+        "tags": "t_heist_act",
+        "require": "good3_trickster",
+        "length": 50,
+        "run": {
+            "stamina": 0.4,
+            "mana": 0.4,
+            "research": 1
+        },
+        "effect": {
+            "trickery.exp": "g.trickery.rate*0.2"
+        },
+        "result": {
+            "gems": "4~10",
+            "gold": 200
+        },
+        "mod": {
+            "trickery.max": "0.05//100/-10"
+        },
+        "group": "affluence"
+    },
+    {
+        "id": "gardenersalmanac",
+        "name": "园丁年鉴",
+        "require": "g.act_garden>=3000",
+        "desc": "关于如何正确照料花园以获得最大产量的建议。",
+        "length": 75,
+        "max": 1,
+        "cost": {
+            "codices": 5
+        },
+        "run": {
+            "research": 1,
+            "nature": 2.5
+        },
+        "mod": {
+            "herbalism.max": 1,
+            "herbalism.rate": 0.1,
+            "naturelore.max": 2,
+            "naturelore.rate": 0.2,
+            "act_garden.effect.herbs": 0.1
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "decent1",
+        "name": "正派",
+        "morality": true,
+        "require": "g.decent==1",
+        "hide": true,
+        "desc": "你正在成为一名正直的施法者。",
+        "max": 1,
+        "mod": {
+            "light.rate": 0.1
+        },
+        "group": "morality"
+    },
+    {
+        "id": "respectable1",
+        "name": "受人尊敬",
+        "morality": true,
+        "require": "g.respectable==1",
+        "hide": true,
+        "desc": "你已成为魔法世界中受人尊敬的人物。",
+        "max": 1,
+        "mod": {
+            "light.rate": 0.1
+        },
+        "disable": [
+            "detached2"
+        ]
+    },
+    {
+        "id": "immoral1",
+        "name": "不道德",
+        "morality": true,
+        "require": "g.immoral==1",
+        "hide": true,
+        "desc": "你已迈出了邪恶之路的第一步。这是件好事。",
+        "max": 1,
+        "mod": {
+            "shadow.rate": 0.2
+        }
+    },
+    {
+        "id": "wicked1",
+        "name": "邪恶",
+        "morality": true,
+        "require": "g.wicked==1",
+        "hide": true,
+        "desc": "你的邪恶行径让你走上了确凿的邪恶之路。再走几步，就无法回头了。",
+        "max": 1,
+        "mod": {
+            "shadowlore.max": 1,
+            "shadow.rate": 0.2
+        },
+        "disable": [
+            "detached2"
+        ]
+    },
+    {
+        "id": "benevolent",
+        "name":"善良",
+        "actname": "至善之路",
+        "morality": true,
+        "require": "g.good3==1&&g.wicked1==0&&g.tier4==1",
+        "warn": true,
+        "desc": "仁慈至极，光明在你美德之路上揭示其最终秘密。",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "light": 1,
+            "stamina": 2
+        },
+        "mod": {
+            "light": {
+                "max": 3,
+                "rate": "0.8+1%"
+            },
+            "lightlore": {
+                "max": 2,
+                "mod.light.max": 0.2,
+                "mod.light.rate": 0.002
+            },
+            "lightdmg": 3
+        },
+        "disable": [
+            "evil1",
+            "evil2",
+            "evil3",
+            "evil"
+        ]
+    },
+    {
+        "id": "good3",
+        "name": "廉洁",
+        "actname": "廉公之路",
+        "morality": true,
+        "require": "g.good1==1&&g.evil2==0",
+        "need": [
+            "lightsource",
+            "good1",
+            "good2",
+            "g.virtue>=3000",
+            "g.evilamt<=0",
+            "tier3"
+        ],
+        "warn": true,
+        "desc": "确实，你廉洁无私，光明也认可你内心的善良。",
+        "needtext": "Your evil must be 0 or lower. Your virtue must be 3,000 or higher. You must own a lightsource. You must be tier 3 or higher.",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "light": 1,
+            "stamina": 2
+        },
+        "mod": {
+            "light": {
+                "max": 2,
+                "rate": 0.5
+            },
+            "lightlore": {
+                "max": 3,
+                "rate": "30%"
+            },
+            "shadowlore": {
+                "mod.shadow.rate": -0.0025,
+                "mod.shadow.max": -0.25
+            },
+            "shadowlore2": {
+                "mod.shadow.rate": "-0.25%",
+                "mod.shadowdmg": -1
+            }
+        },
+        "disable": [
+            "evil2",
+            "evil3",
+            "corruption_path",
+            "corrupted",
+            "t_evilact",
+            "evil"
+        ]
+    },
+    {
+        "id": "good2",
+        "name": "严谨",
+        "actname": "肃严之路",
+        "morality": true,
+        "require": "g.good1==1&&(g.evil2==0||g.redemption_path==1)",
+        "need": [
+            "lightsource",
+            "good1",
+            "(g.evil2==0||g.redemption_path==1)",
+            "g.virtue>=1500",
+            "g.evilamt<=0",
+            "tier1"
+        ],
+        "warn": true,
+        "desc": "严谨的行为和正直的思想引导你更接近光明。",
+        "needtext": "Your evil must be 0 or lower. Your virtue must be 1,500 or higher. You must own a lightsource. You must be tier 1 or higher.",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "light": 1,
+            "stamina": 2
+        },
+        "mod": {
+            "light": {
+                "max": 1,
+                "rate": 0.3
+            },
+            "lightlore": {
+                "max": 2,
+                "rate": "20%"
+            },
+            "shadowlore": {
+                "mod.shadow.rate": -0.0025,
+                "mod.shadow.max": -0.25
+            },
+            "shadowlore2": {
+                "mod.shadow.rate": "-0.25%",
+                "mod.shadowdmg": -0.5
+            }
+        },
+        "disable": [
+            "evil2",
+            "evil3",
+            "neutral",
+            "t_extremeevil"
+        ],
+        "enable": "good3",
+        "group": "morality"
+    },
+    {
+        "id": "good1",
+        "name": "正直",
+        "actname": "向善之路",
+        "morality": true,
+        "require": "g.neophyte>=1",
+        "need": [
+            "g.virtue>=750",
+            "g.evilamt<=0",
+            "tier0"
+        ],
+        "desc": "你的行为表明你是一位正直的巫师。",
+        "extdesc": "如果你已完成旅程的新手阶段，拥有足够的美德，并且没有邪恶的污点，你将自动走上这条道路。其他行动也可能触发此项，但你无法手动选择此行动。",
+        "max": 1,
+        "length": 10,
+        "mod": {
+            "light": {
+                "max": 1,
+                "rate": 0.2
+            },
+            "lightlore": {
+                "max": 1,
+                "rate": 0.1
+            }
+        },
+        "disable": [
+            "detached1",
+            "detached2"
+        ],
+        "group": "morality"
+    },
+    {
+        "id": "redeemed",
+        "actname": "偿赎之路",
+        "morality": true,
+        "require": "g.redemption_path==1",
+        "need": [
+            "lightsource",
+            "good2"
+        ],
+        "warn": true,
+        "desc": "摆脱了先前邪恶行为的一些污点后，光明欢迎你回来。",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "light": 1,
+            "stamina": 2
+        },
+        "mod": {
+            "light": {
+                "max": 2,
+                "rate": 0.3
+            },
+            "lightlore": {
+                "max": 1,
+                "mod.light.max": 0.2,
+                "mod.light.rate": 0.002
+            },
+            "lightlore2": {
+                "mod.light.max": 0.2,
+                "mod.light.rate": "0.2%"
+            },
+            "shadowlore": {
+                "mod.shadow.rate": 0.002,
+                "mod.shadow.max": 0.2
+            },
+            "shadowlore2": {
+                "mod.shadow.rate": "0.2%",
+                "mod.shadow.max": 0.2
+            }
+        },
+        "enable": "good3",
+        "group": "morality"
+    },
+    {
+        "id": "redemption_path",
+        "name": "救赎之路",
+        "actname": "救赎之路",
+        "morality": true,
+        "require": "g.evil2==1&&g.good1==1&&g.virtue>=0",
+        "need": [
+            "lightsource",
+            "evil2",
+            "good1",
+            "g.virtue>=1250"
+        ],
+        "warn": true,
+        "desc": "开始从你的邪恶行径中自我救赎的道路。",
+        "needtext": "You must own a lightsource. You must have 1,250 or more Virtue to walk this path.",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "light": 1,
+            "stamina": 2
+        },
+        "disable": [
+            "corruption_path",
+            "evil2",
+            "evil3",
+            "revoke_neutral"
+        ],
+        "enable": [
+            "good2",
+            "neutral",
+            "t_extremegood"
+        ],
+        "group": "morality"
+    },
+    {
+        "id": "nature_balanced",
+        "name": "自然平衡",
+        "actname": "平衡之路",
+        "morality": true,
+        "require": "g.balanced2==1",
+        "need": [
+            "plantsource",
+            "tier4"
+        ],
+        "warn": true,
+        "desc": "在善恶之间取得平衡后，自然世界揭示了更深层的秘密。",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "nature": 2,
+            "stamina": 2
+        },
+        "mod": {
+            "nature.max": 1,
+            "nature.rate": "1%",
+            "naturedmg": 3,
+            "unease.rate": -0.2
+        },
+        "disable": "spirit_balanced",
+        "group": "morality"
+    },
+    {
+        "id": "spirit_balanced",
+        "name": "精神平衡",
+        "actname": "均衡之路",
+        "morality": true,
+        "require": "g.balanced2==1",
+        "need": [
+            "spiritsource",
+            "tier4"
+        ],
+        "warn": true,
+        "desc": "灵魂作为暗影与光明的平衡点，在你达到平衡后，它自身展现出更深刻的洞察力。你必须达到4级或更高。",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "spirit": 2,
+            "stamina": 2
+        },
+        "mod": {
+            "spirit.max": 1,
+            "spirit.rate": "1%",
+            "spiritdmg": 3,
+            "bf.rate": -0.2
+        },
+        "disable": "nature_balanced",
+        "group": "morality"
+    },
+    {
+        "id": "balanced2",
+        "name": "处于平衡",
+        "actname": "常衡之路",
+        "morality": true,
+        "require": "g.balanced1==1",
+        "need": [
+            "spiritsource",
+            "plantsource",
+            "good1",
+            "evil1",
+            "g.evilamt>=750",
+            "g.virtue>=750",
+            "(g.evilamt+g.virtue)>=2000",
+            "tier3"
+        ],
+        "warn": true,
+        "desc": "你在暗影与光明之间找到了平衡，从而使驱动世界的各种力量之间进一步平衡。",
+        "needtext": "You must be both Virtuous and Vile. Your Virtue and Evil must be at least 750 each and at least 2,000 combined. You must have both a spiritsource and a plantsource. You must be tier 3 or higher.",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "nature": 1,
+            "spirit": 1,
+            "stamina": 2
+        },
+        "mod": {
+            "nature.rate": 0.2,
+            "spirit.rate": 0.2,
+            "naturelore.max": 0.5,
+            "spiritlore.max": 0.5,
+            "light.rate": -0.1,
+            "shadow.rate": -0.2,
+            "lightlore": {
+                "mod.light.rate": 0.00125,
+                "mod.light.max": 0.125
+            },
+            "lightlore2": {
+                "mod.light.rate": "0.125%",
+                "mod.light.max": 0.125,
+                "mod.lightdmg": 0.5
+            }
+        },
+        "disable": [
+            "detached1",
+            "detached2",
+            "revoke_neutral"
+        ],
+        "group": "morality"
+    },
+    {
+        "id": "balanced1",
+        "name": "平衡",
+        "actname": "均融之路",
+        "morality": true,
+        "require": "g.neutral==1",
+        "need": [
+            "spiritsource",
+            "plantsource",
+            "wicked1",
+            "respectable1",
+            "g.evilamt>=350",
+            "g.virtue>=350",
+            "(g.evilamt+g.virtue)>=1000",
+            "tier1"
+        ],
+        "warn": true,
+        "desc": "通过平衡正派和邪恶的行为，你确保光明和暗影都能繁荣发展，而不会让任何一方变得过于强大而无法约束。",
+        "needtext": "You must be both Wicked and Respectable. Your Virtue and Evil must be at least 350 each and at least 1,000 combined. You must have both a plantsource and a spiritsource. You must be tier 1 or higher.",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "nature": 1,
+            "spirit": 1,
+            "stamina": 2
+        },
+        "mod": {
+            "nature.rate": 0.1,
+            "spirit.rate": 0.1,
+            "naturelore.max": 0.5,
+            "spiritlore.max": 0.5,
+            "light.rate": -0.05,
+            "shadow.rate": -0.1
+        },
+        "disable": [
+            "detached1",
+            "detached2",
+            "revoke_neutral"
+        ],
+        "group": "morality"
+    },
+    {
+        "id": "neutral",
+        "actname": "中立之路",
+        "morality": true,
+        "require": "g.neophyte>=1",
+        "need": [
+            "(g.evil1-g.good1)==0",
+            "(g.wicked1-g.respectable1)==0",
+            "(g.immoral1-g.decent1)==0",
+            "tier0"
+        ],
+        "warn": true,
+        "desc": "你发誓在光明与暗影的战斗中采取中立立场——无论是通过维持两者之间的积极平衡，还是通过避免那些会促进任何一方目标的行为。",
+        "needtext": "If you did any of the tasks named: Decent/Immoral, Respectable/Wicked, or Virtuous/Vile, then you need to also do the one separated by a slash (Immoral if you did Decent, etc). If you have none of them, you qualify already. You must be tier 0 or higher.",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "nature": 1,
+            "spirit": 1,
+            "stamina": 2
+        },
+        "mod": {
+            "nature.rate": 0.1,
+            "spirit.rate": 0.1,
+            "light.rate": -0.05,
+            "shadow.rate": -0.1
+        },
+        "disable": [
+            "evil2",
+            "evil3",
+            "good2",
+            "good3",
+            "redeemed",
+            "corrupted"
+        ],
+        "group": "morality"
+    },
+    {
+        "id": "revoke_neutral",
+        "name": "放弃中立",
+        "actname": "放弃中立",
+        "morality": true,
+        "require": "g.neutral>0",
+        "warn": true,
+        "desc": "你放弃了中立誓言，转而追求其他目标。",
+        "extdesc": "追求平衡之路或超然之路将使你无法放弃誓言。",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "nature": 1,
+            "spirit": 1,
+            "stamina": 2
+        },
+        "disable": [
+            "corruption_path",
+            "redemption_path",
+            "balanced1",
+            "balanced2",
+            "detached1",
+            "detached2"
+        ],
+        "enable": [
+            "evil2",
+            "good2"
+        ],
+        "group": "morality"
+    },
+    {
+        "id": "detached1",
+        "name": "超然",
+        "actname": "超然之路",
+        "morality": true,
+        "require": "g.neutral==1&&g.evil1==0&&g.good1==0",
+        "need": [
+            "spiritsource",
+            "plantsource",
+            "g.evil1==0",
+            "g.good1==0",
+            "g.evilamt<=200",
+            "g.virtue<=200",
+            "tier1"
+        ],
+        "warn": true,
+        "desc": "你避免善恶的极端行为，选择了一条让你脱离世界道德冲突的道路。",
+        "needtext": "You must not be considered Virtuous or Vile, and your Virtue and Evil must be below 200 each. You must be tier 1 or higher.",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "nature": 1,
+            "spirit": 1,
+            "stamina": 2
+        },
+        "mod": {
+            "nature.rate": 0.2,
+            "spirit.rate": 0.2,
+            "naturelore.max": 1,
+            "spiritlore.max": 1
+        },
+        "disable": [
+            "balanced1",
+            "balanced2",
+            "revoke_neutral",
+            "good1",
+            "evil1",
+            "evil",
+            "good"
+        ],
+        "group": "morality"
+    },
+    {
+        "id": "detached2",
+        "name": "无道德",
+        "actname": "无道德之路",
+        "morality": true,
+        "require": "g.detached1==1&&g.respectable1==0&&g.wicked1==0",
+        "need": [
+            "spiritsource",
+            "plantsource",
+            "g.respectable1==0",
+            "g.wicked1==0",
+            "g.evilamt<=200",
+            "g.virtue<=200",
+            "tier3"
+        ],
+        "warn": true,
+        "desc": "你的禁欲之旅带来了进一步的启迪。一种无道德的观点使你与世界大部分隔绝，你会发现许多大门对你关闭。",
+        "needtext": "You must not be considered Respectable or Wicked, and your Virtue and Evil must be below 200 each. You must be tier 3 or higher.",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "nature": 1,
+            "spirit": 1,
+            "stamina": 2
+        },
+        "mod": {
+            "nature.rate": 0.4,
+            "spirit.rate": 0.4,
+            "naturelore.max": 1,
+            "spiritlore.max": 1
+        },
+        "disable": [
+            "respectable1",
+            "wicked1",
+            "t_extremeevil",
+            "t_extremegood",
+            "wicked",
+            "respectable"
+        ],
+        "group": "morality"
+    },
+    {
+        "id": "nature_detached",
+        "name": "自然无道德",
+        "morality": true,
+        "require": "g.detached2==1",
+        "need": [
+            "plantsource",
+            "tier4"
+        ],
+        "warn": true,
+        "desc": "你脱离文明世界的担忧，专注于自然的洞察力，从而获得其他无法获得的知识。你必须达到4级或更高。",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "nature": 2,
+            "stamina": 2
+        },
+        "mod": {
+            "nature.max": 1,
+            "nature.rate": "1%",
+            "naturedmg": 3,
+            "rage.rate": -0.2
+        },
+        "disable": "spirit_detached",
+        "group": "morality"
+    },
+    {
+        "id": "spirit_detached",
+        "name": "精神无道德",
+        "morality": true,
+        "require": "g.detached2==1",
+        "need": [
+            "spiritsource",
+            "tier4"
+        ],
+        "warn": true,
+        "desc": "你专注于超凡脱俗的追求而非世俗的担忧，从而对精神事务获得惊人的洞察力。你必须达到4级或更高。",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "spirit": 2,
+            "stamina": 2
+        },
+        "mod": {
+            "spirit.max": 1,
+            "spirit.rate": "1%",
+            "spiritdmg": 3,
+            "madness.rate": -0.2
+        },
+        "disable": "nature_detached",
+        "group": "morality"
+    },
+    {
+        "id": "corruption_path",
+        "name": "腐化之路",
+        "actname": "腐化之路",
+        "morality": true,
+        "require": "g.good2==1&&g.evil1==1&&g.evilamt>=0",
+        "need": [
+            "shadowsource",
+            "good2",
+            "evil1",
+            "g.evilamt>=750"
+        ],
+        "warn": true,
+        "desc": "阴影向你低语着知识与力量的承诺，只要你愿意回应它的召唤。",
+        "needtext": "You must own a shadowsource. You must have 750 or more Evil.",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "shadow": 1,
+            "stamina": 2
+        },
+        "disable": [
+            "redemption_path",
+            "good2",
+            "good3",
+            "revoke_neutral"
+        ],
+        "enable": [
+            "evil2",
+            "neutral",
+            "t_extremeevil"
+        ],
+        "group": "morality"
+    },
+    {
+        "id": "corrupted",
+        "actname": "堕落英雄",
+        "morality": true,
+        "require": "g.corruption_path==1",
+        "need": [
+            "evil2"
+        ],
+        "warn": true,
+        "desc": "你曾是受人景仰的英雄，如今却堕落沉沦。被完全腐化的阴影将帮助你解锁那些你以为已然失落的秘密。",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "shadow": 1,
+            "stamina": 2
+        },
+        "mod": {
+            "shadow": {
+                "max": 1,
+                "rate": 0.2
+            },
+            "shadowlore.max": 1,
+            "lightlore": {
+                "mod.light.max": 0.25,
+                "mod.light.rate": 0.0025
+            },
+            "lightlore2": {
+                "mod.light.max": 0.2,
+                "mod.light.rate": "0.25%"
+            }
+        },
+        "enable": "evil3",
+        "group": "morality"
+    },
+    {
+        "id": "evil1",
+        "name": "邪恶",
+        "actname": "邪恶之路",
+        "morality": true,
+        "require": "g.neophyte>=1",
+        "need": [
+            "tier0",
+            "g.evilamt>=500"
+        ],
+        "desc": "摆脱了对是非和道德的怜悯之念，黑暗艺术在你面前敞开。",
+        "extdesc": "如果你已完成旅程的“新手”阶段并拥有足够的邪恶值，你将自动走上这条道路。其他行动也可能触发此路径，但你无法手动选择此行动。",
+        "max": 1,
+        "length": 10,
+        "run": {
+            "hp": 1,
+            "shadow": 1,
+            "stamina": 2
+        },
+        "mod": {
+            "shadow": {
+                "max": 1,
+                "rate": 0.4
+            },
+            "shadowlore": {
+                "max": 1,
+                "rate": 0.1
+            },
+            "lightlore": {
+                "mod.light.rate": -0.001,
+                "mod.light.max": -0.1
+            },
+            "lightlore2": {
+                "mod.light.rate": "-0.1%",
+                "mod.lightdmg": -0.5
+            }
+        },
+        "disable": [
+            "detached1",
+            "detached2"
+        ],
+        "group": "morality"
+    },
+    {
+        "id": "evil2",
+        "name": "险恶",
+        "actname": "罪恶之路",
+        "morality": true,
+        "require": "g.evil1>=1&&(g.good2==0||g.corruption_path==1)",
+        "need": [
+            "shadowsource",
+            "(g.good2==0||g.corruption_path==1)",
+            "evil1",
+            "g.evilamt>=1000",
+            "tier1"
+        ],
+        "warn": true,
+        "desc": "险恶的行径将解锁更多被阴影遮蔽的秘密。",
+        "needtext": "You must have 1,000 or more Evil. You must own a shadowsource. You must be tier 1 or higher.",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "shadow": 1,
+            "stamina": 2
+        },
+        "mod": {
+            "shadow": {
+                "max": 2,
+                "rate": 0.5
+            },
+            "shadowlore": {
+                "max": 2,
+                "rate": "20%"
+            },
+            "lightlore": {
+                "mod.light.rate": -0.002,
+                "mod.light.max": -0.2
+            },
+            "lightlore2": {
+                "mod.light.rate": "-0.2%",
+                "mod.lightdmg": -0.5
+            }
+        },
+        "disable": [
+            "good2",
+            "good3",
+            "neutral",
+            "t_extremegood"
+        ],
+        "enable": "evil3",
+        "group": "morality"
+    },
+    {
+        "id": "evil3",
+        "name": "无可救药",
+        "actname": "深堕之路",
+        "morality": true,
+        "require": "g.evil2>=1&&g.good2==0",
+        "need": [
+            "shadowsource",
+            "evil1",
+            "evil2",
+            "g.evilamt>=2000",
+            "tier3"
+        ],
+        "warn": true,
+        "desc": "证明自己是世上最无可救药之人。",
+        "needtext": "You must have 2,000 or more Evil. You must own a shadowsource. You must be tier 3 or higher.",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "shadow": 1,
+            "stamina": 2
+        },
+        "mod": {
+            "shadow": {
+                "max": 3,
+                "rate": 1
+            },
+            "shadowlore": {
+                "max": 3,
+                "rate": "30%"
+            },
+            "lightlore": {
+                "mod.light.rate": -0.002,
+                "mod.light.max": -0.2
+            },
+            "lightlore2": {
+                "mod.light.rate": "-0.2%",
+                "mod.lightdmg": -0.5
+            }
+        },
+        "disable": [
+            "good2",
+            "good3",
+            "redemption_path",
+            "redeemed",
+            "t_goodact"
+        ],
+        "group": "morality"
+    },
+    {
+        "id": "malevolent",
+        "actname": "极恶之路",
+        "morality": true,
+        "require": "g.evil3==1&&g.respectable1==0&&g.tier4==1",
+        "warn": true,
+        "desc": "从一开始就心怀恶意，阴影奖励你对邪恶永无止境的奉献。你必须达到第4层或更高。",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "hp": 1,
+            "shadow": 1,
+            "stamina": 2
+        },
+        "mod": {
+            "shadow": {
+                "max": 3,
+                "rate": "0.7+1%"
+            },
+            "shadowlore": {
+                "max": 2,
+                "mod.shadow.rate": 0.002,
+                "mod.shadow.max": 0.2
+            },
+            "shadowdmg": 3
+        },
+        "disable": [
+            "good1",
+            "good2",
+            "good3",
+            "good"
+        ],
+        "group": "morality"
+    },
+    {
+        "id": "smallanatomy",
+        "name": "生物解剖",
+        "require": "g.anatomy>=3&&g.tier0>0",
+        "need": [
+            "vivarium"
+        ],
+        "desc": "在保存那些逝去的标本时，你不妨也研究一下它们的内部。",
+        "verb": "dissecting frogs",
+        "length": 10,
+        "max": 1,
+        "run": {
+            "gold": 20,
+            "research": 5,
+            "scrolls": 1
+        },
+        "mod": {
+            "anatomy.max": 1,
+            "anatomy.rate": 0.2
+        },
+        "flavor": "现在，亲爱的老里伯特将永远活在你的研究中。",
+        "group": "knowledge"
+    },
+    {
+        "id": "horsemeds",
+        "name": "马匹药剂",
+        "require": "g.anatomy>=5&&g.tier1>0",
+        "need": "stables",
+        "desc": "马匹作为新药剂的实验对象展现出巨大的潜力。等它们完成后，你可以尝试一些。",
+        "verb": "chugging",
+        "length": 10,
+        "max": 1,
+        "run": {
+            "gold": 30,
+            "research": 30,
+            "codices": 0.1,
+            "naturegem": 1,
+            "herbs": 0.5
+        },
+        "mod": {
+            "anatomy.max": 2,
+            "anatomy.rate": 0.4
+        },
+        "flavor": "像马一样健康？不，比那更甚。",
+        "group": "knowledge"
+    },
+    {
+        "id": "biganatomy",
+        "name": "肌肉研究",
+        "require": "g.anatomy>=7&&g.tier1>0",
+        "need": "menagerie",
+        "desc": "研究无数野兽的骨骼结构和肌肉组织。",
+        "verb": "watching animals run",
+        "length": 10,
+        "max": 1,
+        "run": {
+            "gold": 50,
+            "research": 10,
+            "codices": 0.2
+        },
+        "mod": {
+            "anatomy.max": 2,
+            "anatomy.rate": 0.4
+        },
+        "flavor": "猎豹为何跑得如此之快？长颈鹿如何支撑如此长的四肢？鸭嘴兽到底是什么？",
+        "group": "knowledge"
+    },
+    {
+        "id": "demonicanatomy",
+        "name": "恶魔检查",
+        "require": "summonsource",
+        "desc": "它们或许是不情愿的实验对象，但关于恶魔如何稳定身体，仍有许多值得学习之处。",
+        "verb": "labeling demon organs",
+        "length": 15,
+        "max": 1,
+        "run": {
+            "gold": 33,
+            "research": 15,
+            "codices": 0.2,
+            "bloodgem": 1
+        },
+        "mod": {
+            "anatomy.max": 1,
+            "anatomy.rate": 0.2
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "spiritanatomy",
+        "name": "灵魂检查",
+        "require": "summonsource",
+        "desc": "尽管费尽周折，但一旦你了解了这些虚无缥缈的生物如何维持其存在，哄骗灵魂是值得的。",
+        "verb": "analyzing plasms",
+        "length": 15,
+        "max": 1,
+        "run": {
+            "gold": 33,
+            "research": 15,
+            "codices": 0.2,
+            "spiritgem": 1
+        },
+        "mod": {
+            "anatomy.max": 1,
+            "anatomy.rate": 0.2
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "autovivisect",
+        "name": "自我活体解剖",
+        "require": "g.timesplit>0&&g.chronomancy>=5",
+        "desc": "你已精通时间魔法，足以尝试超越低阶法师最狂野梦想的事物。只需精心设置循环，你最终便能解剖自己。",
+        "verb": "autovivisecting",
+        "length": 60,
+        "max": 1,
+        "cost": {
+            "research": 1000,
+            "tomes": 5,
+            "bloodgem": 50
+        },
+        "run": {
+            "tempus": 0.5,
+            "hp": 10
+        },
+        "mod": {
+            "anatomy.max": 2,
+            "anatomy.rate": 0.4
+        },
+        "flavor": "他们竟敢说你无情。",
+        "group": "knowledge"
+    },
+    {
+        "id": "dehumanis",
+        "name": "论人类",
+        "require": "g.corporisfabrica>0&&g.anatomy>=10",
+        "need": "booksource",
+        "desc": "你最伟大作品之一的续集。",
+        "tags": "book",
+        "length": 40,
+        "max": 1,
+        "cost": {
+            "tomes": 5
+        },
+        "run": {
+            "research": 50
+        },
+        "mod": {
+            "research.max": 20,
+            "anatomy.max": 3,
+            "anatomy.rate": 0.6
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "healthrite",
+        "name": "活力仪式",
+        "require": "g.ritesource>0&&g.tier5>0",
+        "desc": "古人希望借助宇宙之力获得长寿。至少，你可以获得活力。",
+        "verb": "seizing heaven",
+        "length": 180,
+        "max": 1,
+        "cost": {
+            "codices": 80,
+            "gold": 10000
+        },
+        "run": {
+            "bloodgem": 0.3,
+            "runestones": 0.05,
+            "stamina": 3,
+            "hp": 10
+        },
+        "mod": {
+            "hp.max": 25,
+            "hp.rate": 1
+        },
+        "flavor": "最好在众神忙碌时进行。",
+        "group": "body"
+    },
+    {
+        "id": "bloodascension",
+        "name": "血肉神化",
+        "require": "g.potions>=5&&g.tier2>0",
+        "need": "potroom",
+        "desc": "用魔血替换你的血液，甚至骨髓也随之升华。",
+        "verb": "dialyzing",
+        "length": 20,
+        "max": 1,
+        "cost": {
+            "codices": 10,
+            "research": 1000
+        },
+        "run": {
+            "ichor": 0.05,
+            "hp": 5,
+            "stamina": 1.5
+        },
+        "mod": {
+            "hp.max": 15
+        },
+        "group": "body"
+    },
+    {
+        "id": "artificedskeleton",
+        "name": "骨骼技艺",
+        "require": "g.crafting>=15&&g.tier4>0",
+        "need": "workshop",
+        "desc": "将更伟大的事物融入你的骨骼，并将你的骨骼锻造成更伟大的存在。",
+        "verb": "enduring agony",
+        "length": 20,
+        "max": 1,
+        "cost": {
+            "tomes": 3,
+            "research": 1000
+        },
+        "run": {
+            "earthrune": 0.25,
+            "firerune": 0.25
+        },
+        "mod": {
+            "hp.max": 20
+        },
+        "group": "body"
+    },
+    {
+        "id": "planarvitality",
+        "name": "位面活力",
+        "require": "g.gate>0&&g.tier4>0",
+        "desc": "无限的力量从各个位面涌出。为自己汲取一些。",
+        "verb": "tapping power",
+        "length": 90,
+        "max": 1,
+        "cost": {
+            "codices": 100,
+            "tomes": 5,
+            "research": 1000,
+            "gold": 10000
+        },
+        "mod": {
+            "hp.max": 20
+        },
+        "group": "body"
+    },
+    {
+        "id": "act_spy",
+        "name": "侦察",
+        "perpetual": true,
+        "verb": "spying",
+        "desc": "是时候看看其他巫师都在忙些什么了。",
+        "tags": "t_contemplation",
+        "require": "g.trickster>0&&g.scrying>=1",
+        "run": {
+            "stamina": 0.3,
+            "chaos": 0.1
+        },
+        "at": {
+            "100": {
+                "effect.gems": 0.01,
+                "effect.lore.exp": 0.5,
+                "effect.scrying.exp": 0.5
+            },
+            "1200": {
+                "effect.gems": 0.02,
+                "effect.lore.exp": 0.5,
+                "effect.scrying.exp": 0.5
+            },
+            "5000": {
+                "effect.research": 0.1,
+                "effect.gems": 0.02
+            }
+        },
+        "effect": {
+            "research": 1.5,
+            "arcana": 0.01,
+            "gems": 0.01
+        },
+        "exclude": "t_contemplation",
+        "flavor": "……你什么意思，他们只是在来回踱步？",
+        "group": "research"
+    },
+    {
+        "id": "hall_probematerials_1",
+        "name": "准备维度探测器",
+        "tags": "hall",
+        "require": "g.hall_dimensionalexploration>0&&g.planeslore>=5",
+        "need": "gate",
+        "desc": "准备你的维度探测器，进行另一次远位面之旅。",
+        "length": 10,
+        "run": {
+            "mana": 3
+        },
+        "result": {
+            "hall_probematerials": 10
+        },
+        "group": "dimensional probing"
+    },
+    {
+        "id": "hall_probematerials_2",
+        "name": "加速准备",
+        "tags": "hall",
+        "require": "g.hall_dimensionalexploration>0&&g.planeslore>=10",
+        "need": "gate",
+        "desc": "投入额外精力加速准备工作。",
+        "perpetual": true,
+        "run": {
+            "stamina": 2
+        },
+        "runmod": {
+            "hall_probematerials_1.length": -5
+        },
+        "group": "dimensional probing"
+    },
+    {
+        "id": "hall_probematerials_3",
+        "name": "原始调谐",
+        "tags": "hall",
+        "require": "g.hall_dimensionalexploration>0&&g.planeslore>=15",
+        "need": "gate",
+        "desc": "调谐至位面的原始法力，以进行更高效的勘测。",
+        "perpetual": true,
+        "run": {
+            "primal": 2
+        },
+        "runmod": {
+            "hall_probematerials_1.result.hall_probematerials": 10
+        },
+        "group": "dimensional probing"
+    },
+    {
+        "id": "hall_probematerials_4",
+        "name": "高效准备",
+        "tags": "hall",
+        "require": "g.hall_dimensionalexploration>0&&g.planeslore>=20",
+        "need": "gate",
+        "desc": "为探测器注入额外的元素能量，以增强韧性和速度。",
+        "perpetual": true,
+        "run": {
+            "element": 2
+        },
+        "runmod": {
+            "hall_probematerials_1.result.hall_probematerials": "50%"
+        },
+        "group": "dimensional probing"
+    },
+    {
+        "id": "riddlebook",
+        "name": "埃克塞特之书",
+        "require": "g.lore>7&&g.trickery>=4",
+        "desc": "一本充满文字游戏和谜语的书，是你为了在学习期间自娱自乐而编纂的。",
+        "tags": "book",
+        "length": 10,
+        "max": 1,
+        "cost": {
+            "scrolls": 5
+        },
+        "run": {
+            "research": 1
+        },
+        "mod": {
+            "trickery.max": 1
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "riddlecontest",
+        "name": "赢得谜语比赛",
+        "require": "g.riddlebook>0&&g.trickery>=5&&g.dist>=10",
+        "desc": "全副武装，去赢得村庄年度集市上的谜语比赛。",
+        "length": 40,
+        "max": 1,
+        "cost": {
+            "gold": 25
+        },
+        "run": {
+            "stamina": 0.5
+        },
+        "mod": {
+            "trickery.max": 1
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "craftmotley",
+        "name": "设计小丑服",
+        "tags": "t_craftwork",
+        "require": "g.jester>0",
+        "need": "g.inv.max-g.inv._used>=4",
+        "needtext": "Must have at least 4 inventory spaces free.",
+        "desc": "制作一套小丑服，以体现混乱的原则。",
+        "length": 120,
+        "max": 1,
+        "cost": {
+            "research": 7777,
+            "gold": 777,
+            "chaosgem": 77,
+            "chaosrune": 7
+        },
+        "run": {
+            "stamina": 1,
+            "chaos": 1
+        },
+        "loot": {
+            "jesterhat": 1,
+            "jestershirt": 1,
+            "jesterpants": 1,
+            "jestershoes": 1
+        },
+        "group": "armor"
+    },
+    {
+        "id": "replacemotley",
+        "name": "更换小丑服",
+        "tags": "t_craftwork",
+        "require": "g.craftmotley>0",
+        "need": "g.inv.max-g.inv._used>=4",
+        "needtext": "Must have at least 4 inventory spaces free, even if you only need to replace part of the set.",
+        "desc": "重做你的小丑服。",
+        "length": 30,
+        "cost": {
+            "research": 777,
+            "gold": 77,
+            "chaosgem": 7
+        },
+        "run": {
+            "stamina": 1,
+            "chaos": 1
+        },
+        "loot": {
+            "jesterhat": 1,
+            "jestershirt": 1,
+            "jesterpants": 1,
+            "jestershoes": 1
+        },
+        "group": "armor"
+    },
+    {
+        "id": "facecollect",
+        "name": "收集面孔",
+        "verb": "sketching",
+        "require": "g.facecollection>0",
+        "max": 999,
+        "desc": "选择并研究一个合适的目标，将其永恒化为你的最新伪装。",
+        "length": 3,
+        "cost": {
+            "research": 25,
+            "herbs": 1
+        },
+        "run": {
+            "stamina": 1,
+            "chaos": 1
+        },
+        "mod": {
+            "chaosdmg": "0.1//999/-10"
+        },
+        "effect": {
+            "trickery.exp": 0.5,
+            "chaoslore.exp": 0.5
+        },
+        "group": "spellcasting"
+    },
+    {
+        "id": "rabbittrick",
+        "name": "变出兔子",
+        "require": "g.madcap>0&&g.hattrick>0&&g.chronomancy>=7",
+        "desc": "凭空变出一只乐于助人的兔子！",
+        "max": 1,
+        "length": 50,
+        "cost": {
+            "herbs": 77,
+            "chaos": 13,
+            "tempus": 7
+        },
+        "mod": {
+            "animals.max": 2,
+            "naturelore.max": 2
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "harvestownface",
+        "name": "完成收藏",
+        "actname": "千面",
+        "require": "g.facecollect>=999",
+        "desc": "你成为了千面大师，但仍有一张面孔有待掌握。你自己的面孔。",
+        "max": 1,
+        "length": 10,
+        "cost": {
+            "bloodgem": 77,
+            "chaosgem": 66,
+            "chaosrune": 13,
+            "herbs": 1
+        },
+        "run": {
+            "hp": 12,
+            "mana": 7,
+            "chaos": 6
+        },
+        "mod": {
+            "chaoslore.max": 1,
+            "chaosdmg": 10
+        },
+        "result": {
+            "title": "无面"
+        },
+        "group": "special"
+    },
+    {
+        "id": "idrasilgrow1",
+        "name": "滋养幼苗",
+        "verb": "nourishing",
+        "require": "g.tier3>0&&g.naturelore>=10&&g.arcana>=10",
+        "desc": "滋养你的伊德拉希尔幼苗，使其成长为更伟大的存在。",
+        "extdesc": "这将永久锁定伊德拉希尔幼苗，并将其替换为更好的家园。",
+        "lock": "home_idrasil_sprout",
+        "max": 1,
+        "length": 120,
+        "cost": {
+            "gems": 15,
+            "herbs": 25
+        },
+        "run": {
+            "nature": 1,
+            "earth": 0.5,
+            "water": 0.5,
+            "light": 0.5,
+            "naturegem": 0.1,
+            "earthgem": 0.025,
+            "watergem": 0.025,
+            "lightgem": 0.025
+        },
+        "group": "housing"
+    },
+    {
+        "id": "idrasilgrow2",
+        "name": "滋养树苗",
+        "verb": "nourishing",
+        "require": "g.tier4>0&&g.naturelore>=14&&g.arcana>=14&&g.idrasilgrow1>0",
+        "desc": "滋养你的伊德拉希尔树苗，使其绽放全部光彩。",
+        "extdesc": "这将永久锁定伊德拉希尔树苗，并将其替换为更好的家园。",
+        "lock": "home_idrasil_sapling",
+        "max": 1,
+        "length": 180,
+        "cost": {
+            "gems": 30,
+            "herbs": 50
+        },
+        "run": {
+            "nature": 2,
+            "earth": 1.25,
+            "water": 1.25,
+            "light": 1.25,
+            "naturegem": 1,
+            "lightgem": 0.5,
+            "earthrune": 0.025,
+            "waterrune": 0.025
+        },
+        "group": "housing"
+    },
+    {
+        "id": "restoreruins",
+        "name": "修复遗迹",
+        "verb": "restoring",
+        "require": "g.tier4>0&&g.spiritlore>=14&&g.runelore>=5",
+        "desc": "你领悟了遗迹中一个关键符文的含义，并解锁了更深层次的秘密。现在它们只需要修复。",
+        "max": 1,
+        "length": 180,
+        "cost": {
+            "arcana": 20,
+            "tomes": 5,
+            "earthrune": 5
+        },
+        "run": {
+            "gold": 100,
+            "research": 25,
+            "earth": 2,
+            "spirit": 1.25,
+            "spiritgem": 1,
+            "stamina": 1
+        },
+        "mod": {
+            "ancientruins.mod": {
+                "space.max": 250,
+                "craftfirerune.cost": {
+                    "firegem": "-50%"
+                },
+                "craftfirerune.result": {
+                    "firerune": "25%"
+                },
+                "craftwaterrune.cost": {
+                    "watergem": "-50%"
+                },
+                "craftwaterrune.result": {
+                    "waterrune": "25%"
+                },
+                "craftairrune.cost": {
+                    "airgem": "-50%"
+                },
+                "craftairrune.result": {
+                    "airrune": "25%"
+                },
+                "craftearthrune.cost": {
+                    "earthgem": "-50%"
+                },
+                "craftearthrune.result": {
+                    "earthrune": "25%"
+                }
+            }
+        },
+        "flavor": "朋友，请说出密语，然后进入",
+        "group": "housing"
+    },
+    {
+        "id": "foundcollective",
+        "name": "建立集体",
+        "verb": "recruiting",
+        "require": "g.tier2>0&&g.naturelore>=10",
+        "desc": "召集志同道合的自然爱好者，在荒野中建立一个永久的集体。",
+        "extdesc": "完成后解锁新家园。",
+        "max": 1,
+        "length": 60,
+        "cost": {
+            "research": 500
+        },
+        "run": {
+            "gold": 50,
+            "naturegem": 0.33
+        },
+        "result": {
+            "fame": 1
+        },
+        "group": "housing"
+    },
+    {
+        "id": "establishcaravan",
+        "name": "建立商队",
+        "verb": "negotiating",
+        "require": "g.tier2>0&&g.shopkeeping>=5&&g.s_travel>=3",
+        "desc": "说服其他小商贩相信你的诚信，并组成一支商队。",
+        "extdesc": "完成后解锁新家园。",
+        "max": 1,
+        "length": 60,
+        "cost": {
+            "research": 500
+        },
+        "run": {
+            "gold": 40,
+            "gems": 0.5
+        },
+        "result": {
+            "fame": 1
+        },
+        "group": "housing"
+    },
+    {
+        "id": "buildemporium",
+        "name": "建造商场",
+        "verb": "advertising",
+        "require": "g.tier2>0&&g.shopkeeping>=8&&g.charms>=5",
+        "desc": "建造一个宏伟的市场，并确保人尽皆知。",
+        "extdesc": "完成后解锁新家园。",
+        "max": 1,
+        "length": 60,
+        "cost": {
+            "research": 500
+        },
+        "run": {
+            "gold": 40,
+            "gems": 0.5
+        },
+        "result": {
+            "fame": 1
+        },
+        "group": "housing"
+    },
+    {
+        "id": "excavatewaterfall",
+        "name": "挖掘瀑布",
+        "verb": "excavating",
+        "require": "g.tier3>0&&g.waterlore>=10&&g.earthlore>0&&g.naturelore>=6",
+        "desc": "在瀑布后面挖出更多空间，并抬高瀑布倾泻而下的悬崖。",
+        "extdesc": "这将永久锁定瀑布，并在完成后解锁新家园。",
+        "lock": "home_waterfall",
+        "max": 1,
+        "length": 120,
+        "cost": {
+            "research": 5000,
+            "codices": 20
+        },
+        "run": {
+            "gold": 50,
+            "water": 2,
+            "earth": 1.5,
+            "stamina": 1,
+            "nature": 0.5,
+            "watergem": 0.5,
+            "earthgem": 0.375,
+            "naturegem": 0.1
+        },
+        "group": "housing"
+    },
+    {
+        "id": "headmasterpromotion",
+        "name": "晋升校长",
+        "verb": "arguing",
+        "require": "g.tier3>0&&(g.magician>0||g.t_knowledgeclass>=2)",
+        "desc": "击败你的竞争对手教授，赢得校长晋升，以获得声望和更好的住所。",
+        "max": 1,
+        "length": 120,
+        "cost": {
+            "research": 500,
+            "codices": 10
+        },
+        "run": {
+            "gold": 75,
+            "research": 10,
+            "mana": 2,
+            "scrolls": 1,
+            "managem": 0.5
+        },
+        "result": {
+            "fame": 1
+        },
+        "mod": {
+            "academy.mod": {
+                "space.max": 225,
+                "lore.mod": {
+                    "spelllist.max": 0.5
+                }
+            }
+        },
+        "group": "housing"
+    },
+    {
+        "id": "citadelwing",
+        "name": "城堡侧翼",
+        "verb": "building",
+        "require": "(g.t_knowledgeclass+g.t_swordclass+g.t_hammerclass)>0&&g.tier3>0",
+        "desc": "为你的城堡增添几个新侧翼，以获得更多空间。",
+        "max": 1,
+        "length": 120,
+        "cost": {
+            "gold": 1000,
+            "codices": 20
+        },
+        "run": {
+            "gold": 25,
+            "stamina": 1,
+            "gems": 1
+        },
+        "result": {
+            "fame": 1
+        },
+        "mod": {
+            "citadel.mod": {
+                "space.max": 240
+            }
+        },
+        "group": "housing"
+    },
+    {
+        "id": "templeexpansion",
+        "name": "神殿扩建",
+        "verb": "building",
+        "require": "g.t_divinationclass>0&&g.tier3>0",
+        "need": "(1+g.t_divinationclass)>g.templeexpansion",
+        "needtext": "You need to have taken classes tagged 'Master of Divination' at least as many times as you've done this task. It still maxes at 3.",
+        "desc": "为神殿增加一层，以满足你的需求。",
+        "max": 3,
+        "length": 120,
+        "cost": {
+            "gold": 2000,
+            "codices": 20
+        },
+        "run": {
+            "gold": 50,
+            "spirit": 1.5,
+            "stamina": 1,
+            "spiritgem": 1
+        },
+        "mod": {
+            "temple.mod": {
+                "space.max": 80,
+                "spiritlore.mod.spirit.max": 0.1,
+                "composure.mod.stress.rate": -0.01,
+                "spirit.rate": 0.1,
+                "minions.max": 2
+            },
+            "templerenovation.max": -1
+        },
+        "group": "housing"
+    },
+    {
+        "id": "templepinnacle",
+        "name": "神殿尖顶",
+        "verb": "capping",
+        "require": "(g.templeexpansion+g.templerenovation)>=3&&g.templeexpansion>0&&g.tier4>0",
+        "desc": "让你的神殿成为这片土地上最高的建筑，以仰望星辰。",
+        "max": 1,
+        "lock": "templealtar",
+        "warn": true,
+        "length": 180,
+        "cost": {
+            "gold": 2000,
+            "codices": 20
+        },
+        "run": {
+            "gold": 50,
+            "spirit": 1.5,
+            "stamina": 1,
+            "spiritgem": 1
+        },
+        "result": {
+            "fame": 1
+        },
+        "mod": {
+            "temple.mod": {
+                "space.max": 120,
+                "spiritlore.mod.spirit.max": 0.1,
+                "composure.mod.stress.rate": -0.01,
+                "scrying.mod.dist": "1%",
+                "spirit.max": 0.2,
+                "minions.max": 6
+            }
+        },
+        "group": "housing"
+    },
+    {
+        "id": "castlerestoration",
+        "name": "城堡修复",
+        "verb": "restoring",
+        "require": "g.tier4>0",
+        "desc": "你值得更好的。是时候将你破败的城堡恢复到昔日的辉煌了。",
+        "warn": true,
+        "lock": "ruinedcastle",
+        "extdesc": "这将永久锁定“摇摇欲坠的城堡”，并在完成后解锁一个更好的家园。",
+        "max": 1,
+        "length": 180,
+        "cost": {
+            "gold": 1000,
+            "tomes": 10
+        },
+        "run": {
+            "gold": 50,
+            "research": 25,
+            "earth": 1,
+            "stamina": 1,
+            "gems": 1
+        },
+        "result": {
+            "fame": 1
+        },
+        "group": "housing"
+    },
+    {
+        "id": "palacerestoration",
+        "name": "宫殿修复",
+        "verb": "restoring",
+        "require": "g.tier4>0",
+        "desc": "你值得更好的。是时候将你破败的宫殿恢复到昔日的辉煌了。",
+        "extdesc": "这将永久锁定“腐朽的宫殿”，并在完成后解锁一个更好的家园。",
+        "max": 1,
+        "length": 180,
+        "cost": {
+            "gold": 1000,
+            "tomes": 10
+        },
+        "run": {
+            "gold": 50,
+            "research": 25,
+            "mana": 1.5,
+            "stamina": 1,
+            "gems": 1
+        },
+        "result": {
+            "fame": 1
+        },
+        "lock": "ruinedpalace",
+        "group": "housing"
+    },
+    {
+        "id": "grovetrimming",
+        "name": "修剪树林",
+        "verb": "trimming",
+        "require": "g.tier4>0&&(g.t_enchantingclass+g.t_natureclass)>0",
+        "desc": "植物已经覆盖了你家里的其他地方，而不仅仅是地板。是时候处理一下了。",
+        "max": 1,
+        "length": 180,
+        "cost": {
+            "gold": 100,
+            "research": 400,
+            "gems": 10
+        },
+        "run": {
+            "gold": 5,
+            "nature": 2,
+            "stamina": 1,
+            "naturegem": 0.1
+        },
+        "mod": {
+            "grove.mod.space.max": 100
+        },
+        "group": "housing"
+    },
+    {
+        "id": "islandmanagement",
+        "name": "岛屿管理",
+        "verb": "weatherproofing",
+        "require": "g.tier4>0&&(g.t_enchantingclass+g.t_elementalclass+g.t_spiritclass)>0",
+        "desc": "大自然的破坏正在使你的部分建筑倒塌。是时候处理一下了。",
+        "max": 1,
+        "length": 180,
+        "cost": {
+            "gold": 100,
+            "research": 400,
+            "gems": 10
+        },
+        "run": {
+            "gold": 5,
+            "water": 1.5,
+            "air": 1.5,
+            "stamina": 1,
+            "watergem": 0.05,
+            "airgem": 0.05
+        },
+        "mod": {
+            "island.mod.space.max": 100
+        },
+        "group": "housing"
+    },
+    {
+        "id": "museumgallery",
+        "name": "博物馆画廊",
+        "verb": "scrutinizing additions",
+        "require": "g.tier4>0&&g.trickery>=13",
+        "desc": "为你的博物馆增添一个新的画廊，供你欣赏。",
+        "max": 1,
+        "length": 180,
+        "cost": {
+            "gold": 211,
+            "research": 21,
+            "gems": 2,
+            "tomes": 1
+        },
+        "run": {
+            "gold": 5,
+            "chaos": 2,
+            "stamina": 1,
+            "research": 0.5,
+            "gems": 0.05
+        },
+        "mod": {
+            "facemuseum.mod.space.max": 100
+        },
+        "group": "housing"
+    },
+    {
+        "id": "plantattunement",
+        "name": "与荒野协调",
+        "verb": "smoking",
+        "require": "g.naturelore>=5",
+        "need": "g.outdoors>0",
+        "needtext": "Must live outdoors.",
+        "desc": "在所有绿色植物中感到舒适。",
+        "max": 1,
+        "length": 30,
+        "cost": {
+            "research": 300,
+            "gold": 100,
+            "gems": 15,
+            "naturegem": 5
+        },
+        "run": {
+            "herbs": 1.4,
+            "nature": 0.5
+        },
+        "mod": {
+            "naturelore.max": 1
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "caveattunement",
+        "name": "与深渊协调",
+        "verb": "seeing the terrors",
+        "require": "g.earthlore>=5&&g.shadowlore>=5",
+        "need": "g.t_underground>0",
+        "needtext": "Must live underground.",
+        "desc": "在地下深处感到舒适。",
+        "max": 1,
+        "length": 30,
+        "cost": {
+            "research": 200,
+            "gold": 100,
+            "herbs": 10,
+            "earthgem": 5,
+            "shadowgem": 5
+        },
+        "run": {
+            "earth": 0.5,
+            "shadow": 0.5
+        },
+        "mod": {
+            "earthlore.max": 1,
+            "shadowlore.max": 1
+        },
+        "flavor": "蓝鳃蘑菇非常漂亮，但味道很糟糕。",
+        "group": "knowledge"
+    },
+    {
+        "id": "bookdiving",
+        "name": "迷宫浏览",
+        "verb": "making copies",
+        "desc": "在无限图书馆的无尽深处，悄悄地复制那些典籍。",
+        "flavor": "连你都无法理解的事物潜伏于此。",
+        "tags": "t_languagework",
+        "require": "g.tier6>0&&g.languages>=12",
+        "need": "lexyrinth",
+        "fill": "tomes",
+        "length": 60,
+        "run": {
+            "stamina": 0.4,
+            "research": 40
+        },
+        "result": {
+            "tomes": 1
+        },
+        "mod": {
+            "languages.max": "?1"
+        },
+        "group": "materials"
+    },
+    {
+        "id": "remoldspire",
+        "name": "重塑尖塔",
+        "verb": "smoothing contours",
+        "require": "g.tier3>0&&g.geosculpting>=5",
+        "max": 1,
+        "desc": "你第一次建造尖塔的尝试很粗糙。现在来完善它的结构。",
+        "length": 60,
+        "cost": {
+            "earthgem": 10,
+            "codices": 5
+        },
+        "run": {
+            "stamina": 0.5,
+            "earth": 0.5
+        },
+        "mod": {
+            "earthspire.mod.space.max": 150
+        },
+        "group": "housing"
+    },
+    {
+        "id": "catasterismi",
+        "name": "星辰化身",
+        "require": "g.almagest>0&&g.history>=5",
+        "desc": "拼凑出星辰及其追随者的历史。当“锁”崛起并摧毁大地时，许多东西都失落了。",
+        "tags": "book",
+        "length": 60,
+        "max": 1,
+        "cost": {
+            "codices": 5
+        },
+        "run": {
+            "research": 1
+        },
+        "mod": {
+            "astronomy.max": 3,
+            "history.max": 2
+        },
+        "flavor": "敏捷的格伦莫格的仪式。身披盔甲的埃尔-阿德克的考验。歌唱的彭德拉的圣地。",
+        "group": "knowledge"
+    },
+    {
+        "id": "picatrix",
+        "name": "星象魔典",
+        "require": "g.almagest>0&&g.spellcraft>=3",
+        "desc": "将天文学应用于魔法的实验性程序。",
+        "tags": "book",
+        "length": 60,
+        "max": 1,
+        "cost": {
+            "codices": 15
+        },
+        "run": {
+            "research": 5
+        },
+        "mod": {
+            "astronomy.max": 3
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "aryabhatiya",
+        "name": "阿里亚哈塔",
+        "require": "g.almagest>0&&g.chronomancy>=1",
+        "desc": "天文学在时间与距离测量上的实际应用。",
+        "tags": "book",
+        "length": 60,
+        "max": 1,
+        "cost": {
+            "tomes": 5
+        },
+        "run": {
+            "research": 20
+        },
+        "mod": {
+            "astronomy.max": 3,
+            "chronomancy.max": 1,
+            "s_travel.max": 1
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "recordstars",
+        "name": "记录星辰",
+        "require": "g.astronomy>=5",
+        "need": "g.starsource>0&&g.workspace>0",
+        "needtext": "You need a starsource and a workspace.",
+        "desc": "记录星座和行星。",
+        "length": 15,
+        "max": 4,
+        "cost": {
+            "scrolls": 10
+        },
+        "run": {
+            "research": 1
+        },
+        "mod": {
+            "astronomy.max": 1
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "newskies",
+        "name": "新天空",
+        "verb": "stargazing",
+        "require": "g.astronomy>=10&&g.tier4>0",
+        "need": "g.ziggurat>0",
+        "needtext": "Own a ziggurat.",
+        "desc": "凝视天空，在星辰之间的虚空中发现新事物。",
+        "length": 100,
+        "max": 1,
+        "cost": {
+            "tomes": 10
+        },
+        "run": {
+            "research": 25,
+            "stamina": 1,
+            "mana": 1,
+            "spirit": 0.5
+        },
+        "mod": {
+            "astronomy.max": 2,
+            "planeslore.max": 2,
+            "voidlore.max": 1,
+            "airlore.max": 1,
+            "scrying.max": 1
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "worldmap",
+        "name": "绘制世界",
+        "verb": "beholding",
+        "require": "g.earthlore>=10&&g.tier4>0",
+        "need": "g.ziggurat>0",
+        "needtext": "Own a ziggurat.",
+        "desc": "将你的意识投射得更高，看到世界的秘密形状。将它的轮廓固定在你的脑海中。",
+        "length": 100,
+        "max": 1,
+        "cost": {
+            "tomes": 10
+        },
+        "run": {
+            "research": 25,
+            "stamina": 1,
+            "mana": 1,
+            "earth": 0.5
+        },
+        "mod": {
+            "earthlore.max": 3
+        },
+        "flavor": "一个球体？一个圆盘？一个环面？还是完全不同的东西？你渴望找出答案。",
+        "group": "knowledge"
+    },
+    {
+        "id": "sindelstudy",
+        "name": "研究星辰碎片",
+        "require": "g.sindel>=0&&g.tier5>0",
+        "need": "g.sindel>=1",
+        "needtext": "You need at least one whole star shard to study, despite how odd asking for a whole shard sounds.",
+        "desc": "研究星辰碎片以了解其起源。",
+        "length": 100,
+        "max": 1,
+        "cost": {
+            "tomes": 10
+        },
+        "run": {
+            "research": 25,
+            "stamina": 1,
+            "mana": 1,
+            "light": 0.5
+        },
+        "mod": {
+            "astronomy.max": 2
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "animalstudy",
+        "name": "观察动物",
+        "require": "g.neophyte>0&&g.t_pets>0",
+        "need": "treffilwoods",
+        "max": 5,
+        "desc": "观察特雷菲尔森林中的野兽。",
+        "length": 10,
+        "cost": {
+            "scrolls": 1
+        },
+        "run": {
+            "research": 1,
+            "stamina": 0.5
+        },
+        "mod": {
+            "animals.max": 1
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "magicanimalstudy",
+        "name": "观察魔法野兽",
+        "require": "g.tier1>0&&g.animals>=10&&g.magicbeasts>=5",
+        "need": "menagerie",
+        "max": 1,
+        "desc": "研究你的魔法生物动物园。",
+        "length": 40,
+        "cost": {
+            "codices": 1
+        },
+        "run": {
+            "gold": 1,
+            "research": 3
+        },
+        "mod": {
+            "magicbeasts.max": 2
+        },
+        "flavor": "狮鹫和格里芬是不同的，还是仅仅是原始文本的本地化问题？那么鹰头狮呢？",
+        "group": "knowledge"
+    },
+    {
+        "id": "herbstudy",
+        "name": "植物学研究",
+        "require": "g.herbalism>=4&&(g.naturelore>=3||g.tier0>0||g.treffilwoods>0)",
+        "need": "treffilwoods",
+        "max": 5,
+        "desc": "记录特雷菲尔稀有植物的生命周期。",
+        "length": 20,
+        "cost": {
+            "scrolls": 1,
+            "gold": 5
+        },
+        "run": {
+            "herbs": 1,
+            "research": 1
+        },
+        "mod": {
+            "herbalism.max": 1
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "medicalpractice",
+        "name": "医疗实践",
+        "require": "g.heallore>=5",
+        "max": 1,
+        "desc": "将你新的医学专长付诸实践，并做一些公益工作。",
+        "length": 60,
+        "cost": {
+            "codices": 5
+        },
+        "run": {
+            "light": 1,
+            "stamina": 1
+        },
+        "mod": {
+            "anatomy.max": 1,
+            "heallore.max": 1
+        },
+        "flavor": "自从大沼泽到来及其引发的瘟疫之后，内顿一直需要帮助。",
+        "group": "knowledge"
+    },
+    {
+        "id": "ciphertext",
+        "name": "密码日记",
+        "desc": "为你的个人日记设计一种新密码，以保守你的著作不被你的主人发现。",
+        "group": "knowledge",
+        "require": "g.evt_helper>=0",
+        "max": 1,
+        "length": 30,
+        "cost": {
+            "scrolls": 1
+        },
+        "run": {
+            "research": 1,
+            "stamina": 0.2
+        },
+        "mod": {
+            "languages.max": 1
+        }
+    },
+    {
+        "id": "summonquizzing",
+        "name": "质问元素",
+        "desc": "召唤各种元素生物，以满足你对它们的好奇心。",
+        "group": "knowledge",
+        "require": "g.summoning>=6||g.tier3>0",
+        "need": "summonsource",
+        "max": 4,
+        "length": 30,
+        "cost": {
+            "research": 333
+        },
+        "run": {
+            "spirit": 1,
+            "mana": 1
+        },
+        "mod": {
+            "summoning.max": 1
+        }
+    },
+    {
+        "id": "randompotions",
+        "name": "反复试验",
+        "require": "(g.alchemy>=5&&g.potions>=1&&g.crafting>=10)",
+        "need": "workspace",
+        "max": 3,
+        "desc": "开始测试你所有食材的每种组合并做笔记。你大概不会死。",
+        "length": 40,
+        "cost": {
+            "codices": 1
+        },
+        "run": {
+            "hp": 2,
+            "herbs": 1,
+            "mana": 1
+        },
+        "mod": {
+            "alchemy.max": 1,
+            "potions.max": 1
+        },
+        "flavor": "挺过去。",
+        "group": "knowledge"
+    },
+    {
+        "id": "unspingold",
+        "name": "解纺黄金",
+        "tags": "t_craftwork",
+        "desc": "现在把黄金纺回稻草，只是为了证明你能做到。",
+        "verb": "unspinning",
+        "need": "weavesource",
+        "require": "g.spingold>=1",
+        "max": 1,
+        "length": 100,
+        "run": {
+            "gold": 2.2,
+            "stamina": 0.4,
+            "mana": 0.3
+        },
+        "mod": {
+            "weaving.max": 1
+        },
+        "group": "knowledge"
+    },
+    {
+        "id": "shopwork",
+        "name": "工坊熟悉",
+        "tags": "t_craftwork",
+        "desc": "熟悉你的新工坊。",
+        "need": "g.workshop>0",
+        "needtext": "Own a workshop.",
+        "require": "g.space.max>=50&&(g.crafting>=7||g.enchanting>=7)",
+        "max": 1,
+        "length": 50,
+        "run": {
+            "stamina": 0.4,
+            "mana": 0.3
+        },
+        "mod": {
+            "crafting.max": 2,
+            "enchanting.max": 1
+        },
+        "flavor": "在真正的工作开始时，避免被任何东西绊倒至关重要。",
+        "group": "knowledge"
+    },
+    {
+        "id": "toolwork",
+        "name": "工具练习",
+        "tags": "t_craftwork",
+        "desc": "磨合你的新工具。",
+        "need": "workspace",
+        "require": "g.crafting>=(6-g.evt_helper)",
+        "max": 3,
+        "length": 30,
+        "cost": {
+            "scrolls": 1
+        },
+        "run": {
+            "research": 0.5,
+            "stamina": 0.2,
+            "gold": 0.1
+        },
+        "mod": {
+            "crafting.max": 1,
+            "enchanting.max": "?1"
+        },
+        "flavor": "民间传说称，足够老的工具会活过来并嗜血。你打算活得足够长，所以提前驯服你的工具是最好的选择。",
+        "group": "knowledge"
+    },
+    {
+        "id": "astrologypractice",
+        "name": "练习占星术",
+        "desc": "使用你的天象仪，从天体的预测运动中推断未来事件。",
+        "need": "orrery",
+        "require": "g.astronomy>=8&&g.codices>=80",
+        "max": 1,
+        "length": 60,
+        "cost": {
+            "codices": 5
+        },
+        "run": {
+            "mana": 1,
+            "spirit": 1,
+            "research": 2
+        },
+        "mod": {
+            "divination.max": 2
+        },
+        "flavor": "哦，太好了，太阳还在原来的位置。",
+        "group": "knowledge"
+    },
+    {
+        "id": "firegazing",
+        "name": "凝视火焰",
+        "require": "g.tier0>0&&g.firelore>=1",
+        "need": "firesource",
+        "desc": "将目光固定在火焰中心的一点上，冥想火焰的饥渴。",
+        "max": 5,
+        "length": 10,
+        "cost": {
+            "scrolls": 1
+        },
+        "run": {
+            "fire": 0.1,
+            "research": 1
+        },
+        "mod": {
+            "firelore.max": 1
+        },
+        "flavor": "“你在火中看到了什么？”“灰烬。”",
+        "group": "knowledge"
+    },
+    {
+        "id": "wildfirestudy",
+        "name": "观察野火",
+        "require": "g.tier0>0&&g.firelore>=1&&g.naturelore>=1",
+        "need": "g.firesource>0&&g.outdoors>0",
+        "needtext": "Own a firesource and live outdoors.",
+        "desc": "夏天来临，在埃廷马奇大火之后，目睹毁灭与重生的循环。",
+        "max": 1,
+        "length": 30,
+        "cost": {
+            "scrolls": 1
+        },
+        "run": {
+            "hp": 1,
+            "fire": 0.25,
+            "nature": 0.25
+        },
+        "mod": {
+            "firelore.max": 1,
+            "naturelore.max": 1
+        },
+        "flavor": "“你在灰烬中看到了什么？”“嫩芽。”",
+        "group": "knowledge"
+    },
+    {
+        "id": "sensorydeprivation",
+        "name": "感官剥夺",
+        "require": "g.tier0>0&&g.shadowlore>=1",
+        "need": "shadowsource",
+        "desc": "将自己置于漆黑之中，剥夺所有感官。让空虚充满你的思想。",
+        "max": 4,
+        "length": 10,
+        "cost": {
+            "scrolls": 1
+        },
+        "run": {
+            "shadow": 0.1,
+            "research": 1
+        },
+        "mod": {
+            "shadowlore.max": 1
+        },
+        "flavor": "“你在黑暗中看到了什么？”“我自己。”",
+        "group": "knowledge"
+    },
+    {
+        "id": "defilespirits",
+        "name": "玷污灵魂",
+        "require": "g.tier0>0&&g.evil1>0&&g.shadowlore>=1&&g.spiritlore>=1",
+        "need": "g.shadowsource>0&&g.spiritsource>0",
+        "needtext": "Need a shadowsource and a spiritsource.",
+        "desc": "用阴影玷污不安的亡灵，研究它们的变化。",
+        "max": 4,
+        "length": 10,
+        "cost": {
+            "scrolls": 1
+        },
+        "run": {
+            "shadow": 0.25,
+            "spirit": 0.25,
+            "research": 1
+        },
+        "mod": {
+            "shadowlore.max": 1,
+            "spiritlore.max": 1
+        },
+        "flavor": "“你在尖叫声中听到了什么？”“真相。”",
+        "group": "knowledge"
+    },
+    {
+        "id": "treehugging",
+        "name": "树木研究",
+        "require": "g.tier0>0&&g.naturelore>=1",
+        "need": "plantsource",
+        "desc": "呼吸新鲜空气，仔细记录戈尔博隆的植物群。",
+        "max": 2,
+        "length": 10,
+        "cost": {
+            "scrolls": 2
+        },
+        "run": {
+            "nature": 0.1,
+            "research": 1
+        },
+        "mod": {
+            "naturelore.max": 1
+        },
+        "flavor": "通过假种皮、树皮的纹理、叶子的形状来区分它们……",
+        "group": "knowledge"
+    },
+    {
+        "id": "watercyclestudy",
+        "name": "研究水循环",
+        "require": "g.tier0>0&&g.waterlore>=1&&g.naturelore>=1",
+        "need": "g.watersource>0&&g.plantsource>0",
+        "needtext": "Needs a watersource and a plantsource.",
+        "desc": "前往曾摧毁维尔德兰舰队的海岸，观察并记录水在自然界中的循环。",
+        "max": 1,
+        "length": 10,
+        "cost": {
+            "scrolls": 4
+        },
+        "run": {
+            "water": 0.25,
+            "nature": 0.25,
+            "research": 1
+        },
+        "mod": {
+            "waterlore.max": 2,
+            "naturelore.max": 1
+        },
+        "flavor": "蒸发、凝结、降水……山峰、河流、湖泊和云朵。",
+        "group": "knowledge"
+    },
+    {
+        "id": "skygazing",
+        "name": "仰望天空",
+        "require": "g.tier0>0&&g.airlore>=1&&g.lightlore>=1",
+        "need": "g.airsource>0&&g.lightsource>0",
+        "needtext": "Needs an airsource and a lightsource.",
+        "desc": "攀登戈尔博隆，仰望天空，欣赏天堂的穹顶。",
+        "max": 3,
+        "length": 10,
+        "cost": {
+            "scrolls": 1
+        },
+        "run": {
+            "air": 0.25,
+            "light": 0.25,
+            "research": 3
+        },
+        "mod": {
+            "airlore.max": 1,
+            "lightlore.max": 1
+        },
+        "flavor": "“你在云中看到了什么？”“一切。”",
+        "group": "knowledge"
+    },
+    {
+        "id": "breathingexercises",
+        "name": "呼吸练习",
+        "require": "g.tier0>0&&g.airlore>=1",
+        "need": "airsource",
+        "desc": "闭上眼睛。吸气。数数。呼气。感受空气穿过你，穿过世界的流动。",
+        "max": 4,
+        "length": 10,
+        "cost": {
+            "scrolls": 1
+        },
+        "run": {
+            "air": 0.1,
+            "research": 1
+        },
+        "mod": {
+            "airlore.max": 1,
+            "composure.max": 0.25
+        },
+        "flavor": "“你在风中看到了什么？”“记忆。”",
+        "group": "knowledge"
+    },
+    {
+        "id": "waterdiving",
+        "name": "潜水",
+        "require": "g.tier0>0&&g.waterlore>=1",
+        "need": "watersource",
+        "desc": "跳入村庄池塘底部。感受它的重量。屏住呼吸直到你几乎溺水。成为水。",
+        "max": 4,
+        "length": 10,
+        "cost": {
+            "scrolls": 1
+        },
+        "run": {
+            "water": 0.1,
+            "research": 1
+        },
+        "mod": {
+            "waterlore.max": 1
+        },
+        "flavor": "“你在深处看到了什么？”“潜力。”",
+        "group": "knowledge"
+    },
+    {
+        "id": "spiritchats",
+        "name": "质问亡灵",
+        "require": "g.tier0>0&&g.spiritlore>=1",
+        "need": "spiritsource",
+        "desc": "召唤逝者的幽灵，询问关于来世的答案。",
+        "max": 3,
+        "length": 10,
+        "cost": {
+            "scrolls": 1
+        },
+        "run": {
+            "spirit": 0.1,
+            "research": 3
+        },
+        "mod": {
+            "spiritlore.max": 1
+        },
+        "flavor": "“你在下一个世界看到了什么？”“……”",
+        "group": "knowledge"
+    },
+    {
+        "id": "soilstudies",
+        "name": "土壤成分研究",
+        "require": "g.tier0>0&&g.earthlore>=1",
+        "need": "earthsource",
+        "desc": "挖掘不同的地点并研究土壤。它肯定不全是泥土。",
+        "max": 3,
+        "length": 10,
+        "cost": {
+            "scrolls": 1
+        },
+        "run": {
+            "earth": 0.1,
+            "research": 3
+        },
+        "mod": {
+            "earthlore.max": 1
+        },
+        "flavor": "“你对桑迪·洛姆做了什么？她在哪儿？”“走了。”",
+        "group": "knowledge"
+    },
+    {
+        "id": "trataka",
+        "name": "凝视法",
+        "require": "g.tier1>=0&&g.firelore>=6&&g.lightlore>=6",
+        "need": "g.firesource>0&&g.lightsource>0",
+        "needtext": "Needs a firesource and a lightsource.",
+        "desc": "持续凝视火焰中心。拥抱热量和光芒。",
+        "max": 4,
+        "length": 20,
+        "cost": {
+            "codices": 1
+        },
+        "run": {
+            "fire": 0.25,
+            "light": 0.25,
+            "research": 3
+        },
+        "mod": {
+            "firelore.max": 1,
+            "lightlore.max": 1
+        },
+        "flavor": "“你在火中看到了什么？”“太阳。”",
+        "group": "knowledge"
+    },
+    {
+        "id": "waterabyss",
+        "name": "深渊压力",
+        "require": "g.tier1>=0&&g.waterlore>=6&&g.shadowlore>=6",
+        "need": "g.watersource>0&&g.shadowsource>0",
+        "needtext": "Needs a watersource and a shadowsource.",
+        "desc": "潜入大湖底部。为你所发现的一切而欢欣鼓舞。",
+        "max": 4,
+        "length": 20,
+        "cost": {
+            "codices": 1
+        },
+        "run": {
+            "water": 0.25,
+            "shadow": 0.25,
+            "research": 3
+        },
+        "mod": {
+            "waterlore.max": 1,
+            "shadowlore.max": 1
+        },
+        "flavor": "“你在深渊中看到了什么？”“完美。”",
+        "group": "knowledge"
+    },
+    {
+        "id": "earthabyss",
+        "name": "洞穴寂静",
+        "require": "g.tier1>=0&&g.earthlore>=6&&g.shadowlore>=6",
+        "need": "g.earthsource>0&&g.shadowsource>0",
+        "needtext": "Needs an earthsource and a shadowsource.",
+        "desc": "找到一个巨大裂谷的底部。为即将到来的一切做好准备。",
+        "max": 4,
+        "length": 20,
+        "cost": {
+            "codices": 1
+        },
+        "run": {
+            "earth": 0.25,
+            "shadow": 0.25,
+            "research": 3
+        },
+        "mod": {
+            "earthlore.max": 1,
+            "shadowlore.max": 1
+        },
+        "flavor": "“你在空虚中看到了什么？”“清晰。”",
+        "group": "knowledge"
+    },
+    {
+        "id": "icarusgliding",
+        "name": "天空探索",
+        "require": "g.tier1>=0&&g.airlore>=6&&g.lightlore>=6",
+        "need": "g.airsource>0&&g.lightsource>0",
+        "needtext": "Needs an airsource and a lightsource.",
+        "desc": "漂浮在任何云层之上。在阳光中欢腾。",
+        "max": 4,
+        "length": 20,
+        "cost": {
+            "codices": 1
+        },
+        "run": {
+            "air": 0.25,
+            "light": 0.25,
+            "research": 3
+        },
+        "mod": {
+            "airlore.max": 1,
+            "lightlore.max": 1
+        },
+        "flavor": "'你在世界之巅看到了什么？' '圆满。'",
+        "group": "knowledge"
+    },
+    {
+        "id": "onewithnature",
+        "name": "与自然合一",
+        "tags": "plantsource",
+        "desc": "与自然长期交流后，你已与它融为一体。",
+        "require": "g.naturelore>=12&&g.naturecamprest.owned",
+        "max": 1,
+        "length": 30,
+        "cost": {
+            "research": 600,
+            "nature": 10,
+            "naturegem": 5,
+            "arcana": 2
+        },
+        "run": {
+            "nature": 0.2
+        },
+        "mod": {
+            "stamina.max": 2,
+            "hp.max": 1,
+            "stamina.rate": 0.1,
+            "naturelore.max": 2,
+            "naturelore.rate": 0.2,
+            "nature.rate": 0.1,
+            "player.resist.nature": 5
+        },
+        "group": "body"
+    },
+    {
+        "id": "act_fey",
+        "name": "妖精",
+        "desc": "成为一个拥有狂野自然魔法的生物。",
+        "tags": "t_permanent_transformation",
+        "require": "g.tier3>0&&g.t_natureclass>0&&g.naturelore>=18",
+        "lock": "t_permanent_transformation",
+        "warn": true,
+        "max": 1,
+        "length": 50,
+        "cost": {
+            "arcana": 15
+        },
+        "run": {
+            "research": 100,
+            "herbs": 1.5,
+            "naturegem": 0.6,
+            "nature": 0.5,
+            "runestones": 0.1
+        },
+        "mod": {
+            "waterlore.rate": 0.5,
+            "earthlore.rate": 0.5,
+            "airlore.rate": 0.5,
+            "naturelore.max": 2,
+            "naturelore.rate": 1,
+            "animals.max": 1,
+            "herbalism.max": 2,
+            "hp.rate": 1
+        },
+        "flavor": "'你愿意喝下这圣杯吗？' 她问道。'这种转变是不可逆的。'",
+        "group": "body"
+    },
+    {
+        "id": "act_highkell",
+        "name": "高阶凯尔",
+        "desc": "凯尔的阶级从低阶妖精和森林德尔基，到古老而不可战胜的远古之灵。",
+        "require": "g.kell>0",
+        "max": 1,
+        "length": 50,
+        "cost": {
+            "arcana": 35
+        },
+        "run": {
+            "research": 300,
+            "herbs": 2.5,
+            "naturegem": 1,
+            "nature": 1,
+            "runestones": 0.3,
+            "waterrune": 0.3
+        },
+        "mod": {
+            "airlore.rate": 1,
+            "earthlore.rate": 1,
+            "naturelore.max": 2,
+            "naturelore.rate": 1,
+            "animals.max": 1,
+            "herbalism.max": 2,
+            "naturedmg": 20
+        },
+        "flavor": "'这对我来说无关紧要，' 乔拉回答道。'我不会死于特里尔，而且这个世界上能做到这一点的东西寥寥无几。'",
+        "group": "body"
+    },
+    {
+        "id": "chant",
+        "slot": "rest",
+        "group": "rest"
+    },
+    {
+        "id": "naturecamp",
+        "slot": "rest",
+        "group": "rest"
+    },
+    {
+        "id": "eatchildren",
+        "slot": "rest",
+        "group": "rest"
+    }
+]

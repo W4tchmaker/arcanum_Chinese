@@ -1,0 +1,1058 @@
+{
+    "module": "swordplay",
+    "author": "dfirestorm",
+    "data": {
+        "skills": [
+            {
+                "id": "bladelore",
+                "name": "剑术",
+                "desc": "将剑术融入魔法，反之亦然。",
+                "require": "g.t_swordclass>0",
+                "need": "armssource",
+                "level": 5,
+                "buy": {
+                    "arcana": 25
+                },
+                "run": {
+                    "stamina": 1.5
+                },
+                "mod": {
+                    "sworddmg": 3,
+                    "sword_lessons.max": 1
+                }
+            }
+        ],
+        "upgrades": [
+            {
+                "id": "bladeweaver_upgrade",
+                "name": "剑舞者",
+                "require": "g.bladelore>=5&&g.bladeweaver>0",
+                "desc": "在战斗中，像跳舞一样挥舞斩击。",
+                "max": 1,
+                "cost": {
+                    "codices": 15,
+                    "research": 1000,
+                    "spinwheel": 1
+                },
+                "mod": {
+                    "weaving.max": 2,
+                    "weaving.mod.sworddmg": 0.5
+                },
+                "flavor": "当地舞者在跳舞时讲述战争故事。",
+                "group": "martial"
+            },
+            {
+                "id": "defensive_dance",
+                "name": "防御之舞",
+                "require": "g.bladelore>=7&&g.arcanedervish>0",
+                "desc": "运用你的战斗技艺抵御物理打击。",
+                "max": 1,
+                "cost": {
+                    "tomes": 15,
+                    "research": 3000
+                },
+                "mod": {
+                    "player.resist.blunt": 5,
+                    "player.resist.pierce": 5,
+                    "player.resist.slash": 5
+                },
+                "flavor": "擦伤总比重击好。",
+                "group": "martial"
+            },
+            {
+                "id": "divine_wind",
+                "name": "神风",
+                "require": "g.bladelore>=9&&g.eldritchknight>0",
+                "desc": "学会用你的速度化解纠缠。",
+                "max": 1,
+                "cost": {
+                    "tomes": 15,
+                    "research": 5000
+                },
+                "mod": {
+                    "player.negate.entangle": 15
+                },
+                "flavor": "斩断任何束缚你的东西。",
+                "group": "martial"
+            }
+        ],
+        "tasks": [
+            {
+                "id": "sword_basics",
+                "name": "训练假人练习",
+                "require": "g.bladelore>=1&&g.training_dummy>0",
+                "desc": "针对不动的敌人磨练你的剑术。每次训练花费更多时间，耗时更长。",
+                "max": 5,
+                "length": 15,
+                "cost": {
+                    "codices": "2+g.sword_basics*2",
+                    "research": "200+g.sword_basics*150",
+                    "gold": "500+g.sword_basics*10"
+                },
+                "run": {
+                    "stamina": 2,
+                    "research": 5
+                },
+                "mod": {
+                    "bladelore.max": 0.2,
+                    "bladelore.rate": 0.2,
+                    "slashdmg": 1,
+                    "sworddmg": 1,
+                    "sword_basics.length": 5
+                },
+                "flavor": "你的陪练伙伴不怎么动，是吗？",
+                "group": "martial"
+            },
+            {
+                "id": "sword_lessons",
+                "name": "剑术课程",
+                "require": "g.bladelore>=5",
+                "need": "armssource",
+                "desc": "学习额外的剑击课程。每次训练花费更多时间，耗时更长。",
+                "max": 2,
+                "length": 30,
+                "cost": {
+                    "codices": "1+g.sword_lessons",
+                    "research": "500+g.sword_lessons*500",
+                    "gold": "500+g.sword_lessons*500"
+                },
+                "run": {
+                    "stamina": 2,
+                    "research": 5
+                },
+                "mod": {
+                    "bladelore.rate": 0.2,
+                    "player.tohit": 0.2,
+                    "stamina.max": 0.5,
+                    "vigor.max": 0.5,
+                    "sword_lessons.length": 5,
+                    "blade_endure.max": 0.2
+                },
+                "flavor": "学习剑道需要时间和奉献。",
+                "group": "martial"
+            },
+            {
+                "id": "blade_spellbook",
+                "name": "刃之魔典",
+                "require": "g.bladelore>=5&&(g.spellblade+g.bladeweaver+g.arcanedervish+g.eldritchknight)>0",
+                "desc": "汇编使用刀刃施放和增强法术的方法。",
+                "max": 0,
+                "length": 30,
+                "cost": {
+                    "codices": 25,
+                    "research": 1000
+                },
+                "run": {
+                    "stamina": 0.5,
+                    "research": 10
+                },
+                "mod": {
+                    "bladelore.rate": 1,
+                    "player.negate.silence": 2.5,
+                    "sworddmg": 2,
+                    "spelldmg": 3.75
+                },
+                "flavor": "你的剑和法术合二为一，共同成长。",
+                "group": "martial"
+            },
+            {
+                "id": "blade_endure",
+                "name": "剑耐练习",
+                "require": "g.sword_lessons>=5",
+                "need": "armssource",
+                "desc": "通过大量训练增强你的耐力。",
+                "max": 2,
+                "length": 300,
+                "cost": {
+                    "stamina": 25,
+                    "vigor": 15
+                },
+                "run": {
+                    "stamina": 7,
+                    "vigor": 1
+                },
+                "mod": {
+                    "bladelore.rate": 0.2,
+                    "dodge": 0.5,
+                    "speed": 1,
+                    "stamina.max": "5%",
+                    "stamina.rate": "2%",
+                    "vigor.max": "5%",
+                    "vigor.rate": "2%"
+                },
+                "flavor": "艰苦的工作带来了巨大的成果。",
+                "group": "body"
+            }
+        ],
+        "classes": [
+            {
+                "id": "spellblade",
+                "name": "魔剑士",
+                "tags": "t_tier3,t_swordclass",
+                "desc": "一名战斗专家，将巫术与传统武术技巧融合。",
+                "require": "g.tier2>0&&g.enchanting>=7&&g.weaponlore>=8&&g.tier3==0",
+                "cost": {
+                    "research": 3000,
+                    "tomes": 3,
+                    "arcana": 20,
+                    "gold": 1000
+                },
+                "mod": {
+                    "sworddmg": 3,
+                    "player.speed": 1,
+                    "player.tohit": 1,
+                    "history.max": 1,
+                    "enchanting.max": 2,
+                    "bladelore.max": 2,
+                    "blade_spellbook.max": 1,
+                    "anatomy.max": 1,
+                    "arcanebody2.max": 1,
+                    "vivification.max": 1
+                }
+            },
+            {
+                "id": "bladeweaver",
+                "name": "剑舞者",
+                "tags": "t_tier4,t_swordclass",
+                "desc": "你已将训练推向更深层次，以魔法般的优雅将魔法与钢铁编织在一起。",
+                "require": "g.tier3>0&&(g.bladelore+g.weaponlore)>=10&&g.tier4==0&&g.weaving>=5",
+                "cost": {
+                    "research": 5000,
+                    "tomes": 10,
+                    "arcana": 20,
+                    "gold": 2500,
+                    "airgem": 10,
+                    "firegem": 5,
+                    "earthgem": 5,
+                    "watergem": 5
+                },
+                "mod": {
+                    "player.dodge": 2,
+                    "player.speed": "3%",
+                    "history.max": 1,
+                    "enchanting.max": 1,
+                    "elemental.max": 1,
+                    "bladelore.max": 2,
+                    "blade_spellbook.max": 1,
+                    "anatomy.max": 1,
+                    "arcanebody2.max": 1,
+                    "vivification.max": 1
+                }
+            },
+            {
+                "id": "arcanedervish",
+                "name": "奥术剑士",
+                "tags": "t_tier5,t_swordclass",
+                "desc": "你的刀刃和魔法技能融为一体，模糊不清，每一次挥击都像舞蹈中的一步。",
+                "require": "g.tier4>0&&g.bladelore>=7&&g.tier5==0",
+                "cost": {
+                    "research": 10000,
+                    "tomes": 20,
+                    "arcana": 20,
+                    "gold": 4000,
+                    "airgem": 20,
+                    "firegem": 10,
+                    "earthgem": 10,
+                    "watergem": 10
+                },
+                "mod": {
+                    "stamina.rate": "0.3",
+                    "vigor.rate": "0.03",
+                    "player.dodge": "5%",
+                    "history.max": 1,
+                    "enchanting.max": 1,
+                    "elemental.max": 1,
+                    "bladelore.max": 2,
+                    "blade_spellbook.max": 1,
+                    "anatomy.max": 1,
+                    "arcanebody2.max": 1,
+                    "vivification.max": 2
+                }
+            },
+            {
+                "id": "eldritchknight",
+                "name": "魔法骑士",
+                "tags": "t_tier6,t_swordclass",
+                "desc": "你已达到钢铁与巫术融合的巅峰，你的剑击似乎能劈开空气本身。",
+                "require": "g.tier5>0&&g.t_swordclass>0&&(g.bladelore+g.weaponlore)>=12&&g.tier6==0",
+                "cost": {
+                    "research": 15000,
+                    "tomes": 15,
+                    "runestones": 10,
+                    "arcana": 20,
+                    "gold": 7500,
+                    "airgem": 40,
+                    "firegem": 20,
+                    "earthgem": 20,
+                    "watergem": 20
+                },
+                "mod": {
+                    "stamina.rate": "0.5+2%",
+                    "vigor.rate": "0.05+2%",
+                    "history.max": 1,
+                    "enchanting.max": 1,
+                    "bladelore.max": 2,
+                    "blade_spellbook.max": 1,
+                    "elemental.max": 1,
+                    "anatomy.max": 1,
+                    "arcanebody2.max": 1,
+                    "vivification.max": 2
+                },
+                "flavor": "秘银只需一个手势便可分开。血肉之躯，几乎不值一提。"
+            }
+        ],
+        "tags": [
+            {
+                "id": "t_blade",
+                "name": "刀刃法术",
+                "hide": true
+            }
+        ],
+        "spells": [
+            {
+                "id": "mk_blade",
+                "name": "召唤刀刃",
+                "desc": "在战斗中，召唤一把魔法刀刃为你而战。",
+                "sortOrder": 1762,
+                "level": 7,
+                "school": "summoning",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "(g.bladelore>=7&&g.summoning>=5)||g.t_summonclass>=2",
+                "buy": {
+                    "research": 5000,
+                    "tomes": 5
+                },
+                "cost": {
+                    "mana": 10
+                },
+                "result": {
+                    "summoning.exp": 1
+                },
+                "summon": [
+                    {
+                        "id": "sum_magicblade",
+                        "count": 1,
+                        "max": 3
+                    }
+                ]
+            },
+            {
+                "id": "blade_buff",
+                "name": "锋利刀刃",
+                "sortOrder": 386,
+                "level": 5,
+                "school": "martial",
+                "keywords": {
+                    "type": [
+                        "buff"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ]
+                },
+                "require": "g.enchanting>=6&&g.summoning>=5&&g.mk_blade.owned",
+                "buy": {
+                    "tomes": 1,
+                    "research": 100,
+                    "spiritgem": 5
+                },
+                "cost": {
+                    "spirit": 6,
+                    "vigor": 2
+                },
+                "cd": 25,
+                "result": {
+                    "enchanting.exp": 0.8
+                },
+                "attack": {
+                    "targets": "minions",
+                    "maxTargets": 999,
+                    "harmless": true,
+                    "dot": {
+                        "name": "锋利刀刃",
+                        "duration": 45,
+                        "mod": {
+                            "self.bonuses.slash": 7
+                        }
+                    }
+                }
+            },
+            {
+                "id": "tide_blows",
+                "name": "潮汐打击",
+                "desc": "以海洋之力击倒一群敌人。",
+                "sortOrder": 323,
+                "level": 7,
+                "school": "martial",
+                "tags": [
+                    "t_nospellcraft",
+                    "t_blade"
+                ],
+                "keywords": {
+                    "type": [
+                        "damage",
+                        "debuff"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "instant",
+                        "over time"
+                    ],
+                    "special": [
+                        "weapon"
+                    ]
+                },
+                "require": "g.bladelore>=10&&g.waterlore>=8",
+                "buy": {
+                    "tomes": 5,
+                    "watergem": 10
+                },
+                "caststoppers": [
+                    1,
+                    4
+                ],
+                "need": "g.player.getWeapon().hasTag('t_sword')",
+                "needtext": "Currently equipped weapon must be a sword",
+                "cost": {
+                    "water": 7,
+                    "vigor": 7
+                },
+                "cd": 4,
+                "result": {
+                    "waterlore.exp": 0.7,
+                    "bladelore.exp": 0.7
+                },
+                "attack": {
+                    "targets": "enemies",
+                    "maxTargets": 999,
+                    "kind": "water",
+                    "tohit": 2,
+                    "damage": "(a.getWeapon().damage||0)*0.8",
+                    "potencies": [
+                        "physdmg",
+                        "sworddmg",
+                        "waterdmg"
+                    ],
+                    "dot": {
+                        "name": "暗流",
+                        "kind": "water",
+                        "damage": "0~6",
+                        "duration": 20,
+                        "mod": {
+                            "self.speed": -3
+                        },
+                        "potencies": [
+                            "spelldmg",
+                            "waterdmg"
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "mana_slash",
+                "name": "奥术斩击",
+                "desc": "用魔力灌注你的刀刃以增强你的力量。",
+                "sortOrder": 322,
+                "level": 4,
+                "school": "martial",
+                "tags": [
+                    "t_nospellcraft",
+                    "t_blade"
+                ],
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ],
+                    "special": [
+                        "weapon"
+                    ]
+                },
+                "require": "g.bladelore>=3&&g.lore>=8",
+                "buy": {
+                    "codices": 5,
+                    "managem": 7
+                },
+                "caststoppers": [
+                    1,
+                    4
+                ],
+                "need": "g.player.getWeapon().hasTag('t_sword')",
+                "needtext": "Currently equipped weapon must be a sword",
+                "cost": {
+                    "mana": 4,
+                    "vigor": 3
+                },
+                "cd": 2,
+                "result": {
+                    "lore.exp": 0.4,
+                    "bladelore.exp": 0.3
+                },
+                "attack": {
+                    "kind": "mana",
+                    "tohit": 3,
+                    "damage": "(a.getWeapon().damage||0)*1.4",
+                    "potencies": [
+                        "physdmg",
+                        "sworddmg",
+                        "manadmg"
+                    ]
+                }
+            },
+            {
+                "id": "whirl_slices",
+                "name": "旋风斩",
+                "desc": "劈开空气以伤害多个敌人。",
+                "sortOrder": 324,
+                "level": 6,
+                "school": "martial",
+                "tags": [
+                    "t_nospellcraft",
+                    "t_blade"
+                ],
+                "keywords": {
+                    "type": [
+                        "damage",
+                        "buff"
+                    ],
+                    "target": [
+                        "self",
+                        "enemy"
+                    ],
+                    "targets": [
+                        "multiple"
+                    ],
+                    "delivery": [
+                        "instant",
+                        "over time"
+                    ],
+                    "special": [
+                        "weapon"
+                    ]
+                },
+                "require": "g.bladelore>=8&&g.airlore>=8",
+                "cd": 2,
+                "buy": {
+                    "tomes": 5,
+                    "airgem": 10
+                },
+                "caststoppers": [
+                    1,
+                    4
+                ],
+                "need": "g.player.getWeapon().hasTag('t_sword')",
+                "needtext": "Currently equipped weapon must be a sword",
+                "cost": {
+                    "air": 6,
+                    "vigor": 6
+                },
+                "result": {
+                    "airlore.exp": 0.6,
+                    "bladelore.exp": 0.6
+                },
+                "dot": {
+                    "tags": "whirlingstep",
+                    "duration": 15,
+                    "mod": {
+                        "self.speed": 7,
+                        "self.dodge": 3
+                    }
+                },
+                "attack": {
+                    "targets": "enemies",
+                    "maxTargets": 999,
+                    "kind": "air",
+                    "tohit": 3,
+                    "damage": "(a.getWeapon().damage||0)*1.0",
+                    "potencies": [
+                        "sworddmg",
+                        "spelldmg",
+                        "airdmg"
+                    ]
+                },
+                "flavor": "旋转是个好把戏"
+            },
+            {
+                "id": "spirit_strike",
+                "name": "灵魂打击",
+                "desc": "锁定你的敌人并精确攻击他们。",
+                "sortOrder": 327,
+                "level": 2,
+                "school": "martial",
+                "tags": [
+                    "t_nospellcraft",
+                    "t_blade"
+                ],
+                "keywords": {
+                    "type": [
+                        "damage",
+                        "buff"
+                    ],
+                    "target": [
+                        "self",
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant",
+                        "over time"
+                    ],
+                    "special": [
+                        "weapon"
+                    ]
+                },
+                "require": "g.bladelore>=2&&g.scrying>=5&&g.spiritlore>=6",
+                "buy": {
+                    "codices": 5,
+                    "spiritgem": 7
+                },
+                "caststoppers": [
+                    1
+                ],
+                "need": "g.player.getWeapon().hasTag('t_sword')",
+                "needtext": "Currently equipped weapon must be a sword",
+                "cost": {
+                    "spirit": 3,
+                    "vigor": 1
+                },
+                "cd": 0.25,
+                "result": {
+                    "spiritlore.exp": 0.3,
+                    "bladelore.exp": 0.1
+                },
+                "dot": {
+                    "duration": 30,
+                    "tags": "strike",
+                    "mod": {
+                        "self.tohit": 3
+                    }
+                },
+                "attack": {
+                    "kind": "spirit",
+                    "tohit": 5,
+                    "damage": "3+(a.getWeapon().damage||0)*0.6",
+                    "potencies": [
+                        "physdmg",
+                        "sworddmg",
+                        "spiritdmg"
+                    ]
+                }
+            },
+            {
+                "id": "blind_sword",
+                "name": "致盲刀刃",
+                "desc": "用你的刀刃反射阳光以致盲你的敌人。",
+                "sortOrder": 328,
+                "level": 5,
+                "school": "martial",
+                "tags": [
+                    "t_nospellcraft",
+                    "t_blade"
+                ],
+                "keywords": {
+                    "type": [
+                        "damage",
+                        "debuff"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant",
+                        "over time"
+                    ],
+                    "special": [
+                        "weapon"
+                    ]
+                },
+                "require": "g.bladelore>=7&&g.lightlore>=8",
+                "buy": {
+                    "tomes": 5,
+                    "lightgem": 10
+                },
+                "caststoppers": [
+                    1,
+                    4
+                ],
+                "need": "g.player.getWeapon().hasTag('t_sword')",
+                "needtext": "Currently equipped weapon must be a sword",
+                "cost": {
+                    "light": 6,
+                    "vigor": 4
+                },
+                "cd": 2,
+                "result": {
+                    "lightlore.exp": 0.6,
+                    "bladelore.exp": 0.4
+                },
+                "attack": {
+                    "kind": "light",
+                    "tohit": 2,
+                    "damage": "(a.getWeapon().damage||0)*1.2",
+                    "potencies": [
+                        "spelldmg",
+                        "sworddmg",
+                        "lightdmg"
+                    ],
+                    "dot": {
+                        "name": "致盲",
+                        "tags": "t_tohitdown",
+                        "kind": "light",
+                        "duration": 30,
+                        "mod": {
+                            "self.tohit": -3
+                        }
+                    }
+                }
+            },
+            {
+                "id": "poison_blade",
+                "name": "淬毒刀刃",
+                "desc": "给你的敌人留下一些东西来记住你的剑。",
+                "sortOrder": 326,
+                "level": 8,
+                "school": "martial",
+                "tags": [
+                    "t_nospellcraft",
+                    "t_blade"
+                ],
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant",
+                        "over time"
+                    ]
+                },
+                "require": "g.bladelore>=9&&g.naturelore>=8",
+                "buy": {
+                    "tomes": 5,
+                    "naturegem": 10
+                },
+                "caststoppers": [
+                    1
+                ],
+                "need": "g.player.getWeapon().hasTag('t_sword')",
+                "needtext": "Currently equipped weapon must be a sword",
+                "cost": {
+                    "nature": 6,
+                    "vigor": 5
+                },
+                "cd": 2,
+                "result": {
+                    "naturelore.exp": 0.6,
+                    "bladelore.exp": 0.5
+                },
+                "attack": {
+                    "kind": "nature",
+                    "tohit": 1,
+                    "damage": "(a.getWeapon().damage||0)*0.5",
+                    "potencies": [
+                        "physdmg",
+                        "sworddmg",
+                        "naturedmg"
+                    ],
+                    "dot": {
+                        "name": "毒伤",
+                        "kind": "nature",
+                        "duration": 20,
+                        "damage": "4~6",
+                        "potencies": [
+                            "sworddmg",
+                            "naturedmg",
+                            "poisondmg"
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "drain_slash",
+                "name": "汲取斩击",
+                "desc": "通过你的刀刃吸取敌人的生命力。",
+                "sortOrder": 329,
+                "level": 6,
+                "school": "martial",
+                "tags": [
+                    "t_nospellcraft",
+                    "t_blade"
+                ],
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant",
+                        "over time"
+                    ]
+                },
+                "require": "g.bladelore>=6&&g.shadowlore>=8",
+                "buy": {
+                    "tomes": 5,
+                    "shadowgem": 10
+                },
+                "caststoppers": [
+                    1,
+                    4
+                ],
+                "need": "g.player.getWeapon().hasTag('t_sword')",
+                "needtext": "Currently equipped weapon must be a sword",
+                "cost": {
+                    "shadow": 5,
+                    "vigor": 4
+                },
+                "cd": 2,
+                "result": {
+                    "shadowlore.exp": 0.5,
+                    "bladelore.exp": 0.4
+                },
+                "attack": {
+                    "kind": "shadow",
+                    "tohit": 2,
+                    "damage": "(a.getWeapon().damage||0)*0.8",
+                    "potencies": [
+                        "physdmg",
+                        "sworddmg",
+                        "shadowdmg"
+                    ],
+                    "dot": {
+                        "kind": "shadow",
+                        "duration": 40,
+                        "damage": 3,
+                        "potencies": [
+                            "shadowdmg",
+                            "spelldmg"
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "flameslash",
+                "name": "炽焰斩",
+                "desc": "用你的剑向敌人发射火焰流。",
+                "sortOrder": 325,
+                "level": 4,
+                "school": "martial",
+                "tags": [
+                    "t_nospellcraft",
+                    "t_blade"
+                ],
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant",
+                        "over time"
+                    ]
+                },
+                "require": "g.bladelore>=3&&g.firelore>=8",
+                "buy": {
+                    "codices": 5,
+                    "firegem": 10
+                },
+                "caststoppers": [
+                    1,
+                    4
+                ],
+                "need": "g.player.getWeapon().hasTag('t_sword')",
+                "needtext": "Currently equipped weapon must be a sword",
+                "cost": {
+                    "fire": 6,
+                    "vigor": 4
+                },
+                "cd": 2,
+                "result": {
+                    "firelore.exp": 0.6,
+                    "bladelore.exp": 0.4
+                },
+                "attack": {
+                    "kind": "fire",
+                    "tohit": 1,
+                    "damage": "(a.getWeapon().damage||0)*0.9",
+                    "potencies": [
+                        "spelldmg",
+                        "sworddmg",
+                        "firedmg"
+                    ],
+                    "dot": {
+                        "name": "燃烧",
+                        "kind": "fire",
+                        "duration": 5,
+                        "damage": "5~7",
+                        "potencies": [
+                            "sworddmg",
+                            "firedmg",
+                            "spelldmg"
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "cut_time",
+                "name": "时间切割",
+                "desc": "暂时脱离时间流。",
+                "sortOrder": 384,
+                "level": 15,
+                "school": "martial",
+                "tags": [
+                    "t_nospellcraft",
+                    "t_blade"
+                ],
+                "keywords": {
+                    "type": [
+                        "buff",
+                        "debuff"
+                    ],
+                    "target": [
+                        "self"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "over time"
+                    ]
+                },
+                "require": "g.bladelore>=10&&g.chronomancy>=7",
+                "buy": {
+                    "tomes": 25,
+                    "timegem": 3,
+                    "clepsydra": 3
+                },
+                "caststoppers": [
+                    1,
+                    4
+                ],
+                "need": "g.player.getWeapon().hasTag('t_sword')",
+                "needtext": "Currently equipped weapon must be a sword",
+                "cost": {
+                    "tempus": 20
+                },
+                "cd": 60,
+                "result": {
+                    "bladelore.exp": 20
+                },
+                "dot": {
+                    "name": "暂停",
+                    "duration": 5,
+                    "mod": {
+                        "vigor.rate": 8,
+                        "self.speed": -60,
+                        "self.dodge": 20
+                    }
+                }
+            },
+            {
+                "id": "blood_slice",
+                "name": "以血还血",
+                "desc": "用你的血液来增强一次打击。",
+                "sortOrder": 321,
+                "level": 2,
+                "school": "martial",
+                "tags": [
+                    "t_nospellcraft",
+                    "t_blade"
+                ],
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.bladelore>=2&&g.bloodlore>=5",
+                "buy": {
+                    "codices": 5,
+                    "bloodgem": 10
+                },
+                "caststoppers": [
+                    1
+                ],
+                "need": "g.player.getWeapon().hasTag('t_sword')",
+                "needtext": "Currently equipped weapon must be a sword",
+                "cost": {
+                    "hp": 20,
+                    "vigor": 3
+                },
+                "cd": 4,
+                "result": {
+                    "bloodlore.exp": 2,
+                    "bladelore.exp": 0.3
+                },
+                "attack": {
+                    "kind": "blood",
+                    "tohit": 4,
+                    "damage": "10+(a.getWeapon().damage||0)*0.7",
+                    "potencies": [
+                        "physdmg",
+                        "sworddmg",
+                        "blooddmg"
+                    ]
+                }
+            }
+        ]
+    }
+}

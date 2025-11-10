@@ -1,0 +1,1110 @@
+{
+    "module": "legacy_winter",
+    "data": {
+        "materials": [
+            {
+                "id": "crimsonice",
+                "priceMod": 20,
+                "tohit": 2,
+                "bonus": 3,
+                "kind": "ice",
+                "noproc": true,
+                "level": 5
+            },
+            {
+                "id": "coldsteel",
+                "kind": "metal",
+                "priceMod": 30,
+                "tohit": 3,
+                "enchants": 2,
+                "bonus": 7,
+                "noproc": true,
+                "level": 5
+            },
+            {
+                "id": "permafrost",
+                "priceMod": 80,
+                "bonus": 10,
+                "tohit": 3,
+                "kind": "ice",
+                "noproc": true,
+                "level": 7
+            }
+        ],
+        "encounters": [
+            {
+                "id": "enc_w_lifeforce",
+                "name": "虹吸生命力",
+                "desc": "古树沉睡了数百年。现在它正将生命力重新吸回枝干。",
+                "level": 2,
+                "run": {
+                    "hp": 2
+                },
+                "effect": {
+                    "weary": "1~3",
+                    "frost": "0~1"
+                }
+            },
+            {
+                "id": "enc_w_faz_nothingthere",
+                "name": "在你身后",
+                "desc": "什么都没有。",
+                "effect": {
+                    "madness": "3~5",
+                    "unease": "4~6"
+                },
+                "result": {
+                    "w_fazbitknowledge": "1~3",
+                    "winteressence": 0.1
+                }
+            },
+            {
+                "id": "enc_w_faz_somethingthere",
+                "name": "在你身后",
+                "desc": "缠结的金属骨架在你身后盘旋。",
+                "effect": {
+                    "bf": "3~5",
+                    "unease": "4~6"
+                },
+                "result": {
+                    "w_fazbitknowledge": "1~3",
+                    "winteressence": 0.1
+                }
+            },
+            {
+                "id": "enc_w_faz_nothingthere2",
+                "name": "虚惊一场",
+                "desc": "运输警报响起，但似乎本应运输的物品不见了。",
+                "require": "w_fazbit7",
+                "effect": {
+                    "madness": "2~3",
+                    "unease": "3~5"
+                },
+                "result": {
+                    "w_fazbitknowledge": "3~4",
+                    "frostbrass": 0.75,
+                    "winteressence": 0.15
+                }
+            },
+            {
+                "id": "enc_w_faz_somethingthere2",
+                "name": "运输警报",
+                "desc": "运输警报响起。你闪身避开其货物。",
+                "require": "w_fazbit7",
+                "effect": {
+                    "bf": "2~3",
+                    "unease": "3~5"
+                },
+                "result": {
+                    "w_fazbitknowledge": "3~4",
+                    "frostbrass": 0.75,
+                    "winteressence": 0.15
+                }
+            },
+            {
+                "id": "enc_w_faz_nothingthere3",
+                "name": "物资运输",
+                "desc": "你迅速从自动化运输系统中取下一件冷藏品。需要对有效运输目标进行微调。",
+                "effect": {
+                    "madness": "1~2",
+                    "unease": "2~4"
+                },
+                "result": {
+                    "w_dolls": 0.05,
+                    "winteressence": 0.2
+                }
+            },
+            {
+                "id": "enc_w_faz_somethingthere3",
+                "name": "物资运输",
+                "desc": "快速注入能量以恢复一个正在衰弱的符文。",
+                "effect": {
+                    "bf": "1~2",
+                    "unease": "2~4"
+                },
+                "result": {
+                    "w_dolls": 0.05,
+                    "winteressence": 0.2
+                }
+            },
+            {
+                "id": "enc_w_faz_tinyskeletons",
+                "name": "微型骨架",
+                "desc": "微小、畸形的金属骨架散落在地板上。",
+                "effect": {
+                    "weary": "3~5",
+                    "unease": "4~6"
+                },
+                "result": {
+                    "w_fazbitknowledge": "1~3",
+                    "winteressence": 0.1
+                }
+            },
+            {
+                "id": "enc_w_faz_tinyskeletons2",
+                "name": "玩偶内骨架",
+                "desc": "黄铜装置静止不动，毫无生气且不完美。",
+                "tags": "site_of_learning",
+                "require": "w_fazbit2",
+                "effect": {
+                    "madness": "2~3",
+                    "unease": "3~5"
+                },
+                "result": {
+                    "w_fazbitknowledge": "3~4",
+                    "frostbrass": 0.75,
+                    "winteressence": 0.15,
+                    "crafting.rate": 0.1
+                },
+                "mod": {
+                    "anatomy.max": "0.05//20/-10"
+                }
+            },
+            {
+                "id": "enc_w_faz_tinyskeletons3",
+                "name": "准备好的内骨架",
+                "desc": "由黄铜铸造而成，它们将成为活化符咒的绝佳导管。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "madness": "1~2",
+                    "unease": "2~4"
+                },
+                "result": {
+                    "w_dolls": 0.05,
+                    "winteressence": 0.2,
+                    "crafting.rate": 0.2
+                },
+                "mod": {
+                    "anatomy.max": "0.025//40/-10"
+                }
+            },
+            {
+                "id": "enc_w_faz_blobs",
+                "name": "软泥制造机",
+                "desc": "机器将金属块投入坩埚。圆形、有弹性的球体从中涌出。",
+                "effect": {
+                    "bf": "3~5",
+                    "unease": "4~6"
+                },
+                "result": {
+                    "w_fazbitknowledge": "1~3",
+                    "winteressence": 0.1
+                }
+            },
+            {
+                "id": "enc_w_faz_blobs2",
+                "name": "自动涂层机",
+                "desc": "一台故障机器试图为畸形骨架涂层，但无济于事。",
+                "tags": "site_of_learning",
+                "require": "w_fazbit4",
+                "effect": {
+                    "bf": "2~3",
+                    "unease": "3~5"
+                },
+                "result": {
+                    "w_fazbitknowledge": "3~4",
+                    "frostbrass": 0.75,
+                    "winteressence": 0.15
+                },
+                "mod": {
+                    "spiritlore.max": "0.025//20/-10",
+                    "alchemy.max": "0.05//20/-10",
+                    "potions.max": "0.05//20/-10"
+                }
+            },
+            {
+                "id": "enc_w_faz_blobs3",
+                "name": "内骨架涂层站",
+                "desc": "你稍微调整了涂层厚度，以确保更好地附着在基础内骨架上。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "bf": "1~2",
+                    "unease": "2~4"
+                },
+                "result": {
+                    "w_dolls": 0.05,
+                    "winteressence": 0.2
+                },
+                "mod": {
+                    "spiritlore.max": "0.025//40/-10",
+                    "alchemy.max": "0.025//40/-10",
+                    "potions.max": "0.025//40/-10"
+                }
+            },
+            {
+                "id": "enc_w_faz_paint",
+                "name": "突发失明",
+                "desc": "当你擦亮眼睛时，你发现自己已被魔法颜料细致地覆盖。",
+                "effect": {
+                    "bf": "3~5",
+                    "unease": "4~6"
+                },
+                "result": {
+                    "w_fazbitknowledge": "1~3",
+                    "winteressence": 0.1
+                }
+            },
+            {
+                "id": "enc_w_faz_paint2",
+                "name": "节日泼洒",
+                "tags": "site_of_learning",
+                "desc": "一位魔法画家将颜料泼洒得到处都是，创造出毫无疑问的节日图案。",
+                "require": "w_fazbit8",
+                "effect": {
+                    "bf": "2~3",
+                    "unease": "3~5"
+                },
+                "result": {
+                    "w_fazbitknowledge": "3~4",
+                    "frostbrass": 0.75,
+                    "winteressence": 0.15
+                },
+                "mod": {
+                    "tomes.rate": "0.00005//20/-10"
+                }
+            },
+            {
+                "id": "enc_w_faz_paint3",
+                "name": "绘画站",
+                "tags": "site_of_learning",
+                "desc": "自动化画家愉快地画上又一张可爱的脸。这里没有问题。",
+                "effect": {
+                    "bf": "1~2",
+                    "unease": "2~4"
+                },
+                "result": {
+                    "w_dolls": 0.05,
+                    "winteressence": 0.2
+                },
+                "mod": {
+                    "tomes.rate": "0.000025//20/-10"
+                }
+            },
+            {
+                "id": "enc_w_faz_boominglaugh",
+                "name": "轰鸣的笑声",
+                "desc": "深沉、金属般的笑声在设施中回荡。",
+                "effect": {
+                    "madness": "3~5",
+                    "unease": "4~6"
+                },
+                "result": {
+                    "w_fazbitknowledge": "1~3",
+                    "winteressence": 0.1
+                }
+            },
+            {
+                "id": "enc_w_faz_creepylaugh",
+                "name": "诡异的笑声",
+                "desc": "一阵歇斯底里、重复的笑声充斥着大厅。",
+                "effect": {
+                    "madness": "3~5",
+                    "unease": "4~6"
+                },
+                "result": {
+                    "w_fazbitknowledge": "1~3",
+                    "winteressence": 0.1
+                }
+            },
+            {
+                "id": "enc_w_faz_boominglaugh2",
+                "name": "欢快的笑声",
+                "desc": "欢快的笑声在空荡荡的大厅中回荡。",
+                "tags": "site_of_learning",
+                "require": "w_fazbit3",
+                "effect": {
+                    "madness": "2~3",
+                    "unease": "3~5"
+                },
+                "result": {
+                    "w_fazbitknowledge": "3~4",
+                    "frostbrass": 0.75,
+                    "winteressence": 0.15
+                },
+                "mod": {
+                    "spiritlore.max": "0.025//20/-10"
+                }
+            },
+            {
+                "id": "enc_w_faz_creepylaugh2",
+                "name": "孩子们的笑声",
+                "desc": "快乐孩子们的笑声在荒凉的大厅中回荡。",
+                "tags": "site_of_learning",
+                "require": "w_fazbit3",
+                "effect": {
+                    "madness": "2~3",
+                    "unease": "3~5"
+                },
+                "result": {
+                    "w_fazbitknowledge": "3~4",
+                    "frostbrass": 0.75,
+                    "winteressence": 0.15
+                },
+                "mod": {
+                    "spiritlore.max": "0.025//20/-10"
+                }
+            },
+            {
+                "id": "enc_w_faz_boominglaugh3",
+                "name": "欢快的笑声",
+                "desc": "欢快的笑声充满大厅。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "madness": "1~2",
+                    "unease": "2~4"
+                },
+                "result": {
+                    "w_dolls": 0.05,
+                    "winteressence": 0.2
+                },
+                "mod": {
+                    "spiritlore.max": "0.0125//40/-10"
+                }
+            },
+            {
+                "id": "enc_w_faz_creepylaugh3",
+                "name": "孩子们的笑声",
+                "desc": "快乐孩子们的笑声在大厅中回荡。那些冷冰冰的东西似乎也因此变得温暖了一些。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "madness": "1~2",
+                    "unease": "2~4"
+                },
+                "result": {
+                    "w_dolls": 0.05,
+                    "winteressence": 0.2
+                },
+                "mod": {
+                    "spiritlore.max": "0.0125//40/-10"
+                }
+            },
+            {
+                "id": "enc_w_faz_auditlog",
+                "name": "审计日志",
+                "desc": "残破的页面几乎没有透露任何信息。",
+                "effect": {
+                    "rage": "3~5",
+                    "unease": "4~6"
+                },
+                "result": {
+                    "w_fazbitknowledge": "1~3",
+                    "winteressence": 0.1
+                }
+            },
+            {
+                "id": "enc_w_faz_auditlog2",
+                "name": "审计日志",
+                "tags": "site_of_learning",
+                "desc": "一份精心组织的材料交付日志。炼金试剂和某些金属在其中占据显著位置。",
+                "require": "w_fazbit1",
+                "effect": {
+                    "bf": "2~3",
+                    "unease": "3~5"
+                },
+                "result": {
+                    "w_fazbitknowledge": "3~4",
+                    "frostbrass": 0.75,
+                    "winteressence": 0.15
+                },
+                "mod": {
+                    "prismaticgems.max": "0.2//50/-5",
+                    "gems.max": "0.2//50/-5"
+                }
+            },
+            {
+                "id": "enc_w_faz_auditlog3",
+                "name": "审计日志",
+                "tags": "site_of_learning",
+                "desc": "你审阅了发货计划，以防万一。似乎没有明显的物流问题。",
+                "effect": {
+                    "bf": "1~2",
+                    "unease": "2~4"
+                },
+                "result": {
+                    "w_dolls": 0.05,
+                    "winteressence": 0.2
+                },
+                "mod": {
+                    "prismaticgems.max": "0.1//50/-10",
+                    "gems.max": "0.1//50/-10"
+                }
+            },
+            {
+                "id": "enc_w_faz_prototype",
+                "name": "尖叫的骨架",
+                "desc": "一个平静坐着的骨架突然伸向你，发出尖叫。",
+                "effect": {
+                    "madness": "3~5",
+                    "unease": "4~6"
+                },
+                "result": {
+                    "w_fazbitknowledge": "1~3",
+                    "winteressence": 0.1
+                }
+            },
+            {
+                "id": "enc_w_faz_prototype2",
+                "name": "活化玩偶",
+                "desc": "很明显，施加于此的附魔本应遵循活化咒语图，但岁月已使其损耗。",
+                "tags": "site_of_learning",
+                "require": "w_fazbit6",
+                "effect": {
+                    "madness": "2~3",
+                    "unease": "3~5"
+                },
+                "result": {
+                    "w_fazbitknowledge": "3~4",
+                    "frostbrass": 0.75,
+                    "winteressence": 0.15
+                },
+                "mod": {
+                    "puppetry.max": "0.05//20/-10",
+                    "machinacreation.max": "0.05//20/-10"
+                }
+            },
+            {
+                "id": "enc_w_faz_prototype3",
+                "name": "原型单元",
+                "desc": "这是修复后制作的第一个玩偶，现在它作为未来所有生产的标准。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "madness": "1~2",
+                    "unease": "2~4"
+                },
+                "result": {
+                    "w_dolls": 0.05,
+                    "winteressence": 0.2
+                },
+                "mod": {
+                    "puppetry.max": "0.025//40/-10",
+                    "machinacreation.max": "0.025//40/-10"
+                }
+            },
+            {
+                "id": "enc_w_faz_stockpile",
+                "name": "材料储备",
+                "desc": "你偶然发现了一批珍贵的材料储备。",
+                "effect": {
+                    "unease": "5~7"
+                },
+                "result": {
+                    "w_fazbitknowledge": "1~3",
+                    "winteressence": 0.1
+                },
+                "loot": {
+                    "gems": "2~5",
+                    "gold": "100~250"
+                }
+            },
+            {
+                "id": "enc_w_faz_stockpile2",
+                "name": "材料储备",
+                "desc": "手持账本和日志，寻找最有价值的材料变得轻而易举。",
+                "require": "w_fazbit5",
+                "effect": {
+                    "unease": "4~6"
+                },
+                "loot": {
+                    "w_fazbitknowledge": "1~8",
+                    "frostbrass": 2.25,
+                    "winteressence": 0.15,
+                    "gems": "5~7",
+                    "gold": "200~400"
+                }
+            },
+            {
+                "id": "enc_w_faz_stockpile3",
+                "name": "材料储备",
+                "desc": "检查材料储备，以获取任何多余的物品。",
+                "effect": {
+                    "unease": "3~5"
+                },
+                "loot": {
+                    "winteressence": 0.2,
+                    "gems": "6~8",
+                    "gold": "300~500"
+                }
+            },
+            {
+                "id": "enc_w_faz_scrapper",
+                "name": "金属扭曲机",
+                "desc": "一台机器反复撕裂然后焊接那些看起来无法辨认的金属块。",
+                "effect": {
+                    "bf": "3~5",
+                    "unease": "4~6"
+                },
+                "result": {
+                    "w_fazbitknowledge": "1~3",
+                    "winteressence": 0.1
+                }
+            },
+            {
+                "id": "enc_w_faz_scrapper2",
+                "name": "调节器",
+                "desc": "它曾旨在进行微调以更好地适应个体接收者，现在却沦为永无止境的无用工作。",
+                "require": "w_fazbit9",
+                "effect": {
+                    "madness": "2~3",
+                    "unease": "3~5"
+                },
+                "result": {
+                    "w_fazbitknowledge": "2~4",
+                    "winteressence": 0.15
+                }
+            },
+            {
+                "id": "enc_w_faz_scrapper3",
+                "name": "定制站",
+                "desc": "虽然没有指令需要它处理，但它仍然被用来为你制作的每个玩偶增添独特的风格。",
+                "effect": {
+                    "madness": "1~2",
+                    "unease": "2~4"
+                },
+                "result": {
+                    "w_dolls": 0.05,
+                    "winteressence": 0.2
+                }
+            },
+            {
+                "id": "enc_icestudy",
+                "name": "埃宾的笔记",
+                "desc": "对冰的特性进行的详细研究。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "bf": "1~3",
+                    "icelore.exp": 1
+                },
+                "result": {
+                    "winteressence": 0.1,
+                    "evt_w_chillforge": "10%"
+                },
+                "mod": {
+                    "icelore.max": "0.1//20/-10"
+                }
+            },
+            {
+                "id": "enc_winterstudy",
+                "name": "往昔冬日之书",
+                "desc": "一年中最冷的季节也以其黑暗传说而闻名。",
+                "effect": {
+                    "bf": "1~2",
+                    "rage": "0~3",
+                    "winterlore.rate": 0.04
+                },
+                "loot": {
+                    "winteressence": 0.1,
+                    "codices": "80%",
+                    "evt_w_chillforge": "15%"
+                }
+            },
+            {
+                "id": "frozenbookcase",
+                "name": "冰冻书架",
+                "desc": "书本破裂的页面与冰块融为一体",
+                "effect": {
+                    "madness": "1~2",
+                    "fire": -0.1,
+                    "weary": "1~3",
+                    "frost": "0~2",
+                    "icelore.exp": 0.5
+                },
+                "loot": {
+                    "winteressence": 0.1,
+                    "codices": "2~5",
+                    "tomes": "20%"
+                }
+            },
+            {
+                "id": "enc_w_drawscheme",
+                "name": "绘制神秘图谱",
+                "desc": "图案必须精确地布置，以引导魔法编织。",
+                "level": 2,
+                "effect": {
+                    "madness": "1~2",
+                    "bf": "1~3",
+                    "frost": "0~1"
+                },
+                "result": {
+                    "arcana": -1
+                }
+            },
+            {
+                "id": "enc_w_placegems",
+                "name": "放置宝石",
+                "desc": "魔法宝石将汇聚仪式之树的力量。",
+                "level": 2,
+                "effect": {
+                    "unease": "0~2",
+                    "frost": "0~1"
+                },
+                "result": {
+                    "gems": -5
+                }
+            },
+            {
+                "id": "enc_w_setfocus",
+                "name": "连接焦点",
+                "desc": "雪傀儡将很好地服务于此目的。",
+                "level": 2,
+                "effect": {
+                    "weary": "0~2",
+                    "rage": "0~1",
+                    "frost": "0~2"
+                },
+                "result": {
+                    "ice": -3
+                }
+            },
+            {
+                "id": "enc_w_attune",
+                "name": "调谐当地魔法",
+                "desc": "在仪式进行之前，与树的魔法进行调谐。",
+                "tags": "site_of_learning",
+                "level": 2,
+                "effect": {
+                    "madness": "1~2",
+                    "frost": "0.5~2"
+                },
+                "result": {
+                    "winteressence": 0.1
+                },
+                "mod": {
+                    "icelore.max": "0.15//20/-10"
+                }
+            },
+            {
+                "id": "enc_w_kidsplaying",
+                "name": "雪中嬉戏",
+                "desc": "孩子们似乎很喜欢你从空中召唤出的雪球。",
+                "level": 2,
+                "effect": {
+                    "weary": "1~2",
+                    "rage": "-1~0",
+                    "bf": "-1~-2",
+                    "icelore.exp": 3
+                },
+                "result": {
+                    "winteressence": 0.1,
+                    "livingsnow": "1~3"
+                }
+            },
+            {
+                "id": "enc_w_windbarrier",
+                "name": "风障",
+                "desc": "建造一道抵御凛冽寒风的屏障",
+                "effect": {
+                    "weary": "1~2",
+                    "airlore.exp": 2
+                },
+                "level": 2,
+                "result": {
+                    "winteressence": 0.1
+                }
+            },
+            {
+                "id": "enc_w_conjuring",
+                "name": "召唤",
+                "desc": "在魔法阵中召唤一个火元素。这应该能驱散寒冷！",
+                "effect": {
+                    "mana": "0.5~1",
+                    "firelore.exp": 3,
+                    "conjuration.exp": 5,
+                    "madness": "2~3"
+                },
+                "level": 2,
+                "mod": {
+                    "frost.rate": "-0.1//100/-5"
+                }
+            },
+            {
+                "id": "enc_w_candles",
+                "name": "制作蜡烛",
+                "desc": "制作永燃蜡烛",
+                "effect": {
+                    "unease": "1~2",
+                    "crafting.exp": 3
+                },
+                "level": 2,
+                "result": {
+                    "winteressence": 0.1
+                }
+            },
+            {
+                "id": "enc_w_legends",
+                "name": "故事",
+                "desc": "聆听长者们讲述他们的冬季传说。",
+                "effect": {
+                    "bf": "1~2",
+                    "unease": "0~2",
+                    "history.exp": 3
+                },
+                "level": 2,
+                "result": {
+                    "winteressence": 0.1,
+                    "evt_w_legend": "10%"
+                }
+            },
+            {
+                "id": "enc_w_decorations",
+                "name": "旧装饰品",
+                "desc": "黄铜小饰品和珠子装饰着村庄。",
+                "effect": {
+                    "bf": "1~2",
+                    "madness": "0~2"
+                },
+                "level": 2,
+                "result": {
+                    "winteressence": 0.1
+                }
+            },
+            {
+                "id": "enc_w_coldsnap",
+                "name": "寒潮",
+                "desc": "一阵突如其来的冰冷寒风让你寒彻骨髓。",
+                "effect": {
+                    "weary": "-1~3",
+                    "unease": "-1~3",
+                    "frost": "1~2",
+                    "icelore.exp": 1.5,
+                    "hp": "-2~-4",
+                    "fire": "-0.2~-0.3"
+                }
+            },
+            {
+                "id": "enc_emberstone",
+                "name": "余烬石",
+                "desc": "这里地面散发着一些潜藏的热量。",
+                "effect": {
+                    "madness": "1~2",
+                    "hp": "-1~-2",
+                    "frost": "-2~-3",
+                    "fire": "0.2~0.3"
+                }
+            },
+            {
+                "id": "drippingwater",
+                "name": "水源",
+                "desc": "这里的一些冰正在融化。它如何抵抗寒冷是个谜。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "madness": "1~2",
+                    "frost": "-1~0",
+                    "water": "0.2~0.3"
+                },
+                "mod": {
+                    "icelore.max": "0.1//20/-10"
+                }
+            },
+            {
+                "id": "frozenloam",
+                "name": "冰冻草药",
+                "desc": "几株草药仍在冰冻的泥土中存活。",
+                "level": 3,
+                "effect": {
+                    "rage": "1~3",
+                    "weary": "1~4"
+                },
+                "loot": {
+                    "winteressence": 0.1,
+                    "herbs": "2~5",
+                    "snowdrop": "20%"
+                }
+            },
+            {
+                "id": "w_crystalsocket",
+                "name": "闪亮水晶",
+                "desc": "一簇水晶镶嵌在洞壁上，在黑暗中闪闪发光。",
+                "level": 3,
+                "effect": {
+                    "rage": "1~3",
+                    "weary": "1~4",
+                    "earthlore.exp": 3
+                },
+                "loot": {
+                    "gems": "1~3",
+                    "watergem": "0~1",
+                    "firegem": "20%"
+                }
+            },
+            {
+                "id": "icegrave",
+                "name": "冰墓",
+                "desc": "一位旅人在此被活活冻僵。尸体或许仍有用途。",
+                "tags": "site_of_learning",
+                "effect": {
+                    "madness": "2~3",
+                    "weary": "1~4",
+                    "frost": "1~2"
+                },
+                "loot": {
+                    "winteressence": 0.1,
+                    "bodies": {
+                        "%": "8%",
+                        "value": "10~15",
+                        "skipLocked": true
+                    },
+                    "bones": {
+                        "%": "40%",
+                        "value": "2~4",
+                        "skipLocked": true
+                    },
+                    "bloodgem": "5%"
+                },
+                "mod": {
+                    "earthlore.max": "0.1//20/-10"
+                }
+            },
+            {
+                "id": "icesculpture",
+                "name": "冰雕",
+                "desc": "由冰雪形成的人形雕塑。正确的附魔将赋予它生命。",
+                "tags": "site_of_learning",
+                "level": 2,
+                "effect": {
+                    "weary": "1~4",
+                    "ice": -0.4
+                },
+                "loot": {
+                    "winteressence": 0.1,
+                    "snowman": 1
+                },
+                "mod": {
+                    "icelore.max": "0.1//20/-10"
+                }
+            },
+            {
+                "id": "icefairy",
+                "name": "冰霜妖精",
+                "desc": "远处可见晶莹翅膀的闪烁。靠近它是不明智的。",
+                "tags": "site_of_learning",
+                "level": 2,
+                "effect": {
+                    "weary": "1~4",
+                    "ice": 0.4
+                },
+                "result": {
+                    "winteressence": 0.2
+                },
+                "mod": {
+                    "icelore.max": "0.1//10/-10"
+                }
+            }
+        ],
+        "rares": [
+            {
+                "id": "ice_blade",
+                "sym": "❄️",
+                "name": "冰川之刃",
+                "unique": true,
+                "type": "weapon",
+                "slot": "mainhand",
+                "tags": "t_martial,t_slash,t_sword",
+                "damage": "8~10",
+                "attack": {
+                    "kind": "slash",
+                    "damage": "i.damage||0",
+                    "potencies": [
+                        "sworddmg",
+                        "slashdmg",
+                        "physdmg",
+                        "icedmg"
+                    ]
+                },
+                "cost": 20,
+                "level": 5
+            },
+            {
+                "id": "iceorb",
+                "sym": "❄️",
+                "name": "凛冬宝珠",
+                "unique": true,
+                "tags": "t_event,t_orb,t_artifact",
+                "desc": "一个拥有魔法力量的雪花球。它让你想起寒冷的时光。",
+                "level": 10,
+                "material": "mat_caster_diamond",
+                "type": "weapon",
+                "slot": "mainhand",
+                "enchants": 1,
+                "sell": {
+                    "gold": 100
+                },
+                "attack": {
+                    "name": "暴风雪",
+                    "damage": "3~6",
+                    "kind": "ice",
+                    "tohit": 2,
+                    "targets": "enemies",
+                    "maxTargets": 999,
+                    "potencies": [
+                        "spelldmg",
+                        "icedmg"
+                    ],
+                    "dot": {
+                        "duration": 5,
+                        "id": "frostbite",
+                        "kind": "ice",
+                        "damage": "3~4",
+                        "mod": {
+                            "self.speed": -3
+                        },
+                        "potencies": [
+                            "spelldmg",
+                            "icedmg"
+                        ]
+                    }
+                },
+                "alter": {
+                    "mod": {
+                        "ice.rate": "20%",
+                        "ice.max": "20%",
+                        "icedmg": 50,
+                        "icelore.rate": "0.15+30%",
+                        "water.rate": "10%",
+                        "water.max": "10%",
+                        "waterlore.rate": "0.15+30%",
+                        "fire.rate": "-80%",
+                        "fire.max": "-80%"
+                    }
+                }
+            },
+            {
+                "id": "coldnecklace",
+                "name": "寒铁项链",
+                "desc": "佩戴它会使你的思绪冷静，专注力敏锐。",
+                "tags": "t_accessory,t_necklace",
+                "unique": true,
+                "level": 1,
+                "armor": 3,
+                "type": "armor",
+                "kind": "necklace",
+                "slot": "neck",
+                "enchants": 3,
+                "alter": {
+                    "mod": {
+                        "focus.result.runner.skillprogress": "100%",
+                        "stress.rate": -0.3
+                    }
+                }
+            }
+        ],
+        "potions": [
+            {
+                "id": "pot_icecreamevil",
+                "name": "融化的冰淇淋",
+                "desc": "不再是清爽的美味，这团黏糊糊的东西毫无实际用途",
+                "require": "g.potions>=999",
+                "need": "g.lore>999",
+                "needtext": "Can only be done in winter",
+                "sell": {
+                    "gold": 1
+                },
+                "use": {
+                    "dot": {
+                        "id": "icecream",
+                        "name": "过期冰淇淋",
+                        "duration": 15,
+                        "effect": {
+                            "hp": -0.5
+                        }
+                    }
+                }
+            },
+            {
+                "id": "pot_icecream",
+                "name": "融化的冰淇淋",
+                "desc": "不再是清爽的美味，这团黏糊糊的东西毫无实际用途",
+                "require": "g.potions>=999",
+                "need": "g.lore>999",
+                "needtext": "Can only be done in winter",
+                "sell": {
+                    "gold": 1
+                },
+                "use": {
+                    "dot": {
+                        "id": "icecream",
+                        "name": "过期冰淇淋",
+                        "duration": 15,
+                        "effect": {
+                            "hp": -0.5
+                        }
+                    }
+                }
+            }
+        ],
+        "potencies": [
+            {
+                "id": "icedmg",
+                "name": "冰霜效力",
+                "val": 100,
+                "damage": "Math.max((i.value/100)||0,0)"
+            }
+        ],
+        "hall": {
+            "data": {
+                "upgrades": [
+                    {
+                        "id": "fazbit_restoration",
+                        "name": "法兹比特工坊修复计划",
+                        "sym": "🏰❄️",
+                        "tags": "hall",
+                        "desc": "这个地方曾经一定是整个王国人民的巨大欢乐之源。修复它将是一项巨大的成就……当然，是在季节允许的情况下。",
+                        "require": "g.lore>999",
+                        "need": "g.lore>999",
+                        "needtext": "Can only be done in winter",
+                        "max": 1,
+                        "result": {
+                            "fame": 10
+                        }
+                    },
+                    {
+                        "id": "fazbit_restoration2",
+                        "name": "法兹比特的封印冬日工坊",
+                        "sym": "🏰❄️",
+                        "tags": "hall",
+                        "desc": "它沉睡着，等待下一次被需要。",
+                        "require": "g.lore>999",
+                        "need": "g.lore>999",
+                        "needtext": "Can only be done in winter",
+                        "max": 1,
+                        "mod": {
+                            "puppetry.buy.arcana": "-100%",
+                            "machinacreation.buy.arcana": "-50%",
+                            "automatasculpting.buy.arcana": "-50%",
+                            "t_craftwork.rate": "10%"
+                        }
+                    },
+                    {
+                        "id": "fazbitjolliness",
+                        "name": "法兹比特的欢乐",
+                        "sym": "🏰❄️",
+                        "require": "g.fazbithearth>0",
+                        "desc": "即使在严寒冰霜的深处，温暖依然存在。",
+                        "max": 1,
+                        "cost": {
+                            "research": 100
+                        },
+                        "mod": {
+                            "firelore.max": 5
+                        }
+                    }
+                ],
+                "upgrades_unused": [
+                    {
+                        "id": "fazbitjolliness",
+                        "name": "法兹比特的欢乐",
+                        "sym": "🏰❄️",
+                        "require": "g.fazbithearth>0",
+                        "desc": "即使在严寒冰霜的深处，温暖依然存在。",
+                        "max": 1,
+                        "cost": {
+                            "research": 100
+                        },
+                        "mod": {
+                            "firelore.max": 5
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,136 @@
+{
+    "module": "questing",
+    "author": "zenu",
+    "data": {
+        "tasks": [
+            {
+                "id": "hall_quest",
+                "name": "宏伟任务",
+                "require": "g.evt_hall>0&&g.tier4>0&&(g.good1>0||g.evil1>0)",
+                "length": 60,
+                "cd": 120,
+                "desc": "踏上危机四伏的冒险，随心所欲地塑造世界。无论善恶。",
+                "extdesc": "获得的善恶阵营道德和职业越多，获得的传说就越多。",
+                "cost": {
+                    "light": 5,
+                    "shadow": 5,
+                    "spirit": 7
+                },
+                "run": {
+                    "stamina": 3,
+                    "hp": 3
+                },
+                "mod": {
+                    "hall_quest.result.prestige": "-0.003//100/-1"
+                },
+                "result": {
+                    "virtuetale": "g.good1+g.good2*2+g.good3*5+g.benevolent*2+g.t_lightclass*2+g.balanced1*2+g.balanced2*3",
+                    "eviltale": "g.evil1+g.evil2*2+g.evil3*5+g.malevolent*2+g.t_shadowclass*2+g.balanced1*2+g.balanced2*3",
+                    "prestige": 0.4
+                }
+            }
+        ],
+        "hall": {
+            "data": {
+                "resources": [
+                    {
+                        "id": "virtuetale",
+                        "name": "英勇传说",
+                        "sym": "🏰",
+                        "desc": "你的大厅的功绩已开始在民众中广为流传，他们赞颂你为救世主。",
+                        "group": "hall",
+                        "max": 1250,
+                        "mod": {
+                            "light.rate": 0.00032
+                        }
+                    },
+                    {
+                        "id": "eviltale",
+                        "name": "邪恶传说",
+                        "sym": "🏰",
+                        "desc": "仅仅提及你的大厅，就已开始在人们心中引起恐惧，他们害怕你的下一次征服。",
+                        "group": "hall",
+                        "max": 1250,
+                        "mod": {
+                            "shadow.rate": 0.00032
+                        }
+                    }
+                ],
+                "upgrades": [
+                    {
+                        "id": "up_virtuequest",
+                        "name": "英雄之旅",
+                        "desc": "在击败了这片土地上肆虐的巨大邪恶之后，你的巫师们常被视为更接近神话人物。",
+                        "flavor": "吟游诗人歌颂着你的功绩。",
+                        "sym": "🏰",
+                        "require": "g.virtuetale>0",
+                        "max": 1,
+                        "need": "g.virtuetale>=1250",
+                        "needtext": "Become known for a total of 1250 Tales of Heroics.",
+                        "tags": "lightsource,hall",
+                        "cost": {
+                            "prestige": 25
+                        },
+                        "mod": {
+                            "lightlore.buy.arcana": "-100%",
+                            "lightlore.mod.light.rate": 0.01,
+                            "lightlore.max": 2,
+                            "history.max": 1
+                        }
+                    },
+                    {
+                        "id": "up_evilquest",
+                        "name": "恐怖统治",
+                        "desc": "在征服了这片土地上的所有挑战之后，你的巫师们作为无可匹敌的暴君进行统治。",
+                        "flavor": "铁腕粉碎了暴君的头颅，并取而代之成为了暴君。",
+                        "sym": "🏰",
+                        "require": "g.eviltale>0",
+                        "max": 1,
+                        "need": "g.eviltale>=1250",
+                        "needtext": "Become known for a total of 1250 Tales of Villainy.",
+                        "tags": "shadowsource,hall",
+                        "cost": {
+                            "prestige": 25
+                        },
+                        "mod": {
+                            "shadowlore.buy.arcana": "-100%",
+                            "shadowlore.mod.shadow.rate": 0.01,
+                            "shadowlore.max": 2,
+                            "history.max": 1
+                        }
+                    }
+                ],
+                "glossaryentries": [
+                    {
+                        "id": "gloss_questing",
+                        "name": "宏伟任务",
+                        "group": "hall",
+                        "tags": "t_gloss_game_mechanic,t_gloss_hall",
+                        "sym": "🛠️🏰",
+                        "desc": [
+                            "➢ The Grand Quest task shall henceforth be unlocked whenever a Virtuous or Vile wizard in your Hall achieves Tier 4.",
+                            "",
+                            "➢ As tales linked to your current wizard spread, the gain of prestige from performing this task will gradually wane, falling to 0.1 prestige after 100 completions.",
+                            "The first 100 completions will reward you with ~25 prestige.",
+                            "",
+                            "➢ Besides producing prestige, it also grants 'Tales of Heroics' and 'Tales of Villainy', scaling with your good/evil aligned moralities and classes.",
+                            "",
+                            "➢ The formula for 'Tales of Heroics' generated on each completion is as follows:-",
+                            "• From moralities: 1 for 'Virtuous', 2 for 'Scrupulous', 5 for 'Incorruptible', 2 for 'Benevolent', 2 for 'Balanced' and 3 for 'In Equilibrium'.",
+                            "• From classes: 2 for each class tagged as 'Master of Light'.",
+                            "Tales of Heroics grant 0.00032 Light Rate each, maxing out at 0.4 at 1250.",
+                            "",
+                            "➢ The formula for 'Tales of Villainy' generated on each completion is as follows:-",
+                            "• From moralities: 1 for 'Vile', 2 for 'Sinister', 5 for 'Irredeemable', 2 for 'Malevolent', 2 for 'Balanced' and 3 for 'In Equilibrium'.",
+                            "• From classes: 2 for each class tagged as 'Master of Shadow'.",
+                            "Tales of Villainy grant 0.00032 Shadow Rate each, maxing out at 0.4 at 1250.",
+                            "",
+                            "➢ After maxing out each respective type of Tale, you will be able to purchase a Hall upgrade specific to it."
+                        ],
+                        "require": "g.evt_hall>0&&g.tier4>0"
+                    }
+                ]
+            }
+        }
+    }
+}

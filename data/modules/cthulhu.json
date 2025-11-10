@@ -1,0 +1,97 @@
+{
+    "module": "legacy",
+    "data": {
+        "dungeons": [
+            {
+                "id": "xoth",
+                "name": "索斯"
+            }
+        ],
+        "monsters": [
+            {
+                "id": "shoggoth",
+                "name": "修格斯",
+                "desc": "",
+                "biome": "ice",
+                "level": 27
+            },
+            {
+                "id": "nyarlathotep",
+                "name": "奈亚拉托提普",
+                "desc": "",
+                "biome": "air",
+                "level": 30
+            },
+            {
+                "id": "hastur",
+                "name": "哈斯塔",
+                "desc": "",
+                "biome": "air",
+                "level": 30
+            },
+            {
+                "id": "abholos",
+                "name": "阿布霍罗斯",
+                "desc": "一团灰色的脓疱状恶意。(迷雾中的吞噬者)",
+                "biome": "air",
+                "level": 30
+            },
+            {
+                "id": "alala",
+                "name": "阿拉拉",
+                "desc": "活生生的声音实体。",
+                "biome": "air",
+                "level": 30
+            },
+            {
+                "id": "ghatanothoa",
+                "name": "格哈塔诺托亚",
+                "desc": "",
+                "biome": "seas",
+                "level": 30
+            },
+            {
+                "id": "golgoroth",
+                "name": "被遗忘的戈尔-戈罗斯",
+                "desc": "",
+                "biome": "air",
+                "level": 30
+            },
+            {
+                "id": "idhyaa",
+                "name": "蠕虫伊德-雅",
+                "desc": "克苏鲁的第一任新娘",
+                "biome": "earth",
+                "level": 30
+            },
+            {
+                "id": "ythogtha",
+                "name": "伊索格萨",
+                "desc": "",
+                "biome": "seas",
+                "level": 30
+            },
+            {
+                "id": "zothommog",
+                "name": "佐斯-奥莫格",
+                "desc": "克苏鲁的第三个儿子，长着剃刀般尖牙的爬行动物头部。",
+                "biome": "seas",
+                "level": 30
+            },
+            {
+                "id": "yogsothoth",
+                "name": "犹格-索托斯",
+                "desc": "",
+                "biome": "voids",
+                "level": 90
+            },
+            {
+                "id": "azathoth",
+                "name": "阿撒托斯",
+                "desc": "位于无限中心的盲目痴愚之神。",
+                "biome": "voids",
+                "level": 100
+            }
+        ]
+    }
+}

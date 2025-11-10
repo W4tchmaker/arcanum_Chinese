@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./",
+		"outDir": "dev",
+		"noImplicitAny": false,
+		"module": "es6",
+		"target": "es6",
+		"allowJs": true,
+		"paths": {
+			"@/*": ["src/*"]
+		}
+	},
+	"include": ["src/**/*.ts", "src/**/*.js"],
+	"exclude": ["node_modules"]
+}

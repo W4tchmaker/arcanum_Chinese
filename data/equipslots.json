@@ -1,0 +1,98 @@
+[
+    {
+        "id": "mainhand",
+        "name": "主手",
+        "desc": "用于主手武器。",
+        "slotgroup": "equip",
+        "max": 1,
+        "sortOrder": 100
+    },
+    {
+        "id": "offhand",
+        "name": "副手",
+        "desc": "用于副手工具。",
+        "slotgroup": "equip",
+        "max": 0,
+        "sortOrder": 200
+    },
+    {
+        "id": "head",
+        "name": "头部",
+        "desc": "护甲。",
+        "slotgroup": "equip",
+        "max": 0,
+        "sortOrder": 300
+    },
+    {
+        "id": "hands",
+        "name": "手部",
+        "desc": "护甲。",
+        "slotgroup": "equip",
+        "max": 0,
+        "sortOrder": 400
+    },
+    {
+        "id": "back",
+        "name": "背部",
+        "desc": "护甲。",
+        "slotgroup": "equip",
+        "max": 0,
+        "sortOrder": 500
+    },
+    {
+        "id": "waist",
+        "name": "腰部",
+        "desc": "护甲。",
+        "slotgroup": "equip",
+        "max": 0,
+        "sortOrder": 600
+    },
+    {
+        "id": "neck",
+        "name": "项链",
+        "desc": "护甲。",
+        "slotgroup": "equip",
+        "max": 0,
+        "sortOrder": 700
+    },
+    {
+        "id": "trinket",
+        "name": "饰品",
+        "desc": "护甲。",
+        "slotgroup": "equip",
+        "max": 0,
+        "sortOrder": 800
+    },
+    {
+        "id": "fingers",
+        "name": "戒指",
+        "desc": "护甲。",
+        "slotgroup": "equip",
+        "max": 0,
+        "sortOrder": 900
+    },
+    {
+        "id": "chest",
+        "name": "胸部",
+        "desc": "护甲。",
+        "slotgroup": "equip",
+        "max": 0,
+        "sortOrder": 1000
+    },
+    {
+        "id": "shins",
+        "name": "护胫",
+        "desc": "护甲。",
+        "slotgroup": "equip",
+        "max": 0,
+        "sortOrder": 1100
+    },
+    {
+        "id": "feet",
+        "name": "足部",
+        "desc": "护甲。",
+        "slotgroup": "equip",
+        "max": 0,
+        "sortOrder": 1200
+    }
+]

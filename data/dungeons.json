@@ -1,0 +1,1181 @@
+[
+    {
+        "id": "pestcontrol",
+        "name": "漏水地窖",
+        "start": {
+            "name": "Pest Control",
+            "desc": "After your daily castigation, your master mentions the rats in the basement have become a problem. Something about stolen shortswords and building barricades. You had better go down and deal with it."
+        },
+        "log": {
+            "name": "Pests Clear",
+            "desc": "With the basement cleared your master will have more room to stash all the gold you've been earning."
+        },
+        "difficulty": "🦴",
+        "sortOrder": 1,
+        "require": "t_job",
+        "dist": 0,
+        "repeat": false,
+        "run": {
+            "stamina": 0.7
+        },
+        "result": {
+            "arcana": 10,
+            "gold": "15~20",
+            "player.exp": 10,
+            "title": "地窖之主"
+        },
+        "length": 10,
+        "boss": "ratking",
+        "spawns": [
+            [
+                "lgmouse",
+                "lgmouse"
+            ],
+            "badexperiment",
+            "ratskeleton",
+            "homunculus",
+            "gremlin",
+            "lgrat"
+        ]
+    },
+    {
+        "id": "stonyhills",
+        "alias": "hills",
+        "name": "石丘",
+        "difficulty": "🦴",
+        "sortOrder": 2,
+        "require": "t_job",
+        "dist": 10,
+        "run": {
+            "stamina": 0.75
+        },
+        "result": {
+            "gold": "10~15",
+            "cotton": "2~5"
+        },
+        "length": 12,
+        "spawns": [
+            [
+                "bat",
+                "bat",
+                "bat"
+            ],
+            [
+                "twikman",
+                "twikman"
+            ],
+            "bigstone",
+            "kobold",
+            "goblin",
+            "hawk"
+        ]
+    },
+    {
+        "id": "treffilwoods",
+        "name": "特雷菲尔林边",
+        "desc": "这些魔法森林并非特别危险。",
+        "difficulty": "🦴",
+        "sortOrder": 3,
+        "require": "t_job",
+        "dist": 15,
+        "run": {
+            "stamina": 1
+        },
+        "result": {
+            "herbs": "3~7",
+            "gems": "0~2",
+            "iron": "2~5"
+        },
+        "length": 14,
+        "boss": "gobchief",
+        "spawns": [
+            [
+                "goblin",
+                "goblin"
+            ],
+            "gardengnome",
+            "wombat",
+            "hobgoblin",
+            "slinger"
+        ]
+    },
+    {
+        "id": "underden",
+        "name": "地下巢穴",
+        "desc": "臭名昭著的盗贼巢穴。",
+        "difficulty": "🦴🦴🦴",
+        "sortOrder": 11,
+        "require": "tier0",
+        "dist": 20,
+        "run": {
+            "stamina": 1
+        },
+        "result": {
+            "gold": "25~40",
+            "cotton": "2~7",
+            "iron": "2~7",
+            "leather": "2~7"
+        },
+        "length": 20,
+        "boss": "banditlord",
+        "spawns": [
+            "cutpurse",
+            "bandit",
+            [
+                "bat",
+                "bat",
+                "bat",
+                "bat"
+            ],
+            "cutpurse",
+            "bandit",
+            "cutpurse"
+        ]
+    },
+    {
+        "id": "aragheights",
+        "name": "阿拉格高地",
+        "desc": "阿拉佐海岸的贫瘠山脉。",
+        "difficulty": "🦴🦴🦴",
+        "sortOrder": 12,
+        "require": "stonyhills",
+        "dist": 27,
+        "run": {
+            "stamina": 1
+        },
+        "result": {
+            "gold": "20~30",
+            "cotton": "2~7",
+            "iron": "2~7",
+            "leather": "2~7"
+        },
+        "length": 22,
+        "boss": "roc",
+        "spawns": [
+            "lgbird",
+            [
+                "kobold",
+                "kobold",
+                "kobold"
+            ],
+            [
+                "scrapling",
+                "scrapling"
+            ],
+            "scrapling",
+            "bandit",
+            "wolf",
+            "hawk",
+            "coyote"
+        ]
+    },
+    {
+        "id": "goblincamp",
+        "name": "哥布林营地",
+        "desc": "这些讨厌的生物无处不在。",
+        "start": {
+            "name": "Goblins, Goblins!",
+            "desc": "Rumors hint at a camp of goblins in the vicinity. As an aspiring wizard, convention dictates you test your mettle on their lives."
+        },
+        "difficulty": "🦴🦴🦴",
+        "sortOrder": 13,
+        "require": "g.treffilwoods>0&&g.dist>=25",
+        "dist": 15,
+        "run": {
+            "stamina": 1
+        },
+        "result": {
+            "title": "哥布林杀手",
+            "gold": "20~30",
+            "cotton": "2~7",
+            "iron": "2~7",
+            "leather": "2~7"
+        },
+        "length": 28,
+        "boss": "gobchief",
+        "spawns": [
+            [
+                "goblin",
+                "goblin"
+            ],
+            "gobwarrior",
+            "gobwarrior",
+            "goblin",
+            "goblin",
+            "gobpriest",
+            "wolf"
+        ]
+    },
+    {
+        "id": "hauntedmanor",
+        "name": "闹鬼庄园",
+        "desc": "天黑后，整个庄园都能听到令人不安的声音",
+        "flavor": "嘿，维扎德，我是幽灵...",
+        "difficulty": "🦴🦴🦴",
+        "sortOrder": 14,
+        "require": "g.tier0>0&&g.spiritlore>=9",
+        "dist": 27,
+        "run": {
+            "stamina": 1
+        },
+        "result": {
+            "gold": "20~30",
+            "cotton": "2~7",
+            "iron": "2~7",
+            "leather": "2~7"
+        },
+        "length": 18,
+        "boss": "poltergeist",
+        "spawns": [
+            "ghost",
+            "ghost",
+            "zombie",
+            "skeleton",
+            "skeleton",
+            "direrat"
+        ]
+    },
+    {
+        "id": "aragwastes",
+        "name": "阿拉格荒地",
+        "desc": "一片从阿拉格高地延伸至阿拉佐的干旱平原。",
+        "difficulty": "💀",
+        "sortOrder": 21,
+        "require": "aragheights",
+        "dist": 49,
+        "run": {
+            "stamina": 2
+        },
+        "result": {
+            "gold": "20~30",
+            "bones": {
+                "value": "3~7",
+                "skipLocked": true
+            },
+            "cotton": "2~7",
+            "iron": "2~7",
+            "leather": "2~7"
+        },
+        "length": 20,
+        "boss": "roc2",
+        "spawns": [
+            "vulture",
+            "minotaur",
+            "warg",
+            [
+                "vrrek",
+                "vrrek"
+            ],
+            [
+                "m_scarab",
+                "m_scarab"
+            ],
+            "sandmite",
+            "bugbear",
+            [
+                "vulture",
+                "vulture",
+                "vulture"
+            ],
+            [
+                "coyote",
+                "coyote",
+                "coyote"
+            ]
+        ]
+    },
+    {
+        "id": "orccamp",
+        "name": "兽人营地",
+        "desc": "城镇和城市的祸害。",
+        "flavor": "为了部落！",
+        "difficulty": "💀",
+        "sortOrder": 22,
+        "require": "goblincamp",
+        "dist": 36,
+        "run": {
+            "stamina": 1.2
+        },
+        "once": {
+            "fame": 1
+        },
+        "result": {
+            "gold": "40~50"
+        },
+        "length": 22,
+        "boss": "orcchief",
+        "spawns": [
+            "orc",
+            "orcwarrior",
+            "orcwarrior",
+            "orc",
+            "orc",
+            "orcpriest"
+        ]
+    },
+    {
+        "id": "elementalrift",
+        "name": "元素裂隙",
+        "desc": "现实裂缝通向一个充满原始元素的世界。",
+        "difficulty": "💀",
+        "sortOrder": 23,
+        "require": "g.planeslore>=7",
+        "dist": 30,
+        "run": {
+            "stamina": 1
+        },
+        "result": {
+            "gems": "9~12",
+            "lightgem": 3
+        },
+        "length": 30,
+        "boss": "lightningelemental",
+        "spawns": [
+            "fireelemental",
+            "iceelemental",
+            "earthelemental",
+            "airelemental"
+        ]
+    },
+    {
+        "id": "spidercave",
+        "name": "吱嘎作响的洞穴",
+        "desc": "这里唯一的宝藏是那些寻宝冒险者遗失的。",
+        "difficulty": "💀💀",
+        "sortOrder": 31,
+        "require": [
+            "tier0",
+            "goblincamp"
+        ],
+        "dist": 45,
+        "run": {
+            "stamina": 1.2
+        },
+        "result": {
+            "title": "杀蛛人",
+            "gold": "40~50",
+            "spidersilk": "5~9"
+        },
+        "length": 30,
+        "boss": "spiderqueen",
+        "spawns": [
+            "giantspider",
+            [
+                "lgspider",
+                "lgspider"
+            ],
+            "lgspider",
+            "lgspider",
+            "direbat"
+        ]
+    },
+    {
+        "id": "aragogres",
+        "name": "食人魔洞穴",
+        "desc": "城镇和城市的祸害。",
+        "start": {
+            "name": "Ogre Cavern",
+            "desc": "While scrying the outlying lands you discover a colossal cave in the arag heights."
+        },
+        "difficulty": "💀💀",
+        "sortOrder": 32,
+        "require": "g.orccamp>0&&g.aragheights>0&&g.scrying>0",
+        "dist": 89,
+        "run": {
+            "stamina": 1.7
+        },
+        "once": {
+            "fame": 1
+        },
+        "result": {
+            "gold": "40~50",
+            "bones": {
+                "value": "5~10",
+                "skipLocked": true
+            },
+            "quicksteel": "2~7"
+        },
+        "length": 22,
+        "boss": "ogrechief",
+        "spawns": [
+            [
+                "ogre",
+                "wolf",
+                "wolf",
+                "wolf"
+            ],
+            [
+                "ogre",
+                "ogre"
+            ],
+            [
+                "minotaur",
+                "minotaur"
+            ],
+            [
+                "warg",
+                "warg"
+            ],
+            "ogrewarrior",
+            "ettin"
+        ]
+    },
+    {
+        "id": "mtgorborung",
+        "name": "戈博隆山",
+        "desc": "世界上最危险的山脉之一。许多人穿越其山口；无人敢深入其中。",
+        "difficulty": "💀💀",
+        "sortOrder": 33,
+        "require": "g.orccamp>0",
+        "dist": 62,
+        "run": {
+            "stamina": 2
+        },
+        "once": {
+            "fame": 1
+        },
+        "result": {
+            "title": "攀登者",
+            "watergem": "25%",
+            "airgem": "10%",
+            "gems": "3~5"
+        },
+        "length": 36,
+        "spawns": [
+            [
+                "airelemental",
+                "airelemental"
+            ],
+            [
+                "stonegolem",
+                "stonegolem"
+            ],
+            "yeti",
+            "harpy",
+            "icewalker",
+            "doppelganger",
+            "wight",
+            "wraith",
+            "frixie",
+            "frixie",
+            "troll",
+            "snowleopard"
+        ]
+    },
+    {
+        "id": "veldransstorehouse",
+        "name": "维尔德兰的仓库",
+        "desc": "维尔德兰从未能从博迪亚斯统治的残骸中建立一个王国。但他确实积累了可观的财富。",
+        "extdesc": "废弃、杂草丛生的建筑。但其中一些的安全系统仍在运行。",
+        "difficulty": "💀💀",
+        "sortOrder": 34,
+        "require": "g.underden>0",
+        "dist": 117,
+        "run": {
+            "stamina": 2
+        },
+        "result": {
+            "gems": "3~5",
+            "gold": "80~150",
+            "quicksteel": "2~7",
+            "serpentskin": "2~7"
+        },
+        "length": 20,
+        "spawns": [
+            [
+                "claygolem",
+                "claygolem",
+                "claygolem"
+            ],
+            [
+                "stonegolem",
+                "stonegolem"
+            ],
+            "irongolem",
+            "steelgolem",
+            "magicmirror",
+            [
+                "slime",
+                "slime",
+                "slime",
+                "slime"
+            ],
+            [
+                "lgsnake",
+                "lgsnake"
+            ],
+            "lgsnake",
+            "lgsnake",
+            "giantsnake"
+        ]
+    },
+    {
+        "id": "sereditetemple",
+        "name": "塞雷迪特神庙",
+        "desc": "他们是谁，为何在海边悬崖上建造这座废弃的神庙，这是一个失落于时间的谜团。",
+        "flavor": "古老的塞雷迪特人会喜欢神庙的新居民吗？",
+        "difficulty": "💀💀💀",
+        "sortOrder": 41,
+        "require": "tier1",
+        "dist": 161,
+        "run": {
+            "stamina": 1.2
+        },
+        "result": {
+            "gold": "20~30",
+            "gems": "4~5",
+            "quicksteel": "2~7",
+            "serpentskin": "2~7",
+            "spidersilk": "2~7"
+        },
+        "length": 25,
+        "boss": {
+            "10": "naga",
+            "15": "medusa",
+            "20": [
+                "naga",
+                "naga"
+            ],
+            "25": [
+                "naga",
+                "medusa"
+            ]
+        },
+        "spawns": [
+            "shriekingeel",
+            "magicblade",
+            "evilpriest",
+            [
+                "eel",
+                "eel"
+            ],
+            [
+                "crab",
+                "crab"
+            ]
+        ]
+    },
+    {
+        "id": "veldranswreck",
+        "name": "维尔德兰的残骸",
+        "desc": "在阿拉佐风暴肆虐的悬崖边，一堆破裂的桅杆标志着人类航行过的最大船只的安息之地。",
+        "difficulty": "💀💀💀",
+        "tags": "t_underwater",
+        "sortOrder": 42,
+        "require": "g.veldransstorehouse>0&&g.aragheights>0",
+        "dist": 295,
+        "bars": "breath",
+        "run": {
+            "stamina": 1
+        },
+        "effect": {
+            "breath": -2
+        },
+        "result": {
+            "gold": "75~125",
+            "gems": "10~25",
+            "rubies": "5~12",
+            "watergem": "3~5"
+        },
+        "loot": {
+            "veldranearring": "25%",
+            "fishysword": "25%",
+            "fishyspear": "25%",
+            "fishyhammer": "25%",
+            "fishyrapier": "25%"
+        },
+        "length": 18,
+        "boss": {
+            "18": [
+                "jellyfish",
+                "piranha",
+                "eel"
+            ]
+        },
+        "spawns": [
+            [
+                "ghost2",
+                "ghost2",
+                "ghost2"
+            ],
+            [
+                "eel",
+                "eel"
+            ],
+            "jellyfish",
+            "barracuda",
+            "piranha",
+            "electriceel"
+        ]
+    },
+    {
+        "id": "greatbog",
+        "name": "大沼泽",
+        "desc": "大沼泽绵延数百英里，横跨德鲁恩的黑暗中心。",
+        "flavor": "也被称为巴登沼泽，没人能确切地说巴登是谁。",
+        "difficulty": "💀💀💀",
+        "sortOrder": 43,
+        "require": "aragwastes",
+        "run": {
+            "stamina": 3
+        },
+        "result": {
+            "title": "泥地开拓者",
+            "gems": "3~5",
+            "gold": "100~200",
+            "bones": {
+                "value": 10,
+                "skipLocked": true
+            },
+            "rubies": "2~5"
+        },
+        "length": 24,
+        "boss": "bogwitch",
+        "spawns": [
+            [
+                "leech",
+                "leech",
+                "leech",
+                "leech",
+                "leech"
+            ],
+            [
+                "corpse",
+                "corpse",
+                "corpse",
+                "corpse"
+            ],
+            [
+                "direcrocodile",
+                "direcrocodile"
+            ],
+            "grimstalk",
+            "stalker",
+            "lesserwyrm",
+            "willowisp"
+        ]
+    },
+    {
+        "id": "ettinmarchcamp",
+        "name": "艾丁马奇营地",
+        "desc": "艾丁马奇危险的荒野是快乐游侠和正直德鲁伊乐队的珍爱家园。",
+        "difficulty": "💀💀💀",
+        "sortOrder": 44,
+        "require": "evt_rangers",
+        "dist": 394,
+        "max": 1,
+        "run": {
+            "stamina": 2
+        },
+        "result": {
+            "herbs": "3~7",
+            "gems": "0~2",
+            "title": "森行者"
+        },
+        "length": 28,
+        "boss": {
+            "28": [
+                "eledin",
+                "gildella"
+            ]
+        },
+        "spawns": [
+            [
+                "ranger",
+                "ranger"
+            ],
+            [
+                "elf",
+                "elf",
+                "elf",
+                "elf"
+            ],
+            [
+                "ranger",
+                "gryffon"
+            ],
+            [
+                "m_druid",
+                "m_druid"
+            ],
+            "ent",
+            [
+                "bear",
+                "bear",
+                "bear",
+                "ranger"
+            ],
+            "direbear",
+            "highranger",
+            [
+                "elf",
+                "highelf"
+            ]
+        ]
+    },
+    {
+        "id": "fetidbarrow",
+        "name": "恶臭墓穴",
+        "desc": "当恶臭墓穴被发现时，黑暗的侍僧们聚集在这些土丘旁，寻求他们艺术的古老守护者。",
+        "difficulty": "💀💀💀",
+        "sortOrder": 45,
+        "require": "evt_cabal",
+        "dist": 394,
+        "max": 1,
+        "run": {
+            "stamina": 2
+        },
+        "result": {
+            "title": "破壁人",
+            "bodies": {
+                "value": "0~2",
+                "skipLocked": true
+            },
+            "bones": {
+                "value": "3~7",
+                "skipLocked": true
+            },
+            "spidersilk": "2~7",
+            "rubies": "2~5"
+        },
+        "length": 28,
+        "boss": {
+            "16": "vampiremaster",
+            "20": [
+                "skellord",
+                "skeleton",
+                "skeleton",
+                "skeleton",
+                "skeleton",
+                "skeleton",
+                "skeleton",
+                "skeleton"
+            ],
+            "24": [
+                "vampiremaster",
+                "vampire"
+            ],
+            "28": [
+                "palus"
+            ]
+        },
+        "spawns": [
+            [
+                "ghost2",
+                "ghost2",
+                "wraith"
+            ],
+            [
+                "corpse",
+                "corpse",
+                "corpse"
+            ],
+            [
+                "undeadhorror",
+                "undeadhorror"
+            ],
+            [
+                "blasphemer",
+                "blasphemer"
+            ],
+            [
+                "wight",
+                "wight",
+                "ghast"
+            ],
+            [
+                "ghoul",
+                "ghoul",
+                "ghast"
+            ],
+            "m_hierophant",
+            "evilpriest",
+            "vampire"
+        ]
+    },
+    {
+        "id": "holyhall",
+        "name": "圣者之厅",
+        "desc": "各种神圣的灵魂守护着世界。最伟大的神灵拥有他们的殿堂和王国。",
+        "difficulty": "💀💀💀",
+        "sortOrder": 46,
+        "tags": "t_extremeevil",
+        "require": "g.planeslore.max>=10&&g.evil2>0",
+        "dist": 410,
+        "run": {
+            "stamina": 2
+        },
+        "result": {
+            "title": "渎神者",
+            "evilamt": 10,
+            "gold": "150~275",
+            "quicksteel": "2~7"
+        },
+        "length": 28,
+        "boss": "archon",
+        "spawns": [
+            [
+                "lightelem",
+                "lightelem",
+                "lightelem"
+            ],
+            [
+                "unicorn",
+                "valkyrie"
+            ],
+            [
+                "gryffon",
+                "valkyrie"
+            ],
+            [
+                "angel",
+                "angel"
+            ],
+            "angel",
+            "angel"
+        ]
+    },
+    {
+        "id": "elementalplane",
+        "name": "元素位面",
+        "desc": "在原始元素之地深处，有一片巨大的区域，魔力密度更高。内部的某种东西正在引起这种现象。",
+        "difficulty": "💀💀💀💀",
+        "sortOrder": 51,
+        "require": "g.elementalrift>0",
+        "dist": 518,
+        "run": {
+            "stamina": 2
+        },
+        "result": {
+            "gems": "9~12",
+            "lightgem": 3,
+            "amberroot": "2~7"
+        },
+        "length": 24,
+        "boss": {
+            "21": "tempestelemental",
+            "22": "mudelemental",
+            "23": "magmaelemental",
+            "24": "ashelemental"
+        },
+        "spawns": [
+            [
+                "fireelemental2",
+                "earthelemental2"
+            ],
+            [
+                "earthelemental2",
+                "iceelemental2"
+            ],
+            [
+                "iceelemental2",
+                "airelemental2"
+            ],
+            [
+                "airelemental2",
+                "fireelemental2"
+            ]
+        ]
+    },
+    {
+        "id": "desillagrotto",
+        "name": "德西拉的石窟",
+        "tags": "site_of_learning",
+        "desc": "在全世界，这是最令人愉快的死亡之地。",
+        "flavor": "德西拉以其娱乐活动和冷酷无情而闻名。",
+        "difficulty": "💀💀💀💀",
+        "sortOrder": 52,
+        "require": "greatbog",
+        "dist": 847,
+        "run": {
+            "stamina": 2.5
+        },
+        "once": {
+            "fame": 2
+        },
+        "result": {
+            "gems": "3~5",
+            "gold": "50~100",
+            "ichor": 1,
+            "adamant": "2~7",
+            "aetherhide": "2~7",
+            "amberroot": "2~7"
+        },
+        "mod": {
+            "charms.max": "0.5//2/-1"
+        },
+        "length": 27,
+        "boss": "desillaconcubine",
+        "spawns": [
+            [
+                "elf",
+                "elf",
+                "elf",
+                "magicmirror"
+            ],
+            [
+                "magicblade",
+                "magicblade",
+                "magicmirror"
+            ],
+            [
+                "imp",
+                "imp",
+                "imp"
+            ],
+            [
+                "stalker",
+                "willowisp"
+            ],
+            "masterswordsman",
+            "succubus",
+            "incubus",
+            "quasit"
+        ]
+    },
+    {
+        "id": "charredkeep",
+        "name": "焦黑要塞",
+        "desc": "它冒烟的废墟再次开始燃烧。",
+        "flavor": "被它自己的居民烧成焦黑。",
+        "difficulty": "💀💀💀💀💀",
+        "sortOrder": 61,
+        "require": "g.mtgorborung>0",
+        "dist": 1657,
+        "run": {
+            "stamina": 3
+        },
+        "once": {
+            "fame": 2
+        },
+        "result": {
+            "title": "门锁杀手",
+            "gold": "300~500",
+            "ichor": 3,
+            "adamant": "5~7",
+            "aetherhide": "5~7",
+            "diamonds": "5~7",
+            "dragonscale": "50~70"
+        },
+        "length": 40,
+        "boss": {
+            "40": [
+                "karnivex",
+                "greendragon",
+                "greendragon"
+            ]
+        },
+        "spawns": [
+            "jazid",
+            "adamantgolem",
+            "enc_dragonhoard",
+            "maturereddragon",
+            [
+                "reddragon",
+                "reddragon"
+            ],
+            [
+                "greendragon",
+                "greendragon",
+                "greendragon"
+            ],
+            "demon",
+            "balrog",
+            "ancientvampire",
+            [
+                "masterswordsman",
+                "masterswordsman",
+                "masterswordsman"
+            ]
+        ]
+    },
+    {
+        "id": "temple_of_strativax",
+        "name": "斯特拉蒂瓦克斯神庙",
+        "desc": "他的侍僧们用千里之外的供品喂养这头野兽。",
+        "flavor": "斯特拉蒂瓦克斯蜷缩着小憩。他的神庙沦为废墟，岁月如落叶般逝去。",
+        "start": "You scry the location of an ancient ruined temple.",
+        "difficulty": "💀💀💀💀💀",
+        "sortOrder": 62,
+        "require": "g.scrying>=12&&g.history>=12",
+        "dist": 1986,
+        "length": 3,
+        "boss": {
+            "1": "strativax1",
+            "2": "strativax2",
+            "3": "strativax3"
+        }
+    },
+    {
+        "id": "belowgorborung",
+        "name": "戈博隆山下",
+        "desc": "他们说山根比山顶延伸得更深。",
+        "difficulty": "💀💀💀💀💀💀",
+        "sortOrder": 71,
+        "require": "g.tier4>0&&g.mtgorborung>0",
+        "dist": 2100,
+        "run": {
+            "stamina": 3
+        },
+        "once": {
+            "fame": 3
+        },
+        "result": {
+            "title": "无光",
+            "earthgem": 5,
+            "gems": 10,
+            "tomes": 2,
+            "aetherhide": "2~7"
+        },
+        "length": 100,
+        "boss": {
+            "50": "cthulhu",
+            "100": "gorborung"
+        },
+        "spawns": [
+            "jazid",
+            [
+                "skellord",
+                "skellord",
+                "skellord",
+                "skellord",
+                "skellord"
+            ],
+            [
+                "callodiper",
+                "callodiper",
+                "callodiper"
+            ],
+            [
+                "reddragon",
+                "reddragon",
+                "reddragon"
+            ],
+            [
+                "adamantgolem",
+                "adamantgolem"
+            ],
+            [
+                "wyvern",
+                "wyvern"
+            ],
+            [
+                "balrog",
+                "demon"
+            ],
+            [
+                "shade",
+                "shade"
+            ],
+            [
+                "dwarp",
+                "dwarp"
+            ],
+            "m_lichlord",
+            "behemoth",
+            "beholder"
+        ]
+    },
+    {
+        "id": "abyssal_layer1",
+        "name": "深渊深处：第一层",
+        "desc": "在无底洞的底部，有一个通往比墨水更黑暗的位面的入口。",
+        "difficulty": "💀💀💀💀💀💀",
+        "sortOrder": 72,
+        "require": "g.planeslore>=8&&g.space.max>=20&&g.tier4>0",
+        "need": "g.bottomlesspit>0&&g.dist>=2500",
+        "needtext": "Must own a bottomless pit and meet distance requirements",
+        "dist": 2500,
+        "run": {
+            "stamina": 3
+        },
+        "once": {
+            "fame": 5
+        },
+        "result": {
+            "title": "深渊勘探者",
+            "tomes": 10
+        },
+        "length": 25,
+        "boss": {
+            "1": [
+                "abyssal_dreg"
+            ],
+            "2": [
+                "abyssal_dreg"
+            ],
+            "3": [
+                "abyssal_lesser_shadow"
+            ],
+            "4": [
+                "abyssal_dreg",
+                "abyssal_dreg"
+            ],
+            "5": [
+                "abyssal_lesser_shadow",
+                "abyssal_dreg"
+            ],
+            "25": "abyssal_knight"
+        },
+        "spawns": [
+            [
+                "abyssal_rat_mother",
+                "abyssal_rat",
+                "abyssal_rat",
+                "abyssal_rat",
+                "abyssal_rat"
+            ],
+            [
+                "abyssal_dreg",
+                "abyssal_dreg",
+                "abyssal_dreg"
+            ],
+            [
+                "abyssal_lesser_shadow",
+                "abyssal_lesser_shadow"
+            ],
+            [
+                "abyssal_raven_flock",
+                "abyssal_raven_flock"
+            ],
+            [
+                "abyssal_cinder_golem"
+            ],
+            [
+                "abyssal_proselyte"
+            ],
+            [
+                "abyssal_soldier"
+            ]
+        ]
+    },
+    {
+        "id": "catacrypts",
+        "name": "地下墓穴",
+        "desc": "老米尔瑟姆格纳挖凿地牢，直到它们与世界下方的空洞相连。他们惊恐地将它们永远封闭。或者说他们尝试了。",
+        "flavor": "日夜，黑暗之门向所有人敞开……但要回到露天之地……那才是任务，那才是劳作。",
+        "difficulty": "💀💀💀💀💀💀",
+        "sortOrder": 73,
+        "require": [
+            "belowgorborung"
+        ],
+        "dist": 2250,
+        "run": {
+            "stamina": 3
+        },
+        "result": {
+            "title": "双生",
+            "fame": 3,
+            "gems": "30~50",
+            "gold": "1000~2000",
+            "basiliskhide": "30~40"
+        },
+        "length": 1000,
+        "spawns": {
+            "level": "45~75",
+            "range": 2,
+            "quantity": "1~4",
+            "quantitypenalty": 0.14
+        }
+    }
+]

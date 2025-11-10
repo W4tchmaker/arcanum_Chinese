@@ -1,0 +1,406 @@
+{
+    "module": "spring",
+    "sym": "🌼",
+    "data": {
+        "events": [
+            {
+                "id": "spr_intro",
+                "desc": "冬去春来，生命自大地萌发，永恒的循环再次开启。"
+            }
+        ],
+        "potions": [
+            {
+                "id": "stone_soup",
+                "stack": true,
+                "desc": "一份自然的盛宴。",
+                "cost": {
+                    "earthgem": 3,
+                    "herbs": 10
+                },
+                "use": {
+                    "dot": {
+                        "mod": {
+                            "earth.rate": "10%",
+                            "duration": 600
+                        }
+                    }
+                }
+            }
+        ],
+        "rares": [
+            {
+                "id": "valelily",
+                "name": "山谷百合",
+                "desc": "一朵芬芳的白色花朵，佩戴可带来好运。",
+                "slot": "trinket",
+                "alter": {
+                    "mod": {
+                        "luck": 1,
+                        "nature.rate": "5%"
+                    }
+                }
+            },
+            {
+                "id": "laurel_crown",
+                "name": "月桂花冠",
+                "slot": "head",
+                "type": "armor",
+                "level": 10,
+                "armor": 1,
+                "alter": {
+                    "mod": {
+                        "charms.mod.gatherherbs.result.herbs": 0.2
+                    }
+                }
+            },
+            {
+                "id": "spr_honey_jar",
+                "stack": true,
+                "desc": "一罐金黄的蜂蜜。"
+            },
+            {
+                "id": "spr_jar_bees",
+                "stack": true,
+                "desc": "一罐野蜂。",
+                "use": "mk_apiary"
+            }
+        ],
+        "resources": [
+            {
+                "id": "spr_bees",
+                "name": "蜜蜂",
+                "max": 0,
+                "require": "apiculture",
+                "desc": "蜜蜂在生命与创生魔法中有着意想不到的用途。",
+                "flavor": "德布鲁姆有一个收藏"
+            },
+            {
+                "id": "spr_hyacinth",
+                "name": "风信子",
+                "max": 5,
+                "desc": "一种色彩斑斓且有毒的春季花朵。",
+                "flavor": "我无法言语，双眼失明，我既非生亦非死，一无所知。"
+            },
+            {
+                "id": "spr_bees",
+                "name": "蜜蜂",
+                "require": "apiculture",
+                "desc": "蜜蜂在生命与创生魔法中有着意想不到的用途。",
+                "flavor": "德布鲁姆有一个收藏"
+            }
+        ],
+        "upgrades": [
+            {
+                "id": "spr_portal",
+                "name": "树木之门",
+                "desc": "一扇由树干构成的传送门从地面生长而出。如果你能激活它，或许就能得知这些野兽的来源。",
+                "cost": {}
+            },
+            {
+                "id": "spr_mabs_carriage",
+                "name": "玛布女王的马车",
+                "desc": "一辆由魔法栗子雕刻而成的仙女马车。",
+                "require": "",
+                "slot": "mount",
+                "cost": {
+                    "research": 10000,
+                    "gold": 10,
+                    "spr_hyacinth": 10,
+                    "spr_honey_jar": 5
+                },
+                "mod": {
+                    "dist": 325,
+                    "naturedmg": 5,
+                    "naturelore.max": 1
+                }
+            },
+            {
+                "id": "spr_beeswax_candle",
+                "name": "蜂蜡蜡烛",
+                "desc": "一支带有清新香气的蜡烛。",
+                "require": "spr_bees",
+                "max": 1,
+                "cost": {
+                    "research": 300,
+                    "gold": 10,
+                    "spr_honey_jar": 5
+                },
+                "mod": {
+                    "nature.rate": 0.02
+                }
+            }
+        ],
+        "tasks": [
+            {
+                "id": "spr_task_maypole",
+                "name": "春季仪式",
+                "desc": "召唤萨提尔和树精，围绕你的五月柱施展魔法。",
+                "require": "spr_maypole",
+                "tags": "t_rest",
+                "slot": "rest",
+                "perpetual": true,
+                "verb": "directing weaves",
+                "fill": [
+                    "hp",
+                    "prismatic",
+                    "stamina",
+                    "stress"
+                ],
+                "effect": {
+                    "stress": -1.7,
+                    "prismatic": {
+                        "value": 0.7,
+                        "skipLocked": true
+                    },
+                    "stamina": 0.7,
+                    "vigor": 0.07,
+                    "hp": 1,
+                    "nature": 0.3,
+                    "spirit": 0.2
+                }
+            }
+        ],
+        "skills": [
+            {
+                "id": "apiculture",
+                "require": "",
+                "level": 3,
+                "cost": {
+                    "sp": 1
+                },
+                "desc": "养蜂在生命与创造魔法中有着令人惊讶的用途。",
+                "flavor": ""
+            }
+        ],
+        "encounters": [
+            {
+                "id": "spr_stargaze",
+                "name": "观星",
+                "desc": "明亮的春日天空带来了新的星辰。",
+                "effect": {
+                    "bf": "1~2",
+                    "weary": "2~3"
+                },
+                "result": {
+                    "astronomy.exp": "10~20"
+                }
+            },
+            {
+                "id": "spr_enc_rumors",
+                "name": "闲言碎语",
+                "desc": "每年都有关于附近树林中光影和音乐的传闻。",
+                "effect": {
+                    "bf": "1~2",
+                    "unease": "1~2"
+                },
+                "result": {}
+            },
+            {
+                "id": "spr_night_dance",
+                "name": "夜间舞会",
+                "desc": "随着天气转暖和天空放亮，庆祝活动持续到深夜。",
+                "effect": {
+                    "weary": "3~5"
+                },
+                "result": {}
+            },
+            {
+                "id": "spr_bonfire",
+                "name": "节日篝火",
+                "desc": "夜幕降临，狂欢者点燃篝火，继续庆祝活动。",
+                "effect": {
+                    "rage": "1~3",
+                    "wear": "0~2"
+                },
+                "result": {}
+            },
+            {
+                "id": "spr_enc_maypole",
+                "name": "五月柱舞",
+                "desc": "来自艾尔斯米德的年轻女子们围绕着一根光秃秃的树干编织彩色丝带图案。",
+                "effect": {
+                    "weaving.exp": 2,
+                    "bf": "1~2",
+                    "weary": "1~2"
+                },
+                "loot": {
+                    "valelily": "10%"
+                }
+            },
+            {
+                "id": "spr_flowers",
+                "name": "盆栽花卉",
+                "desc": "艾尔斯米德的村民们摆放他们的春季花卉出售。",
+                "effect": {
+                    "herbalism.exp": 2,
+                    "weary": "2~3"
+                },
+                "loot": {
+                    "spr_hyacinth": 1
+                }
+            },
+            {
+                "id": "spr_enc_gobmarket",
+                "name": "哥布林市场",
+                "desc": "夜幕下的森林里，哥布林们举办着自己的市场。",
+                "effect": {
+                    "gold": -10,
+                    "rage": "1~3",
+                    "madness": "3~4"
+                },
+                "result": {
+                    "herbs": "4~10",
+                    "gems": "5~10",
+                    "managem": "40%"
+                }
+            },
+            {
+                "id": "spr_enc_market",
+                "name": "艾尔斯米德市场",
+                "desc": "从春季香料到矮人石榴石，各种奢侈品都在集市上进行交易。",
+                "effect": {
+                    "gold": -0.5,
+                    "weary": "1~3",
+                    "bf": "0~1"
+                },
+                "result": {
+                    "herbs": "4~10"
+                }
+            },
+            {
+                "id": "spr_enc_tinker",
+                "name": "修补匠的马车",
+                "desc": "来自远方的修补匠马车吱呀作响地沿着道路前行，在集市上交易他们的货物。",
+                "effect": {
+                    "rage": "1~3"
+                }
+            }
+        ],
+        "locales": [
+            {
+                "id": "spr_fair",
+                "name": "艾尔斯米德集市",
+                "desc": "每年春天，艾尔斯米德都会在世界树艾西尔维尔的注视下举办其传说中的集市。",
+                "start": {},
+                "encs": [
+                    "spr_enc_maypole",
+                    "spr_enc_market",
+                    "spr_enc_tinker",
+                    "spr_enc_rumors"
+                ],
+                "flavor": ""
+            },
+            {
+                "id": "spr_aesilwyr",
+                "name": "命运之树",
+                "desc": "在世界的中心，伟大的伊德拉希尔树直插云霄。",
+                "encs": [],
+                "flavor": "一颗种子曾从伊格德拉西尔落下。"
+            }
+        ],
+        "furniture": [
+            {
+                "id": "spr_flower_pot",
+                "name": "花盆",
+                "tags": "plantsource",
+                "cost": {
+                    "spr_hyacinth": 5,
+                    "herbs": 10,
+                    "gold": 10
+                },
+                "mod": {
+                    "spr_hyacinth.max": 5
+                }
+            },
+            {
+                "id": "spr_maypole",
+                "name": "五月柱",
+                "desc": "竖起五月柱以举行春季仪式。",
+                "cost": {
+                    "gold": 500,
+                    "herbs": 30
+                }
+            },
+            {
+                "id": "spr_beehive",
+                "name": "蜂巢",
+                "desc": "一个用于养蜂的小蜂巢。",
+                "cost": {
+                    "gold": 100,
+                    "herbs": 10,
+                    "spr_honey_jar": 1
+                },
+                "mod": {
+                    "spr_bees.max": 10
+                }
+            }
+        ],
+        "dungeons": [
+            {
+                "id": "spr_wilds",
+                "name": "隐秘荒野",
+                "desc": "一片充满魔法野兽的土地，你的传说中从未记载。",
+                "length": 100,
+                "require": "spr_portal",
+                "start": {
+                    "name": "",
+                    "desc": ""
+                },
+                "run": {
+                    "stamina": 2.5
+                },
+                "title": "荒野驯兽师",
+                "mod": {
+                    "magicbeasts.max": "?1"
+                },
+                "boss": "jabberwocky",
+                "spawns": [
+                    "wyvern2",
+                    [
+                        "wyvern",
+                        "wyvern",
+                        "wyvern"
+                    ],
+                    "m_cordyceps",
+                    "m_stranglevine"
+                ]
+            },
+            {
+                "id": "spr_sunnyfield",
+                "name": "阳光石田",
+                "level": 20,
+                "length": 100,
+                "dist": 0,
+                "start": {
+                    "name": "",
+                    "desc": "从集市归来后，你收到报告称田野被巨蛇和蜥蜴占据。这可能需要调查。"
+                },
+                "desc": "你记忆中昔日的田野如今已被可怕的野兽占据。",
+                "run": {
+                    "stamina": 1.5
+                },
+                "result": {
+                    "gold": "100~200"
+                },
+                "title": "阳光勇士",
+                "boss": "wyvern2",
+                "spawns": [
+                    "basilisk2",
+                    "basilisk",
+                    [
+                        "wyvern",
+                        "wyvern",
+                        "wyvern"
+                    ],
+                    "m_cordyceps",
+                    "greendragon",
+                    "manticore",
+                    "direbear",
+                    "cockatrice",
+                    "basilisk"
+                ],
+                "flavor": "每个初出茅庐的法师都需要有个地方去送死。"
+            }
+        ]
+    }
+}

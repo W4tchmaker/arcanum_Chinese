@@ -1,0 +1,140 @@
+[
+    {
+        "id": "physdmg",
+        "name": "物理效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "spelldmg",
+        "name": "法术效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "runicdmg",
+        "name": "符文效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "spellheal",
+        "name": "治疗效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "slashdmg",
+        "name": "斩击效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "piercedmg",
+        "name": "穿刺效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "bluntdmg",
+        "name": "钝击效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "manadmg",
+        "name": "法力效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "waterdmg",
+        "name": "水系效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "airdmg",
+        "name": "风系效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "firedmg",
+        "name": "火系效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "earthdmg",
+        "name": "土系效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "naturedmg",
+        "name": "自然效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "spiritdmg",
+        "name": "精神效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "lightdmg",
+        "name": "光明效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "shadowdmg",
+        "name": "暗影效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "chaosdmg",
+        "name": "混沌效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "timedmg",
+        "name": "时间效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "voiddmg",
+        "name": "虚空效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "poisondmg",
+        "name": "毒素效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "blooddmg",
+        "name": "鲜血效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "astraldmg",
+        "name": "星界效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    },
+    {
+        "id": "charmdmg",
+        "name": "魅惑效能",
+        "val": 100,
+        "damage": "Math.max((i.value/100)||0,0)"
+    }
+]

@@ -1,0 +1,1475 @@
+[
+    {
+        "id": "enc_primer1",
+        "name": "魔法入门",
+        "desc": "魔法理论入门。",
+        "effect": {
+            "bf": "-1~2",
+            "lore.exp": 1
+        },
+        "result": {
+            "research": 1,
+            "arcana": 0.01
+        }
+    },
+    {
+        "id": "enc_workbook1",
+        "name": "练习册",
+        "desc": "一本关于魔法实际应用的书。",
+        "effect": {
+            "bf": "-1~2",
+            "rage": "0~2",
+            "crafting.exp": 1
+        }
+    },
+    {
+        "id": "enc_bookworm",
+        "name": "书虫",
+        "desc": "一只勤奋的环节动物，选择在书页中安家。",
+        "effect": {
+            "bf": "1~2",
+            "lore.exp": 1
+        }
+    },
+    {
+        "id": "mysticwater",
+        "name": "神秘之水",
+        "level": 1,
+        "desc": "充满魔力的水。",
+        "effect": {
+            "bf": "-1~2",
+            "naturelore.exp": 1,
+            "waterlore.exp": 1,
+            "arcana": 0.001
+        },
+        "loot": {
+            "watergem": "25%"
+        }
+    },
+    {
+        "id": "manatree",
+        "name": "魔力树",
+        "level": 2,
+        "desc": "魔法泉旁的树展现出惊人的特质。",
+        "effect": {
+            "bf": "-1~2",
+            "naturelore.exp": 1,
+            "herbalism.exp": 1
+        },
+        "loot": {
+            "managem": "25%"
+        }
+    },
+    {
+        "id": "enc_heather",
+        "name": "石楠丛林",
+        "level": 2,
+        "desc": "你在一片石楠花丛中休憩。",
+        "effect": {
+            "rage": "-2~0",
+            "stamina": 1,
+            "mana": 1,
+            "herbs": 3
+        }
+    },
+    {
+        "id": "enc_tapestry",
+        "name": "神秘挂毯",
+        "level": 2,
+        "desc": "一张带有奇怪隐藏意义的挂毯。",
+        "effect": {
+            "bf": "-1~2",
+            "rage": "0~2"
+        },
+        "result": {
+            "research": 1,
+            "arcana": 0.005
+        }
+    },
+    {
+        "id": "foggydale",
+        "name": "迷雾山谷",
+        "desc": "这里的雾太浓了，你连自己的手都看不清。",
+        "effect": {
+            "bf": "1~2",
+            "rage": "0~1",
+            "unease": "1~2",
+            "airlore.exp": 1,
+            "spiritlore.exp": 1
+        }
+    },
+    {
+        "id": "enc_chest1",
+        "name": "布满灰尘的箱子",
+        "desc": "一个破旧的木箱。",
+        "effect": {
+            "bf": "-1~2"
+        },
+        "loot": {
+            "gold": "2~10",
+            "scrolls": "1~2"
+        }
+    },
+    {
+        "id": "enc_chest2",
+        "name": "铁箱",
+        "desc": "一个坚固的铁箱。",
+        "effect": {
+            "bf": "-1~1",
+            "rage": "0~1"
+        },
+        "loot": {
+            "gold": "5~14",
+            "codices": "0~2",
+            "scrolls": "2~4"
+        }
+    },
+    {
+        "id": "enc_chest3",
+        "name": "布满灰尘的箱子",
+        "desc": "一个虽小但坚固的箱子。",
+        "effect": {
+            "rage": "1~3"
+        },
+        "loot": {
+            "gold": "0~50",
+            "gems": "2~5",
+            "runestones": "0~2",
+            "codices": "0~4"
+        }
+    },
+    {
+        "id": "enc_chest4",
+        "name": "橡木箱",
+        "desc": "一个坚固的橡木箱。",
+        "effect": {
+            "rage": "2~4",
+            "weary": "1~3"
+        },
+        "loot": {
+            "gold": "0~300",
+            "firerune": "10%",
+            "earthrune": "10%",
+            "waterrune": "10%",
+            "airrune": "10%",
+            "tomes": "50%"
+        }
+    },
+    {
+        "id": "enc_primer2",
+        "name": "进阶入门",
+        "desc": "更高级的魔法理论。",
+        "effect": {
+            "bf": "-1~3",
+            "weary": "0~2",
+            "rage": "0~2",
+            "lore.exp": 1,
+            "languages.exp": 1
+        },
+        "result": {
+            "research": 10,
+            "arcana": 0.02
+        },
+        "loot": {
+            "codices": "10%"
+        }
+    },
+    {
+        "id": "enc_thyffr",
+        "name": "与赛弗交谈",
+        "desc": "在漫不经心的闲谈中，赛弗常常透露一些真实的历史。",
+        "effect": {
+            "rage": "0~2",
+            "weary": "1~3",
+            "history.exp": 1,
+            "research": 1
+        },
+        "result": {
+            "arcana": 0.01
+        },
+        "loot": {
+            "managem": "75%"
+        }
+    },
+    {
+        "id": "enc_delki",
+        "name": "喋喋不休的德尔基",
+        "desc": "森林中的德尔基知道很多事情，但很少能说清楚。",
+        "effect": {
+            "rage": "1~2",
+            "weary": "1~3",
+            "naturelore.exp": 1,
+            "research": 1,
+            "lore.exp": 1
+        },
+        "result": {
+            "arcana": 0.01
+        },
+        "loot": {
+            "naturegem": "10%"
+        }
+    },
+    {
+        "id": "enc_gnome",
+        "name": "和蔼的侏儒",
+        "desc": "侏儒总是很乐意边喝啤酒或抽烟斗边聊天。",
+        "tags": "site_of_learning",
+        "effect": {
+            "weary": "0~2",
+            "bf": "1~2",
+            "spellcraft.exp": 1,
+            "research": 1,
+            "lore.exp": 1
+        },
+        "mod": {
+            "spellcraft.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "enc_gibber",
+        "name": "胡言乱语者",
+        "desc": "他们藏身于小裂缝中，作为邪恶行为的回报，会透露一个秘密。",
+        "effect": {
+            "weary": "0~2",
+            "madness": "0~2",
+            "mysticism.exp": 1,
+            "research": 1
+        },
+        "result": {
+            "arcana": 0.01
+        },
+        "loot": {
+            "shadowgem": "5%"
+        },
+        "flavor": "传说中有一个巨大的胡言乱语者，会为了谋杀而回答任何问题。"
+    },
+    {
+        "id": "enc_mummy",
+        "name": "木乃伊遗骸",
+        "desc": "一具被陈腐空气保存下来的尸体。",
+        "tags": "site_of_learning",
+        "effect": {
+            "madness": "0~2",
+            "unease": "1~3",
+            "spiritlore.exp": 1,
+            "anatomy.exp": 1
+        },
+        "mod": {
+            "anatomy.max": "0.1//30/-10"
+        },
+        "loot": {
+            "gold": "0~70",
+            "gems": "0~2",
+            "spiritgem": 1,
+            "bodies": {
+                "value": 1,
+                "skipLocked": true
+            },
+            "bonedust": {
+                "value": "0~6",
+                "skipLocked": true
+            }
+        }
+    },
+    {
+        "id": "eeriemoans",
+        "name": "诡异的呻吟",
+        "desc": "你听到微弱的呻吟声，但无法确定其来源。",
+        "effect": {
+            "spiritlore.exp": 1,
+            "madness": 1
+        }
+    },
+    {
+        "id": "strangebones",
+        "name": "奇怪的骨头",
+        "desc": "你以前从未见过这样的骨头。",
+        "effect": {
+            "bf": "-1~2",
+            "unease": "0~3",
+            "anatomy.exp": 1
+        },
+        "loot": {
+            "bones": {
+                "value": "1~4",
+                "skipLocked": true
+            }
+        }
+    },
+    {
+        "id": "enc_embalm1",
+        "name": "防腐设备",
+        "desc": "用于保存尸体的液体和容器。",
+        "effect": {
+            "bf": "-1~2",
+            "unease": "0~2"
+        },
+        "loot": {
+            "spiritgem": "90%",
+            "bodies": {
+                "value": "1~4",
+                "skipLocked": true
+            },
+            "bonedust": {
+                "value": "3~7",
+                "skipLocked": true
+            }
+        }
+    },
+    {
+        "id": "sarcophagus",
+        "desc": "刻有褪色符文的古老棺材。",
+        "level": 4,
+        "effect": {
+            "unease": "0~2",
+            "madness": "0~2"
+        },
+        "loot": {
+            "runestones": "10%",
+            "shadowgem": "30%",
+            "spiritgem": "1~3",
+            "bodies": {
+                "value": "0~2",
+                "skipLocked": true
+            },
+            "bones": {
+                "value": "3~8",
+                "skipLocked": true
+            },
+            "bonedust": {
+                "value": "2~6",
+                "skipLocked": true
+            }
+        }
+    },
+    {
+        "id": "enc_rats",
+        "name": "瘟疫鼠",
+        "desc": "那些乱窜的害虫身上布满了肿块。",
+        "effect": {
+            "bf": "-1~2",
+            "unease": "0~2"
+        },
+        "loot": {
+            "bones": {
+                "value": "0~2",
+                "skipLocked": true
+            },
+            "bonedust": {
+                "value": "0~2",
+                "skipLocked": true
+            }
+        }
+    },
+    {
+        "id": "hauntedglade",
+        "name": "闹鬼的林间空地",
+        "desc": "这里的树木呈现出一种诡异的景象。",
+        "tags": "site_of_learning",
+        "effect": {
+            "madness": "1~2",
+            "unease": "0~2",
+            "shadowlore.exp": 1,
+            "spiritlore.exp": 1
+        },
+        "mod": {
+            "spiritlore.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "hiddencache",
+        "name": "隐藏的储藏处",
+        "desc": "你感觉到附近埋藏着什么。",
+        "effect": {
+            "rage": "1~2",
+            "weary": "0~2",
+            "bf": "-1~2",
+            "naturelore.exp": 1
+        },
+        "loot": {
+            "gold": "0~50",
+            "gems": "2~5",
+            "scrolls": "2~5",
+            "codices": "0~4"
+        }
+    },
+    {
+        "id": "murkywater",
+        "name": "浑浊的水域",
+        "desc": "不祥的形状在浑浊的水下漂浮流淌。",
+        "tags": "site_of_learning",
+        "effect": {
+            "bf": "0~2",
+            "unease": "2~3",
+            "madness": "1~2",
+            "waterlore.exp": 1,
+            "shadowlore.exp": 1
+        },
+        "mod": {
+            "waterlore.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "enc_hettie",
+        "name": "海蒂",
+        "desc": "一只古老的狮鹫栖息在里瑟尔孤独的塔楼顶上，海蒂每天都在梳理和喂养这只野兽。",
+        "tags": "site_of_learning",
+        "effect": {
+            "weary": "1~3",
+            "bf": "1~2"
+        },
+        "mod": {
+            "magicbeasts.max": "0.1//30/-10"
+        },
+        "loot": {
+            "airgem": "1~3"
+        }
+    },
+    {
+        "id": "enc_pidwig",
+        "name": "与皮德维格交谈",
+        "desc": "皮德维格话不多，但在他的旅途中见过许多谜团。",
+        "effect": {
+            "bf": "0~2",
+            "weary": "0~2",
+            "unease": "0~2",
+            "history.exp": 1,
+            "astronomy.exp": 1,
+            "lore.exp": 1
+        },
+        "result": {
+            "arcana": 0.05
+        }
+    },
+    {
+        "id": "pidwigtreasure",
+        "name": "皮德维格的宝藏",
+        "desc": "多年来，皮德维格积累了大量的宝石和文物。",
+        "effect": {
+            "crafting.exp": 1,
+            "history.exp": 1,
+            "trickery.exp": 1,
+            "rage": "0~2",
+            "madness": "0~2"
+        },
+        "loot": {
+            "prismaticgems": "1~3"
+        },
+        "flavor": "也许可以诱使他割爱一些……"
+    },
+    {
+        "id": "starrysky1",
+        "name": "星夜",
+        "desc": "晴朗的天空提供了无尽的苍穹景色。",
+        "effect": {
+            "bf": "1~2",
+            "unease": "-1~2",
+            "madness": "-1~1",
+            "astronomy.exp": 1,
+            "planeslore.exp": 1,
+            "scrying.exp": 1
+        }
+    },
+    {
+        "id": "pidwigstars",
+        "name": "皮德维格的星图",
+        "desc": "作为天文计算的老手，皮德维格分享了他广泛的观测结果。",
+        "effect": {
+            "bf": "1~3",
+            "unease": "-1~2",
+            "madness": "-1~1",
+            "astronomy.exp": 1,
+            "planeslore.exp": 1,
+            "scrying.exp": 1
+        },
+        "loot": {
+            "scrolls": "1~3"
+        }
+    },
+    {
+        "id": "sombersunset",
+        "name": "阴沉的日落",
+        "desc": "夕阳下拍打的波浪暗示着你无法触及的秘密。",
+        "effect": {
+            "rage": "-1~-2",
+            "weary": "-1~-2",
+            "madness": "-1~-2",
+            "waterlore.exp": 1,
+            "mysticism.exp": 1,
+            "divination.exp": 1
+        }
+    },
+    {
+        "id": "brightvista",
+        "name": "明亮远景",
+        "desc": "一个小山丘展现出远方的土地。",
+        "effect": {
+            "bf": "-1~-2",
+            "weary": "-1~-2",
+            "rage": "-1~-2",
+            "naturelore.exp": 1,
+            "lightlore.exp": 1
+        }
+    },
+    {
+        "id": "enc_tome",
+        "name": "符文之书",
+        "desc": "即使是解读这些符文也是一项乏味的工作。",
+        "effect": {
+            "bf": "-1~4",
+            "rage": "0~4",
+            "unease": "0~2",
+            "lore.exp": 1
+        },
+        "result": {
+            "arcana": 0.01
+        },
+        "loot": {
+            "codices": 1
+        }
+    },
+    {
+        "id": "enc_history",
+        "name": "德鲁尼克手稿",
+        "desc": "许多过去的事物都已失落。",
+        "tags": "site_of_learning",
+        "effect": {
+            "bf": "-1~4",
+            "rage": "0~4",
+            "history.exp": 1
+        },
+        "result": {
+            "arcana": 0.01
+        },
+        "loot": {
+            "tomes": "50%"
+        },
+        "mod": {
+            "history.max": "0.1//30/-10"
+        },
+        "flavor": "因为现在已无人记得它。"
+    },
+    {
+        "id": "enc_workbook2",
+        "name": "大师的练习册",
+        "desc": "一本关于魔法实际应用的书。",
+        "tags": "site_of_learning",
+        "effect": {
+            "bf": "-1~3",
+            "madness": "0~3",
+            "rage": "1~3",
+            "crafting.exp": 1
+        },
+        "mod": {
+            "crafting.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "enc_furnace",
+        "name": "法兹比特的熔炉",
+        "desc": "它的余烬在几个世纪后依然闪烁。",
+        "tags": "site_of_learning",
+        "effect": {
+            "bf": "-1~4",
+            "madness": "0~2",
+            "unease": "1~3",
+            "firelore.exp": 1
+        },
+        "loot": {
+            "firegem": "1~4"
+        },
+        "mod": {
+            "firelore.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "enc_alchemy",
+        "name": "炼金设备",
+        "desc": "这些仪器的用途超出了你的理解。",
+        "tags": "site_of_learning",
+        "effect": {
+            "bf": "-1~4",
+            "madness": "0~2",
+            "rage": "1~3",
+            "alchemy.exp": 1
+        },
+        "mod": {
+            "alchemy.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "enc_statue2",
+        "name": "破碎的雕像",
+        "desc": "老石匠们常常在他们的作品中刻下咒语。",
+        "tags": "site_of_learning",
+        "effect": {
+            "earthlore.exp": 1,
+            "bf": "0~2",
+            "unease": "0~2",
+            "history.exp": 1
+        },
+        "mod": {
+            "earthlore.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "enc_statue4",
+        "name": "古老雕像",
+        "desc": "它饱经风霜的脸自风之时代以来便凝视着世界。",
+        "tags": "site_of_learning",
+        "effect": {
+            "madness": 1,
+            "bf": "3~7",
+            "unease": "3~7",
+            "history.exp": 1
+        },
+        "loot": {
+            "runestones": "10%"
+        },
+        "mod": {
+            "history.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "enc_battle1",
+        "name": "古战场",
+        "desc": "被摧毁的山丘和零散的盔甲碎片仍然标志着一处古老的战场。",
+        "flavor": "这是唯一能提醒人们那场可怕战争的遗迹，那场战争永远平息了南方国王们的战意。",
+        "tags": "site_of_learning",
+        "effect": {
+            "madness": 0.5,
+            "weary": "2~7",
+            "unease": "2~5",
+            "history.exp": 1
+        },
+        "mod": {
+            "history.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "enc_mtpass",
+        "name": "坦德伦山口",
+        "desc": "比戈尔博隆还要高，坦德伦的山口不断轰鸣。",
+        "tags": "site_of_learning",
+        "effect": {
+            "madness": 0.5,
+            "weary": "4~7",
+            "rage": "2~7"
+        },
+        "loot": {
+            "airrune": "10%"
+        },
+        "mod": {
+            "s_travel.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "enc_oldstone",
+        "name": "古老的石头",
+        "desc": "这块巨大的石头和苔藓覆盖的头部据说与世界本身一样古老。",
+        "effect": {
+            "unease": "3~4",
+            "bf": "0~-2",
+            "madness": "0~2",
+            "history.exp": 1
+        },
+        "loot": {
+            "earthrune": "10%"
+        },
+        "flavor": "一个声音似乎从地下发出抱怨。"
+    },
+    {
+        "id": "enc_sindel",
+        "name": "星辰神龛",
+        "desc": "一个发光的星辰余烬镶嵌在神龛中。",
+        "tags": "site_of_learning",
+        "effect": {
+            "lightlore.exp": 1,
+            "bf": "2~5",
+            "weary": "0~-2",
+            "unease": "1~5",
+            "history.exp": 1
+        },
+        "mod": {
+            "lightlore.max": "0.1//30/-10"
+        },
+        "flavor": "你似乎无法把它撬下来。"
+    },
+    {
+        "id": "enc_tenwick",
+        "name": "特恩维克",
+        "desc": "特恩维克经常在路上，但总是乐意停下来交换故事。",
+        "effect": {
+            "s_travel.exp": 1,
+            "weary": "2~3"
+        }
+    },
+    {
+        "id": "enc_wyrd",
+        "name": "命运姐妹",
+        "desc": "命运姐妹赫库巴在路边等候。",
+        "effect": {
+            "scrying.exp": 1,
+            "divination.exp": 1,
+            "madness": 2,
+            "bf": "3~7",
+            "unease": "2~4"
+        },
+        "flavor": "无韵诗很难理解。"
+    },
+    {
+        "id": "enc_gap",
+        "name": "马库尔之隙",
+        "desc": "凝视着令人眩晕的边缘，你看不见底部。",
+        "tags": "site_of_learning",
+        "effect": {
+            "bf": "0~3",
+            "unease": "1~4",
+            "madness": "0~3",
+            "airlore.exp": 1
+        },
+        "loot": {
+            "airgem": "10%"
+        },
+        "mod": {
+            "airlore.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "enc_mirror1",
+        "name": "内省之镜",
+        "desc": "只有你自己。",
+        "effect": {
+            "lightlore.exp": 1,
+            "weary": "1~3",
+            "unease": "1~2"
+        }
+    },
+    {
+        "id": "enc_mirror2",
+        "name": "虚假倒影之镜",
+        "desc": "镜子出了问题。",
+        "effect": {
+            "trickery.exp": 1,
+            "rage": "1~3",
+            "bf": "1~2"
+        }
+    },
+    {
+        "id": "enc_futuremirror",
+        "name": "预言之镜",
+        "desc": "未来的景象在你的倒影中浮现。",
+        "effect": {
+            "divination.exp": 1,
+            "madness": "1~3",
+            "unease": "2~3"
+        }
+    },
+    {
+        "id": "enc_rageemirror",
+        "name": "沸腾之镜",
+        "desc": "镜子凝视着你，激起你的怒火。",
+        "effect": {
+            "rage": "4~5"
+        }
+    },
+    {
+        "id": "enc_mirrorhall",
+        "name": "倒影长廊",
+        "desc": "你很快就会迷失在虚假的走廊中。",
+        "effect": {
+            "trickery.exp": 1,
+            "rage": "2~3",
+            "bf": "3~5"
+        }
+    },
+    {
+        "id": "enc_voidmirror",
+        "name": "虚空之镜",
+        "desc": "你清晰地看到所有形状的倒影；但它们完全是黑色的。",
+        "effect": {
+            "voidlore.exp": 1,
+            "void": 1,
+            "madness": "3~5",
+            "unease": "3~5"
+        },
+        "flavor": "如今你对着镜子观看，模糊不清。"
+    },
+    {
+        "id": "enc_watermirror",
+        "name": "水镜",
+        "desc": "透过镜子，你仿佛正在溺水。",
+        "effect": {
+            "breath": -3,
+            "water": 1,
+            "rage": "2~4",
+            "unease": "3~5"
+        }
+    },
+    {
+        "id": "enc_pastmirror",
+        "name": "历史之镜",
+        "desc": "镜中显示着久远的场景。",
+        "effect": {
+            "history.exp": 1,
+            "bf": "1~2",
+            "unease": "1~2"
+        }
+    },
+    {
+        "id": "enc_farmirror",
+        "name": "遥远之镜",
+        "desc": "镜中显示着远方的场景。",
+        "effect": {
+            "scrying.exp": 1,
+            "travel.exp": 1,
+            "bf": "1~2"
+        }
+    },
+    {
+        "id": "enc_sandstorm",
+        "name": "沙尘暴",
+        "desc": "灼热的沙子剥离你的皮肤。",
+        "effect": {
+            "madness": "0~1",
+            "weary": "1~2",
+            "player.hp": -2,
+            "airlore.exp": 1,
+            "earthlore.exp": 1,
+            "earth": 0.5,
+            "air": 0.5
+        }
+    },
+    {
+        "id": "enc_oasis",
+        "name": "绿洲",
+        "desc": "清凉的泉水和棕榈树缓解了荒原的单调。",
+        "effect": {
+            "weary": -2,
+            "madness": -1,
+            "unease": -1
+        }
+    },
+    {
+        "id": "enc_mirage",
+        "name": "海市蜃楼",
+        "desc": "在烈日下长时间跋涉，会在沙中产生幻象。",
+        "tags": "site_of_learning",
+        "effect": {
+            "madness": "1~3",
+            "unease": "0~2",
+            "bf": "0~2",
+            "lightlore.exp": 1
+        },
+        "mod": {
+            "lightlore.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "enc_orremtrade",
+        "name": "失落的贸易站",
+        "desc": "在一片广阔的荒凉之中，一个高大的、灰皮肤、没有眼睛的生物向你兜售它的货物。",
+        "flavor": "通往古萨戈萨的、早已被遗忘的贸易路线的一部分。",
+        "effect": {
+            "unease": "2~3",
+            "madness": "1~3",
+            "mana": -1
+        },
+        "loot": {
+            "bloodgem": "20%",
+            "managem": "10%",
+            "codices": "15%"
+        }
+    },
+    {
+        "id": "enc_madwinds",
+        "name": "疯狂之风",
+        "desc": "风中的声音在你的脑海中尖叫回荡。",
+        "effect": {
+            "madness": "2~5",
+            "mana": 0.5,
+            "spiritlore.exp": 1,
+            "spirit": 1,
+            "airlore.exp": 1
+        }
+    },
+    {
+        "id": "orrem_rains",
+        "name": "奥雷姆之雨",
+        "desc": "奥雷姆之雨稀有而倾盆，被认为是世界奇观之一。",
+        "effect": {
+            "stamina": 1,
+            "waterlore.exp": 1,
+            "water": 0.5
+        }
+    },
+    {
+        "id": "enc_orrem_cave",
+        "name": "隐藏的洞穴",
+        "desc": "流动的沙子露出一个岩石洞穴。也许里面还留存着一些文物。",
+        "effect": {
+            "unease": "1~3",
+            "void": 0.1
+        },
+        "loot": {
+            "codices": "2~4",
+            "tomes": "0~3",
+            "runestones": "10%"
+        }
+    },
+    {
+        "id": "enc_caravan",
+        "name": "商队",
+        "desc": "骑手们的所有特征都隐藏在长袍中。他们用喉音和手势交流。",
+        "tags": "site_of_learning",
+        "effect": {
+            "unease": "1~3"
+        },
+        "mod": {
+            "s_travel.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "enc_aeonclock",
+        "name": "永恒时钟",
+        "desc": "传说瑟恩亲自在奥雷姆沙地中打造了十里长的钟表机械。年复一年，它滴答作响，消磨着无尽的永恒。",
+        "tags": "site_of_learning",
+        "effect": {
+            "madness": "0~3",
+            "unease": "0~2",
+            "bf": "1~3",
+            "chronomancy.exp": 1,
+            "crafting.exp": 1,
+            "history.exp": 1
+        },
+        "loot": {
+            "runestones": "10%"
+        },
+        "mod": {
+            "history.max": "0.1//30/-10"
+        },
+        "flavor": "它巨大的表面与传说中埋藏在地下的东西相比微不足道。"
+    },
+    {
+        "id": "e_bloodgrass",
+        "name": "血草",
+        "desc": "钢刀般锋利的草叶刺入你的靴子。",
+        "effect": {
+            "weary": "1~3",
+            "rage": "1~3",
+            "hp": -2
+        }
+    },
+    {
+        "id": "e_spidermass",
+        "name": "蜘蛛群",
+        "desc": "一群比你头还高的、杂乱无章的爬行蜘蛛挡住了去路。",
+        "effect": {
+            "unease": "2~3",
+            "madness": "2~4",
+            "rage": "1~2",
+            "hp": -1
+        }
+    },
+    {
+        "id": "e_snakemass",
+        "name": "蛇群",
+        "desc": "成堆蠕动、从树枝上垂下的蛇群覆盖了周围区域。",
+        "effect": {
+            "unease": "1~2",
+            "madness": "2~3",
+            "rage": "2~3",
+            "hp": -3
+        }
+    },
+    {
+        "id": "e_agolith",
+        "name": "阿戈利斯",
+        "desc": "它藏身于深潭之中，用头上长出的结果枝条引诱猎物。",
+        "effect": {
+            "unease": "1~2",
+            "weary": "0~1",
+            "herbalism.exp": 1,
+            "waterlore.exp": 1
+        }
+    },
+    {
+        "id": "e_cockatrice",
+        "name": "鸡蛇怪",
+        "desc": "蛇与公鸡的不自然结合体。由于它的凝视即是死亡，你走近时会避开它的目光。",
+        "effect": {
+            "unease": "3~5",
+            "bf": "2~3",
+            "madness": "0~2",
+            "magicbeasts.exp": 1
+        }
+    },
+    {
+        "id": "e_trumple",
+        "name": "特鲁姆普",
+        "desc": "一棵粗壮的树，长着粗短的腿，树干上镶嵌着一张脸。",
+        "effect": {
+            "bf": "1~2",
+            "weary": "2~3",
+            "herbalism.exp": 1
+        },
+        "flavor": "它不会说话，但你喂它油时它会很高兴。"
+    },
+    {
+        "id": "e_balmuth",
+        "name": "巴尔穆斯",
+        "desc": "一只巨大的爬行动物用它的下颚犁开大地进食。",
+        "effect": {
+            "bf": "1~2",
+            "earthlore2.exp": 1
+        },
+        "flavor": "它似乎最喜欢石头。"
+    },
+    {
+        "id": "e_moss_portal",
+        "name": "苔石传送门",
+        "desc": "这是动物园边缘的十几个长满苔藓的传送门之一。它们的用途不明。",
+        "effect": {
+            "unease": "3~4",
+            "bf": "3~4"
+        },
+        "result": {
+            "arcana": 0.01
+        }
+    },
+    {
+        "id": "e_big_scale",
+        "name": "衔尾蛇之鳞",
+        "desc": "在动物园的中心，一片巨大的鳞片与树融为一体。",
+        "effect": {
+            "unease": "3~4",
+            "madness": "4~5"
+        },
+        "flavor": "最好不要打扰它。"
+    },
+    {
+        "id": "e_gryffon",
+        "name": "格里芬",
+        "desc": "格里芬通常是温顺的生物，但一旦被激怒，就会变得致命。",
+        "effect": {
+            "unease": "1~2"
+        }
+    },
+    {
+        "id": "e_wyvern",
+        "name": "飞龙",
+        "desc": "被认为是龙的远亲，有些甚至有剧毒。",
+        "effect": {
+            "unease": "2~3",
+            "airlore2.exp": 1
+        }
+    },
+    {
+        "id": "e_hydra",
+        "name": "九头蛇",
+        "desc": "一只多头野兽从水中抬起头来。",
+        "effect": {
+            "unease": "2~3",
+            "rage": 0.5,
+            "waterlore2.exp": 1
+        }
+    },
+    {
+        "id": "e_barghest",
+        "name": "巴格斯特",
+        "desc": "这只巨大的犬形野兽是死亡的预兆。",
+        "effect": {
+            "unease": "3~4",
+            "madness": "1~4"
+        }
+    },
+    {
+        "id": "e_phoenix",
+        "name": "凤凰",
+        "desc": "它们是稀有的鸟类之一，但在这个地方却并不少见。",
+        "effect": {
+            "unease": "2~3",
+            "rage": 0.5,
+            "firelore2.exp": 1
+        }
+    },
+    {
+        "id": "e_pogler",
+        "name": "波格勒群",
+        "desc": "平静的波格勒们将长满浓密叶子的背部朝向太阳。",
+        "effect": {
+            "bf": "2~3",
+            "rage": -0.5,
+            "naturelore2.exp": 1
+        }
+    },
+    {
+        "id": "e_flithy",
+        "name": "弗利西",
+        "desc": "你遇到一个爬行的生物，它有二十条毛茸茸的腿，除此之外别无他物。",
+        "effect": {
+            "unease": "1~2",
+            "bf": "1~2",
+            "madness": "1~2"
+        }
+    },
+    {
+        "id": "e_bestiary1",
+        "name": "动物园挂毯",
+        "desc": "附近一幅原始的挂毯展示了动物园的部分目录。",
+        "effect": {
+            "unease": "1~2",
+            "madness": "1~2",
+            "rage": "1~2",
+            "hp": -3,
+            "research": 1
+        }
+    },
+    {
+        "id": "e_bestiary2",
+        "name": "异兽志",
+        "desc": "一本关于野兽传说的手册放在一个古老的基座上。",
+        "tags": "site_of_learning",
+        "effect": {
+            "unease": "1~2",
+            "madness": "1~2",
+            "rage": "1~2",
+            "hp": -3
+        },
+        "mod": {
+            "animals.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "enc_scrollpile",
+        "name": "一堆卷轴",
+        "desc": "有人随意地散落了一堆卷轴。",
+        "effect": {
+            "bf": "-1~2",
+            "lore.exp": 1
+        },
+        "result": {
+            "research": 1,
+            "arcana": 0.06
+        },
+        "loot": {
+            "scrolls": "0~2"
+        }
+    },
+    {
+        "id": "enc_magicstream",
+        "name": "潺潺小溪",
+        "level": 2,
+        "desc": "一条可爱的小溪在这里潺潺流淌。魔法能量沿着它的路径流动。",
+        "effect": {
+            "bf": "-1~2",
+            "naturelore.exp": 1,
+            "waterlore.exp": 1
+        },
+        "loot": {
+            "watergem": "1~4",
+            "herbs": "3~7"
+        }
+    },
+    {
+        "id": "enc_lilitscache",
+        "name": "秘密藏匿处",
+        "desc": "你感觉到附近埋藏着什么。",
+        "effect": {
+            "rage": "1~2",
+            "weary": "0~2",
+            "bf": "-1~2",
+            "naturelore.exp": 1
+        },
+        "loot": {
+            "gold": "0~50",
+            "gems": "0~3",
+            "scrolls": "2~4",
+            "codices": "0~4",
+            "watergem": "1~3"
+        }
+    },
+    {
+        "id": "enc_eyotchest",
+        "name": "被遗忘的箱子",
+        "desc": "一个布满灰尘但坚固的箱子。似乎很久没有人碰过它了。",
+        "effect": {
+            "rage": "1~3"
+        },
+        "loot": {
+            "gold": "0~35",
+            "gems": "0~2",
+            "runestones": "10%",
+            "codices": "1~5",
+            "managem": 1
+        }
+    },
+    {
+        "id": "enc_mossylogs",
+        "name": "长满苔藓的圆木",
+        "level": 1,
+        "desc": "长满苔藓的倒木挡住了去路。",
+        "effect": {
+            "bf": "-1~2",
+            "naturelore.exp": 1,
+            "earthlore.exp": 1,
+            "arcana": 0.001
+        },
+        "loot": {
+            "naturegem": "1~2"
+        }
+    },
+    {
+        "id": "enc_mudpatch",
+        "name": "泥泞地",
+        "level": 2,
+        "desc": "道路上有一段泥泞的路段，必须小心通过，否则你会滑倒。",
+        "effect": {
+            "bf": "-1~2",
+            "naturelore.exp": 1
+        },
+        "loot": {
+            "earthgem": "1~5"
+        }
+    },
+    {
+        "id": "enc_woodlandcritters",
+        "name": "林地小动物",
+        "desc": "鸟儿四处飞舞，小小的林地动物们在各个方向奔跑，对你毫不在意。",
+        "effect": {
+            "rage": "1~2",
+            "weary": "1~3",
+            "naturelore.exp": 1,
+            "research": 1,
+            "lore.exp": 1
+        },
+        "result": {
+            "arcana": 0.01
+        },
+        "loot": {
+            "naturegem": "1~2"
+        }
+    },
+    {
+        "id": "enc_smallcave",
+        "name": "小洞穴",
+        "desc": "前方小路旁有一个小洞穴。如果你不害怕幽闭空间，或许值得调查一下。",
+        "effect": {
+            "rage": "1~2",
+            "weary": "0~2",
+            "bf": "-1~2",
+            "earthlore.exp": 1
+        },
+        "loot": {
+            "gold": "0~10",
+            "gems": "0~1",
+            "scrolls": "1~4",
+            "codices": "0~2",
+            "naturegem": "1~4",
+            "earthgem": "2~5"
+        }
+    },
+    {
+        "id": "enc_flowermeadow",
+        "name": "花草甸",
+        "desc": "一片阳光明媚的空地开满了野花。",
+        "effect": {
+            "bf": "-1~-2",
+            "weary": "-1~-2",
+            "rage": "-1~-2",
+            "naturelore.exp": 1,
+            "herbalism.exp": 1,
+            "lightlore.exp": 1
+        },
+        "loot": {
+            "naturegem": "50%"
+        }
+    },
+    {
+        "id": "enc_hugetree",
+        "name": "盘根错节的老树",
+        "desc": "一棵古老、盘根错节的老树立在这里。你几乎感觉它在注视着你。",
+        "tags": "site_of_learning",
+        "effect": {
+            "madness": "1~2",
+            "unease": "0~2",
+            "naturelore.exp": 1
+        },
+        "loot": {
+            "earthgem": "50%",
+            "naturegem": "50%"
+        },
+        "mod": {
+            "naturelore.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "enc_pidwigchest",
+        "name": "布满灰尘的箱子",
+        "desc": "一个上锁的小箱子放在这里积满了灰尘。似乎很久没有人打开过它了。",
+        "effect": {
+            "rage": "1~3"
+        },
+        "loot": {
+            "gold": "20~25",
+            "gems": "0~2",
+            "runestones": "20%",
+            "codices": "0~3",
+            "prismaticgems": 1
+        }
+    },
+    {
+        "id": "rithel_fortifications",
+        "name": "瑞瑟尔防御工事",
+        "desc": "你花了一些时间修复和加固瑞瑟尔的古老防御工事。",
+        "effect": {
+            "rage": "1~2",
+            "weary": "1~3",
+            "naturelore.exp": 1,
+            "research": 1,
+            "lore.exp": 1
+        },
+        "result": {
+            "arcana": 0.01
+        },
+        "loot": {
+            "naturegem": "10%"
+        }
+    },
+    {
+        "id": "rithel_grizzledveteran",
+        "name": "饱经风霜的老兵",
+        "desc": "一位饱经战火的老游侠向你讲述他过去的冒险故事。",
+        "effect": {
+            "weary": "0~2",
+            "bf": "1~2",
+            "weaponlore.exp": 1,
+            "research": 1,
+            "lore.exp": 1
+        },
+        "result": {
+            "research": 10,
+            "arcana": 0.02
+        },
+        "loot": {
+            "codices": "10%"
+        }
+    },
+    {
+        "id": "rithel_woods",
+        "name": "瞭望森林",
+        "desc": "你花了一些时间在瑞瑟尔的城墙上监视附近的森林。一切似乎都很平静。",
+        "tags": "site_of_learning",
+        "effect": {
+            "weary": "1~3",
+            "bf": "1~2"
+        },
+        "mod": {
+            "naturelore.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "rithel_towerview",
+        "name": "塔楼视野",
+        "desc": "从瑞瑟尔塔楼的顶部，你可以欣赏到周围区域的壮丽景色。",
+        "effect": {
+            "bf": "-1~-2",
+            "weary": "-1~-2",
+            "rage": "-1~-2",
+            "naturelore.exp": 1,
+            "lightlore.exp": 1
+        },
+        "loot": {
+            "airgem": "1~3"
+        }
+    },
+    {
+        "id": "rithel_rangerpatrol",
+        "name": "游侠巡逻队",
+        "desc": "一群表情严肃的游侠经过。你不确定他们是来还是去，但他们对与你聊天不感兴趣。",
+        "effect": {
+            "bf": "-1~3",
+            "weary": "0~2",
+            "rage": "0~2",
+            "lore.exp": 1,
+            "naturelore.exp": 1
+        }
+    },
+    {
+        "id": "enc_alchemy2",
+        "name": "炼金术转化",
+        "desc": "这套炼金设备似乎旨在将铅转化为黄金。",
+        "tags": "site_of_learning",
+        "effect": {
+            "bf": "-1~4",
+            "madness": "0~2",
+            "rage": "1~3",
+            "alchemy.exp": 1
+        },
+        "loot": {
+            "gold": "0~130"
+        },
+        "mod": {
+            "alchemy.max": "0.1//30/-10"
+        }
+    },
+    {
+        "id": "enc_blazingheat",
+        "name": "炽热",
+        "desc": "无情的烈日炙烤着你。",
+        "effect": {
+            "madness": "0~1",
+            "weary": "2~4",
+            "player.hp": -1,
+            "airlore.exp": 1,
+            "firelore.exp": 1,
+            "fire": 0.5,
+            "air": 0.5
+        },
+        "loot": {
+            "firerune": "10%"
+        }
+    },
+    {
+        "id": "puppet_crystal",
+        "name": "脉动水晶",
+        "desc": "一块奇怪的水晶在黑暗中规律地跳动。 .... . .-.. .-.. ---",
+        "effect": {
+            "weary": "1~3",
+            "unease": "1~3",
+            "bf": "1~3",
+            "automatasculpting.exp": 1
+        },
+        "loot": {
+            "runestones": "15%",
+            "shadowgem": "1~4"
+        }
+    },
+    {
+        "id": "enc_crashingwaves",
+        "name": "巨浪拍岸",
+        "desc": "巨大的海浪拍打着岩石海岸。",
+        "effect": {
+            "madness": "0~1",
+            "weary": "2~7",
+            "unease": "1~4",
+            "waterlore.exp": 1
+        },
+        "loot": {
+            "waterrune": "10%"
+        }
+    },
+    {
+        "id": "enc_dragonhoard",
+        "name": "巨龙宝藏",
+        "desc": "堆积如山的黄金、珠宝和其他珍贵物品。",
+        "extdesc": "不过你没有时间全部收集起来",
+        "effect": {
+            "gold": "100~300",
+            "gems": "3~8",
+            "prismaticgems": "0~1",
+            "rubies": "2~5",
+            "diamonds": "1~3"
+        }
+    }
+]

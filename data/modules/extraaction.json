@@ -1,0 +1,149 @@
+{
+    "module": "extraaction",
+    "data": {
+        "upgrades": [
+            {
+                "id": "timespiral",
+                "name": "时间螺旋",
+                "desc": "退后一步，重新开始。",
+                "require": "g.tier5>0&&g.runner.max>=3&&g.evt_timerip>0",
+                "lock": "t_actionexpansion",
+                "tags": "t_actionexpansion",
+                "cost": {
+                    "stillroom": 1,
+                    "chargedtimepiece": 6
+                },
+                "mod": {
+                    "runner.max": 1
+                },
+                "group": "actions"
+            }
+        ],
+        "resources": [
+            {
+                "id": "stillroom",
+                "name": "静止之室",
+                "group": "materials",
+                "desc": "此房间内没有任何事物发生。",
+                "max": 1,
+                "sortOrder": 542,
+                "flavor": "非常适合进行高度专业化的实验。"
+            },
+            {
+                "id": "chargedtimepiece",
+                "name": "充能计时器",
+                "group": "materials",
+                "desc": "注入了时间能量，无论你身处何时，此计时器都能显示当前时间。",
+                "max": 6,
+                "sortOrder": 541,
+                "flavor": "你们中有多少人拥有一个？"
+            },
+            {
+                "id": "emptytimepiece",
+                "name": "精密计时器",
+                "group": "materials",
+                "desc": "一个由非凡材料制成的普通计时器。",
+                "max": 6,
+                "sortOrder": 540,
+                "flavor": "时间是L1:69。"
+            }
+        ],
+        "tasks": [
+            {
+                "id": "crafttimepiece",
+                "name": "制作计时器",
+                "verb": "clockmaking",
+                "require": "g.tier5>0&&g.runner.max>=3&&g.evt_timerip>0",
+                "need": [
+                    "workspace",
+                    "timesource"
+                ],
+                "desc": "制作一个精密计时器。",
+                "length": 120,
+                "fill": [
+                    "emptytimepiece"
+                ],
+                "cost": {
+                    "gold": 1000,
+                    "research": 750,
+                    "runestones": 1,
+                    "firerune": 1,
+                    "airrune": 1,
+                    "earthrune": 1,
+                    "waterrune": 1
+                },
+                "run": {
+                    "stamina": 2,
+                    "tempus": 2
+                },
+                "result": {
+                    "emptytimepiece": 1
+                },
+                "group": "crafting"
+            },
+            {
+                "id": "imbuetimepiece",
+                "name": "注入计时器",
+                "verb": "weaving time",
+                "require": "g.emptytimepiece>0",
+                "need": [
+                    "workspace",
+                    "timesource"
+                ],
+                "desc": "将时间能量编织进空计时器中。",
+                "length": 60,
+                "fill": [
+                    "chargedtimepiece"
+                ],
+                "cost": {
+                    "gold": 1500,
+                    "research": 100,
+                    "timerune": 3,
+                    "tomes": 2,
+                    "timegem": 10,
+                    "runestones": 1,
+                    "codices": 25,
+                    "emptytimepiece": 1
+                },
+                "run": {
+                    "stamina": 3,
+                    "tempus": 3,
+                    "gold": 25,
+                    "research": 7,
+                    "timegem": 0.5,
+                    "bloodgem": 0.25,
+                    "managem": 0.25,
+                    "sindel": 0.0025
+                },
+                "result": {
+                    "chargedtimepiece": 1
+                },
+                "group": "crafting"
+            },
+            {
+                "id": "createstillroom",
+                "name": "创建静止之室",
+                "verb": "stilling",
+                "require": "g.tier5>0&&g.runner.max>=3&&g.evt_timerip>0",
+                "need": [
+                    "workspace",
+                    "timesource"
+                ],
+                "desc": "停止。",
+                "length": 720,
+                "fill": [
+                    "stillroom"
+                ],
+                "cost": {
+                    "timegem": 100,
+                    "timerune": 3,
+                    "clepsydra100": 2
+                },
+                "result": {
+                    "stillroom": 1
+                },
+                "group": "crafting"
+            }
+        ]
+    }
+}

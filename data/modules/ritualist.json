@@ -1,0 +1,1070 @@
+{
+    "module": "ritualist",
+    "author": "regallion",
+    "email": "",
+    "git": "",
+    "data": {
+        "skills": [
+            {
+                "id": "ritualism",
+                "name": "仪式",
+                "require": "g.runner.max>=2&&g.ritualchamber>0",
+                "desc": "练习各种魔法仪式及其危险",
+                "level": 25,
+                "buy": {
+                    "sp": 15,
+                    "codices": 50,
+                    "tomes": 20
+                },
+                "run": {
+                    "stamina": 1,
+                    "prismatic": 1
+                },
+                "result": {
+                    "ritualnotes": 0.1
+                },
+                "mod": {
+                    "ritualward.rate": 0.0001
+                }
+            }
+        ],
+        "tasks": [
+            {
+                "id": "ritual_arcane",
+                "name": "奥术仪式",
+                "tags": "t_ritual",
+                "desc": "一个简单的仪式，适合初学者。",
+                "perpetual": true,
+                "verb": "arcane ritual",
+                "require": "g.ritualism>0",
+                "buy": {
+                    "ritualward": 1
+                },
+                "run": {
+                    "stamina": 0.5
+                },
+                "effect": {
+                    "ritualnotes": 0.0001
+                },
+                "runmod": {
+                    "mana.rate": 1
+                }
+            },
+            {
+                "id": "ritual_lightbinding",
+                "name": "光之束缚仪式",
+                "tags": "t_ritual",
+                "desc": "对于那些背弃光明的人，唯一的选择就是武力。",
+                "perpetual": true,
+                "verb": "lightbinding ritual",
+                "require": "g.evil3>0&&g.ritualist>0",
+                "buy": {
+                    "ritualward": 3
+                },
+                "run": {
+                    "stamina": 1,
+                    "shadow": 2
+                },
+                "effect": {
+                    "ritualnotes": 0.0002
+                },
+                "runmod": {
+                    "light.max": 10
+                }
+            },
+            {
+                "id": "ritual_curse",
+                "name": "诅咒仪式",
+                "tags": "t_ritual",
+                "desc": "用恶意强化灵魂，以保护你免受伤害。",
+                "perpetual": true,
+                "verb": "cursing ritual",
+                "require": "g.ritualism>=3&&g.evil1>0",
+                "buy": {
+                    "ritualward": 1
+                },
+                "run": {
+                    "souls": 0.3
+                },
+                "effect": {
+                    "ritualnotes": 0.0001
+                },
+                "runmod": {
+                    "player.resist.shadow": 5,
+                    "player.resist.light": 5,
+                    "hp.max": 50,
+                    "player.defense": 10
+                }
+            },
+            {
+                "id": "ritual_cultivation",
+                "name": "栽培仪式",
+                "tags": "t_ritual",
+                "desc": "命令植物生长开花",
+                "perpetual": true,
+                "verb": "cultivation ritual",
+                "require": "g.ritualism>=3&&(g.druid+g.kell)>0",
+                "buy": {
+                    "ritualward": 1
+                },
+                "run": {
+                    "nature": 2,
+                    "bodies": 0.5
+                },
+                "effect": {
+                    "ritualnotes": 0.0001
+                },
+                "runmod": {
+                    "creepingvine.herbs.rate": 0.2,
+                    "garden.herbs.rate": 1
+                }
+            },
+            {
+                "id": "ritual_healing",
+                "name": "治疗仪式",
+                "tags": "t_ritual",
+                "desc": "用光强化你的身体",
+                "perpetual": true,
+                "verb": "healing ritual",
+                "need": "g.good2==1",
+                "require": "g.ritualism>=3&&g.good2==1",
+                "buy": {
+                    "ritualward": 1
+                },
+                "run": {
+                    "light": 2,
+                    "lightgem": 0.2
+                },
+                "effect": {
+                    "ritualnotes": 0.0001
+                },
+                "runmod": {
+                    "hp.rate": 10,
+                    "hp.max": 100
+                }
+            },
+            {
+                "id": "ritual_refresh",
+                "name": "恢复仪式",
+                "tags": "t_ritual",
+                "desc": "从活体组织中汲取生命力以补充你的体力。",
+                "perpetual": true,
+                "verb": "energy ritual",
+                "require": "g.ritualism>=6",
+                "buy": {
+                    "ritualward": 1
+                },
+                "run": {
+                    "herbs": 5,
+                    "bodies": 0.5,
+                    "bloodgem": 0.075,
+                    "weary": -1
+                },
+                "effect": {
+                    "ritualnotes": 0.0001
+                },
+                "runmod": {
+                    "stamina.rate": 1.5,
+                    "stamina.max": 40
+                }
+            },
+            {
+                "id": "ritual_arcane_greater",
+                "name": "高级奥术仪式",
+                "tags": "t_ritual",
+                "desc": "一个为精通仪式魔法者准备的高级仪式",
+                "perpetual": true,
+                "verb": "greater arcane ritual",
+                "require": "g.ritualism>=7",
+                "buy": {
+                    "ritualward": 4
+                },
+                "run": {
+                    "stamina": 3,
+                    "ritualpaper": 0.01
+                },
+                "effect": {
+                    "ritualnotes": 0.0005
+                },
+                "runmod": {
+                    "prismatic.rate": 1
+                }
+            },
+            {
+                "id": "ritual_curse_greater",
+                "name": "高级诅咒仪式",
+                "tags": "t_ritual",
+                "desc": "强化诅咒灵魂军团以守护你的凡躯",
+                "perpetual": true,
+                "verb": "greater cursing ritual",
+                "require": "g.ritualism>=9&&g.evil2>0",
+                "need": "g.evil2>0",
+                "buy": {
+                    "ritualward": 4
+                },
+                "run": {
+                    "souls": 1,
+                    "ritualpaper": 0.01
+                },
+                "effect": {
+                    "ritualnotes": 0.0005
+                },
+                "runmod": {
+                    "player.resist.shadow": 10,
+                    "player.resist.light": 10,
+                    "hp.max": 100,
+                    "player.defense": 20
+                }
+            },
+            {
+                "id": "ritual_cultivation_greater",
+                "name": "高级栽培仪式",
+                "tags": "t_ritual",
+                "desc": "利用多个身体的生命力，眨眼间创造一片草药田",
+                "perpetual": true,
+                "verb": "greater cultivation ritual",
+                "require": "g.ritualism>=9&&(g.druid+g.kell)>0",
+                "buy": {
+                    "ritualward": 4
+                },
+                "run": {
+                    "nature": 5,
+                    "bodies": 1.5,
+                    "ritualpaper": 0.01
+                },
+                "effect": {
+                    "ritualnotes": 0.0005
+                },
+                "runmod": {
+                    "creepingvine.herbs.rate": 0.4,
+                    "garden.herbs.rate": 1.8
+                }
+            },
+            {
+                "id": "ritual_healing_greater",
+                "name": "高级治疗仪式",
+                "tags": "t_ritual",
+                "desc": "用治疗光辉灌注自身",
+                "perpetual": true,
+                "verb": "greater healing ritual",
+                "require": "g.ritualism>=9&&g.good3==1",
+                "buy": {
+                    "ritualward": 4
+                },
+                "run": {
+                    "light": 4,
+                    "lightgem": 0.5,
+                    "ritualpaper": 0.01
+                },
+                "effect": {
+                    "ritualnotes": 0.0005
+                },
+                "runmod": {
+                    "hp.rate": 20,
+                    "hp.max": 150
+                }
+            },
+            {
+                "id": "ritual_refresh_greater",
+                "name": "高级能量仪式",
+                "tags": "t_ritual",
+                "desc": "将你的疲惫传递给他人",
+                "perpetual": true,
+                "verb": "greater energy ritual",
+                "require": "g.ritualism>=10",
+                "buy": {
+                    "ritualward": 4
+                },
+                "run": {
+                    "herbs": 12,
+                    "bodies": 1,
+                    "bloodgem": 0.1,
+                    "weary": -2,
+                    "ritualpaper": 0.01
+                },
+                "effect": {
+                    "ritualnotes": 0.0005
+                },
+                "runmod": {
+                    "stamina.rate": 3,
+                    "stamina.max": 60
+                }
+            },
+            {
+                "id": "ritual_time",
+                "name": "时间仪式",
+                "tags": "t_ritual",
+                "desc": "掌控时间的潮起潮落，为你所用",
+                "perpetual": true,
+                "verb": "time ritual",
+                "require": "g.ritualism>=15&&g.masterritualist>0",
+                "buy": {
+                    "ritualward": 10
+                },
+                "run": {
+                    "tempus": 2,
+                    "ritualpaper": 0.3,
+                    "sindel": 0.05
+                },
+                "effect": {
+                    "ritualnotes": 0.005
+                },
+                "runmod": {
+                    "speed": 25
+                }
+            },
+            {
+                "id": "ritual_void",
+                "name": "虚空仪式",
+                "tags": "t_ritual",
+                "desc": "无",
+                "perpetual": true,
+                "verb": "void ritual",
+                "require": "g.ritualism>=15&&g.masterritualist>0",
+                "buy": {
+                    "ritualward": 10
+                },
+                "run": {
+                    "voidgem": 0.1,
+                    "ritualpaper": 0.3,
+                    "sindel": 0.05
+                },
+                "effect": {
+                    "ritualnotes": 0.005
+                },
+                "runmod": {
+                    "stamina.rate": 7,
+                    "stress.rate": -10
+                }
+            },
+            {
+                "id": "ritual_dreams",
+                "name": "梦境仪式",
+                "tags": "t_ritual",
+                "desc": "别让你的梦想只是梦想",
+                "perpetual": true,
+                "verb": "dream ritual",
+                "require": "g.ritualism>=15&&g.masterritualist>0",
+                "buy": {
+                    "ritualward": 10
+                },
+                "run": {
+                    "dreams": 0.07,
+                    "ritualpaper": 0.3,
+                    "sindel": 0.05
+                },
+                "effect": {
+                    "ritualnotes": 0.005
+                },
+                "runmod": {
+                    "player.resist.fire": 15,
+                    "player.resist.light": 15,
+                    "player.resist.shadow": 15,
+                    "player.resist.water": 15,
+                    "player.resist.earth": 15,
+                    "player.resist.air": 15,
+                    "player.resist.mana": 15,
+                    "player.resist.blunt": 40,
+                    "player.resist.slash": 40,
+                    "player.resist.pierce": 40
+                }
+            },
+            {
+                "id": "ritual_fire",
+                "name": "火焰仪式",
+                "tags": "t_ritual",
+                "desc": "炽热的火焰充满你的灵魂",
+                "perpetual": true,
+                "verb": "fire ritual",
+                "require": "g.ritual_elementalboosters>0",
+                "buy": {
+                    "ritualward": 2
+                },
+                "run": {
+                    "prismatic": 1
+                },
+                "effect": {
+                    "ritualnotes": 0.0002,
+                    "fire": 3
+                },
+                "runmod": {
+                    "player.bonuses.fire": "15%",
+                    "player.resist.fire": 10
+                }
+            },
+            {
+                "id": "ritual_water",
+                "name": "水之仪式",
+                "tags": "t_ritual",
+                "desc": "流淌的水充满你的灵魂",
+                "perpetual": true,
+                "verb": "water ritual",
+                "require": "g.ritual_elementalboosters>0",
+                "buy": {
+                    "ritualward": 2
+                },
+                "run": {
+                    "prismatic": 1
+                },
+                "effect": {
+                    "ritualnotes": 0.0002,
+                    "water": 3
+                },
+                "runmod": {
+                    "player.bonuses.water": "15%",
+                    "player.resist.water": 10
+                }
+            },
+            {
+                "id": "ritual_air",
+                "name": "风之仪式",
+                "tags": "t_ritual",
+                "desc": "呼啸的风充满你的灵魂",
+                "perpetual": true,
+                "verb": "air ritual",
+                "require": "g.ritual_elementalboosters>0",
+                "buy": {
+                    "ritualward": 2
+                },
+                "run": {
+                    "prismatic": 1
+                },
+                "effect": {
+                    "ritualnotes": 0.0002,
+                    "air": 3
+                },
+                "runmod": {
+                    "player.bonuses.air": "15%",
+                    "player.resist.air": 10
+                }
+            },
+            {
+                "id": "ritual_earth",
+                "name": "大地仪式",
+                "tags": "t_ritual",
+                "desc": "厚重的大地充满你的灵魂",
+                "perpetual": true,
+                "verb": "earth ritual",
+                "require": "g.ritual_elementalboosters>0",
+                "buy": {
+                    "ritualward": 2
+                },
+                "run": {
+                    "prismatic": 1
+                },
+                "effect": {
+                    "ritualnotes": 0.0002,
+                    "earth": 3
+                },
+                "runmod": {
+                    "player.bonuses.earth": "15%",
+                    "player.resist.earth": 10
+                }
+            },
+            {
+                "id": "ritual_mana",
+                "name": "法力仪式",
+                "tags": "t_ritual",
+                "desc": "奥术力量充满你的灵魂",
+                "perpetual": true,
+                "verb": "mana ritual",
+                "require": "g.ritual_elementalboosters>0",
+                "buy": {
+                    "ritualward": 2
+                },
+                "run": {
+                    "prismatic": 1
+                },
+                "effect": {
+                    "ritualnotes": 0.0002,
+                    "mana": 3
+                },
+                "runmod": {
+                    "player.bonuses.mana": "15%",
+                    "player.resist.mana": 10
+                }
+            },
+            {
+                "id": "ritual_penance",
+                "name": "忏悔仪式",
+                "tags": "t_ritual",
+                "desc": "狂喜的罪恶感充满你的灵魂",
+                "perpetual": true,
+                "verb": "penance ritual",
+                "require": "g.ritual_elementalboosters>0",
+                "buy": {
+                    "ritualward": 2
+                },
+                "run": {
+                    "prismatic": 1
+                },
+                "effect": {
+                    "ritualnotes": 0.0002,
+                    "light": 3,
+                    "shadow": 3
+                },
+                "runmod": {
+                    "player.bonuses.light": "15%",
+                    "player.resist.light": 10,
+                    "player.bonuses.shadow": "15%",
+                    "player.resist.shadow": 10
+                }
+            },
+            {
+                "id": "ritual_dawn",
+                "name": "黎明仪式",
+                "tags": "t_ritual",
+                "desc": "整体的一部分，单独无用，却依然强大",
+                "perpetual": true,
+                "verb": "dawn ritual",
+                "require": "g.masterritualist>0",
+                "buy": {
+                    "ritualward": 5
+                },
+                "run": {
+                    "stamina": 2,
+                    "hp": 10
+                },
+                "effect": {
+                    "ritualnotes": 0.0003
+                },
+                "runmod": {
+                    "ritual_dusk.mod.player.defense": 10,
+                    "ritual_dusk.mod.player.bonuses.blunt": "10%",
+                    "ritual_dusk.mod.player.bonuses.pierce": "10%",
+                    "ritual_dusk.mod.player.bonuses.slash": "10%"
+                }
+            },
+            {
+                "id": "ritual_dusk",
+                "name": "黄昏仪式",
+                "tags": "t_ritual",
+                "desc": "整体的一部分，单独无用，却依然强大",
+                "perpetual": true,
+                "verb": "dusk ritual",
+                "require": "g.masterritualist>0",
+                "buy": {
+                    "ritualward": 5
+                },
+                "run": {
+                    "prismatic": 2
+                },
+                "effect": {
+                    "ritualnotes": 0.0003
+                },
+                "runmod": {
+                    "ritual_dawn.mod.speed": 5,
+                    "ritual_dawn.mod.stress": -0.2,
+                    "ritual_dawn.mod.dist": 100
+                }
+            },
+            {
+                "id": "ritual_mandala",
+                "name": "曼荼罗仪式",
+                "tags": "t_ritual",
+                "desc": "一位仪式大师的终极创造，维持此仪式可让使用者在其中执行任意数量的仪式。",
+                "perpetual": true,
+                "verb": "mandala ritual",
+                "require": "g.ritualist>0&&g.masterritualist>0&&g.ritualism>=20",
+                "buy": {
+                    "ritualward": 10
+                },
+                "run": {
+                    "prismatic": 4,
+                    "tempus": 2,
+                    "timerune": 0.006
+                },
+                "effect": {
+                    "ritualnotes": 0.005
+                },
+                "runmod": {
+                    "t_ritual.mod.runner.max": 1
+                }
+            },
+            {
+                "id": "ritualpaper_raw",
+                "name": "制作仪式纸",
+                "verb": "inscribing",
+                "require": "g.ritualism>=5",
+                "need": "workspace",
+                "desc": "为了维持高级仪式，需要准备刻有魔法符文的特殊纸张",
+                "fill": [
+                    "ritualpaper"
+                ],
+                "length": 5,
+                "cost": {
+                    "gold": 250,
+                    "research": 150
+                },
+                "run": {
+                    "stamina": 0.5,
+                    "mana": 1
+                },
+                "result": {
+                    "ritualpaper": 1
+                },
+                "runmod": {}
+            },
+            {
+                "id": "ritualpaper_prepared",
+                "name": "刻写仪式纸",
+                "verb": "inscribing",
+                "require": "(g.ritualist+g.masterritualist)>0",
+                "need": "workspace",
+                "desc": "通过使用预先注入魔力的纸张，仪式纸的制作可以大大简化",
+                "fill": [
+                    "ritualpaper"
+                ],
+                "length": 2,
+                "cost": {
+                    "rawritualpaper": 1,
+                    "research": 100
+                },
+                "run": {
+                    "stamina": 0.2,
+                    "mana": 1
+                },
+                "result": {
+                    "ritualpaper": 1
+                },
+                "runmod": {}
+            }
+        ],
+        "upgrades": [
+            {
+                "id": "ritual_efficiency",
+                "name": "高效仪式",
+                "desc": "熟练的仪式师可以通过减少安全余量来节省材料",
+                "require": "g.ritualist>0",
+                "max": 1,
+                "cost": {
+                    "ritualward": 10,
+                    "ritualnotes": 5
+                },
+                "mod": {
+                    "ritual_arcane.run.stamina": -0.2,
+                    "ritual_cultivation.run.bodies": -0.1,
+                    "ritual_curse.run.souls": -0.2,
+                    "ritual_refresh.run.bodies": -0.1,
+                    "ritual_refresh.run.bloodgem": -0.015,
+                    "ritual_healing.run.lightgem": -0.04
+                },
+                "flavor": "从短期来看，奥术崩溃的可能性微乎其微"
+            },
+            {
+                "id": "ritual_power",
+                "name": "强大仪式",
+                "desc": "让高级仪式再次伟大",
+                "require": "g.ritualist>0",
+                "max": 1,
+                "cost": {
+                    "ritualward": 10,
+                    "ritualnotes": 10
+                },
+                "mod": {
+                    "ritual_arcane_greater.runmod.prismatic": 0.2,
+                    "ritual_cultivation_greater.runmod.creepingvine.herbs.rate": 0.1,
+                    "ritual_cultivation_greater.runmod.garden.herbs.rate": 0.4,
+                    "ritual_curse_greater.runmod.player.defense": 10,
+                    "ritual_refresh_greater.runmod.stamina.max": 20,
+                    "ritual_healing_greater.runmod.hp.max": 50
+                },
+                "flavor": "我们必须建造一个结界"
+            },
+            {
+                "id": "ritual_elementalboosters",
+                "name": "元素仪式",
+                "desc": "通过专门的仪式提升你的元素力量",
+                "require": "g.ritualist>0",
+                "max": 1,
+                "cost": {
+                    "ritualward": 5,
+                    "ritualnotes": 10
+                },
+                "mod": {
+                    "ritualward.rate": 0.0001
+                }
+            },
+            {
+                "id": "ritual_paperproduction",
+                "name": "溢流墨水",
+                "desc": "专用墨水允许每次会话生产额外的仪式纸",
+                "require": "g.masterritualist>0",
+                "max": 1,
+                "cost": {
+                    "ritualward": 10,
+                    "ritualnotes": 15,
+                    "ritualpaper": 20
+                },
+                "mod": {
+                    "ritualpaper_raw.result.ritualpaper": 1,
+                    "ritualpaper_raw.cost.gold": 150,
+                    "ritualpaper_prepared.result.ritualpaper": 1,
+                    "ritualpaper_prepared.cost.rawritualpaper": 1
+                },
+                "flavor": "“一次不要处理超过2张纸”——独臂仪式师的普遍智慧。"
+            },
+            {
+                "id": "ritual_papermakerenhancement",
+                "name": "奥术隔离室",
+                "desc": "通过将你的压纸机放置在特殊隔离的房间中，你可以安全地提高它们的产量",
+                "require": "g.masterritualist>0",
+                "max": 1,
+                "cost": {
+                    "ritualward": 10,
+                    "ritualnotes": 20,
+                    "ritualpaper": 25
+                },
+                "mod": {
+                    "ritualpapermaker.mod.rawritualpaper.rate": 0.001,
+                    "ritualpapermaker.mod.space": -5
+                },
+                "flavor": "纸，请"
+            },
+            {
+                "id": "ritual_cursedseals",
+                "name": "五重封印",
+                "desc": "你的仪式纸的另一种用途。",
+                "require": "g.masterritualist>0",
+                "max": 1,
+                "cost": {
+                    "ritualward": 10,
+                    "ritualnotes": 20,
+                    "ritualpaper": 25
+                },
+                "mod": {
+                    "ritualpaper.max": 5
+                },
+                "flavor": "无视、无声、无味、无感、无嗅。这就是那些反对你的人的命运。"
+            },
+            {
+                "id": "ritual_enhancedelementalboosters",
+                "name": "强化元素仪式",
+                "desc": "元素可以进一步协调",
+                "require": "g.masterritualist>0&&ritual_elementalboosters>0",
+                "max": 1,
+                "cost": {
+                    "ritualward": 10,
+                    "ritualnotes": 25,
+                    "ritualpaper": 25
+                },
+                "mod": {
+                    "ritual_air.effect.air": 1,
+                    "ritual_air.runmod.player.bonuses.air": "5%",
+                    "ritual_fire.effect.fire": 1,
+                    "ritual_fire.runmod.player.bonuses.fire": "5%",
+                    "ritual_water.effect.water": 1,
+                    "ritual_water.runmod.player.bonuses.water": "5%",
+                    "ritual_earth.effect.earth": 1,
+                    "ritual_earth.runmod.player.bonuses.earth": "5%",
+                    "ritual_mana.effect.mana": 1,
+                    "ritual_mana.runmod.player.bonuses.mana": "5%",
+                    "ritual_penance.effect.shadow": 1,
+                    "ritual_penance.runmod.player.bonuses.shadow": "5%",
+                    "ritual_penance.effect.light": 1,
+                    "ritual_penance.runmod.player.bonuses.light": "5%"
+                }
+            },
+            {
+                "id": "ritual_notestorage",
+                "name": "精确魔法索引",
+                "desc": "整理你的笔记可以减少混乱。",
+                "require": "g.ritualism>=10",
+                "max": 1,
+                "cost": {
+                    "ritualward": 10,
+                    "ritualnotes": 15,
+                    "ritualpaper": 20
+                },
+                "mod": {
+                    "archive.mod.ritualnotes.max": 10
+                },
+                "flavor": "当然是非科学的。"
+            },
+            {
+                "id": "ritual_paperfolders",
+                "name": "强化文件夹",
+                "desc": "用于不稳定材料的专用文件夹",
+                "require": "g.ritualism>=6",
+                "max": 1,
+                "cost": {
+                    "ritualward": 10,
+                    "ritualnotes": 5
+                },
+                "mod": {
+                    "bookcase.mod.rawritualpaper.max": 1,
+                    "bookcase.mod.ritualpaper.max": 1
+                },
+                "flavor": "加拉拉德在购买他的第四处住所后开发了这些"
+            },
+            {
+                "id": "ritual_furtherstudy",
+                "name": "研究仪式笔记",
+                "desc": "进一步理解仪式魔法",
+                "require": "g.ritualism>=6",
+                "max": 500,
+                "cost": {
+                    "ritualnotes": 3
+                },
+                "mod": {
+                    "ritualism.max": 1,
+                    "ritualnotes.max": 1,
+                    "ritual_furtherstudy.cost.ritualnotes": 2
+                },
+                "flavor": "只会越来越难"
+            },
+            {
+                "id": "ritual_warddispersal",
+                "name": "驱散结界",
+                "desc": "利用多余的仪式结界来进一步理解魔法",
+                "require": "g.ritualward>=10",
+                "max": 5,
+                "cost": {
+                    "ritualward": 10
+                },
+                "mod": {
+                    "ritualism.rate": "10+10%",
+                    "planeslore.rate": "5+10%",
+                    "lore.rate": "10+10%"
+                },
+                "flavor": "他们说加拉拉德有时会在仪式中途驱散他的结界。其后果令人惊叹……从远处看。"
+            },
+            {
+                "id": "ritual_warddispersal2",
+                "name": "驱散结界",
+                "desc": "利用多余的仪式结界来进一步理解魔法。似乎只剩下微不足道的收获了",
+                "require": "g.ritual_warddispersal>=5",
+                "max": 500,
+                "cost": {
+                    "ritualward": 10
+                },
+                "mod": {
+                    "ritualism.rate": "5+2%"
+                },
+                "flavor": "有人声称加拉拉德从未死去，而是开发了一种赋予永生的仪式。这样的壮举似乎不太可能。"
+            }
+        ],
+        "spells": [
+            {
+                "id": "thefirstseal",
+                "name": "封印肢体",
+                "level": 10,
+                "school": "sealing",
+                "cd": 90,
+                "desc": "阻止能量在敌人肢体中的流动。",
+                "require": "g.ritual_cursedseals>0",
+                "buy": {
+                    "ritualnotes": 10
+                },
+                "cost": {
+                    "ritualpaper": 5
+                },
+                "mod": {},
+                "dot": {
+                    "name": "被封印的肢体",
+                    "duration": 5,
+                    "flags": "noact"
+                }
+            },
+            {
+                "id": "thesecondseal",
+                "name": "封印心智",
+                "level": 10,
+                "school": "sealing",
+                "cd": 90,
+                "desc": "阻止能量在敌人心智中的流动。",
+                "require": "g.ritual_cursedseals>0",
+                "buy": {
+                    "ritualnotes": 10
+                },
+                "cost": {
+                    "ritualpaper": 5
+                },
+                "mod": {},
+                "dot": {
+                    "id": "sealed mind",
+                    "duration": 5,
+                    "flags": "nocast"
+                }
+            },
+            {
+                "id": "thethirdseal",
+                "name": "封印心脏",
+                "level": 10,
+                "school": "sealing",
+                "cd": 90,
+                "desc": "阻止能量在敌人心脏中的流动。",
+                "require": "g.ritual_cursedseals>0",
+                "buy": {
+                    "ritualnotes": 10
+                },
+                "cost": {
+                    "ritualpaper": 5
+                },
+                "mod": {},
+                "dot": {
+                    "name": "被封印的心脏",
+                    "id": "fear"
+                }
+            },
+            {
+                "id": "thefourthseal",
+                "name": "封印梦境",
+                "level": 10,
+                "school": "sealing",
+                "cd": 90,
+                "desc": "将敌人封印在他的梦境中。",
+                "require": "g.ritual_cursedseals>0",
+                "buy": {
+                    "ritualnotes": 10
+                },
+                "cost": {
+                    "ritualpaper": 5
+                },
+                "mod": {},
+                "dot": {
+                    "name": "被封印的梦境",
+                    "duration": 5,
+                    "id": "sleep"
+                }
+            },
+            {
+                "id": "thefifthseal",
+                "name": "封印理智",
+                "level": 10,
+                "school": "sealing",
+                "cd": 90,
+                "desc": "封印敌人的理智。",
+                "require": "g.ritual_cursedseals>0",
+                "buy": {
+                    "ritualnotes": 10
+                },
+                "cost": {
+                    "ritualpaper": 5
+                },
+                "mod": {},
+                "dot": {
+                    "id": "sealed reason",
+                    "duration": 5,
+                    "flags": "charmed"
+                }
+            }
+        ],
+        "furniture": [
+            {
+                "id": "ritualpapermaker",
+                "name": "压纸机",
+                "desc": "便于准备附着奥术能量的纸张",
+                "require": "(g.ritualist+g.masterritualist)>0",
+                "max": 10,
+                "cost": {
+                    "gold": 1000,
+                    "research": 500,
+                    "arcana": 5
+                },
+                "mod": {
+                    "rawritualpaper.rate": 0.001,
+                    "gold.rate": -0.2,
+                    "space": 20
+                }
+            }
+        ],
+        "resources": [
+            {
+                "id": "ritualward",
+                "name": "仪式结界",
+                "group": "ritual",
+                "desc": "准备和改进各种仪式所需的特殊结界",
+                "max": 3,
+                "flavor": "加拉德愚者的警示故事在仪式师之间代代相传"
+            },
+            {
+                "id": "ritualnotes",
+                "name": "仪式笔记",
+                "group": "ritual",
+                "desc": "关于已执行仪式的详细笔记。可供研究以进一步提升仪式魔法造诣。",
+                "max": 3,
+                "flavor": "至少，你的学徒们会很高兴在废墟中找到这些东西。"
+            },
+            {
+                "id": "rawritualpaper",
+                "name": "奥术纸",
+                "group": "ritual",
+                "desc": "压制了奥术能量的纸张，可用于转化为仪式纸。",
+                "max": 5,
+                "flavor": "加拉德曾将一叠这样的纸放在架子上。由此引发的爆炸在数英里外都能看到。"
+            },
+            {
+                "id": "ritualpaper",
+                "name": "仪式纸",
+                "group": "ritual",
+                "desc": "刻有力量符文的特殊纸张。可稳定高级仪式。",
+                "max": 5,
+                "flavor": "必要准备的知识是用血汗换来的。主要是血。"
+            }
+        ],
+        "classes": [
+            {
+                "id": "ritualist",
+                "name": "仪式师",
+                "desc": "执行奥术仪式以提升你的力量。",
+                "tags": "t_tier2",
+                "require": "g.tier1>0&&g.ritualism>=5&&g.tier2==0",
+                "cost": {
+                    "research": 700,
+                    "arcana": 10,
+                    "gold": 500
+                },
+                "mod": {
+                    "ritualism.max": 2,
+                    "ritualward.rate": 0.0002,
+                    "rawritualpaper.rate": 0.001
+                },
+                "flavor": "仪式魔法的第一条规则是：'确保你已准备好控制爆炸。'"
+            },
+            {
+                "id": "masterritualist",
+                "name": "仪式大师",
+                "desc": "没有什么仪式是你不敢尝试的。",
+                "tags": "t_tier5",
+                "require": "g.tier4>0&&g.ritualism>=10&&g.tier5==0",
+                "cost": {
+                    "research": 3000,
+                    "arcana": 25,
+                    "ritualpaper": 25,
+                    "ritualward": 10,
+                    "ritualnotes": 15
+                },
+                "mod": {
+                    "ritualism.max": 2,
+                    "ritualward.rate": 0.0003,
+                    "rawritualpaper.rate": 0.002
+                },
+                "flavor": "仪式魔法的最后一条规则是：'如果能保证成功，任何代价都不算大。'"
+            }
+        ],
+        "hall": {
+            "data": {
+                "upgrades": [
+                    {
+                        "id": "ritualchamber",
+                        "name": "仪式室",
+                        "tags": "hall",
+                        "sym": "🏰",
+                        "require": "g.ritualist>0&&g.tier6>0",
+                        "desc": "大厅深处的一个受结界保护的房间，专门用于安全地执行仪式。",
+                        "max": 1,
+                        "cost": {
+                            "prestige": 30
+                        },
+                        "mod": {
+                            "ritualism.max": 2,
+                            "ritualnotes.max": 12,
+                            "ritualward.max": 7
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

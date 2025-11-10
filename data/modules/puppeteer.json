@@ -1,0 +1,3192 @@
+{
+    "module": "puppeteer",
+    "author": "regallion",
+    "email": "",
+    "git": "",
+    "data": {
+        "tags": [
+            {
+                "id": "t_skill_animation",
+                "name": "活化艺术"
+            }
+        ],
+        "skills": [
+            {
+                "id": "puppetry",
+                "name": "木偶术",
+                "desc": "创造并操控魔法傀儡",
+                "tags": "t_skill_animation",
+                "require": "g.crafting>=8&&g.spiritlore>=5",
+                "run": {
+                    "stamina": 0.2
+                },
+                "buy": {
+                    "arcana": 15
+                },
+                "mod": {
+                    "minions.puppet.hp.max": "1%",
+                    "allies.max": 0.25,
+                    "research.max": 5
+                }
+            },
+            {
+                "id": "magicalanimation",
+                "name": "活化",
+                "desc": "赋予物体运动的力量",
+                "tags": "t_skill_animation",
+                "require": "g.puppetry>=5&&g.spiritlore>=10",
+                "level": 5,
+                "buy": {
+                    "arcana": 20
+                },
+                "run": {
+                    "stamina": 0.3
+                },
+                "mod": {
+                    "allies.max": 0.25,
+                    "research.max": 5
+                }
+            },
+            {
+                "id": "machinacreation",
+                "name": "机械魔法",
+                "desc": "组装魔法构造体",
+                "tags": "t_skill_animation",
+                "require": "g.crafting>=12&&g.puppetry>=6&&g.magicalanimation>=5&&g.tier2>0",
+                "level": 5,
+                "buy": {
+                    "arcana": 30
+                },
+                "run": {
+                    "stamina": 0.3
+                },
+                "mod": {
+                    "minions.machina.hp.max": "1%",
+                    "puppetry.max": 0.2,
+                    "magicalanimation.max": 0.2,
+                    "allies.max": 0.25,
+                    "research.max": 5
+                }
+            },
+            {
+                "id": "magiphysics",
+                "name": "魔物理学",
+                "desc": "研究运动中的魔法。",
+                "require": "g.lore>=25&&g.planeslore>=10&&g.tier4>0",
+                "level": 10,
+                "buy": {
+                    "arcana": 75
+                },
+                "run": {
+                    "stamina": 0.5
+                },
+                "mod": {
+                    "planeslore.rate": 0.05,
+                    "lore.rate": 0.05,
+                    "research.max": 5
+                }
+            },
+            {
+                "id": "automatasculpting",
+                "name": "自动机雕塑",
+                "desc": "它们思考，故它们存在。",
+                "tags": "t_skill_animation",
+                "require": "g.crafting>=18&&g.puppetry>=8&&g.magicalanimation>=6&&g.magiphysics>=5&&(g.mechanist+g.mechamancer)>0",
+                "level": 10,
+                "buy": {
+                    "arcana": 90
+                },
+                "run": {
+                    "stamina": 1
+                },
+                "mod": {
+                    "minions.puppet.hp.max": "1%",
+                    "minions.machina.hp.max": "1%",
+                    "minions.automata.hp.max": "1%",
+                    "puppetry.max": 0.2,
+                    "magicalanimation.max": 0.2,
+                    "machinacreation.max": 0.2,
+                    "allies.max": 0.25,
+                    "research.max": 5
+                }
+            }
+        ],
+        "tasks": [
+            {
+                "id": "puppetshow",
+                "name": "木偶戏",
+                "desc": "用活化木偶表演一场节目",
+                "verb": "puppeteering",
+                "require": "g.puppeteer>0",
+                "length": 15,
+                "at": {
+                    "10": {
+                        "effect.gold": 1
+                    },
+                    "50": {
+                        "effect.gems": 0.01
+                    },
+                    "100": {
+                        "effect.gold": 1.5
+                    },
+                    "250": {
+                        "effect.gems": 0.02
+                    }
+                },
+                "cost": {
+                    "puppets": 1
+                },
+                "run": {
+                    "stamina": 0.2,
+                    "spirit": 0.2
+                },
+                "effect": {
+                    "gems": 0.01,
+                    "gold": 4
+                },
+                "mod": {
+                    "puppetry.max": "0.01//500/-10"
+                },
+                "group": "affluence"
+            },
+            {
+                "id": "assemblepuppet",
+                "name": "组装木偶",
+                "verb": "assembling puppets",
+                "desc": "组装一个木偶。",
+                "tags": "t_craftwork",
+                "require": "g.puppetry>=1",
+                "need": "workspace",
+                "fill": [
+                    "puppets"
+                ],
+                "length": 10,
+                "cost": {
+                    "spiritgem": 1,
+                    "gold": 50,
+                    "research": 50
+                },
+                "run": {
+                    "stamina": 0.3,
+                    "spirit": 0.3
+                },
+                "result": {
+                    "puppets": 1
+                },
+                "group": "crafting"
+            },
+            {
+                "id": "machinalabor",
+                "name": "租赁劳力",
+                "desc": "借出你的机械装置来执行琐碎任务",
+                "verb": "leasing",
+                "require": "g.mechanist>0",
+                "length": 50,
+                "at": {
+                    "10": {
+                        "effect.gold": 1
+                    },
+                    "50": {
+                        "effect.gold": 1.5
+                    },
+                    "100": {
+                        "effect.gold": 1.5
+                    },
+                    "250": {
+                        "effect.gold": 2
+                    }
+                },
+                "cost": {
+                    "machinae": 1
+                },
+                "effect": {
+                    "gold": 6,
+                    "gems": 0.1
+                },
+                "mod": {
+                    "machinacreation.max": "0.01//500/-10"
+                },
+                "group": "affluence"
+            },
+            {
+                "id": "assemblemachina",
+                "name": "组装机械",
+                "verb": "assembling machinae",
+                "desc": "组装一个机械装置。",
+                "tags": "t_craftwork",
+                "require": "g.machinacreation>=1",
+                "need": "workspace",
+                "fill": [
+                    "machinae"
+                ],
+                "length": 10,
+                "cost": {
+                    "gems": 5,
+                    "gold": 250,
+                    "research": 400
+                },
+                "run": {
+                    "stamina": 0.8
+                },
+                "result": {
+                    "machinae": 1
+                },
+                "group": "crafting"
+            },
+            {
+                "id": "futurecouncil",
+                "name": "规划未来",
+                "verb": "Counseling",
+                "desc": "与你的自动机商议未来计划。",
+                "require": "g.mechamancer>0",
+                "length": 100,
+                "max": 160,
+                "cost": {
+                    "automatas": 1
+                },
+                "run": {
+                    "stamina": 4,
+                    "research": 150
+                },
+                "mod": {
+                    "lore.max": "0.02//100/-10",
+                    "history.max": "0.02//100/-10",
+                    "charms.max": "0.02//100/-10",
+                    "languages.max": "0.02//100/-10",
+                    "automatasculpting.max": "0.05//160/-10"
+                },
+                "group": "knowledge"
+            },
+            {
+                "id": "assembleautomata",
+                "name": "塑造自动机",
+                "verb": "shaping automata",
+                "desc": "创造一个自动机。",
+                "tags": "t_craftwork",
+                "require": "g.automatasculpting>=1",
+                "need": "workspace",
+                "fill": [
+                    "automatas"
+                ],
+                "length": 10,
+                "cost": {
+                    "gold": 2000,
+                    "research": 2000,
+                    "bloodgem": 20,
+                    "spiritgem": 20,
+                    "runestones": 10
+                },
+                "run": {
+                    "stamina": 2
+                },
+                "result": {
+                    "automatas": 1
+                },
+                "group": "crafting"
+            },
+            {
+                "id": "craftfinepart",
+                "name": "制造精调零件",
+                "verb": "engineering",
+                "tags": "t_craftwork",
+                "desc": "制造一个精调零件。",
+                "require": "g.automatasculpting>=5",
+                "need": "workspace",
+                "fill": [
+                    "fineparts"
+                ],
+                "length": 900,
+                "cost": {
+                    "gold": 2500,
+                    "research": 4000,
+                    "machinae": 2,
+                    "puppets": 2
+                },
+                "run": {
+                    "stamina": 2,
+                    "gold": 3,
+                    "research": 5,
+                    "machinae": 0.06,
+                    "puppets": 0.06
+                },
+                "result": {
+                    "fineparts": 1
+                },
+                "group": "crafting"
+            }
+        ],
+        "upgrades": [
+            {
+                "id": "gearponder",
+                "name": "机械鉴赏",
+                "desc": "花点时间思考齿轮和杠杆新发现的美。",
+                "require": "(g.puppeteer+g.mechanist+g.mechamancer)>0",
+                "max": 1,
+                "cost": {
+                    "research": 100,
+                    "codices": 5,
+                    "puppets": 1
+                },
+                "mod": {
+                    "puppetry.max": 1,
+                    "puppetry.rate": 0.3,
+                    "machinacreation.max": 1,
+                    "machinacreation.rate": 0.3,
+                    "automatasculpting.max": 1,
+                    "automatasculpting.rate": 0.3
+                },
+                "flavor": "它们运转得多么流畅，比人类更容易理解...",
+                "group": "knowledge"
+            },
+            {
+                "id": "finesorting",
+                "name": "精炼分拣",
+                "desc": "允许使用精调零件来提高分拣能力",
+                "require": "g.automatasculpting>=5&&g.autoappraiser>0",
+                "max": 1,
+                "need": "g.fineparts>0",
+                "needtext": "Craft at least one fine-tuned part to get started.",
+                "group": "crafting"
+            },
+            {
+                "id": "clockworkexpansion",
+                "name": "发条扩建",
+                "desc": "用额外材料扩建发条之家",
+                "require": "g.puppetry>=5&&(g.puppeteer+g.mechanist+g.mechamancer)>0",
+                "max": 2,
+                "cost": {
+                    "puppets": 20
+                },
+                "mod": {
+                    "clockworkhome.mod.space.max": 5,
+                    "clockworkhome.mod.puppetry.rate": 1
+                },
+                "flavor": "突出的肢体对家庭维护非常有帮助",
+                "group": "housing"
+            },
+            {
+                "id": "clockworkexpansion2",
+                "name": "发条扩建",
+                "desc": "用额外材料扩建发条之家",
+                "require": "g.machinacreation>=5&&g.clockworkexpansion>=2",
+                "max": 2,
+                "cost": {
+                    "machinae": 20
+                },
+                "mod": {
+                    "clockworkhome.mod.space.max": 10,
+                    "clockworkhome.mod.machinacreation.rate": 1
+                },
+                "flavor": "移动地板大大减少了人流量",
+                "group": "housing"
+            },
+            {
+                "id": "clockworkexpansion3",
+                "name": "发条扩建",
+                "desc": "用额外材料扩建发条之家",
+                "require": "g.automatasculpting>=5&&g.clockworkexpansion2>=2",
+                "max": 2,
+                "cost": {
+                    "automatas": 20
+                },
+                "mod": {
+                    "clockworkhome.mod.space.max": 15,
+                    "clockworkhome.mod.automatasculpting.rate": 1
+                },
+                "flavor": "家园预知你的需求",
+                "group": "housing"
+            },
+            {
+                "id": "clockworkexpansione",
+                "name": "无尽扩建",
+                "desc": "更多...",
+                "require": "g.clockworkexpansion3>=2",
+                "max": 500,
+                "cost": {
+                    "puppets": "20+g.clockworkexpansione||0",
+                    "machinae": "20+g.clockworkexpansione||0",
+                    "automatas": "20+g.clockworkexpansione||0"
+                },
+                "mod": {
+                    "clockworkhome.mod.space.max": 2,
+                    "automatas.max": 1,
+                    "puppets.max": 1,
+                    "machinae.max": 1
+                },
+                "flavor": "为何停止？",
+                "group": "housing"
+            },
+            {
+                "id": "strongstrings",
+                "name": "木偶线",
+                "desc": "购买一些超强力的线以满足你的木偶戏需求",
+                "require": "g.puppetry>=5",
+                "max": 2,
+                "cost": {
+                    "gold": 400,
+                    "research": 250
+                },
+                "mod": {
+                    "puppetry.max": 1,
+                    "puppetry.rate": 0.3
+                },
+                "flavor": "你才是掌控者",
+                "group": "knowledge"
+            },
+            {
+                "id": "ebonwoodsupply",
+                "name": "乌木供应",
+                "desc": "获取乌木供应以强化你的木偶",
+                "require": "g.puppetry>=9",
+                "max": 1,
+                "cost": {
+                    "gold": 1200,
+                    "research": 500
+                },
+                "mod": {
+                    "puppetry.max": 1,
+                    "puppetry.rate": 0.3,
+                    "minions.puppet.hp.max": 5
+                },
+                "flavor": "深色调便于刺杀",
+                "group": "minions"
+            },
+            {
+                "id": "runicanimation",
+                "alias": "runicreinforcement",
+                "name": "符文活化",
+                "desc": "在你的木偶上刻下力量和保护符文",
+                "require": "g.puppeteer>0&&g.runelore>=3",
+                "max": 1,
+                "cost": {
+                    "runestones": 2,
+                    "research": 200
+                },
+                "mod": {
+                    "puppetry.max": 1,
+                    "puppetry.rate": 0.3,
+                    "minions.puppet.hp.max": "20%"
+                },
+                "flavor": "符文微弱的光芒看起来相当引人注目",
+                "group": "minions"
+            },
+            {
+                "id": "proxies",
+                "name": "木偶替身",
+                "desc": "通过特制的木偶传达你的声音和意志",
+                "require": "g.puppetry>=5",
+                "max": 1,
+                "cost": {
+                    "gold": 300,
+                    "research": 250
+                },
+                "mod": {
+                    "stamina.rate": 0.1,
+                    "vigor.rate": 0.01
+                },
+                "flavor": "四处走动是傻瓜才做的事",
+                "group": "body"
+            },
+            {
+                "id": "proxies2",
+                "name": "替身放大",
+                "desc": "使用你的木偶替身来增强你的记忆",
+                "require": "g.puppetry>=8",
+                "max": 1,
+                "cost": {
+                    "gold": 500,
+                    "research": 750,
+                    "managem": 15
+                },
+                "mod": {
+                    "spelllist.max": 10
+                },
+                "group": "spellcasting"
+            },
+            {
+                "id": "puppetspies",
+                "name": "木偶间谍",
+                "desc": "没人会注意到",
+                "require": "g.puppeteer>0",
+                "max": 1,
+                "cost": {
+                    "gold": 500,
+                    "research": 500,
+                    "airgem": 5
+                },
+                "mod": {
+                    "composure.max": 2
+                },
+                "group": "knowledge"
+            },
+            {
+                "id": "clockworkbutler",
+                "name": "发条管家",
+                "desc": "为你奉上茶、烤饼和书籍。",
+                "require": "g.machinacreation>=5",
+                "max": 1,
+                "cost": {
+                    "gold": 3000,
+                    "research": 2500
+                },
+                "mod": {
+                    "stamina.rate": 0.1,
+                    "vigor.rate": 0.01
+                },
+                "flavor": "一位效率极高的仆人",
+                "group": "body"
+            },
+            {
+                "id": "precisionengineering",
+                "name": "精密工程",
+                "desc": "精确到毫米。",
+                "require": "g.machinacreation>=5",
+                "max": 1,
+                "cost": {
+                    "gold": 4000,
+                    "research": 1500
+                },
+                "mod": {
+                    "machinacreation.max": 2,
+                    "machinacreation.rate": 0.6,
+                    "minions.machina.hp.max": 5
+                },
+                "flavor": "一层抛光",
+                "group": "minions"
+            },
+            {
+                "id": "lubricant",
+                "name": "润滑油",
+                "desc": "将一种常见的魔法物品用作你的机械装置的润滑剂。",
+                "require": "g.machinacreation>=7",
+                "max": 1,
+                "cost": {
+                    "gold": 2000,
+                    "research": 4500
+                },
+                "mod": {
+                    "machinacreation.max": 2,
+                    "machinacreation.rate": 0.6,
+                    "assemblemachina.length": -5,
+                    "minions.machina.speed": 3
+                },
+                "flavor": "在多种情况下都派得上用场",
+                "group": "minions"
+            },
+            {
+                "id": "autoappraiser",
+                "name": "自动鉴定师",
+                "desc": "有些宝石比它们看起来更有价值",
+                "require": "g.mechanist>0",
+                "max": 1,
+                "cost": {
+                    "gold": 5000,
+                    "research": 7500,
+                    "gems": 50,
+                    "managem": 25,
+                    "firegem": 25,
+                    "airgem": 25,
+                    "watergem": 25,
+                    "spiritgem": 25,
+                    "earthgem": 25,
+                    "naturegem": 25
+                },
+                "convert": {
+                    "input": {
+                        "gems": 0.05
+                    },
+                    "output": {
+                        "effect": {
+                            "elementalgems": 0.01
+                        }
+                    }
+                },
+                "group": "affluence"
+            },
+            {
+                "id": "autominer",
+                "name": "自动矿工",
+                "desc": "贪婪地深入挖掘",
+                "require": "g.machinacreation>=9",
+                "max": 2,
+                "cost": {
+                    "gold": 5000,
+                    "research": 7500,
+                    "gems": 50
+                },
+                "mod": {
+                    "gems.rate": 0.05
+                },
+                "group": "affluence"
+            },
+            {
+                "id": "algorithms",
+                "name": "高效算法",
+                "desc": "高效指令以实现最佳性能",
+                "require": "g.mechanist>0",
+                "max": 1,
+                "cost": {
+                    "gold": 500,
+                    "research": 1000,
+                    "tomes": 5
+                },
+                "mod": {
+                    "autoappraiser.max": 1,
+                    "clockworkbutler.max": 1,
+                    "proxies2.max": 1,
+                    "autominer.max": 2
+                },
+                "group": "crafting"
+            },
+            {
+                "id": "automatalab",
+                "name": "自动化实验室",
+                "desc": "一个会思考、有生命的科研场所",
+                "require": "g.automatasculpting>=5",
+                "max": 1,
+                "cost": {
+                    "gold": 30000,
+                    "research": 25000,
+                    "automatas": 30
+                },
+                "mod": {
+                    "research.rate": 50,
+                    "t_skill_animation.rate": 5,
+                    "lore.rate": "50%",
+                    "history.rate": "50%",
+                    "languages.rate": "50%",
+                    "charms.rate": "50%"
+                },
+                "flavor": "一项最独特的企业",
+                "group": "education"
+            },
+            {
+                "id": "automatastudy",
+                "name": "自动机研究",
+                "desc": "花时间研究心灵的秘密",
+                "require": "g.automatasculpting>=5",
+                "max": 5,
+                "cost": {
+                    "research": 2000,
+                    "tomes": 10,
+                    "codices": 30
+                },
+                "mod": {
+                    "automatasculpting.max": 1,
+                    "automatasculpting.rate": 0.3
+                },
+                "flavor": "辛勤工作未必有回报",
+                "group": "knowledge"
+            },
+            {
+                "id": "autoagents",
+                "name": "自动机代理",
+                "desc": "能够独立完成任何所需任务的代理",
+                "require": "g.automatasculpting>=10",
+                "lock": "t_actionexpansion",
+                "tags": "t_actionexpansion",
+                "max": 1,
+                "cost": {
+                    "automatas": 50,
+                    "runestones": 30,
+                    "firerune": 10,
+                    "airrune": 10,
+                    "earthrune": 10,
+                    "waterrune": 10,
+                    "timerune": 3,
+                    "sindel": 5
+                },
+                "mod": {
+                    "runner.max": 1
+                },
+                "group": "actions"
+            },
+            {
+                "id": "automatamastery",
+                "name": "自动机精通",
+                "desc": "完全掌握所有机械事物",
+                "require": "g.mechamancer>0",
+                "max": 1,
+                "cost": {
+                    "gold": 25000,
+                    "research": 2500,
+                    "tomes": 10,
+                    "codices": 25
+                },
+                "mod": {
+                    "automatasculpting.max": 3,
+                    "machinacreation.max": 5,
+                    "puppetry.max": 5,
+                    "t_skill_animation.rate": 2
+                },
+                "group": "knowledge"
+            },
+            {
+                "id": "sculptingmastery",
+                "name": "形态精通",
+                "desc": "学习塑造的最深奥秘密",
+                "require": "g.mechamancer>0",
+                "max": 1,
+                "cost": {
+                    "gold": 15000,
+                    "research": 40000,
+                    "spiritgem": 200,
+                    "gems": 300
+                },
+                "mod": {
+                    "assembleautomata.result.automatas": 1,
+                    "automataautomation.convert.output.effect.automatas": 0.01,
+                    "assembleautomata.length": -5
+                },
+                "group": "crafting"
+            }
+        ],
+        "spells": [
+            {
+                "id": "puppetrepair",
+                "name": "修补木材",
+                "desc": "修补一个破损的木偶。",
+                "sortOrder": 1838,
+                "level": 10,
+                "school": "animation",
+                "tags": "rez",
+                "keywords": {
+                    "type": [
+                        "recovery"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "puppeteer",
+                "buy": {
+                    "research": 500,
+                    "puppets": 5
+                },
+                "cost": {
+                    "puppets": 1
+                },
+                "resurrect": {
+                    "only": "puppet",
+                    "maxlevel": 20,
+                    "count": 2
+                }
+            },
+            {
+                "id": "machinarepair",
+                "name": "修理机械",
+                "desc": "修理一个损坏的机械装置。",
+                "sortOrder": 1837,
+                "level": 2,
+                "school": "animation",
+                "tags": "rez",
+                "keywords": {
+                    "type": [
+                        "recovery"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "mechanist",
+                "buy": {
+                    "research": 8000,
+                    "machinae": 10
+                },
+                "cost": {
+                    "machinae": 1
+                },
+                "resurrect": {
+                    "only": "machina",
+                    "maxlevel": 40,
+                    "count": 2
+                }
+            },
+            {
+                "id": "automatarepair",
+                "name": "调谐自动机",
+                "desc": "重新调谐一个不和谐的自动机。",
+                "sortOrder": 1836,
+                "level": 3,
+                "school": "animation",
+                "tags": "rez",
+                "keywords": {
+                    "type": [
+                        "recovery"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "mechamancer",
+                "buy": {
+                    "research": 8000,
+                    "automatas": 20
+                },
+                "cost": {
+                    "automatas": 1
+                },
+                "resurrect": {
+                    "only": "automata",
+                    "maxlevel": 60,
+                    "count": 2
+                }
+            },
+            {
+                "id": "prismaticmissile",
+                "name": "棱光飞弹",
+                "desc": "一道混乱魔法爆发，对敌人造成伤害。",
+                "extdesc": "此法术的效果和消耗会随着你的最大法力值每达到12的倍数而增加，最高可达60。",
+                "sortOrder": 408,
+                "level": 10,
+                "school": "mana",
+                "keywords": {
+                    "type": [
+                        "damage"
+                    ],
+                    "target": [
+                        "enemy"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.magiphysics>=5",
+                "buy": {
+                    "research": 6000,
+                    "tomes": 40
+                },
+                "cost": {
+                    "mana": "Math.max(Math.min(g.mana.max - g.mana.max % 12,12*5),12)"
+                },
+                "result": {
+                    "t_school.exp": 2,
+                    "darkbolt": "Math.min(Math.floor(g.mana.max/12),5)",
+                    "waterblast": "Math.min(Math.floor(g.mana.max/12),5)",
+                    "chaosbolt": "Math.min(Math.floor(g.mana.max/12),5)",
+                    "firedart": "Math.min(Math.floor(g.mana.max/12),5)",
+                    "magicmissile": "Math.min(Math.floor(g.mana.max/12),5)",
+                    "poisonnettle": "Math.min(Math.floor(g.mana.max/12),5)",
+                    "moveearth": "Math.min(Math.floor(g.mana.max/12),5)",
+                    "lightspear": "Math.min(Math.floor(g.mana.max/12),5)",
+                    "airburst": "Math.min(Math.floor(g.mana.max/12),5)"
+                }
+            },
+            {
+                "id": "mk_puppet",
+                "name": "构造木偶攻击者",
+                "desc": "召唤一个临时木偶协助你战斗",
+                "sortOrder": 1882,
+                "level": 1,
+                "school": "animation",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.puppetry>=5",
+                "buy": {
+                    "research": 500,
+                    "puppets": 5
+                },
+                "cost": {
+                    "puppets": 1,
+                    "spirit": 2
+                },
+                "summon": [
+                    {
+                        "id": "sum_puppetattacker",
+                        "count": 1,
+                        "max": 3
+                    }
+                ]
+            },
+            {
+                "id": "mk_puppet_perm",
+                "name": "活化木偶攻击者",
+                "desc": "创造一个稳定的木偶攻击者",
+                "sortOrder": 1881,
+                "level": 1,
+                "school": "animation",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.puppetry>=5&&g.puppeteer>0",
+                "buy": {
+                    "research": 500,
+                    "puppets": 5
+                },
+                "cost": {
+                    "puppets": 5,
+                    "spirit": 10
+                },
+                "summon": [
+                    {
+                        "id": "sum_puppetattacker",
+                        "count": 1,
+                        "keep": true
+                    }
+                ]
+            },
+            {
+                "id": "mk_charger",
+                "name": "构造机械充能器",
+                "desc": "召唤一个临时机械装置协助你战斗",
+                "sortOrder": 1872,
+                "level": 1,
+                "school": "animation",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.machinacreation>=5",
+                "buy": {
+                    "research": 8000,
+                    "machinae": 10
+                },
+                "cost": {
+                    "machinae": 1
+                },
+                "summon": [
+                    {
+                        "id": "sum_mechacharger",
+                        "count": 1,
+                        "max": 1
+                    }
+                ]
+            },
+            {
+                "id": "mk_charger_perm",
+                "name": "组装机械充能器",
+                "sortOrder": 1871,
+                "level": 1,
+                "school": "animation",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.machinacreation>=5&&g.mechanist>0",
+                "buy": {
+                    "research": 8000,
+                    "machinae": 10
+                },
+                "cost": {
+                    "machinae": 5
+                },
+                "summon": [
+                    {
+                        "id": "sum_mechacharger",
+                        "count": 1,
+                        "keep": true
+                    }
+                ]
+            },
+            {
+                "id": "mk_autoslayer",
+                "name": "构造自动杀手",
+                "desc": "召唤一个临时的自动机来协助你战斗",
+                "sortOrder": 1862,
+                "level": 1,
+                "school": "animation",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.automatasculpting>=5",
+                "buy": {
+                    "research": 8000,
+                    "automatas": 10
+                },
+                "cost": {
+                    "automatas": 1
+                },
+                "summon": [
+                    {
+                        "id": "sum_autoslayer",
+                        "count": 1,
+                        "max": 1
+                    }
+                ]
+            },
+            {
+                "id": "mk_autoslayer_perm",
+                "name": "塑形自动杀手",
+                "sortOrder": 1861,
+                "level": 1,
+                "school": "animation",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.automatasculpting>=5&&g.mechamancer>0",
+                "buy": {
+                    "research": 8000,
+                    "automatas": 15
+                },
+                "cost": {
+                    "automatas": 5
+                },
+                "summon": [
+                    {
+                        "id": "sum_autoslayer",
+                        "count": 1,
+                        "keep": true
+                    }
+                ]
+            },
+            {
+                "id": "mk_puppetdef",
+                "name": "活化壁垒",
+                "desc": "一个坚固的傀儡在你和危险之间蹒跚而行。",
+                "sortOrder": 1883,
+                "level": 5,
+                "school": "animation",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.puppetry>=5&&g.puppeteer>0",
+                "buy": {
+                    "research": 5000,
+                    "puppets": 40
+                },
+                "cost": {
+                    "puppets": 5,
+                    "spirit": 10
+                },
+                "summon": [
+                    {
+                        "id": "sum_puppetdefender",
+                        "count": 1,
+                        "keep": true
+                    }
+                ]
+            },
+            {
+                "id": "mk_mender",
+                "name": "组装机械修理师",
+                "sortOrder": 1873,
+                "level": 1,
+                "school": "animation",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.machinacreation>=5&&g.mechanist>0",
+                "buy": {
+                    "research": 8000,
+                    "machinae": 10
+                },
+                "cost": {
+                    "machinae": 5
+                },
+                "summon": [
+                    {
+                        "id": "sum_mechamender",
+                        "count": 1,
+                        "keep": true
+                    }
+                ]
+            },
+            {
+                "id": "mk_autocaster",
+                "name": "塑形自动施法者",
+                "sortOrder": 1863,
+                "level": 1,
+                "school": "animation",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.automatasculpting>=5&&g.mechamancer>0",
+                "buy": {
+                    "research": 8000,
+                    "automatas": 20
+                },
+                "cost": {
+                    "automatas": 5
+                },
+                "summon": [
+                    {
+                        "id": "sum_autocaster",
+                        "count": 1,
+                        "keep": true
+                    }
+                ]
+            },
+            {
+                "id": "mk_clockcrow",
+                "name": "组装机械乌鸦",
+                "sortOrder": 1875,
+                "level": 1,
+                "school": "animation",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.corivar_trophy>0&&g.tier0>0&&g.puppetry>=1",
+                "buy": {
+                    "research": 300,
+                    "scrolls": 30,
+                    "gold": 600,
+                    "managem": 10,
+                    "puppets": 10
+                },
+                "cost": {
+                    "puppets": 5
+                },
+                "summon": [
+                    {
+                        "id": "sum_clockcrow",
+                        "count": 1,
+                        "max": 5,
+                        "keep": true
+                    }
+                ]
+            },
+            {
+                "id": "mk_clockservant",
+                "name": "组装自动仆从",
+                "sortOrder": 1866,
+                "level": 2,
+                "school": "animation",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.magiphysics>=5&&g.machinacreation>=5&&g.corivar_trophy>0",
+                "buy": {
+                    "research": 7000,
+                    "scrolls": 60,
+                    "gold": 500,
+                    "gems": 30,
+                    "puppets": 20,
+                    "machinae": 12
+                },
+                "cost": {
+                    "automatas": 1
+                },
+                "summon": [
+                    {
+                        "id": "sum_clockservant",
+                        "count": 1,
+                        "max": 3,
+                        "keep": true
+                    }
+                ]
+            },
+            {
+                "id": "mk_clockknight",
+                "name": "组装黄铜骑士",
+                "sortOrder": 1865,
+                "level": 4,
+                "school": "animation",
+                "keywords": {
+                    "type": [
+                        "summon"
+                    ],
+                    "target": [
+                        "ally"
+                    ],
+                    "targets": [
+                        "single"
+                    ],
+                    "delivery": [
+                        "instant"
+                    ]
+                },
+                "require": "g.magiphysics>=5&&g.machinacreation>=8&&g.corivar_trophy>0",
+                "buy": {
+                    "research": 9000,
+                    "scrolls": 100,
+                    "gold": 3500,
+                    "gems": 60,
+                    "automatas": 3,
+                    "machinae": 12,
+                    "puppets": 20
+                },
+                "cost": {
+                    "automatas": 1
+                },
+                "summon": [
+                    {
+                        "id": "sum_clockknight",
+                        "count": 1,
+                        "max": 3,
+                        "keep": true
+                    }
+                ]
+            },
+            {
+                "id": "mon_mk_clockcrow",
+                "name": "组装机械乌鸦",
+                "require": "g.machinacreation>=999",
+                "cd": 20,
+                "summon": {
+                    "id": "mon_clockcrow",
+                    "count": 1,
+                    "max": 3
+                }
+            },
+            {
+                "id": "mon_mk_clockservant",
+                "name": "组装自动仆从",
+                "require": "g.machinacreation>=999",
+                "cd": 30,
+                "summon": {
+                    "id": "mon_clockservant",
+                    "count": 1,
+                    "max": 2
+                }
+            },
+            {
+                "id": "mon_mk_clockknight",
+                "name": "组装黄铜骑士",
+                "require": "g.machinacreation>=999",
+                "cd": 30,
+                "summon": {
+                    "id": "mon_clockknight",
+                    "count": 1,
+                    "max": 2
+                }
+            },
+            {
+                "id": "mon_mk_clockknight_elite",
+                "name": "组装精英黄铜骑士",
+                "require": "g.machinacreation>=999",
+                "cd": 30,
+                "summon": {
+                    "id": "mon_clockknight_elite",
+                    "count": 1,
+                    "max": 1
+                }
+            },
+            {
+                "id": "mon_mk_clockmage",
+                "name": "组装精英自动法师",
+                "require": "g.machinacreation>=999",
+                "cd": 30,
+                "summon": {
+                    "id": "mon_clockmage_elite",
+                    "count": 1,
+                    "max": 1
+                }
+            }
+        ],
+        "homes": [
+            {
+                "id": "clockworkhome",
+                "name": "发条之家",
+                "desc": "一座由齿轮和杠杆构成的房屋，不断根据居住者的需求进行调整。",
+                "buy": {
+                    "research": 500,
+                    "gold": 3000,
+                    "codices": 5
+                },
+                "require": "(g.puppeteer+g.mechanist+g.mechamancer)>0",
+                "mod": {
+                    "space.max": 50,
+                    "minions.max": 50,
+                    "puppetry.mod.allies.max": 0.25,
+                    "machinacreation.mod.allies.max": 0.25,
+                    "automatasculpting.mod.allies.max": 0.25,
+                    "puppets.max": 20,
+                    "machinae.max": 20,
+                    "automatas.max": 20
+                }
+            }
+        ],
+        "furniture": [
+            {
+                "id": "puppetworkshop",
+                "name": "傀儡制作工坊",
+                "desc": "一个专门用于高效生产傀儡的工坊。",
+                "require": "g.puppetry>=7",
+                "max": 2,
+                "cost": {
+                    "gold": 150,
+                    "research": 250,
+                    "arcana": 3
+                },
+                "mod": {
+                    "assemblepuppet.cost.gold": 10,
+                    "assemblepuppet.cost.research": 10,
+                    "assemblepuppet.result.puppets": 0.5,
+                    "puppetautomation.convert.input.gold": -0.05,
+                    "puppetautomation.convert.input.research": -0.05,
+                    "puppetautomation.convert.input.spiritgem": -0.0025,
+                    "space": 5
+                }
+            },
+            {
+                "id": "puppetautomation",
+                "name": "傀儡装配线",
+                "desc": "一条专用于自动化生产傀儡的装配线。",
+                "require": "g.puppetry>=9",
+                "max": 2,
+                "cost": {
+                    "gold": 250,
+                    "research": 250,
+                    "spiritgem": 3
+                },
+                "mod": {
+                    "space": 5
+                },
+                "convert": {
+                    "input": {
+                        "spiritgem": 0.01,
+                        "gold": 0.5,
+                        "research": 0.5
+                    },
+                    "output": {
+                        "effect": {
+                            "puppets": 0.01
+                        }
+                    }
+                }
+            },
+            {
+                "id": "machinagarage",
+                "name": "机械工坊",
+                "desc": "一个可以修补你的机械的地方。",
+                "require": "g.machinacreation>=7",
+                "tags": "workspace",
+                "max": 2,
+                "cost": {
+                    "gold": 1500,
+                    "research": 1000,
+                    "gems": 15
+                },
+                "mod": {
+                    "crafting.rate": 0.5,
+                    "assemblemachina.cost.gold": 50,
+                    "assemblemachina.cost.research": 75,
+                    "assemblemachina.result.machinae": 0.5,
+                    "machinaautomation.convert.input.gold": -0.5,
+                    "machinaautomation.convert.input.research": -0.75,
+                    "machinaautomation.convert.input.gems": -0.01,
+                    "space": 7
+                }
+            },
+            {
+                "id": "machinaautomation",
+                "name": "机械组装",
+                "desc": "一个用于自动化生产机械的复杂装置。",
+                "require": "g.machinacreation>=9",
+                "max": 2,
+                "cost": {
+                    "gold": 2500,
+                    "research": 3000,
+                    "puppets": 20,
+                    "gems": 50
+                },
+                "mod": {
+                    "space": 7
+                },
+                "convert": {
+                    "input": {
+                        "gems": 0.05,
+                        "gold": 2.5,
+                        "research": 4
+                    },
+                    "output": {
+                        "effect": {
+                            "machinae": 0.01
+                        }
+                    }
+                }
+            },
+            {
+                "id": "shapinglab",
+                "name": "塑形实验室",
+                "desc": "一个高效培育心智水晶和预制自动机体的设施。",
+                "tags": "workspace",
+                "require": "mechamancer",
+                "max": 2,
+                "cost": {
+                    "gold": 5000,
+                    "research": 5000,
+                    "gems": 30
+                },
+                "mod": {
+                    "assembleautomata.cost.gold": -300,
+                    "assembleautomata.cost.research": -300,
+                    "assembleautomata.cost.runestones": -1.25,
+                    "automataautomation.convert.input.gold": -2.5,
+                    "automataautomation.convert.input.research": -2.5,
+                    "automataautomation.convert.input.bloodgem": -0.025,
+                    "automataautomation.convert.input.spiritgem": -0.025,
+                    "automataautomation.convert.input.runestones": -0.025,
+                    "space": 10
+                },
+                "flavor": "这是一次胜利。我在此记录：‘巨大成功。’"
+            },
+            {
+                "id": "automataautomation",
+                "name": "自动机培养槽",
+                "desc": "一排排水晶生长槽，根据你的参数塑造自动机。",
+                "require": "g.automatasculpting>=7",
+                "max": 2,
+                "cost": {
+                    "gold": 5000,
+                    "research": 5000,
+                    "gems": 30
+                },
+                "mod": {
+                    "space": 10
+                },
+                "convert": {
+                    "input": {
+                        "gold": 20,
+                        "research": 20,
+                        "bloodgem": 0.2,
+                        "spiritgem": 0.2,
+                        "runestones": 0.15
+                    },
+                    "output": {
+                        "effect": {
+                            "automatas": 0.01
+                        }
+                    }
+                }
+            },
+            {
+                "id": "finesorting_elements",
+                "name": "精炼元素分拣站",
+                "desc": "允许自动鉴定师更高效地生产元素宝石。",
+                "require": "g.finesorting>0",
+                "max": 5,
+                "cost": {
+                    "fineparts": "2+g.finesorting_elements*3"
+                },
+                "sell": {
+                    "fineparts": "2+(g.finesorting_elements-1)*3"
+                },
+                "mod": {
+                    "autoappraiser.convert.input.gems": 0.02,
+                    "autoappraiser.convert.output.effect.elementalgems": 0.002,
+                    "fineparts.max": 3,
+                    "space": 5
+                }
+            },
+            {
+                "id": "finesorting_esoteric",
+                "name": "精炼秘法分拣站",
+                "desc": "允许自动鉴定师生产某些原始宝石。",
+                "require": "g.finesorting>0",
+                "max": 5,
+                "cost": {
+                    "fineparts": "2+g.finesorting_esoteric*3"
+                },
+                "sell": {
+                    "fineparts": "2+(g.finesorting_esoteric-1)*3"
+                },
+                "mod": {
+                    "autoappraiser.convert.input.gems": 0.02,
+                    "autoappraiser.convert.output.effect.lightgem": 0.002,
+                    "autoappraiser.convert.output.effect.shadowgem": 0.002,
+                    "autoappraiser.convert.output.effect.spiritgem": 0.002,
+                    "fineparts.max": 3,
+                    "space": 5
+                }
+            },
+            {
+                "id": "finesorting_recycling",
+                "name": "精炼分拣回收站",
+                "desc": "允许自动鉴定师更高效地生产元素宝石。",
+                "require": "g.finesorting>0",
+                "max": 5,
+                "cost": {
+                    "fineparts": "1+g.finesorting_recycling*2"
+                },
+                "sell": {
+                    "fineparts": "1+(g.finesorting_recycling-1)*2"
+                },
+                "mod": {
+                    "autoappraiser.convert.input.gems": -0.004,
+                    "finesorting_elements.mod.autoappraiser.convert.input.gems": -0.002,
+                    "finesorting_esoteric.mod.autoappraiser.convert.input.gems": -0.002,
+                    "fineparts.max": 2,
+                    "space": 2
+                }
+            }
+        ],
+        "resources": [
+            {
+                "id": "puppets",
+                "name": "木偶",
+                "desc": "易于控制，但本质上是惰性的。",
+                "group": "constructs",
+                "max": 20,
+                "sortOrder": 605,
+                "flavor": "熟练的使用者可以上演一场精彩的表演。"
+            },
+            {
+                "id": "machinae",
+                "name": "机械",
+                "desc": "高耸的金属巨兽，随时准备听从主人的命令。",
+                "group": "constructs",
+                "max": 20,
+                "sortOrder": 610,
+                "flavor": "哔哔啵啵。"
+            },
+            {
+                "id": "automatas",
+                "name": "自动机",
+                "desc": "半透明水晶构造体；它们拥有纯净的学习智慧。",
+                "group": "constructs",
+                "max": 20,
+                "sortOrder": 615,
+                "flavor": "它肯定没有你聪明。"
+            }
+        ],
+        "monsters": [
+            {
+                "id": "sum_puppetattacker",
+                "tags": "t_puppet",
+                "name": "傀儡侵略者",
+                "level": 10,
+                "kind": "puppet",
+                "noproc": true,
+                "hp": 75,
+                "tohit": 7.5,
+                "dodge": 5,
+                "defense": 328,
+                "attack": {
+                    "name": "刺击",
+                    "kind": "pierce",
+                    "damage": "10~20"
+                }
+            },
+            {
+                "id": "sum_mechacharger",
+                "tags": "t_machina",
+                "name": "机械冲锋者",
+                "level": 20,
+                "kind": "machina",
+                "noproc": true,
+                "hp": 500,
+                "tohit": 15,
+                "dodge": 10,
+                "defense": 1100,
+                "attack": [
+                    {
+                        "hits": [
+                            {
+                                "name": "冲锋",
+                                "tohit": 3,
+                                "targets": "enemies",
+                                "maxTargets": 999,
+                                "damage": "60~70"
+                            },
+                            {
+                                "name": "反冲",
+                                "harmless": true,
+                                "nodefense": true,
+                                "targets": "self",
+                                "damage": 50
+                            }
+                        ]
+                    },
+                    {
+                        "name": "回溯",
+                        "targets": "self",
+                        "result": {
+                            "hp": 50
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "sum_autoslayer",
+                "tags": "t_automata",
+                "name": "自动杀手",
+                "level": 30,
+                "kind": "automata",
+                "noproc": true,
+                "hp": 700,
+                "tohit": 30,
+                "dodge": 20,
+                "defense": 1100,
+                "attack": [
+                    {
+                        "name": "吸干",
+                        "targets": "enemies",
+                        "maxTargets": 999,
+                        "dot": {
+                            "kind": "slash",
+                            "duration": 20,
+                            "damage": 10
+                        }
+                    },
+                    {
+                        "name": "切片",
+                        "tohit": 1,
+                        "kind": "slash",
+                        "damage": "25~35",
+                        "repeathits": 2
+                    },
+                    {
+                        "name": "切丁",
+                        "tohit": 3,
+                        "kind": "slash",
+                        "damage": "20~25",
+                        "repeathits": 2
+                    },
+                    {
+                        "name": "剁碎",
+                        "tohit": 2,
+                        "kind": "slash",
+                        "damage": "20~26",
+                        "repeathits": 3
+                    },
+                    {
+                        "name": "斩击",
+                        "tohit": -2,
+                        "kind": "slash",
+                        "damage": "70~90"
+                    },
+                    {
+                        "name": "刺击",
+                        "tohit": 5,
+                        "kind": "pierce",
+                        "damage": "30~50"
+                    },
+                    {
+                        "name": "捣碎",
+                        "tohit": 2,
+                        "kind": "blunt",
+                        "damage": "0~50",
+                        "repeathits": 3
+                    },
+                    {
+                        "name": "恢复",
+                        "targets": "self",
+                        "result": {
+                            "hp": 150
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "sum_puppetdefender",
+                "tags": "t_puppet",
+                "name": "傀儡壁垒",
+                "level": 10,
+                "kind": "puppet",
+                "noproc": true,
+                "hp": 300,
+                "tohit": 7.5,
+                "dodge": 5,
+                "defense": 380,
+                "attack": [
+                    {
+                        "name": "猛击",
+                        "kind": "blunt",
+                        "damage": "10~15"
+                    },
+                    {
+                        "name": "保护",
+                        "targets": "minion",
+                        "dot": {
+                            "duration": 15,
+                            "mod": {
+                                "self.defense": "10%"
+                            }
+                        }
+                    },
+                    {
+                        "name": "强化",
+                        "targets": "self",
+                        "result": {
+                            "hp": 20
+                        },
+                        "dot": {
+                            "mod": {
+                                "self.defense": "10%"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "sum_mechamender",
+                "tags": "t_machina",
+                "name": "机械修理师",
+                "noproc": true,
+                "level": 20,
+                "kind": "machina",
+                "hp": 500,
+                "tohit": 15,
+                "dodge": 10,
+                "defense": 1500,
+                "attack": [
+                    {
+                        "name": "修复",
+                        "targets": "minion",
+                        "targetspec": {
+                            "stat": "hp",
+                            "highest": false,
+                            "usepercentage": true
+                        },
+                        "harmless": true,
+                        "healing": 40
+                    },
+                    {
+                        "name": "恢复",
+                        "targets": "minions",
+                        "maxTargets": 999,
+                        "harmless": true,
+                        "dot": {
+                            "duration": 10,
+                            "healing": 4
+                        }
+                    },
+                    {
+                        "name": "校准",
+                        "id": "mechamender_align",
+                        "targets": "minion",
+                        "harmless": true,
+                        "targetspec": {
+                            "notaffectedby": {
+                                "condition": [
+                                    "t_tohitup"
+                                ]
+                            }
+                        },
+                        "dot": {
+                            "tags": "t_tohitup",
+                            "level": 3,
+                            "duration": 10,
+                            "mod": {
+                                "self.tohit": 2
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "sum_autocaster",
+                "tags": "t_automata",
+                "name": "自动施法者",
+                "level": 30,
+                "kind": "automata",
+                "noproc": true,
+                "hp": 500,
+                "tohit": 30,
+                "dodge": 20,
+                "defense": 1180,
+                "regen": 10,
+                "attack": [
+                    {
+                        "name": "凛冬之寒",
+                        "targets": "enemies",
+                        "maxTargets": 999,
+                        "dot": {
+                            "kind": "water",
+                            "duration": 10,
+                            "damage": 20
+                        }
+                    },
+                    {
+                        "name": "烈焰打击",
+                        "targets": "enemies",
+                        "maxTargets": 999,
+                        "dot": {
+                            "kind": "fire",
+                            "duration": 10,
+                            "damage": 20
+                        }
+                    },
+                    {
+                        "name": "狂风呼啸",
+                        "targets": "enemies",
+                        "maxTargets": 999,
+                        "dot": {
+                            "kind": "air",
+                            "duration": 10,
+                            "damage": 20
+                        }
+                    },
+                    {
+                        "name": "大地颤抖",
+                        "targets": "enemies",
+                        "maxTargets": 999,
+                        "dot": {
+                            "kind": "earth",
+                            "duration": 10,
+                            "damage": 20
+                        }
+                    },
+                    {
+                        "name": "脱离",
+                        "targets": "self",
+                        "dot": {
+                            "duration": 10,
+                            "mod": {
+                                "self.defense": 25
+                            }
+                        }
+                    },
+                    {
+                        "name": "奥术冲击",
+                        "kind": "mana",
+                        "damage": "80~200"
+                    },
+                    {
+                        "name": "稀薄空气",
+                        "dot": {
+                            "%": "50%",
+                            "id": "silence",
+                            "duration": 5
+                        }
+                    },
+                    {
+                        "name": "喷射气流",
+                        "targets": "allies",
+                        "maxTargets": 999,
+                        "dot": {
+                            "duration": 10,
+                            "mod": {
+                                "self.speed": 5
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "sum_clockservant",
+                "tags": "t_automata,clockwork",
+                "name": "自动仆从",
+                "desc": "城堡里闪亮的仆人。",
+                "level": 9,
+                "kind": "automata",
+                "noproc": true,
+                "hp": 500,
+                "defense": 900,
+                "attack": [
+                    {
+                        "name": "托盘猛击",
+                        "kind": "blunt",
+                        "damage": "15~20"
+                    },
+                    {
+                        "name": "请原谅我鞠躬",
+                        "kind": "spirit",
+                        "damage": "35~40"
+                    },
+                    {
+                        "name": "奉上热饮",
+                        "kind": "fire",
+                        "damage": "15~20",
+                        "targetspec": {
+                            "notaffectedby": {
+                                "condition": [
+                                    "hotdrinkservant"
+                                ],
+                                "conditiontext": "hot drink"
+                            }
+                        },
+                        "dot": {
+                            "id": "hotdrinkservant",
+                            "kind": "fire",
+                            "name": "热饮",
+                            "damage": "3~5",
+                            "duration": 8
+                        }
+                    },
+                    {
+                        "name": "奉上油料",
+                        "targets": "ally",
+                        "targetspec": {
+                            "notaffectedby": {
+                                "condition": [
+                                    "t_speedup"
+                                ]
+                            }
+                        },
+                        "dot": {
+                            "tags": "t_speedup",
+                            "duration": 30,
+                            "level": 6,
+                            "mod": {
+                                "self.speed": 5
+                            }
+                        }
+                    },
+                    {
+                        "name": "托盘护盾",
+                        "targets": "self",
+                        "result": {
+                            "hp": 5
+                        },
+                        "dot": {
+                            "duration": 10,
+                            "mod": {
+                                "self.defense": "10%"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "sum_clockknight",
+                "tags": "t_automata,clockwork",
+                "name": "黄铜骑士",
+                "desc": "身披黄铜盔甲的闪亮骑士。",
+                "level": 11,
+                "kind": "automata",
+                "noproc": true,
+                "hp": 300,
+                "defense": 1060,
+                "spells": "whirl3,perfectstrike",
+                "attack": [
+                    {
+                        "name": "时针斩击",
+                        "kind": "slash",
+                        "damage": "50~60"
+                    },
+                    {
+                        "name": "秒针穿刺",
+                        "kind": "pierce",
+                        "damage": "55~70"
+                    },
+                    {
+                        "name": "分针重击",
+                        "kind": "blunt",
+                        "damage": "35~50",
+                        "dot": {
+                            "kind": "slash",
+                            "name": "流血时间",
+                            "damage": "15~25",
+                            "duration": 5
+                        }
+                    },
+                    {
+                        "name": "威严气场",
+                        "targets": "ally",
+                        "dot": {
+                            "duration": 30,
+                            "mod": {
+                                "self.speed": 5
+                            }
+                        }
+                    },
+                    {
+                        "name": "重新校准护盾",
+                        "targets": "self",
+                        "result": {
+                            "hp": 5
+                        },
+                        "dot": {
+                            "duration": 30,
+                            "mod": {
+                                "self.defense": "40%"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "mon_clockdicer",
+                "tags": "t_automata,clockwork",
+                "name": "自动厨师",
+                "desc": "一个拥有锋利刀具和坚硬黄铜外壳的自动化厨师，正打算把你做成下一顿饭。",
+                "level": 26,
+                "kind": "automata",
+                "spells": "whirl3,perfectstrike",
+                "noproc": true,
+                "hp": 300,
+                "defense": 15,
+                "loot": {
+                    "herbs": "5~6",
+                    "gems": 1
+                },
+                "attack": [
+                    {
+                        "name": "调味伤口",
+                        "kind": "spirit",
+                        "damage": "15~20"
+                    },
+                    {
+                        "name": "黄铜斩击",
+                        "kind": "slash",
+                        "damage": "35~40",
+                        "dot": {
+                            "kind": "slash",
+                            "name": "精准切割",
+                            "damage": "10~25",
+                            "duration": 10
+                        }
+                    },
+                    {
+                        "name": "喷灯",
+                        "kind": "fire",
+                        "damage": "35~40",
+                        "dot": {
+                            "kind": "fire",
+                            "name": "油火",
+                            "damage": "20~35",
+                            "duration": 5
+                        }
+                    },
+                    {
+                        "name": "奉上油料",
+                        "targets": "ally",
+                        "targetspec": {
+                            "notaffectedby": {
+                                "condition": [
+                                    "t_speedup"
+                                ]
+                            }
+                        },
+                        "dot": {
+                            "tags": "t_speedup",
+                            "duration": 30,
+                            "mod": {
+                                "self.speed": 5
+                            }
+                        }
+                    },
+                    {
+                        "name": "自私自利",
+                        "targets": "self",
+                        "result": {
+                            "hp": 100
+                        },
+                        "dot": {
+                            "duration": 60,
+                            "mod": {
+                                "self.defense": 10,
+                                "self.speed": 10
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "sum_clockcrow",
+                "tags": "t_puppet,clockwork",
+                "name": "机械乌鸦",
+                "desc": "一个机械乌鸦般的装置，它用宝石般的眼睛注视着。",
+                "level": 9,
+                "kind": "puppet",
+                "noproc": true,
+                "hp": 80,
+                "tohit": 20,
+                "defense": 340,
+                "attack": [
+                    {
+                        "name": "尖锐啄击",
+                        "kind": "blunt",
+                        "damage": "10~15"
+                    },
+                    {
+                        "name": "追踪凝视",
+                        "kind": "spirit",
+                        "damage": "5~8",
+                        "targetspec": {
+                            "notaffectedby": {
+                                "condition": [
+                                    "tracking_dot"
+                                ],
+                                "conditiontext": "tracking"
+                            }
+                        },
+                        "dot": {
+                            "name": "追踪",
+                            "id": "tracking_dot",
+                            "duration": 20,
+                            "mod": {
+                                "self.dodge": -30,
+                                "self.speed": -3
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "mon_clockmage_elite",
+                "tags": "t_automata,clockwork",
+                "name": "原始自动法师",
+                "desc": "由符文、宝石和黄铜组成，能够施展危险的法术。",
+                "level": 24,
+                "kind": "automata",
+                "noproc": true,
+                "hp": 600,
+                "defense": 30,
+                "chaincast": 1,
+                "spells": "elec2,elec1,massjinx,magebolt,lightspear2,prismaticspray2,quell",
+                "loot": {
+                    "runestones": 1
+                },
+                "attack": [
+                    {
+                        "name": "黄铜弹片",
+                        "kind": "blunt",
+                        "damage": "40~55"
+                    }
+                ]
+            },
+            {
+                "id": "mon_clockknight_elite",
+                "tags": "t_automata,clockwork",
+                "name": "原始黄铜骑士",
+                "desc": "一位身披黄铜盔甲的闪亮骑士。其特征上没有一丝瑕疵",
+                "level": 22,
+                "kind": "automata",
+                "noproc": true,
+                "hp": 700,
+                "defense": 55,
+                "spells": "whirl3,perfectstrike",
+                "loot": {
+                    "managem": 3
+                },
+                "attack": [
+                    {
+                        "name": "时针斩击",
+                        "kind": "slash",
+                        "damage": "60~70"
+                    },
+                    {
+                        "name": "秒针穿刺",
+                        "kind": "pierce",
+                        "damage": "60~75"
+                    },
+                    {
+                        "name": "分针重击",
+                        "kind": "blunt",
+                        "damage": "40~55",
+                        "dot": {
+                            "kind": "slash",
+                            "name": "流逝时间",
+                            "damage": "18~30",
+                            "duration": 5
+                        }
+                    },
+                    {
+                        "name": "威严气场",
+                        "targets": "ally",
+                        "targetspec": {
+                            "notaffectedby": {
+                                "condition": [
+                                    "command_dot"
+                                ],
+                                "conditiontext": "commanding presence"
+                            }
+                        },
+                        "dot": {
+                            "name": "威严气场",
+                            "id": "command_dot",
+                            "duration": 30,
+                            "mod": {
+                                "self.speed": 8
+                            }
+                        }
+                    },
+                    {
+                        "name": "重整护盾",
+                        "targets": "self",
+                        "result": {
+                            "hp": 25
+                        },
+                        "dot": {
+                            "duration": 10,
+                            "mod": {
+                                "self.defense": 30
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "mon_clockwork_core_elite",
+                "tags": "t_automata,clockwork",
+                "name": "原始城堡核心",
+                "desc": "复制体的支援单位，能够召唤并维持大量援军。",
+                "level": 44,
+                "kind": "automata",
+                "noproc": true,
+                "hp": 1500,
+                "defense": 20,
+                "speed": 15,
+                "chaincast": 0.5,
+                "spells": "massjinx,quell,mon_mk_clockservant,mon_mk_clockknight,mon_mk_clockmage",
+                "loot": {
+                    "managem": 5,
+                    "gems": 5,
+                    "runestones": 3,
+                    "gold": 250
+                },
+                "attack": [
+                    {
+                        "name": "钝黄铜箭",
+                        "kind": "blunt",
+                        "damage": "20~30"
+                    },
+                    {
+                        "name": "集体修复",
+                        "targets": "allies",
+                        "maxTargets": 999,
+                        "harmless": true,
+                        "result": {
+                            "hp": 45
+                        }
+                    },
+                    {
+                        "name": "噼啪作响",
+                        "targets": "enemies",
+                        "maxTargets": 999,
+                        "damage": "10~15",
+                        "harmless": true
+                    }
+                ]
+            },
+            {
+                "id": "mon_corivar_replica",
+                "name": "科里瓦尔的复制品",
+                "tags": "t_automata,clockwork",
+                "level": 30,
+                "spells": "mon_mk_clockknight_elite,mon_mk_clockmage,mon_mk_clockknight,mon_mk_clockservant",
+                "chaincast": 0.25,
+                "kind": "automata",
+                "desc": "你眼前所见是难以想象的傲慢之果，源于对永生的渴望。它自以为是科里瓦尔。但它绝不是。",
+                "noproc": true,
+                "hp": 4000,
+                "defense": 60,
+                "dodge": 10,
+                "tohit": 25,
+                "speed": 25,
+                "attack": [
+                    {
+                        "name": "压制魔法",
+                        "targets": "enemyleader",
+                        "harmless": true,
+                        "dot": {
+                            "id": "silence",
+                            "duration": 60
+                        }
+                    },
+                    {
+                        "name": "噼啪作响",
+                        "targets": "enemies",
+                        "maxTargets": 999,
+                        "damage": "15~25",
+                        "harmless": true
+                    },
+                    {
+                        "name": "集体修复",
+                        "targets": "allies",
+                        "maxTargets": 999,
+                        "harmless": true,
+                        "result": {
+                            "hp": 60
+                        }
+                    }
+                ],
+                "loot": {
+                    "brassbauble": 1
+                }
+            },
+            {
+                "id": "mon_clockwork_core",
+                "tags": "clockwork",
+                "name": "科里瓦尔的城堡核心",
+                "desc": "一个大型移动核心，在城堡周围穿梭，重塑并改造其臣民。",
+                "kind": "automata",
+                "unique": true,
+                "level": 55,
+                "hp": 2000,
+                "defense": 20,
+                "regen": 10,
+                "speed": 0,
+                "spells": "mon_mk_clockservant,mon_mk_clockknight,mon_mk_clockcrow",
+                "loot": {
+                    "adamant": "3~5",
+                    "managem": 5,
+                    "gems": 5,
+                    "runestones": 3,
+                    "gold": 250
+                }
+            },
+            {
+                "id": "mon_clockcrow",
+                "name": "机械乌鸦",
+                "desc": "一个机械乌鸦般的装置，它用宝石般的眼睛注视着。",
+                "kind": "puppet",
+                "tags": "clockwork",
+                "noproc": true,
+                "level": 34,
+                "hp": 50,
+                "dodge": 30,
+                "attack": {
+                    "name": "尖锐啄击",
+                    "kind": "blunt",
+                    "damage": "5~10"
+                },
+                "loot": {
+                    "gems": "50%"
+                }
+            },
+            {
+                "id": "mon_clockservant",
+                "name": "自动仆从",
+                "desc": "城堡里一个闪亮的仆从。",
+                "kind": "automata",
+                "tags": "clockwork",
+                "noproc": true,
+                "level": 40,
+                "hp": 100,
+                "defense": 50,
+                "speed": 20,
+                "attack": [
+                    {
+                        "name": "奉上热饮",
+                        "kind": "fire",
+                        "damage": "8~12",
+                        "targetspec": {
+                            "notaffectedby": {
+                                "condition": [
+                                    "hotdrinkservant"
+                                ],
+                                "conditiontext": "hot drink"
+                            }
+                        },
+                        "dot": {
+                            "name": "热饮",
+                            "duration": 8,
+                            "id": "hotdrinkservant",
+                            "kind": "fire",
+                            "damage": "3~5"
+                        }
+                    },
+                    {
+                        "name": "奉上油料",
+                        "only": "clockwork",
+                        "targets": "ally",
+                        "targetspec": {
+                            "notaffectedby": {
+                                "condition": [
+                                    "t_speedup"
+                                ]
+                            }
+                        },
+                        "healing": 5,
+                        "dot": {
+                            "tags": "t_speedup",
+                            "duration": 8,
+                            "mod": {
+                                "self.speed": 5
+                            }
+                        }
+                    }
+                ],
+                "loot": {
+                    "managem": 1
+                }
+            },
+            {
+                "id": "mon_clockknight",
+                "name": "黄铜骑士",
+                "desc": "一位身披黄铜盔甲的闪亮骑士。",
+                "kind": "automata",
+                "tags": "clockwork",
+                "noproc": true,
+                "level": 42,
+                "hp": 300,
+                "defense": 90,
+                "attack": [
+                    {
+                        "name": "时针重击",
+                        "kind": "blunt",
+                        "damage": "8~12"
+                    },
+                    {
+                        "name": "秒针穿刺",
+                        "kind": "pierce",
+                        "damage": "5~15"
+                    },
+                    {
+                        "name": "分针斩击",
+                        "kind": "slash",
+                        "damage": "4~6",
+                        "dot": {
+                            "name": "流逝时间",
+                            "kind": "slash",
+                            "damage": "2~3",
+                            "duration": 2
+                        }
+                    }
+                ],
+                "loot": {
+                    "managem": "1~2",
+                    "adamant": {
+                        "%": "60%",
+                        "value": "2~3"
+                    }
+                }
+            },
+            {
+                "id": "mon_clocksentry",
+                "name": "弩炮哨兵",
+                "desc": "一名发射黄铜箭的远程守卫。",
+                "kind": "automata",
+                "tags": "clockwork",
+                "noproc": true,
+                "level": 43,
+                "attack": {
+                    "name": "连发",
+                    "hits": [
+                        {
+                            "kind": "pierce",
+                            "damage": "a.damage*0.4"
+                        },
+                        {
+                            "kind": "pierce",
+                            "damage": "a.damage*0.4"
+                        }
+                    ]
+                },
+                "loot": {
+                    "managem": "1~2",
+                    "adamant": {
+                        "%": "60%",
+                        "value": "2~3"
+                    }
+                }
+            },
+            {
+                "id": "mon_clockmage",
+                "name": "自动法师",
+                "desc": "由符文、宝石和黄铜组成，能够施展一些法术。",
+                "kind": "automata",
+                "tags": "clockwork",
+                "noproc": true,
+                "level": 40,
+                "attack": [
+                    {
+                        "name": "无形之矛",
+                        "kind": "spirit",
+                        "damage": "a.damage*2"
+                    },
+                    {
+                        "name": "光辉之矛",
+                        "kind": "light",
+                        "damage": "a.damage"
+                    },
+                    {
+                        "name": "暗影之矛",
+                        "kind": "shadow",
+                        "damage": "a.damage"
+                    }
+                ],
+                "loot": {
+                    "managem": 1,
+                    "gems": 1,
+                    "runestones": "25%"
+                }
+            },
+            {
+                "id": "mon_clockscout",
+                "name": "黄铜侦察兵",
+                "desc": "一个行动迅速、身披绿色斗篷的盗贼，试图侦察你的一举一动。",
+                "kind": "automata",
+                "tags": "clockwork",
+                "level": 28,
+                "noproc": true,
+                "attack": {
+                    "name": "管道猛击",
+                    "kind": "blunt",
+                    "damage": "a.damage*0.8"
+                },
+                "loot": {
+                    "gems": "1~2"
+                }
+            }
+        ],
+        "classes": [
+            {
+                "id": "puppeteer",
+                "name": "傀儡师",
+                "desc": "组装并控制机械仆从。",
+                "tags": "t_tier1,t_craftingclass,t_minionclass,t_mechaclass",
+                "require": "g.tier0>0&&g.puppetry>=5",
+                "cost": {
+                    "research": 500,
+                    "codices": 2,
+                    "arcana": 10,
+                    "gold": 500
+                },
+                "mod": {
+                    "t_skill_animation.rate": 0.5,
+                    "puppetry.max": 2,
+                    "magicalanimation.max": 1,
+                    "allies.max": 5,
+                    "clockworkhome.mod.space.max": 50,
+                    "puppetworkshop.max": 2,
+                    "puppetautomation.max": 2
+                },
+                "flavor": "无论如何，丝线都不会断裂。"
+            },
+            {
+                "id": "mechanist",
+                "name": "机械师",
+                "desc": "钢铁与魔法",
+                "tags": "t_tier3,t_craftingclass,t_minionclass,t_mechaclass",
+                "require": "g.tier2>0&&g.machinacreation>=5&&g.tier3==0",
+                "cost": {
+                    "research": 2000,
+                    "arcana": 25,
+                    "bloodgem": 20,
+                    "airgem": 20,
+                    "tomes": 5
+                },
+                "mod": {
+                    "t_skill_animation.rate": 1,
+                    "puppetry.max": 1,
+                    "magicalanimation.max": 2,
+                    "machinacreation.max": 2,
+                    "allies.max": 5,
+                    "clockworkhome.mod.space.max": 100,
+                    "machinagarage.max": 2,
+                    "machinaautomation.max": 2
+                },
+                "flavor": "人是什么？一种低效的劳动力。"
+            },
+            {
+                "id": "mechamancer",
+                "name": "机械法师",
+                "desc": "魔法构造体大师",
+                "tags": "t_tier5,t_craftingclass,t_minionclass,t_mechaclass",
+                "require": "g.tier4>0&&g.magiphysics>=5&&g.machinacreation>=9&&g.t_mechaclass>0&&g.tier5==0",
+                "cost": {
+                    "research": 15000,
+                    "arcana": 27,
+                    "tomes": 10,
+                    "runestones": 10
+                },
+                "mod": {
+                    "t_skill_animation.rate": 2,
+                    "puppetry.max": 1,
+                    "magicalanimation.max": 1,
+                    "machinacreation.max": 2,
+                    "automatasculpting.max": 3,
+                    "allies.max": 5,
+                    "clockworkhome.mod.space.max": 150,
+                    "shapinglab.max": 2,
+                    "automataautomation.max": 2
+                },
+                "flavor": "如果你想要一个更好的未来，就创造更好的人。"
+            }
+        ],
+        "encounters": [
+            {
+                "id": "puppet_strawman",
+                "name": "稻草人",
+                "desc": "一个稻草人对你眨了眨眼。",
+                "effect": {
+                    "unease": "1~2",
+                    "puppetry.exp": 1
+                }
+            },
+            {
+                "id": "puppet_rustedsickle",
+                "name": "生锈的镰刀",
+                "desc": "一把生锈的镰刀被遗弃。奇怪的是，它似乎从未有过把手。",
+                "effect": {
+                    "unease": "0~2",
+                    "bf": "0~2",
+                    "puppetry.exp": 1,
+                    "machinacreation.exp": 1
+                }
+            },
+            {
+                "id": "puppet_farmer",
+                "name": "健谈的农民",
+                "desc": "你勉强逃脱了他对富邻居无休止的抱怨。",
+                "effect": {
+                    "weary": "1~2",
+                    "rage": "1~2",
+                    "charms.exp": 1,
+                    "composure.exp": 1
+                }
+            },
+            {
+                "id": "puppet_remains",
+                "name": "鲜血",
+                "desc": "田野里躺着一具被无情犁刀切碎、血肉模糊的动物尸体。",
+                "effect": {
+                    "unease": "1~2",
+                    "rage": 2,
+                    "animals.exp": 1,
+                    "composure.exp": 1
+                }
+            },
+            {
+                "id": "puppet_broken",
+                "name": "一堆木头？",
+                "desc": "仔细检查后，它似乎是一个被丢弃的旧木偶。",
+                "effect": {
+                    "rage": "1~3",
+                    "puppetry.exp": 1
+                },
+                "loot": {
+                    "puppets": "15%",
+                    "spiritgem": "50%"
+                }
+            },
+            {
+                "id": "puppet_plow",
+                "name": "自动犁地机",
+                "desc": "一个孤独的机械为它的富裕主人犁着田地。",
+                "effect": {
+                    "weary": "1~3",
+                    "machinacreation.exp": 1
+                },
+                "result": {
+                    "herbs": "0~2"
+                }
+            },
+            {
+                "id": "puppet_soil",
+                "name": "翻起的泥土",
+                "desc": "一块不平整的土地，泥土暴露在外，很可能变得贫瘠。什么样的农民会错过这样的事情？",
+                "effect": {
+                    "unease": "1~3",
+                    "bf": "1~3",
+                    "earthlore.exp": 1,
+                    "naturelore.exp": 1
+                },
+                "result": {
+                    "herbs": "10%"
+                }
+            },
+            {
+                "id": "puppet_scrapmachina",
+                "name": "废料堆",
+                "desc": "一堆废金属堆在地上，曾经是一个有用的机械仆从",
+                "effect": {
+                    "weary": "2~3",
+                    "machinacreation.exp": 1
+                },
+                "loot": {
+                    "machinae": "15%"
+                }
+            },
+            {
+                "id": "puppet_scout_eyeing",
+                "name": "疾驰的身影",
+                "desc": "远处有人凝视着你，他们时不时以非人的速度移动。",
+                "effect": {
+                    "weary": "2~3",
+                    "madness": "1~2",
+                    "travel.exp": 1
+                },
+                "result": {
+                    "herbs": "0~2"
+                }
+            },
+            {
+                "id": "puppet_mechanical_locks",
+                "name": "复杂的锁",
+                "desc": "一扇曾经上锁的大门，生锈破损的锁具残骸散落在地上。它们敞开着，让所有人都能看到曾经极其复杂的机械装置。",
+                "effect": {
+                    "weary": "2~3"
+                },
+                "result": {
+                    "machinacreation.exp": 1
+                }
+            },
+            {
+                "id": "puppet_mechanical_house",
+                "name": "远方的城堡",
+                "desc": "远处有一座巨大的城堡，是错觉还是窗户本身在移动？",
+                "level": 2,
+                "effect": {
+                    "weary": "1~2",
+                    "bf": "2~3"
+                },
+                "result": {
+                    "herbs": "0~2"
+                }
+            },
+            {
+                "id": "puppet_roads",
+                "name": "清晰的路径",
+                "desc": "即使在这里，小路也一尘不染，没有任何杂草。适合你在旅行时阅读。",
+                "level": 2,
+                "effect": {
+                    "bf": "1~2",
+                    "runner.skillprogress": 1
+                }
+            },
+            {
+                "id": "puppet_fallen_scout",
+                "name": "生锈的废料堆",
+                "desc": "一堆腐蚀的绿色废料，残骸中嵌着一颗宝石。它刚才是不是动了一下？",
+                "effect": {
+                    "weary": "2~3",
+                    "unease": "1~3"
+                },
+                "loot": {
+                    "gems": 1
+                }
+            },
+            {
+                "id": "puppet_deadanimal",
+                "name": "腐烂的尸体",
+                "desc": "一具被残忍屠宰的动物尸体，任其腐烂。谁会在这种荒无人烟的地方做这种事？",
+                "effect": {
+                    "rage": "2~3",
+                    "unease": "1~3"
+                },
+                "loot": {
+                    "skulls": {
+                        "%": "60%",
+                        "value": 1,
+                        "skipLocked": true
+                    },
+                    "bones": {
+                        "value": "1~3",
+                        "skipLocked": true
+                    }
+                }
+            },
+            {
+                "id": "puppet_unmaintainedgrowth",
+                "name": "杂草丛生的花园",
+                "desc": "大片植物缠绕着生锈的废料，阻碍了它的移动。",
+                "level": 2,
+                "effect": {
+                    "weary": "2~3",
+                    "unease": "1~3",
+                    "herbalism.exp": 1
+                },
+                "loot": {
+                    "naturegem": "30%",
+                    "herbs": "5~8"
+                }
+            },
+            {
+                "id": "puppet_roamingtender",
+                "name": "园艺师",
+                "desc": "远处可见的自动化劳工仍在维护城堡最近的地面。",
+                "effect": {
+                    "bf": "2~3",
+                    "naturelore.exp": 1
+                },
+                "result": {
+                    "herbs": "1~2"
+                }
+            },
+            {
+                "id": "puppet_fazbitservants",
+                "name": "法兹比特的助手",
+                "desc": "几个世纪后仍在维护工作室……尽其所能",
+                "effect": {
+                    "weary": "1~3",
+                    "machinacreation.exp": 1,
+                    "puppetry.exp": 1
+                },
+                "loot": {
+                    "machinae": "5%",
+                    "puppets": "5%"
+                }
+            }
+        ],
+        "rares": [
+            {
+                "id": "loosecog",
+                "name": "松动的齿轮",
+                "desc": "大到足以容纳一根手指。",
+                "unique": true,
+                "level": 1,
+                "armor": 2,
+                "type": "armor",
+                "kind": "ring",
+                "slot": "fingers",
+                "tags": "t_accessory,t_ring",
+                "enchants": 2,
+                "alter": {
+                    "mod": {
+                        "puppetry.rate": 0.1
+                    }
+                }
+            },
+            {
+                "id": "brassbauble",
+                "name": "黄铜小饰品",
+                "type": "armor",
+                "desc": "一小块黄铜，形似幸运符。它能让你的皮肤像金属一样闪亮。",
+                "tags": "t_bauble",
+                "unique": true,
+                "level": 5,
+                "enchants": 3,
+                "armor": 1,
+                "slot": "trinket",
+                "alter": {
+                    "mod": {
+                        "hp.max": "5%",
+                        "defense": "5%"
+                    }
+                }
+            }
+        ],
+        "locales": [
+            {
+                "id": "localfields",
+                "name": "村庄田野",
+                "desc": "附近村庄的田野广阔无垠，为有抱负的法师提供了大量机会。",
+                "tags": "site_of_learning",
+                "level": 1,
+                "require": "evt_helper",
+                "length": 25,
+                "run": {
+                    "stamina": 0.2
+                },
+                "result": {
+                    "arcana": 0.5,
+                    "gold": 5
+                },
+                "mod": {
+                    "puppetry.max": "0.5//2/-1"
+                },
+                "loot": {
+                    "herbs": "1~3",
+                    "loosecog": "5%"
+                },
+                "encs": [
+                    "puppet_plow",
+                    "puppet_broken",
+                    "puppet_farmer",
+                    "puppet_remains",
+                    "puppet_strawman",
+                    "puppet_strawman",
+                    "puppet_soil",
+                    "puppet_rustedsickle"
+                ]
+            },
+            {
+                "id": "clockcastle_grounds",
+                "name": "科里瓦尔城堡庭院",
+                "tags": "site_of_learning",
+                "desc": "科里瓦尔曾拥有的被锁庄园前的大片土地。",
+                "level": 17,
+                "dist": 800,
+                "require": "evt_puppet_locallord",
+                "length": 50,
+                "run": {
+                    "stamina": 1
+                },
+                "result": {
+                    "arcana": 6,
+                    "herbs": 10,
+                    "machinae": "1~2",
+                    "automatas": "20%",
+                    "puppets": "3~4"
+                },
+                "loot": {
+                    "herbs": "1~3"
+                },
+                "mod": {
+                    "magiphysics.max": "?1"
+                },
+                "encs": [
+                    "puppet_plow",
+                    "puppet_mechanical_locks",
+                    "puppet_mechanical_house",
+                    "puppet_fallen_scout",
+                    "puppet_deadanimal",
+                    "puppet_strawman",
+                    "puppet_unmaintainedgrowth",
+                    "puppet_roads",
+                    "puppet_roamingtender"
+                ]
+            }
+        ],
+        "dungeons": [
+            {
+                "id": "clockwork_castle",
+                "name": "科里瓦尔城堡",
+                "desc": "一座不断移动和自我塑形的大型城堡。",
+                "difficulty": "💀💀💀💀",
+                "sortOrder": 55,
+                "require": "g.magiphysics>=5&&g.clockcastle_grounds>=1",
+                "dist": 8,
+                "run": {
+                    "stamina": 1
+                },
+                "result": {
+                    "machinae": "8~10",
+                    "automatas": "5~7",
+                    "puppets": "12~15",
+                    "gold": 500,
+                    "gems": 5
+                },
+                "loot": {
+                    "loosecog": "100%"
+                },
+                "length": 30,
+                "boss": {
+                    "1": [
+                        "mon_clockscout",
+                        "mon_clockscout",
+                        "mon_clockscout",
+                        "mon_clockscout"
+                    ],
+                    "15": [
+                        "mon_clockwork_core"
+                    ],
+                    "20": [
+                        "mon_clockwork_core",
+                        "mon_clockmage"
+                    ],
+                    "25": [
+                        "mon_clockwork_core",
+                        "mon_clockknight",
+                        "mon_clockservant"
+                    ],
+                    "30": [
+                        "mon_clockwork_core",
+                        "mon_clocksentry",
+                        "mon_clocksentry",
+                        "mon_clockmage",
+                        "mon_clockmage"
+                    ]
+                },
+                "spawns": [
+                    [
+                        "mon_clockservant",
+                        "mon_clockservant"
+                    ],
+                    [
+                        "mon_clockservant",
+                        "mon_clockknight"
+                    ],
+                    [
+                        "mon_clockknight",
+                        "mon_clocksentry"
+                    ],
+                    [
+                        "mon_clockknight",
+                        "mon_clockknight",
+                        "mon_clockmage"
+                    ],
+                    [
+                        "mon_clockknight",
+                        "mon_clocksentry",
+                        "mon_clockmage"
+                    ],
+                    [
+                        "mon_clockknight",
+                        "mon_clocksentry",
+                        "mon_clockmage"
+                    ]
+                ]
+            }
+        ],
+        "clashes": [
+            {
+                "id": "clockwork_castle_core",
+                "name": "发条圣殿",
+                "unreturnable": true,
+                "sym": "⚔💀",
+                "desc": "在城堡最深处，你发现一个房间，由装备精良的自动机守护。很明显，控制城堡的东西就在这里。",
+                "require": "g.clockwork_castle>0",
+                "level": 17,
+                "dist": 800,
+                "run": {
+                    "stamina": 1.5
+                },
+                "buy": {
+                    "automatas": 1
+                },
+                "result": {
+                    "title": "故障排除者"
+                },
+                "length": 2,
+                "boss": {
+                    "1": [
+                        "mon_clockknight_elite",
+                        "mon_clockknight_elite",
+                        "mon_clockmage_elite",
+                        "mon_clockmage_elite"
+                    ],
+                    "2": [
+                        "mon_corivar_replica",
+                        "mon_clockwork_core_elite",
+                        "mon_clockwork_core_elite"
+                    ]
+                }
+            }
+        ],
+        "events": [
+            {
+                "id": "evt_puppet_locallord",
+                "name": "遥远庄园",
+                "desc": "快速拜访村长证实了关于一座城堡的传闻，尽管它被遗弃已久，但看起来依然完好无损。",
+                "require": "g.localfields>0&&g.fazbitshop>0"
+            },
+            {
+                "id": "evt_clockwork_core",
+                "name": "发条核心",
+                "desc": "在科里瓦尔复制品的残骸中，你发现一个奇怪的黄铜球体，作为其核心。它肯定值得研究。",
+                "require": "g.clockwork_castle_core>0"
+            }
+        ],
+        "hall": {
+            "data": {
+                "upgrades": [
+                    {
+                        "id": "corivar_trophy",
+                        "name": "符文黄铜球",
+                        "sym": "🏰",
+                        "tags": "hall",
+                        "desc": "一个由多层黄铜组成的球体，每层都覆盖着细小到无法由人手雕刻的符文。它似乎包含着科里瓦尔的记忆，但到目前为止，还没有任何方法成功检索到它们。",
+                        "require": "g.evt_clockwork_core>0",
+                        "max": 1,
+                        "mod": {
+                            "assembleautomata.cost.bloodgem": -2,
+                            "assembleautomata.cost.spiritgem": -2,
+                            "assembleautomata.length": -1
+                        },
+                        "result": {
+                            "fame": 10
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
