@@ -26,7 +26,7 @@ export default defineConfig(({ mode }) => {
 
     return {
 
-        base: isProduction ? 'arcanum' : undefined,
+        base: isProduction ? '/' : undefined,
         plugins: [
             vue({
                 template: {
