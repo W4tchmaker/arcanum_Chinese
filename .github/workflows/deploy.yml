@@ -1,0 +1,109 @@
+name: Frontend Game CI/CD via Serve & PM2
+
+# 触发条件：当代码推送到 main 分支时自动运行
+on:
+  push:
+    branches:
+      - main
+  # 允许在 GitHub Actions 界面手动触发
+  workflow_dispatch:
+
+jobs:
+  # ------------------------------------
+  # 1. 持续集成 (CI) - 构建项目
+  # ------------------------------------
+  build:
+    name: 🏗️ Build Vue Project
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🛠️ Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # 推荐使用 LTS 版本
+          cache: 'npm'       # 缓存依赖以加速构建
+
+      - name: 📦 Install Dependencies
+        run: npm install
+
+      - name: ⚙️ Build Vue Project
+        # 假设您的构建命令是 npm run build
+        run: npm run build
+
+      - name: ⬆️ Upload Build Artifact (dist)
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist-artifact
+          path: dist/ # 默认 Vue/Vite 的构建输出目录
+          retention-days: 1 # 保留一天即可
+          
+  # ------------------------------------
+  # 2. 持续部署 (CD) - 部署与服务重启
+  # ------------------------------------
+  deploy:
+    name: 🚀 Deploy & Restart Service
+    needs: build # 依赖于 build 任务成功
+    runs-on: ubuntu-latest
+    
+    # 确保 secrets 存在
+    env:
+      SSH_USER: ${{ secrets.REMOTE_USER }}
+      SSH_HOST: ${{ secrets.REMOTE_HOST }}
+      SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      DEPLOY_PATH: ${{ secrets.REMOTE_TARGET }}
+
+    steps:
+      - name: ⬇️ Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-dist-artifact
+          # 下载到当前工作目录
+
+      - name: 📤 Deploy Files via SCP (rsync)
+        # 使用 rsync 确保只有更改的文件被传输，并删除旧文件
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ env.SSH_KEY }}
+          REMOTE_HOST: ${{ env.SSH_HOST }}
+          REMOTE_USER: ${{ env.SSH_USER }}
+          
+          # SOURCE 是当前工作目录 (即下载的 dist 目录)
+          SOURCE: '.' 
+          # TARGET 是您在 Secrets 中设定的服务器路径
+          TARGET: ${{ env.DEPLOY_PATH }}
+          
+          # -avz: 归档模式，详细输出，压缩传输； --delete: 删除目标路径中源路径没有的文件
+          ARGS: '-avz --delete'
+
+      - name: 🔄 Restart Static Server (via PM2/Serve)
+        # 使用 appleboy/ssh-action 来执行远程命令
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ env.SSH_HOST }}
+          username: ${{ env.SSH_USER }}
+          key: ${{ env.SSH_KEY }}
+          
+          # 在服务器上执行的命令
+          script: |
+            echo "--- Navigating to deployment path ---"
+            cd ${{ env.DEPLOY_PATH }}
+            
+            echo "--- Stopping and deleting old PM2 process ---"
+            # 尝试停止和删除旧进程，忽略失败（如果进程不存在）
+            pm2 stop my-vue-game || true 
+            pm2 delete my-vue-game || true
+            
+            echo "--- Starting new 'serve' process on port 8080 ---"
+            # 启动 serve 服务:
+            # -s: 启动静态文件服务
+            # --single: 启用单页应用模式 (用于 Vue Router history mode)
+            # -l 8080: 监听 8080 端口
+            pm2 start serve --name "my-vue-game" -- -s --single -l 8080 ./
+            
+            echo "--- Saving PM2 status ---"
+            pm2 save
+            
+            echo "Deployment and Service Restart Complete."
