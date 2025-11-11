@@ -876,6 +876,7 @@
     },
     {
         "id": "slumber",
+        "name": "沉睡",
         "desc": "最深的睡眠守护着最伟大的洞察力。",
         "require": "g.up_slumber>0",
         "tags": "t_rest",

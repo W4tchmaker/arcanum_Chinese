@@ -105,7 +105,7 @@ export default {
 			<div class="header">
 				<input class="fld-name text-entry" type="text" v-model="hallName" />
 				<div class="text-button">
-					<a href="" @click.self.prevent="dispatch('hall-file', $event)" type="text/json">Hall Save</a>
+					<a href="" @click.self.prevent="dispatch('hall-file', $event)" type="text/json">大厅保存</a>
 				</div>
 			</div>
 			<div></div>

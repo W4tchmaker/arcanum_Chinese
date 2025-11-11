@@ -112,7 +112,7 @@ export default {
 			</div>
 			<div class="relative" v-for="n in Math.max(Math.floor(runner.max - runner.actives.length), 0)">
 				<button type="button" class="stop" disabled>X</button>
-				<span>Idle</span>
+				<span>闲逛</span>
 			</div>
 		</div>
 

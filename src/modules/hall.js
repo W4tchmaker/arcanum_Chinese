@@ -132,7 +132,7 @@ export default class Hall {
 
 		this.findCur(vars);
 
-		if (!this.name) this.name = "Wizard's Hall";
+		if (!this.name) this.name = "巫师大厅";
 
 		this.max = this.items.hallSize;
 

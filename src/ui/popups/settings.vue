@@ -185,11 +185,11 @@ export default {
 
 		<div class="buttons">
 			<span>
-				<confirm @confirm="dispatch('reset')">Wipe Wizard</confirm>
-				<confirm @confirm="dispatch('resetHall')">Wipe Hall Save</confirm>
+				<confirm @confirm="dispatch('reset')">抹除巫师</confirm>
+				<confirm @confirm="dispatch('resetHall')">抹除大厅升级</confirm>
 			</span>
 
-			<button type="button" class="close" @click="close">Close</button>
+			<button type="button" class="close" @click="close">关闭</button>
 		</div>
 	</div>
 </template>

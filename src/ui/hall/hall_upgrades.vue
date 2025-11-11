@@ -44,7 +44,7 @@ export default {
 				{{ it.name }}
 			</button>
 		</div>
-		<span>Maxed upgrades :</span>
+		<span>最大升级：</span>
 		<div class="upgrades">
 			<button
 				type="button"

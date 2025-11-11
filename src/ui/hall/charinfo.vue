@@ -35,14 +35,14 @@ export default {
 <template>
 	<div :class="['char-info', empty ? 'empty' : '']">
 		<div class="char-stats" v-if="!empty">
-			<span class="fld-name">{{ char.name }} {{ char.name == " " ? "The" : "the" }} {{ char.title }}</span>
+			<span class="fld-name">{{ char.name }} {{ char.title }}</span>
 			<span v-if="gclass">{{ gclass.toString().toTitleCase() }}</span>
-			<span v-if="level > 0">Level {{ level }}</span>
-			<span v-if="char.fame > 0">Notoriety: {{ fame }}</span>
-			<span v-if="char.titles > 0">Titles: {{ char.titles }}</span>
+			<span v-if="level > 0">等级：{{ level }}</span>
+			<span v-if="char.fame > 0">恶名： {{ fame }}</span>
+			<span v-if="char.titles > 0">头衔: {{ char.titles }}</span>
 		</div>
 		<div v-else class="char-stats">
-			<span class="fld-name">Chair Empty</span>
+			<span class="fld-name">空席</span>
 		</div>
 
 		<div class="buttons">

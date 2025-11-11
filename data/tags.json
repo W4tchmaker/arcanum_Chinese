@@ -667,5 +667,17 @@
     {
         "id": "bookshelf",
         "name": "书架"
+    },
+    {
+        "id": "esoteric",
+        "name": "秘学"
+    },
+    {
+        "id": "hall",
+        "name": "大厅"
+    },
+    {
+        "id": "workspace",
+        "name": "工作台"
     }
 ]
