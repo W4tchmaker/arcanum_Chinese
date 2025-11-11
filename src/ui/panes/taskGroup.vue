@@ -31,6 +31,7 @@ const titleMap = {
 	"minions": '随从',
 	"familliar": '使魔',
 	"spellcasting": '法术施放',
+	"actions": '动作'
 };
 
 const toTitleCase = (str) => {

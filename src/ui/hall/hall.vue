@@ -95,7 +95,7 @@ export default {
 		<div class="separate">
 			<div class="flex-col">
 				<div @mouseenter.capture.stop="itemOver($event, hall.prestige)">
-					大厅声明: {{ formatNumber(prestige) }}
+					大厅声名: {{ formatNumber(prestige) }}
 				</div>
 				<div v-if="probedepth.valueOf()" @mouseenter.capture.stop="itemOver($event, probedepth)">
 					探明维度: {{ formatNumber(probedepth.valueOf()) }}

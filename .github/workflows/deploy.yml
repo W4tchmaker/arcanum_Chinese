@@ -56,13 +56,6 @@ jobs:
       DEPLOY_PATH: ${{ secrets.REMOTE_TARGET }}
 
     steps:
-      - name: 🔍 Verify Deployment Variables
-        run: |
-          echo "REMOTE_USER is set to: ${{ secrets.REMOTE_USER }}"
-          echo "REMOTE_HOST is set to: ${{ secrets.REMOTE_HOST }}"
-          echo "REMOTE_TARGET is set to: ${{ secrets.REMOTE_TARGET }}"
-          # 注意：绝对不要打印 ${{ secrets.SSH_PRIVATE_KEY }}！
-
       - name: ⬇️ Download Build Artifact
         uses: actions/download-artifact@v4
         with:
