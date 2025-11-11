@@ -146,7 +146,7 @@ export default {
 
 				<div class="item-buttons">
 					<template v-if="selecting">
-						<button type="button" class="item-action" @click="onselect(it)">Select</button>
+						<button type="button" class="item-action" @click="onselect(it)">选择</button>
 					</template>
 					<template v-else-if="combat">
 						<button

@@ -148,6 +148,7 @@
             },
             {
                 "id": "instability",
+                "name": "解体",
                 "desc": "时间是危险的东西。尽量不要凭空消失。",
                 "max": 500,
                 "reverse": true,

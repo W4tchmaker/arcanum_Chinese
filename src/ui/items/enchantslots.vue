@@ -23,7 +23,7 @@ export default {
 
 <template>
 	<div class="enchant-slots">
-		<span>{{ Math.floor(eslots.used) }} / {{ Math.floor(eslots.max) }} Enchanting Power used. </span>
+		<span>{{ Math.floor(eslots.used) }} / {{ Math.floor(eslots.max) }} 附魔使用。 </span>
 		<div class="enchant-slot" v-for="s in eslots.items" :key="s.id">
 			<span class="enchant-desc">
 				<span>Level {{ s.item.level }}</span>

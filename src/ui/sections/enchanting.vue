@@ -113,7 +113,7 @@ export default {
 				<div @mouseenter.capture.stop="itemOver($event, target)">
 					Target: {{ target ? target.name.toTitleCase() : "None" }}
 				</div>
-				<div class="note-text">Enchantment levels on an Item cannot exceed Item's enchant slots.</div>
+				<div class="note-text">物品上的附魔等级不得超过物品槽位。</div>
 			</div>
 
 			<span>
@@ -156,7 +156,7 @@ export default {
 						</button>
 
 						<button v-else type="button" @click="begin(it, target)" :disabled="!this.canUse(it, target)">
-							Enchant
+							附魔
 						</button>
 					</div>
 				</div>

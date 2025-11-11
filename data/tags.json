@@ -665,6 +665,10 @@
         "name": "召唤之源"
     },
     {
+        "id": "enchantsource",
+        "name": "附魔之源"
+    },
+    {
         "id": "bookshelf",
         "name": "书架"
     },

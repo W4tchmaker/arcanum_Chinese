@@ -37,7 +37,7 @@ export default class EnchantSlots extends Inventory {
 		super(vars);
 
 		this.id = ENCHANTSLOTS;
-		this.name = "Enchanting Power";
+		this.name = "附魔能力槽位";
 		this.spaceProp = "level";
 
 		this.removeDupes = true;
