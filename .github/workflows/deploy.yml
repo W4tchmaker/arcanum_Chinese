@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: frontend-dist-artifact
-          path: dist/ # 默认 Vue/Vite 的构建输出目录
+          path: dev/ # 默认 Vue/Vite 的构建输出目录
           retention-days: 1 # 保留一天即可
           
   # ------------------------------------
@@ -96,12 +96,12 @@ jobs:
             pm2 stop my-vue-game || true 
             pm2 delete my-vue-game || true
             
-            echo "--- Starting new 'serve' process on port 8080 ---"
+            echo "--- Starting new 'serve' process on port 3421 ---"
             # 启动 serve 服务:
             # -s: 启动静态文件服务
             # --single: 启用单页应用模式 (用于 Vue Router history mode)
-            # -l 8080: 监听 8080 端口
-            pm2 start serve --name "my-vue-game" -- -s --single -l 8080 ./
+            # -l 3421: 监听 3421 端口
+            pm2 start serve --name "my-vue-game" -- -s --single -l 3421 ./
             
             echo "--- Saving PM2 status ---"
             pm2 save

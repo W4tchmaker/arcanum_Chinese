@@ -105,7 +105,7 @@ export default defineConfig(({ mode }) => {
             include: ['vue']
         },
         server: {
-            port: 8080,
+            port: 3421,
             cors: true,
             hmr: !process.env.SILENT
         },
