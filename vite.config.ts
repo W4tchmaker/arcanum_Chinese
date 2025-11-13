@@ -26,7 +26,7 @@ export default defineConfig(({ mode }) => {
 
     return {
 
-        base: isProduction ? '/' : undefined,
+        base: isProduction ? '/games/' : undefined,
         plugins: [
             vue({
                 template: {
