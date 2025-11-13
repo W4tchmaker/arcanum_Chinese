@@ -4,7 +4,7 @@
         "classes": [
             {
                 "id": "witch",
-                "name":"巫师",
+                "name": "巫师",
                 "actdesc": "进入巫术修行。",
                 "flavor": "“你做了什么？”“一件无名之举”",
                 "tags": "t_tier1,t_shadowclass,t_demonclass,t_potionclass",
@@ -472,7 +472,7 @@
             },
             {
                 "id": "souls",
-                "name" : "灵魂",
+                "name": "灵魂",
                 "desc": "被囚禁的活物灵魂。",
                 "flavor": "这错了吗？",
                 "group": "necromancy",
@@ -1109,7 +1109,7 @@
             {
                 "id": "mk_imp",
                 "name": "召唤小鬼",
-                "desc": "召唤你主人的最弱仆从为你牺牲。",
+                "desc": "召唤你主的最弱仆从为你牺牲。",
                 "sortOrder": 1752,
                 "level": 3,
                 "school": "summoning",
@@ -1154,7 +1154,7 @@
             {
                 "id": "mk_quasit",
                 "name": "召唤夸西魔",
-                "desc": "召唤你主人的一个仆从为你而死。",
+                "desc": "召唤你主的一个仆从为你而死。",
                 "sortOrder": 1753,
                 "level": 5,
                 "school": "summoning",
@@ -1198,7 +1198,7 @@
             {
                 "id": "mk_grimstalk",
                 "name": "召唤阴森潜行者",
-                "desc": "召唤你主人的一个仆从为你忍受。",
+                "desc": "召唤你主的一个仆从为你忍受。",
                 "sortOrder": 1751,
                 "level": 7,
                 "school": "summoning",
@@ -1243,7 +1243,7 @@
             {
                 "id": "mk_demon",
                 "name": "召唤恶魔",
-                "desc": "召唤你主人的一个仆从为你而战。",
+                "desc": "召唤你主的一个仆从为你而战。",
                 "sortOrder": 1750,
                 "level": 12,
                 "school": "summoning",

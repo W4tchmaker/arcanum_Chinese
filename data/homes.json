@@ -2,7 +2,7 @@
     {
         "id": "alcove",
         "name": "壁龛",
-        "desc": "你主人住所楼梯下的一个小角落。",
+        "desc": "你导师住所楼梯下的一个小角落。",
         "flavor": "告别干草棚。",
         "require": "apprentice",
         "mod": {
@@ -32,7 +32,7 @@
     {
         "id": "atticbedroom",
         "name": "阁楼卧室",
-        "desc": "注意到你的进步，你的主人不情愿地在阁楼里给你腾出了一些空间。",
+        "desc": "注意到你的进步，你的导师不情愿地在阁楼里给你腾出了一些空间。",
         "flavor": "别得意忘形。",
         "require": "neophyte",
         "lock": [
