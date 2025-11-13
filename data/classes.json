@@ -3,16 +3,16 @@
         "id": "apprentice",
         "name": "学徒",
         "desc": "著名巫师的学徒。",
-        "actname": "Apprenticeship",
-        "actdesc": "Become an apprentice.",
+        "actname": "求学",
+        "actdesc": "成为一名学徒",
         "require": "research",
         "disable": [
             "cleanstables"
         ],
         "warn": false,
         "log": {
-            "name": "Apprentice",
-            "desc": "After paying a small fee, you became apprenticed to a local wizard."
+            "name": "学徒",
+            "desc": "付了一小笔费用后，你成为了一位本地巫师的学徒。"
         },
         "cost": {
             "research": 10,
@@ -27,7 +27,7 @@
         "id": "job_smith",
         "name": "铁匠",
         "tags": "t_job,t_placeholder",
-        "actdesc": "Smith equipment for your master to enchant.",
+        "actdesc": "为你的导师的附魔工作打造装备。",
         "require": "g.crafting>=5",
         "warn": true,
         "cost": {
@@ -48,7 +48,7 @@
         "id": "falconer",
         "name": "驯鹰师",
         "tags": "t_job",
-        "actdesc": "Tend your master's owls and falcons.",
+        "actdesc": "驯养导师的猫头鹰和游隼。",
         "require": "animals",
         "cost": {
             "gold": 100,
@@ -68,7 +68,7 @@
         "id": "herbalist",
         "name": "草药师",
         "tags": "t_job",
-        "actdesc": "Gather herbs for your master's potions and alchemy.",
+        "actdesc": "为你导师的药剂和炼金工作收集草药。",
         "require": "herbalism",
         "cost": {
             "gold": 100,
@@ -86,9 +86,9 @@
     },
     {
         "id": "scribe",
-        "name" : "抄写员",
+        "name": "抄写员",
         "tags": "t_job",
-        "actdesc": "Become your master's personal scribe.",
+        "actdesc": "成为你导师的私人抄写员。",
         "require": "scribescroll",
         "cost": {
             "gold": 100,
@@ -107,11 +107,11 @@
     {
         "id": "neophyte",
         "name": "新鸟法师",
-        "actdesc": "The final step on the twisting stairwell of apprenticeship.",
+        "actdesc": "学徒长阶的最后一步。",
         "require": "(g.evt_helper>0)&&g.research.max>=125&&g.spellbook>0",
         "log": {
-            "name": "Neophyte",
-            "desc": "Your master has decided you are ready to take the next step on the path of wizardry."
+            "name": "入门",
+            "desc": "你的导师认为你已经做好了在巫师的道路上更进一步的准备。"
         },
         "flavor": "为什么师傅要收这么多费用？",
         "cost": {
@@ -144,7 +144,7 @@
         "secret": true,
         "require": "g.arcanaaction>0&&g.research.max>=100&&g.lore>=4",
         "need": "g.evt_early_combat>0",
-        "needtext": "Must have reached a commoner's limit by clearing edges of treffil's woods before making a spellbook",
+        "needtext": "一定是达到了常人的极限，在清理特雷菲尔树林边缘之后才制作了一本魔法书。",
         "tags": "t_tier0",
         "cost": {
             "arcana": 5
@@ -168,7 +168,7 @@
         "secret": true,
         "require": "g.arcanaaction>0&&g.research.max>=100&&g.lore>=4",
         "need": "g.virtue>=200",
-        "needtext": "Must have at least 200 virtue",
+        "needtext": "至少需有两百点美德。",
         "tags": "t_tier0",
         "cost": {
             "arcana": 5
@@ -191,7 +191,7 @@
         "tags": "t_tier0",
         "require": "g.arcanaaction>0&&g.research.max>=100&&g.lore>=4",
         "need": "g.study<=0",
-        "needtext": "You cannot have used the study action at any point",
+        "needtext": "你不能使用过学习这个动作。",
         "cost": {
             "arcana": 3
         },
@@ -210,7 +210,7 @@
         "name": "魔法师",
         "tags": "t_tier1,t_manaclass,t_knowledgeclass",
         "desc": "最纯粹的魔法形式。",
-        "actdesc": "Pursue the path of pure magic.",
+        "actdesc": "踏上最纯粹的魔法之路。",
         "require": "g.tier0>0&&g.lore>=10",
         "cost": {
             "research": 500,
@@ -234,7 +234,7 @@
         "name": "诡术师",
         "desc": "利用魔法进行欺骗和诡计。",
         "secret": true,
-        "actname": "Path of Trickery",
+        "actname": "诡计的道路。",
         "tags": "t_tier1,t_chaosclass",
         "require": "g.trickery>=4&&g.tier0>0&&g.tier1==0",
         "cost": {
@@ -288,7 +288,7 @@
         "name": "弄臣",
         "desc": "将恶作剧提升到艺术和巫术的新高度。",
         "secret": true,
-        "actname": "Infinite Jest",
+        "actname": "无尽狂喜",
         "tags": "t_tier4,t_chaosclass",
         "require": "g.trickery>=15&&g.t_chaosclass>0&&g.tier3>0&&g.tier4==0",
         "cost": {
@@ -317,7 +317,7 @@
         "id": "battlemage",
         "name": "战法师",
         "tags": "t_tier2,t_swordclass,t_manaclass",
-        "actdesc": "Pursue the path of battle.",
+        "actdesc": "踏上战斗之路。",
         "require": "g.tier1>0&&g.weaponlore>=6&&g.tier2==0",
         "cost": {
             "research": 500,
@@ -346,7 +346,7 @@
             "gold": 500
         },
         "mod": {
-	        "sworddmg": 2,
+            "sworddmg": 2,
             "stamina.rate": "0.2",
             "vigor.rate": 0.05,
             "weaponlore.max": 1,
@@ -379,7 +379,7 @@
     },
     {
         "id": "summoner",
-        "name": "召唤师",  
+        "name": "召唤师",
         "tags": "t_tier3,t_summonclass",
         "desc": "无论独身还是与友同行，召唤师从不缺少军队。",
         "require": "g.summoning>=5&&g.tier2>0&&g.lore>=20",
@@ -468,7 +468,7 @@
         "name": "地灵师",
         "desc": "岩石之主。",
         "tags": "t_tier2,t_earthclass,t_hammerclass",
-        "actdesc": "A mage specialising in earth manipulation and endurance.",
+        "actdesc": "专长于地属性的魔法。",
         "require": "g.tier1>0&&g.earthlore>=7&&g.tier2==0",
         "cost": {
             "research": 1000,
@@ -490,7 +490,7 @@
         "name": "震地者",
         "desc": "构造学大师。",
         "tags": "t_tier4,t_earthclass,t_hammerclass",
-        "actdesc": "A supreme master of earth's destructive magics.",
+        "actdesc": "地属性的魔法和构造体大师。",
         "require": "g.tier3>0&&g.earthlore>=11&&g.tier4==0",
         "cost": {
             "research": 4000,
@@ -512,7 +512,7 @@
         "name": "泰坦",
         "desc": "金属与岩石的外衣。",
         "tags": "t_tier6,t_earthclass,t_hammerclass",
-        "actdesc": "An unstoppable force of nature, a Titan is Will incarnate.",
+        "actdesc": "无可阻挡的自然力量，泰坦将被唤醒。",
         "require": "g.tier5>0&&g.t_earthclass>0&&g.hammerlore>=10&&g.geosculpting>=10&&g.tier6==0",
         "cost": {
             "research": 10000,
@@ -535,7 +535,7 @@
         "name": "水灵师",
         "desc": "水之大师。",
         "tags": "t_tier2,t_waterclass",
-        "actdesc": "A mage specialising in water manipulation and adaptability.",
+        "actdesc": "擅长水属性增值和适应的法师。",
         "require": "g.tier1>0&&g.waterlore>=10",
         "cost": {
             "research": 1000,
@@ -555,7 +555,7 @@
         "name": "风灵师",
         "desc": "御风而行。",
         "tags": "t_tier2,t_airclass",
-        "actdesc": "A mage specialising in air manipulation and intuition.",
+        "actdesc": "擅长风属性增值和空灵的法师。",
         "require": "g.tier1>0&&g.airlore>=10",
         "cost": {
             "research": 1000,
@@ -781,7 +781,7 @@
             "lore.max": 2,
             "mana.max": 1
         },
-        "flavor": "你称之为帝国，但在暮色中，我只看到一堆堆破碎的石头。"
+        "flavor": "你称之为帝国，但在暮色中，我只看到一堆堆断壁残垣。"
     },
     {
         "id": "fey",

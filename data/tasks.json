@@ -1576,7 +1576,7 @@
     },
     {
         "id": "almagest",
-        "name":"星辰之书",
+        "name": "星辰之书",
         "desc": "编纂一本关于太阳和星辰的手册。",
         "require": "g.astronomy>=7&&g.tier1>0",
         "max": 1,
@@ -2186,7 +2186,7 @@
     },
     {
         "id": "benevolent",
-        "name":"善良",
+        "name": "善良",
         "actname": "至善之路",
         "morality": true,
         "require": "g.good3==1&&g.wicked1==0&&g.tier4==1",
@@ -4328,7 +4328,7 @@
     {
         "id": "ciphertext",
         "name": "密码日记",
-        "desc": "为你的个人日记设计一种新密码，以保守你的著作不被你的主人发现。",
+        "desc": "为你的个人日记设计一种新密码，以保守你的创作不被你的导师发现。",
         "group": "knowledge",
         "require": "g.evt_helper>=0",
         "max": 1,
