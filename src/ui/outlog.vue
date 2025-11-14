@@ -25,6 +25,7 @@ export default {
 		};
 	},
 	methods: {
+		getMappedGroupName,
 		changed(box) {
 			if (box.checked) {
 				this.filter = this.filter | box.value;
