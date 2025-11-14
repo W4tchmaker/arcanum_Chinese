@@ -333,11 +333,11 @@ export default {
 	onUnlock(it) {
 		if (it.hide || it.type === EVENT) return;
 
-		typeclassName = getMappedGroupName(it.typeName);
+		let typeclassName = getMappedGroupName(it.typeName);
 		if (it.actname) {
-			this.log.log(uppercase(it.typeName) + " 解锁： " + it.actname, null, LOG_UNLOCK);
+			this.log.log(typeclassName || uppercase(it.typeName) + " 解锁： " + it.actname, null, LOG_UNLOCK);
 		} else {
-			this.log.log(uppercase(it.typeName) + " 解锁： " + it.name, null, LOG_UNLOCK);
+			this.log.log(typeclassName || uppercase(it.typeName) + " 解锁： " + it.name, null, LOG_UNLOCK);
 		}
 	},
 
