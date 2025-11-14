@@ -335,9 +335,9 @@ export default {
 
 		let typeclassName = getMappedGroupName(it.typeName);
 		if (it.actname) {
-			this.log.log(typeclassName || uppercase(it.typeName) + " 解锁： " + it.actname, null, LOG_UNLOCK);
+			this.log.log((typeclassName || uppercase(it.typeName)) + " 解锁： " + it.actname, null, LOG_UNLOCK);
 		} else {
-			this.log.log(typeclassName || uppercase(it.typeName) + " 解锁： " + it.name, null, LOG_UNLOCK);
+			this.log.log((typeclassName || uppercase(it.typeName)) + " 解锁： " + it.name, null, LOG_UNLOCK);
 		}
 	},
 

@@ -197,6 +197,11 @@ const GROUP_MAP = {
 	'glossary entry': '词汇表条目',
 	'resource': '资源',
 	'spell': '法术',
+
+	'event': '事件',
+	'unlock': '解锁',
+	'loot': '战利品',
+	'combat': '战斗',
 };
 
 

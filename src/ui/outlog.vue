@@ -1,6 +1,7 @@
 <script>
 import { LogTypes } from "@/events";
 import Game from "@/game";
+import { getMappedGroupName } from "@/util/format";
 
 /**
  * Displays event output to user.
@@ -69,7 +70,7 @@ export default {
 						:id="elmId(k)"
 						:checked="filter & p"
 						@change="changed($event.target)" />
-					<label :for="elmId(k)">{{ k.toString().toTitleCase() }}</label>
+					<label :for="elmId(k)">{{ getMappedGroupName(k.toString()) }}</label>
 				</span>
 			</span>
 
