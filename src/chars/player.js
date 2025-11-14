@@ -180,7 +180,7 @@ export default class Player extends Char {
 		super(vars);
 
 		this.id = this.type = "player";
-		if (!vars || !vars.name) this.name = "Wizrobe";
+		if (!vars || !vars.name) this.name = "巫师";
 
 		if (!this.weapons) {
 			this.weapons = null;

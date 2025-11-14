@@ -582,8 +582,6 @@
         "id": "t_shopkeeper_assistant",
         "name": "助理店员"
     },
-
-
     {
         "id": "plantsource",
         "name": "植物之源"
@@ -683,5 +681,13 @@
     {
         "id": "workspace",
         "name": "工作台"
+    },
+    {
+        "id": "outdoors",
+        "name": "户外"
+    },
+    {
+        "id": "home",
+        "name": "家"
     }
 ]

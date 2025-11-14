@@ -3826,7 +3826,7 @@
     },
     {
         "id": "t_0",
-        "name": "等级0 - 独行魔法",
+        "name": "等级0 - 入门法师",
         "desc": "有人说，魔法的学习直到学徒期结束才真正开始。人们总是说很多事情。",
         "wizardtier": true,
         "max": 1,
@@ -3847,7 +3847,7 @@
         "name": "等级1 - 专业魔法",
         "wizardtier": true,
         "max": 1,
-        "desc": "每个省份都有少数逃跑的学徒和失败的法师。盗贼和游侠会一两个法术并不罕见。但与真正的专业人士的才能相比，他们不值一提。",
+        "desc": "每个地方都有少数逃跑的学徒和失败的法师。盗贼和游侠会一两个法术并不罕见。但与真正的专业人士的才能相比，他们不值一提。",
         "require": "g.tier0>0",
         "need": "false",
         "needtext": "Will be acquired with your next class advancement",

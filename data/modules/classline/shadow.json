@@ -2754,6 +2754,7 @@
             },
             {
                 "id": "transfusions",
+                "name": "燃血术",
                 "desc": "学会进行生命力输血。",
                 "group": "rest",
                 "require": "g.t_bloodclass>0||g.slaymaster>0",

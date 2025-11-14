@@ -163,14 +163,15 @@ export const floor = v => {
 }*/
 
 const GROUP_MAP = {
-    'basic': '基础',
-    'knowledge': '知识',
-    'runes': '符文石',
-    'gems': '宝石',
-    'materials': '材料',
-    'constructs': '构造体', 
-	"adversities" : "负面",
-	"spellcasting" : "法术施放",
+	'basic': '基础',
+	'knowledge': '知识',
+	'runes': '符文石',
+	'gems': '宝石',
+	'materials': '材料',
+	'constructs': '构造体',
+	"adversities": "负面",
+	"spellcasting": "法术施放",
+	"necromancy": "死灵",
 
 
 	'martial': '物理',
@@ -187,15 +188,24 @@ const GROUP_MAP = {
 	'animation': '活化',
 	'charms': '魅惑',
 	'chaos': '混沌',
+
+	'upgrade': '升级',
+	'task': '任务',
+	'class': '职业',
+	'furniture': '家具',
+	'skill': '技能',
+	'glossary entry': '词汇表条目',
+	'resource': '资源',
+	'spell': '法术',
 };
 
 
 export function getMappedGroupName(groupKey) {
-    const mappedName = GROUP_MAP[groupKey];
+	const mappedName = GROUP_MAP[groupKey];
 
-    if (mappedName !== undefined) {
-        return mappedName;
-    }
-    
-    return groupKey;
+	if (mappedName !== undefined) {
+		return mappedName;
+	}
+
+	return groupKey;
 }

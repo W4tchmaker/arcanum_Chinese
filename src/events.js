@@ -2,6 +2,7 @@ import Emitter from "eventemitter3";
 import { uppercase } from "@/util/util";
 import { TYP_PCT, EVENT } from "@/values/consts";
 import { precise } from "@/util/format";
+import { getMappedGroupName } from "@/util/format";
 
 /**
  * @const {Emitter} events - emitter for in-game events.
@@ -331,6 +332,8 @@ export default {
 
 	onUnlock(it) {
 		if (it.hide || it.type === EVENT) return;
+
+		typeclassName = getMappedGroupName(it.typeName);
 		if (it.actname) {
 			this.log.log(uppercase(it.typeName) + " 解锁： " + it.actname, null, LOG_UNLOCK);
 		} else {
