@@ -46,7 +46,7 @@ import { mergeInto } from "@/util/array";
 import TagSet from "@/composites/tagset";
 import Slot from "./chars/slot";
 
-const DataDir = "./data/";
+const DataDir = `${import.meta.env.BASE_URL}data/`;
 
 // list of all files to load.
 const ModFiles = "modules";
