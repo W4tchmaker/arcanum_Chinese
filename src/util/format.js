@@ -202,6 +202,13 @@ const GROUP_MAP = {
 	'unlock': '解锁',
 	'loot': '战利品',
 	'combat': '战斗',
+	'locale': '地点',
+	'potion': '药水',
+	'glossary entry': '词汇表条目',
+	'material': '材料',
+	'armor': '护甲',
+	'weapon': '武器',
+	'dungeon': '地下城',
 };
 
 

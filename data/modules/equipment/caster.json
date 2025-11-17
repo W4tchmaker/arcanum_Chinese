@@ -74,7 +74,7 @@
         "weapons": [
             {
                 "id": "c_focus",
-                "name": "聚焦",
+                "name": "焦点法杖",
                 "level": 1,
                 "slot": "mainhand",
                 "tags": "t_caster",
@@ -93,7 +93,7 @@
             },
             {
                 "id": "c_mirror",
-                "name": "镜子",
+                "name": "镜杖",
                 "level": 6,
                 "slot": "mainhand",
                 "tags": "t_caster",
@@ -247,7 +247,7 @@
             },
             {
                 "id": "c_effigy",
-                "name": "雕像",
+                "name": "雕头杖",
                 "level": 1,
                 "slot": "mainhand",
                 "tags": "t_caster",
@@ -279,7 +279,7 @@
         "monsters": [
             {
                 "id": "sum_effigy_shield",
-                "name": "雕像之盾",
+                "name": "雕头盾",
                 "tags": "t_summon",
                 "level": 1,
                 "hp": 1000,

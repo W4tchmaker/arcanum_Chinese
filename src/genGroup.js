@@ -5,7 +5,7 @@ import { randElm, randFrom, propSort, randWhere } from "@/util/array";
  * on the filter dimension.
  * e.g. filters['biome'] = { none:[npcs without biomes] }
  */
-const BLANK_CATEGORY = "none";
+const BLANK_CATEGORY = "无";
 
 /**
  * Item generation group for a given item type.
@@ -25,7 +25,7 @@ export default class GenGroup {
 		this.filterBy = {};
 	}
 
-	subgroup() {}
+	subgroup() { }
 
 	/**
 	 * Get a random item at or below the given level.

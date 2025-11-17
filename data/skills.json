@@ -1,7 +1,7 @@
 [
     {
         "id": "crafting",
-        "name":"铸造",
+        "name": "铸造",
         "need": "workspace",
         "desc": "对于巫师来说，制作奥术物品是一项至关重要的技能。",
         "buy": {
@@ -117,7 +117,7 @@
     },
     {
         "id": "conjuration",
-        "name":"召唤术",
+        "name": "召唤术",
         "school": "arcane",
         "verb": "conjuring",
         "desc": "",
@@ -457,7 +457,7 @@
     {
         "id": "firelore",
         "tags": "t_school,elemental",
-        "name": "控火术",
+        "name": "火系魔法",
         "desc": "对火的研究。",
         "need": "g.lore>=3&&g.firesource>0",
         "buy": {

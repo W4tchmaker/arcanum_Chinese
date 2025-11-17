@@ -125,7 +125,7 @@
             },
             {
                 "id": "loop",
-                "name": "环",
+                "name": "指环",
                 "level": 1,
                 "slot": "fingers",
                 "tags": "t_accessory,t_ring",
@@ -201,7 +201,7 @@
             },
             {
                 "id": "sash",
-                "name": "腰带",
+                "name": "饰带",
                 "level": 3,
                 "slot": "waist",
                 "tags": "t_accessory,t_belt",

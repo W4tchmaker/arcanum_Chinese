@@ -188,7 +188,7 @@ export default class Player extends Char {
 
 		//if ( vars ) Object.assign( this, vars );
 		if (!this.level) this.level = 0;
-		this._title = this._title || "Waif";
+		this._title = this._title || "无名者";
 
 		this.titles = this._titles || [];
 

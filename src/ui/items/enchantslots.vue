@@ -37,7 +37,7 @@ export default {
 			<span>{{ s.percent() + "%" }}</span>
 
 			<button type="button" class="btn-take" :disabled="!canTake(s)" @click="onTake(s)">
-				{{ s.done ? "take" : "cancel" }}
+				{{ s.done ? "选中" : "取笑" }}
 			</button>
 		</div>
 	</div>

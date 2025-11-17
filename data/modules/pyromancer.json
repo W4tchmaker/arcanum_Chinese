@@ -1531,6 +1531,7 @@
             },
             {
                 "id": "firelord",
+                "name": "火焰领主",
                 "desc": "炎之主宰",
                 "tags": "t_tier6,t_fireclass",
                 "require": "g.tier5>0&&g.flamesculpting>=2&&(g.pyromancer+g.firebrand)>0",

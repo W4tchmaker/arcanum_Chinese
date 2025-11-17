@@ -3,11 +3,11 @@
         "id": "pestcontrol",
         "name": "漏水地窖",
         "start": {
-            "name": "Pest Control",
+            "name": "漏水地窖",
             "desc": "After your daily castigation, your master mentions the rats in the basement have become a problem. Something about stolen shortswords and building barricades. You had better go down and deal with it."
         },
         "log": {
-            "name": "Pests Clear",
+            "name": "地窖清扫",
             "desc": "With the basement cleared your master will have more room to stash all the gold you've been earning."
         },
         "difficulty": "🦴",

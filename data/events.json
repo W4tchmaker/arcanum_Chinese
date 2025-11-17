@@ -113,7 +113,7 @@
     },
     {
         "id": "tier0",
-        "name": "0阶 - 独行魔法",
+        "name": "0阶 - 入门法师",
         "desc": "有人说，魔法的学习直到学徒期结束才真正开始。人们说了很多事情。",
         "disable": [
             "study",
@@ -255,6 +255,7 @@
     },
     {
         "id": "decent",
+        "name": "体面",
         "require": "(g.virtue-g.evilamt)>=90&&g.evilamt<=200&&g.virtue>=90",
         "desc": "你正在成为一名杰出的施法者。",
         "result": {
@@ -263,6 +264,7 @@
     },
     {
         "id": "respectable",
+        "name": "受人尊敬",
         "require": "(g.virtue-g.evilamt)>=375&&g.evilamt<=100&&g.virtue>=250",
         "desc": "你已成为魔法世界中受人尊敬的人物。",
         "result": {
@@ -281,6 +283,7 @@
     },
     {
         "id": "immoral",
+        "name": "不洁",
         "desc": "你已迈出了邪恶之路的第一步。这是件好事。",
         "require": "g.evilamt>=5",
         "result": {
@@ -289,6 +292,7 @@
     },
     {
         "id": "wicked",
+        "name": "诅咒",
         "desc": "你的邪恶行径让你走上了邪恶的必经之路。再走几步，就无法回头了。",
         "require": "g.evilamt>=250",
         "result": {
@@ -367,7 +371,7 @@
     },
     {
         "id": "good3_trickster",
-        "name": "改邪归正的盗贼",
+        "name": "改邪归正",
         "require": "g.good3==1&&g.t_chaosclass>0",
         "desc": "一个曾经的恶棍最清楚如何像恶棍一样思考。",
         "mod": {

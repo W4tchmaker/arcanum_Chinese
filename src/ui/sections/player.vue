@@ -219,7 +219,7 @@ export default {
 						type="button"
 						class="titleConfig"
 						@click="pickTitle($event)"></button>
-					<strong>Title: {{ title }}</strong>
+					<strong>头衔 {{ title }}</strong>
 				</span>
 			</div>
 			<div class="stat-block">
@@ -302,7 +302,7 @@ export default {
 						</div>
 					</template>
 				</div>
-				<h4 class="section-header">Status Negation</h4>
+				<h4 class="section-header">效应抗性</h4>
 				<div class="stat-block">
 					<template v-for="(r, k) in player.negate" :key="k">
 						<div class="stat">
